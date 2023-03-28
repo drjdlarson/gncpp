@@ -1,0 +1,10 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=@CMAKE_INSTALL_PREFIX@
+libdir=@libdir_for_pc_file@
+includedir=@includedir_for_pc_file@
+
+Name: gncpy
+Description: A C++ package for GNC routines that can be wrapped by python.
+Version: @GNCPY_VERSION@
+Libs: -L${libdir} -l@GNCPY_LIB_NAME@
+Cflags: -I${includedir}
