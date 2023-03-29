@@ -121,7 +121,7 @@ set(GNCPY_DEBUG_POSTFIX d CACHE STRING "Debug library postfix.")
 set_target_properties(gncpy 
     PROPERTIES
         VERSION ${GNCPY_VERSION} SOVERSION ${CPACK_PACKAGE_VERSION_MAJOR}
-        PUBLIC_HEADER ${HDRS}
+        PUBLIC_HEADER "${HDRS}"
         DEBUG_POSTFIX "${GNCPY_DEBUG_POSTFIX}"
 )
 
