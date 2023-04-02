@@ -50,8 +50,8 @@ endif ()
 project(gncpy CXX)
 include(GNUInstallDirs)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CXX_STANDARD_REQUIRED ON)
+# set(CMAKE_CXX_STANDARD 20)
+# set(CXX_STANDARD_REQUIRED ON)
 
 set_verbose(GNCPY_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE STRING
             "Installation directory for include files, a relative path that "
@@ -122,6 +122,8 @@ set_target_properties(gncpy
     PROPERTIES
         VERSION ${GNCPY_VERSION} SOVERSION ${CPACK_PACKAGE_VERSION_MAJOR}
         DEBUG_POSTFIX "${GNCPY_DEBUG_POSTFIX}"
+        CMAKE_CXX_STANDARD 20
+        CMAKE_CXX_STANDARD_REQUIRED ON
 )
 
 # Install targets.
@@ -175,7 +177,7 @@ if (GNCPY_INSTALL)
             FRAMEWORK DESTINATION "."
             RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     )
-    # PUBLIC_HEADER does not preserve directory structure so instead use this
+    # PUBLIC_HEADER does not preserve directory structure so instead use this. see https://gitlab.kitware.com/cmake/cmake/-/issues/23274
     install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/"
         DESTINATION ${GNCPY_INC_DIR}
         FILES_MATCHING
