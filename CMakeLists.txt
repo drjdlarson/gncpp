@@ -108,7 +108,7 @@ file(GLOB_RECURSE SRCS src/*.cpp)
 file(GLOB_RECURSE HDRS include/*.h) 
 
 # add_library(gncpy ${GNCPY_SOURCES} ${GNCPY_HEADERS} README.rst ChangeLog.rst)
-add_library(gncpy ${HDRS} ${SRCS})
+add_library(gncpy ${HDRS} ${SRCS} README.rst)
 add_library(lager::gncpy ALIAS gncpy)
 
 target_include_directories(gncpy PUBLIC
@@ -121,7 +121,6 @@ set(GNCPY_DEBUG_POSTFIX d CACHE STRING "Debug library postfix.")
 set_target_properties(gncpy 
     PROPERTIES
         VERSION ${GNCPY_VERSION} SOVERSION ${CPACK_PACKAGE_VERSION_MAJOR}
-        PUBLIC_HEADER "${HDRS}"
         DEBUG_POSTFIX "${GNCPY_DEBUG_POSTFIX}"
 )
 
@@ -173,10 +172,16 @@ if (GNCPY_INSTALL)
     install(TARGETS ${INSTALL_TARGETS} EXPORT ${targets_export_name}
             LIBRARY DESTINATION ${GNCPY_LIB_DIR}
             ARCHIVE DESTINATION ${GNCPY_LIB_DIR}
-            PUBLIC_HEADER DESTINATION "${GNCPY_INC_DIR}/gncpy"
             FRAMEWORK DESTINATION "."
             RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     )
+    # PUBLIC_HEADER does not preserve directory structure so instead use this
+    install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/"
+        DESTINATION ${GNCPY_INC_DIR}
+        FILES_MATCHING
+        PATTERN "*.h*"
+    )
+
 
     # Use a namespace because CMake provides better diagnostics for namespaced
     # imported targets.
