@@ -1,7 +1,15 @@
+#include <iostream>
+#include <sstream>
+#include <fstream>
+
+#include <cereal/archives/binary.hpp>
+#include <cereal/archives/portable_binary.hpp>
+#include <cereal/archives/json.hpp>
 #include <gtest/gtest.h>
-#include "gncpy/math/Exceptions.h"
-#include "gncpy/math/Matrix.h"
-#include "gncpy/math/Vector.h"
+
+#include <gncpy/math/Exceptions.h>
+#include <gncpy/math/Matrix.h>
+#include <gncpy/math/Vector.h>
 
 
 TEST(MatrixTest, Index) {
@@ -137,7 +145,6 @@ TEST(MatrixTest, TransposeMatrixInPlace) {
 TEST(MatrixTest, InovCovCalc) {
     lager::gncpy::matrix::Matrix<double> m1({{1, 0, 0, 0}, {0, 1, 0, 0}});
     lager::gncpy::matrix::Matrix<double> m2({{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}});
-    // lager::gncpy::matrix::Matrix<double> exp({{1, 0}, {0, 1}})
     lager::gncpy::matrix::Matrix<double> exp({{1, 0}, {0, 1}, {0, 0}, {0, 0}});
 
     auto out = lager::gncpy::matrix::Matrix<double>({{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}}) * lager::gncpy::matrix::Matrix<double>({{1, 0}, {0, 1}, {0, 0}, {0, 0}});
@@ -150,6 +157,41 @@ TEST(MatrixTest, InovCovCalc) {
         }
     }
 
-    // std::cout<<m2*m1.transpose()<<"\n"<<m1.transpose();
+    SUCCEED();
+}
+
+
+TEST(MatrixTest, serialize) {
+    lager::gncpy::matrix::Matrix<double> m({{1, 0, 0.4, 2.5}, {-2.3, 1, 8.9, -9.2}});
+
+    std::stringstream ssb(std::ios::in | std::ios::out | std::ios::binary);
+    std::cout << "Saving matrix..." << std::endl;
+    {
+        cereal::JSONOutputArchive aro(std::cout);
+        cereal::PortableBinaryOutputArchive ar(ssb);
+        ar(m);
+        aro(m);
+    }
+    std::cout << "\nLoading matrix..." << std::endl;
+
+    lager::gncpy::matrix::Matrix<double> m2;
+    {
+        cereal::PortableBinaryInputArchive ar(ssb);
+        cereal::JSONOutputArchive aro(std::cout);
+
+        ar(m2);
+        aro(m2);
+    }
+    std::cout << std::endl;
+
+    EXPECT_EQ(m.numRows(), m2.numRows());
+    EXPECT_EQ(m.numCols(), m2.numCols());
+
+    for(size_t r = 0; r < m.numRows(); r++) {
+        for(size_t c = 0; c < m.numCols(); c++) {
+            EXPECT_DOUBLE_EQ(m(r, c), m2(r, c));
+        }
+    }
+
     SUCCEED();
 }

@@ -3,6 +3,15 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+
+#include <cereal/access.hpp>
+#include <cereal/archives/json.hpp>
+#include <cereal/archives/binary.hpp>
+#include <cereal/archives/portable_binary.hpp>
+#include <cereal/types/base_class.hpp>
+#include <cereal/types/vector.hpp>
+#include <cereal/types/polymorphic.hpp>
+
 #include "gncpy/math/Exceptions.h"
 
 /*
@@ -18,8 +27,12 @@ class Vector;
 // row-major ordering
 template<typename T>
 class Matrix {
+
+friend class cereal::access;
+
 public:
     Matrix<T>() = default;
+    virtual ~Matrix<T>() = default;
 
     Matrix<T>(const std::vector<size_t>& shape, const T* data=nullptr) {
         if(shape.size() < 1 || shape.size() > 2) {
@@ -343,7 +356,7 @@ public:
         return *this;
     }
 
-    // Do as above for block assignment
+    // TODO: Do as above for block assignment
 
     template<typename R>
     friend std::ostream& operator<<(std::ostream& os, const Matrix<R>& m);
@@ -538,6 +551,11 @@ public:
     }
 
 private:
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(m_transposed), CEREAL_NVP(m_nRows), CEREAL_NVP(m_nCols), CEREAL_NVP(m_shape), CEREAL_NVP(m_strides), CEREAL_NVP(m_data));
+    }
+    
     inline bool isSquare () const {return m_nCols == m_nRows;}
     inline bool allowMultiplication(const Matrix& rhs) const {return numCols() == rhs.numRows();}
     inline bool isSameSize(const Matrix& rhs) const {return numRows() == rhs.numRows() && numCols() == rhs.numCols(); }
@@ -634,7 +652,6 @@ lager::gncpy::matrix::Matrix<T> forward_sub(const lager::gncpy::matrix::Matrix<T
  * @param b 
  * @return lager::gncpy::matrix::Matrix<T> 
  */
-
 template<typename T>
 lager::gncpy::matrix::Matrix<T> back_sub(const lager::gncpy::matrix::Matrix<T>& U, 
     const lager::gncpy::matrix::Matrix<T>& b){
@@ -675,3 +692,5 @@ lager::gncpy::matrix::Matrix<T> LU_solve(const lager::gncpy::matrix::Matrix<T>& 
 }
 
 } // namespace lager::gncpy::matrix
+
+CEREAL_REGISTER_TYPE(lager::gncpy::matrix::Matrix<double>);

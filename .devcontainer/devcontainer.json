@@ -1,16 +1,17 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/cpp
 {
-	"name": "C++",
+	"name": "gncpy_cpp-dev",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				// "ms-vscode.cpptools",
 				"twxs.cmake",
-				"ms-vscode.cmake-tools",
+				// "ms-vscode.cmake-tools",
 				"cschlosser.doxdocgen",
 				"SonarSource.sonarlint-vscode"
 			]

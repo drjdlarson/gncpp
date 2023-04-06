@@ -1,5 +1,13 @@
 #pragma once
 #include <algorithm>
+
+#include <cereal/access.hpp>
+#include <cereal/archives/json.hpp>
+#include <cereal/archives/binary.hpp>
+#include <cereal/archives/portable_binary.hpp>
+#include <cereal/types/base_class.hpp>
+#include <cereal/types/polymorphic.hpp>
+
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Exceptions.h"
 
@@ -9,6 +17,7 @@ namespace lager::gncpy::matrix {
 template<typename T>
 class Vector final: public Matrix<T> {
 
+friend class cereal::access;
 
 public:
     Vector<T>()
@@ -115,7 +124,14 @@ public:
         out(2,1) = static_cast <T>(this->operator()(0));
         return out;
     }
-    
+
+private:
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(cereal::make_nvp("Matrix", cereal::virtual_base_class<Matrix<T>>(this)));
+    }
 };
     
 } // namespace lager::gncpy::matrix
+
+CEREAL_REGISTER_TYPE(lager::gncpy::matrix::Vector<double>);

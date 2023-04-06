@@ -1,10 +1,17 @@
 #pragma once
 #include <functional>
 
+#include <cereal/access.hpp>
+#include <cereal/archives/json.hpp>
+#include <cereal/archives/binary.hpp>
+#include <cereal/archives/portable_binary.hpp>
 #include <cereal/types/base_class.hpp>
+#include <cereal/types/functional.hpp>
+#include <cereal/types/polymorphic.hpp>
 
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/dynamics/IDynamics.h"
+#include "gncpy/math/Matrix.h"
 #include "gncpy/math/Vector.h"
 
 
@@ -12,6 +19,9 @@ namespace lager::gncpy::dynamics {
 
 template<typename T>
 class ILinearDynamics : public IDynamics<T> {
+
+friend class cereal::access;
+
 public:
     virtual ~ILinearDynamics() = default;
 
@@ -70,14 +80,15 @@ public:
     inline std::function<matrix::Matrix<T> (T timestep, const ControlParams* controlParams)> controlModel() const {
         return m_controlModel;
     }
-
-    template <class Archive>
-    void serialize(Archive& ar) {
-        ar(m_hasContolModel, m_controlModel);
-        // ar(cereal::base_class<IDynamics<T>>(this), m_hasContolModel, m_controlModel);
-    }
     
 protected:
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(m_hasContolModel));
+        // ar(CEREAL_NVP(m_hasContolModel), CEREAL_NVP(m_controlModel));
+        // ar(cereal::virtual_base_class<IDynamics<T>>(this), m_hasContolModel, m_controlModel);
+    }
+
     inline matrix::Matrix<T> controlModel(T timestep, const ControlParams* controlParams=nullptr) const {
         if(m_hasContolModel){
             return m_controlModel(timestep, controlParams);
@@ -95,3 +106,5 @@ private:
 };
     
 } // namespace lager::gncpy::dynamics
+
+CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ILinearDynamics<double>);
