@@ -8,6 +8,6 @@ add_executable(
 target_link_libraries(
   filter_test
   GTest::gtest_main
-  lager::gncpy_backend
+  lager::gncpy
 )
 gtest_discover_tests(filter_test)

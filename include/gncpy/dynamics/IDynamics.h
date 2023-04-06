@@ -1,5 +1,8 @@
 #pragma once
 #include <functional>
+
+#include <cereal/types/base_class.hpp>
+
 #include "gncpy/dynamics/Exceptions.h"
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/math/Matrix.h"
@@ -10,6 +13,8 @@ namespace lager::gncpy::dynamics {
 template<typename T>
 class IDynamics {
 public:
+    virtual ~IDynamics() = default;
+    
     virtual matrix::Vector<T> propagateState(T timestep, const matrix::Vector<T>& state, const StateTransParams* const stateTransParams=nullptr) const = 0;
     virtual matrix::Vector<T> propagateState(T timestep, const matrix::Vector<T>& state, const matrix::Vector<T>& control) const = 0;
     virtual matrix::Vector<T> propagateState(T timestep, const matrix::Vector<T>& state, const matrix::Vector<T>& control, const StateTransParams* const stateTransParams, const ControlParams* const controlParams, const ConstraintParams* const constraintParams) const = 0;
@@ -29,6 +34,11 @@ public:
 
     inline std::function<void (T timestep, matrix::Vector<T>& state, const ConstraintParams* const constraintParams)> stateConstraints() const {
         return m_stateConstraints;
+    }
+
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(m_hasStateConstraint, m_stateConstraints);
     }
 
 protected:

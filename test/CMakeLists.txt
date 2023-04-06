@@ -10,7 +10,5 @@ FetchContent_MakeAvailable(googletest)
 
 include(GoogleTest)
 
-# find_package(lager::gncpy_backend CONFIG REQUIRED)
-
 # can add other testing directories here such as integration
 add_subdirectory(unit)

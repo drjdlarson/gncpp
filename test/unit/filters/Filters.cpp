@@ -36,8 +36,8 @@ TEST(FilterTest, GetSetCovariance) {
     lager::gncpy::matrix::Matrix covariance({{0.1, 0.0, 0.0, 0.0}, {0.0, 0.1, 0.0, 0.0}, {0.0, 0.0, 0.01, 0.0},{0.0, 0.0, 0.0, 0.01}});
     lager::gncpy::filters::Kalman<double> filt;
 
-    filt.setCovariance(covariance);
-    lager::gncpy::matrix::Matrix newCov = filt.covariance();
+    filt.cov = covariance;
+    lager::gncpy::matrix::Matrix newCov = filt.cov;
 
     for (uint8_t ii = 0; ii < 4; ii++) {
         for (uint8_t jj = 0; jj < 4; jj++) {
@@ -62,7 +62,7 @@ TEST(FilterTest, FilterPredict) {
     auto predParams = lager::gncpy::filters::BayesPredictParams();
     lager::gncpy::filters::Kalman<double> filt;
     lager::gncpy::matrix::Matrix cov({{1.0, 0.0, 0.0, 0.0}, {0.0, 1.0, 0.0, 0.0}, {0.0, 0.0, 1.0, 0.0}, {0.0, 0.0, 0.0, 1.0}});
-    filt.setCovariance(cov);
+    filt.cov = cov;
 
     filt.setStateModel(dynObj, noise);
 
@@ -90,7 +90,7 @@ TEST(FilterTest, FilterCorrect) {
     lager::gncpy::filters::Kalman<double> filt;
 
     lager::gncpy::matrix::Matrix cov({{1.0, 0.0, 0.0, 0.0}, {0.0, 1.0, 0.0, 0.0}, {0.0, 0.0, 1.0, 0.0}, {0.0, 0.0, 0.0, 1.0}});
-    filt.setCovariance(cov);
+    filt.cov = cov;
     
     filt.setMeasurementModel(measObj, noise);
 

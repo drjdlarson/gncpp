@@ -1,5 +1,8 @@
 #pragma once
 #include <functional>
+
+#include <cereal/types/base_class.hpp>
+
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/math/Vector.h"
@@ -10,6 +13,8 @@ namespace lager::gncpy::dynamics {
 template<typename T>
 class ILinearDynamics : public IDynamics<T> {
 public:
+    virtual ~ILinearDynamics() = default;
+
     virtual matrix::Matrix<T> getStateMat(T timestep, const StateTransParams* stateTransParams=nullptr) const = 0;
 
     matrix::Vector<T> propagateState(T timestep, const matrix::Vector<T>& state, const StateTransParams* stateTransParams=nullptr) const override {
@@ -64,6 +69,12 @@ public:
 
     inline std::function<matrix::Matrix<T> (T timestep, const ControlParams* controlParams)> controlModel() const {
         return m_controlModel;
+    }
+
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(m_hasContolModel, m_controlModel);
+        // ar(cereal::base_class<IDynamics<T>>(this), m_hasContolModel, m_controlModel);
     }
     
 protected:

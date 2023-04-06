@@ -1,4 +1,10 @@
 #pragma once
+#include <vector>
+#include <sstream>
+
+#include <cereal/archives/portable_binary.hpp>
+
+#include "gncpy/math/Matrix.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
 
 namespace lager::gncpy::dynamics {
@@ -25,8 +31,42 @@ public:
     inline T dt() const { return m_dt; }
     inline void setDt(T dt) { m_dt = dt; }
 
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(m_dt);
+        // ar(cereal::base_class<ILinearDynamics<T>>(this), m_dt);
+    }
+
+    // see https://stackoverflow.com/questions/22799551/sending-a-stringstream-of-binary-data-from-cereal-with-enet
+    // for details on save/load filter state
+    char const* saveFilterState() {
+        std::ostringstream os;
+        this->createOutputArchive(os);
+
+        return os.str().c_str();
+    }
+
+    static DoubleIntegrator<T> loadFilterState(char const* fState) {
+        DoubleIntegrator<T> out;
+        std::istringstream is(fState);
+        createInputArchive(is, out);
+        return std::move(out);
+    }
+
 private:
+    DoubleIntegrator() = default;
+
+    void createOutputArchive(std::ostringstream& os) {
+        cereal::PortableBinaryOutputArchive ar(os);
+        ar(*this);
+    }
+
+    static void createInputArchive(std::istringstream& is, DoubleIntegrator<T>& cls) {
+        cereal::PortableBinaryInputArchive ar(is);
+        ar(cls);
+    }
+
     T m_dt;
 };
-    
+
 } // namespace lager::gncpy::dynamics 

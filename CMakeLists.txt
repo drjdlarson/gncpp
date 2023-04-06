@@ -6,6 +6,7 @@ if (NOT DEFINED GNCPY_MASTER_PROJECT)
   set(GNCPY_MASTER_PROJECT OFF)
   if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
     set(GNCPY_MASTER_PROJECT ON)
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
     message(STATUS "CMake version: ${CMAKE_VERSION}")
   endif ()
 endif ()
@@ -50,8 +51,8 @@ endif ()
 project(gncpy CXX)
 include(GNUInstallDirs)
 
-# set(CMAKE_CXX_STANDARD 20)
-# set(CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 20)
+set(CXX_STANDARD_REQUIRED YES)
 
 set_verbose(GNCPY_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE STRING
             "Installation directory for include files, a relative path that "
@@ -104,6 +105,24 @@ if (GNCPY_MASTER_PROJECT AND NOT DEFINED CMAKE_VISIBILITY_INLINES_HIDDEN)
     )
 endif ()
 
+# ------------------------------------------------------------------
+# ---------------------- Find dependencies -------------------------
+# ------------------------------------------------------------------
+include(FetchContent)
+FetchContent_Declare(
+    cereal
+    GIT_REPOSITORY https://github.com/USCiLab/cereal
+    GIT_TAG v1.3.2
+)
+set(JUST_INSTALL_CEREAL ON CACHE INTERNAL "only install cereal")
+set(CEREAL_INSTALL ON CACHE INTERNAL "install cereal")
+set(THREAD_SAFE ON CACHE INTERNAL "allow multiple cereal archives to be accessed in parallel")
+FetchContent_MakeAvailable(cereal)
+
+
+# ------------------------------------------------------------------
+# ----------------------- Add GNCPy Library ------------------------
+# ------------------------------------------------------------------
 file(GLOB_RECURSE SRCS src/*.cpp)
 file(GLOB_RECURSE HDRS include/*.h) 
 
@@ -111,6 +130,7 @@ file(GLOB_RECURSE HDRS include/*.h)
 add_library(gncpy ${HDRS} ${SRCS} README.rst)
 add_library(lager::gncpy ALIAS gncpy)
 
+target_link_libraries(gncpy cereal::cereal)
 target_include_directories(gncpy PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${GNCPY_INC_DIR}>
@@ -122,8 +142,6 @@ set_target_properties(gncpy
     PROPERTIES
         VERSION ${GNCPY_VERSION} SOVERSION ${CPACK_PACKAGE_VERSION_MAJOR}
         DEBUG_POSTFIX "${GNCPY_DEBUG_POSTFIX}"
-        CMAKE_CXX_STANDARD 20
-        CMAKE_CXX_STANDARD_REQUIRED ON
 )
 
 # Install targets.
@@ -168,7 +186,9 @@ if (GNCPY_INSTALL)
         INSTALL_DESTINATION ${GNCPY_CMAKE_DIR}
     )
 
-    set(INSTALL_TARGETS gncpy)
+    # see https://stackoverflow.com/questions/5378528/install-export-problem-for-library-with-dependencies
+    # for why cereal is included here
+    set(INSTALL_TARGETS gncpy cereal)
 
     # Install the library and headers.
     install(TARGETS ${INSTALL_TARGETS} EXPORT ${targets_export_name}
@@ -212,13 +232,13 @@ endif ()
 
 if (GNCPY_DOC)
     message(STATUS "Adding documentation...")
-    # add_subdirectory(doc)
+    # add_subdirectory(docs)
 endif ()
 
 if (GNCPY_TEST)
-    message(STATUS "Enabling testing")
-    # enable_testing()
-    # add_subdirectory(test)
+    message(STATUS "Enabling testing...")
+    enable_testing()
+    add_subdirectory(test)
 endif ()
 
 set(gitignore ${PROJECT_SOURCE_DIR}/.gitignore)
