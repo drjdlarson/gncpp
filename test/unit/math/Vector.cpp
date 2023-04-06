@@ -40,25 +40,11 @@ TEST(VectorTest, Subtract) {
 TEST(VectorTest, serialize) {
     lager::gncpy::matrix::Vector<double> v({-2.3, 1, 8.9, -9.2});
 
-    std::stringstream ssb(std::ios::in | std::ios::out | std::ios::binary);
-    std::cout << "Saving vector..." << std::endl;
-    {
-        cereal::JSONOutputArchive aro(std::cout);
-        cereal::PortableBinaryOutputArchive ar(ssb);
-        ar(v);
-        aro(v);
-    }
-    std::cout << "\nLoading vector..." << std::endl;
+    std::cout << "Original class:\n" << v.toJSON() << std::endl;
+    std::stringstream classState = v.saveClassState();
 
-    lager::gncpy::matrix::Vector<double> v2;
-    {
-        cereal::PortableBinaryInputArchive ar(ssb);
-        cereal::JSONOutputArchive aro(std::cout);
-
-        ar(v2);
-        aro(v2);
-    }
-    std::cout << std::endl;
+    auto v2 = lager::gncpy::matrix::Vector<double>::loadClass(classState);
+    std::cout << "Loaded class:\n" << v2.toJSON() << std::endl;
 
     EXPECT_EQ(v.numRows(), v2.numRows());
     EXPECT_EQ(v.numCols(), v2.numCols());

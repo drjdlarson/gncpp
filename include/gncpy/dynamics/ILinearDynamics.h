@@ -6,7 +6,6 @@
 #include <cereal/archives/binary.hpp>
 #include <cereal/archives/portable_binary.hpp>
 #include <cereal/types/base_class.hpp>
-#include <cereal/types/functional.hpp>
 #include <cereal/types/polymorphic.hpp>
 
 #include "gncpy/dynamics/Parameters.h"
@@ -82,11 +81,14 @@ public:
     }
     
 protected:
+    // NOTE: can not serialize std::function or lambda function 
+    // see https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
     template <class Archive>
     void serialize(Archive& ar) {
-        ar(CEREAL_NVP(m_hasContolModel));
-        // ar(CEREAL_NVP(m_hasContolModel), CEREAL_NVP(m_controlModel));
-        // ar(cereal::virtual_base_class<IDynamics<T>>(this), m_hasContolModel, m_controlModel);
+        bool tmp = m_hasContolModel;
+        m_hasContolModel = false;
+        ar(cereal::make_nvp("IDynamics", cereal::virtual_base_class<IDynamics<T>>(this)), CEREAL_NVP(m_hasContolModel));
+        m_hasContolModel = tmp;
     }
 
     inline matrix::Matrix<T> controlModel(T timestep, const ControlParams* controlParams=nullptr) const {

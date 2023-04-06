@@ -46,18 +46,10 @@ TEST(DoubleInt, serialize) {
     std::cout << "Loaded class:\n" << dyn2.toJSON() << std::endl;
 
     EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
-    EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
 
-    std::cout << "Checking input matrix..." << std::endl;
-    lager::gncpy::matrix::Matrix b = dyn.getInputMat(0.3);
-    lager::gncpy::matrix::Matrix b2 = dyn2.getInputMat(0.3);
-    EXPECT_EQ(b.numRows(), b2.numRows());
-    EXPECT_EQ(b.numCols(), b2.numCols());
-    for(size_t r = 0; r < b.numRows(); r++) {
-        for(size_t c = 0; c < b.numCols(); c++) {
-            EXPECT_DOUBLE_EQ(b(r, c), b2(r, c));
-        }
-    }
+    // can not save control model or state constraint function
+    EXPECT_NE(dyn.hasControlModel(), dyn2.hasControlModel());
+
     EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
 
     SUCCEED();

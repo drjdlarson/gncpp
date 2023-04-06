@@ -1,17 +1,26 @@
 #pragma once
 #include <functional>
 
+#include <cereal/access.hpp>
+#include <cereal/archives/json.hpp>
+#include <cereal/archives/binary.hpp>
+#include <cereal/archives/portable_binary.hpp>
 #include <cereal/types/base_class.hpp>
+#include <cereal/types/polymorphic.hpp>
 
 #include "gncpy/dynamics/Exceptions.h"
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Vector.h"
 
+
 namespace lager::gncpy::dynamics {
 
 template<typename T>
 class IDynamics {
+
+friend class cereal::access;
+
 public:
     virtual ~IDynamics() = default;
     
@@ -36,11 +45,6 @@ public:
         return m_stateConstraints;
     }
 
-    template <class Archive>
-    void serialize(Archive& ar) {
-        ar(m_hasStateConstraint, m_stateConstraints);
-    }
-
 protected:
     inline void stateConstraint(T timestep, matrix::Vector<T>& state, const ConstraintParams* const constraintParams=nullptr) const {
         if(m_hasStateConstraint) {
@@ -50,8 +54,18 @@ protected:
     }
 
 private:
+    template <class Archive>
+    void serialize(Archive& ar) {
+        bool tmp = m_hasStateConstraint;
+        m_hasStateConstraint = false;
+        ar(CEREAL_NVP(m_hasStateConstraint));
+        m_hasStateConstraint = tmp;
+    }
+
     bool m_hasStateConstraint = false;
     std::function<void (T timestep, matrix::Vector<T>& state, const ConstraintParams* const constraintParams)> m_stateConstraints;
 };
-    
-} // namespace lager::gncpy::dynamics 
+
+} // namespace lager::gncpy::dynamics
+
+CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::IDynamics<double>);

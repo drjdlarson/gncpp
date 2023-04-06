@@ -13,6 +13,7 @@
 #include <cereal/types/polymorphic.hpp>
 
 #include "gncpy/math/Exceptions.h"
+#include "gncpy/SerializeMacros.h"
 
 /*
 TODO
@@ -29,6 +30,8 @@ template<typename T>
 class Matrix {
 
 friend class cereal::access;
+
+GNCPY_SERIALIZE_CLASS(Matrix, T)
 
 public:
     Matrix<T>() = default;

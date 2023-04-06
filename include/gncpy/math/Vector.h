@@ -10,6 +10,7 @@
 
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Exceptions.h"
+#include "gncpy/SerializeMacros.h"
 
 
 namespace lager::gncpy::matrix {
@@ -18,6 +19,8 @@ template<typename T>
 class Vector final: public Matrix<T> {
 
 friend class cereal::access;
+
+GNCPY_SERIALIZE_CLASS(Vector, T)
 
 public:
     Vector<T>()

@@ -164,25 +164,11 @@ TEST(MatrixTest, InovCovCalc) {
 TEST(MatrixTest, serialize) {
     lager::gncpy::matrix::Matrix<double> m({{1, 0, 0.4, 2.5}, {-2.3, 1, 8.9, -9.2}});
 
-    std::stringstream ssb(std::ios::in | std::ios::out | std::ios::binary);
-    std::cout << "Saving matrix..." << std::endl;
-    {
-        cereal::JSONOutputArchive aro(std::cout);
-        cereal::PortableBinaryOutputArchive ar(ssb);
-        ar(m);
-        aro(m);
-    }
-    std::cout << "\nLoading matrix..." << std::endl;
+    std::cout << "Original class:\n" << m.toJSON() << std::endl;
+    std::stringstream classState = m.saveClassState();
 
-    lager::gncpy::matrix::Matrix<double> m2;
-    {
-        cereal::PortableBinaryInputArchive ar(ssb);
-        cereal::JSONOutputArchive aro(std::cout);
-
-        ar(m2);
-        aro(m2);
-    }
-    std::cout << std::endl;
+    auto m2 = lager::gncpy::matrix::Matrix<double>::loadClass(classState);
+    std::cout << "Loaded class:\n" << m2.toJSON() << std::endl;
 
     EXPECT_EQ(m.numRows(), m2.numRows());
     EXPECT_EQ(m.numCols(), m2.numCols());
