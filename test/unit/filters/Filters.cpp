@@ -8,7 +8,7 @@
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/filters/Parameters.h"
 
-TEST(FilterTest, SetStateModel) {
+TEST(KFTest, SetStateModel) {
     double dt = 0.01;
     lager::gncpy::matrix::Matrix<double> noise({{1.0, 0.0, 0, 0}, {0.0, 1.0, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}});
     auto dynObj = std::make_shared<lager::gncpy::dynamics::DoubleIntegrator<double>>(dt);
@@ -21,7 +21,7 @@ TEST(FilterTest, SetStateModel) {
 
 }
 
-TEST(FilterTest, SetMeasModel) {
+TEST(KFTest, SetMeasModel) {
     lager::gncpy::matrix::Matrix<double> noise({{1.0, 0.0}, {0.0, 1.0}});
     auto measObj = std::make_shared<lager::gncpy::measurements::StateObservation<double>>();
 
@@ -32,7 +32,7 @@ TEST(FilterTest, SetMeasModel) {
     SUCCEED();
 }
 
-TEST(FilterTest, GetSetCovariance) {
+TEST(KFTest, GetSetCovariance) {
     lager::gncpy::matrix::Matrix covariance({{0.1, 0.0, 0.0, 0.0}, {0.0, 0.1, 0.0, 0.0}, {0.0, 0.0, 0.01, 0.0},{0.0, 0.0, 0.0, 0.01}});
     lager::gncpy::filters::Kalman<double> filt;
 
@@ -49,7 +49,7 @@ TEST(FilterTest, GetSetCovariance) {
 
 }
 
-TEST(FilterTest, FilterPredict) {
+TEST(KFTest, FilterPredict) {
     double dt = 1.0;
     lager::gncpy::matrix::Matrix<double> noise({{0.1, 0.0, 0.0, 0.0}, {0.0, 0.1, 0.0, 0.0}, {0.0, 0.0, 0.01, 0.0},{0.0, 0.0, 0.0, 0.01}});
 
@@ -76,7 +76,7 @@ TEST(FilterTest, FilterPredict) {
 
 }
 
-TEST(FilterTest, FilterCorrect) {
+TEST(KFTest, FilterCorrect) {
     lager::gncpy::matrix::Matrix<double> noise({{0.1, 0.0, 0.0, 0.0}, {0.0, 0.1, 0.0, 0.0}, {0.0, 0.0, 0.01, 0.0},{0.0, 0.0, 0.0, 0.01}});
 
     auto measObj = std::make_shared<lager::gncpy::measurements::StateObservation<double>>();
@@ -101,6 +101,45 @@ TEST(FilterTest, FilterCorrect) {
 
     for(uint8_t ii=0;ii<exp.size();ii++) {
         EXPECT_EQ(exp(ii), out(ii));
+    }
+
+    SUCCEED();
+}
+
+TEST(KFTest, serialize) {
+    double dt = 0.2;
+    lager::gncpy::matrix::Matrix cov({{1.0, 0.0, 0.3, 0.0}, 
+                                      {0.0, 1.0, 0.0, 4.0},
+                                      {0.0, 3.0, 1.0, 0.0},
+                                      {4.5, 0.0, 0.0, 1.0}});
+    lager::gncpy::matrix::Matrix<double> pNoise({{0.1, 0.0, 0.0, 0.0},
+                                                {0.0, 0.1, 0.0, 0.3},
+                                                {0.2, 0.0, 0.01, 0.0},
+                                                {0.0, 0.0, 0.0, 0.01}});
+    lager::gncpy::matrix::Matrix<double> mNoise({{0.2, 0.0, 0.0, 0.0},
+                                                {2.0, 0.4, 0.0, 0.0},
+                                                {0.0, 0.0, 0.45, 2.4},
+                                                {0.0, 0.0, 0.0, 0.31}});
+    auto dynObj = std::make_shared<lager::gncpy::dynamics::DoubleIntegrator<double>>(dt);
+    auto measObj = std::make_shared<lager::gncpy::measurements::StateObservation<double>>();
+    lager::gncpy::filters::Kalman<double> filt;
+    filt.cov = cov;
+    filt.setStateModel(dynObj, pNoise);
+    filt.setMeasurementModel(measObj, mNoise);
+
+    std::cout << "Original class:\n" << filt.toJSON() << std::endl;
+    std::stringstream classState = filt.saveClassState();
+
+    auto filt2 = lager::gncpy::filters::Kalman<double>::loadClass(classState);
+    std::cout << "Loaded class:\n" << filt2.toJSON() << std::endl;
+
+    EXPECT_EQ(filt.cov.numRows(), filt2.cov.numRows());
+    EXPECT_EQ(filt.cov.numCols(), filt2.cov.numCols());
+
+    for(size_t r = 0; r < filt.cov.numRows(); r++) {
+        for(size_t c = 0; c < filt.cov.numCols(); c++) {
+            EXPECT_DOUBLE_EQ(filt.cov(r, c), filt2.cov(r, c));
+        }
     }
 
     SUCCEED();

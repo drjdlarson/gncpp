@@ -1,5 +1,9 @@
 #pragma once
 
+#define GNCPY_SERIALIZE_TYPES(Class_t) \
+    CEREAL_REGISTER_TYPE(Class_t<float>); \
+    CEREAL_REGISTER_TYPE(Class_t<double>);
+
 // see https://stackoverflow.com/questions/42253474/trouble-deserializing-cereal-portablebinaryarchive
 // for details on save/load class state
 #define GNCPY_SERIALIZE_CLASS(Class_t, T) \

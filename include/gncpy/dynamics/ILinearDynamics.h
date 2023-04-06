@@ -12,6 +12,7 @@
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Vector.h"
+#include "gncpy/SerializeMacros.h"
 
 
 namespace lager::gncpy::dynamics {
@@ -109,4 +110,4 @@ private:
     
 } // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ILinearDynamics<double>);
+GNCPY_SERIALIZE_TYPES(lager::gncpy::dynamics::ILinearDynamics)

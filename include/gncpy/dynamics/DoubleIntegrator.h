@@ -57,4 +57,4 @@ private:
 
 } // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::DoubleIntegrator<double>);
+GNCPY_SERIALIZE_TYPES(lager::gncpy::dynamics::DoubleIntegrator)

@@ -1,20 +1,35 @@
 #pragma once
 #include <memory>
 #include <optional>
+
+#include <cereal/access.hpp>
+#include <cereal/archives/json.hpp>
+#include <cereal/archives/binary.hpp>
+#include <cereal/archives/portable_binary.hpp>
+#include <cereal/types/base_class.hpp>
+#include <cereal/types/polymorphic.hpp>
+
+#include "gncpy/dynamics/ILinearDynamics.h"
+#include "gncpy/Exceptions.h"
 #include "gncpy/filters/IBayesFilter.h"
+#include "gncpy/filters/Parameters.h"
 #include "gncpy/math/Vector.h"
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Math.h"
-#include "gncpy/filters/Parameters.h"
-#include "gncpy/dynamics/ILinearDynamics.h"
 #include "gncpy/measurements/ILinearMeasModel.h"
-#include "gncpy/Exceptions.h"
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/Utilities.h"
+
 
 namespace lager::gncpy::filters {
 
 template<typename T>
 class Kalman : public IBayesFilter<T> {
+
+friend class cereal::access;
+
+GNCPY_SERIALIZE_CLASS(Kalman, T)
+
 public:
     matrix::Vector<T> predict(T timestep, const matrix::Vector<T>& curState, [[maybe_unused]] const std::optional<matrix::Vector<T>> controlInput, const BayesPredictParams* params=nullptr) override {
         if (params != nullptr && !utilities::instanceof<BayesPredictParams>(params)) {
@@ -93,6 +108,11 @@ public:
 
 
 private:
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(cereal::make_nvp("IBayesFilter", cereal::virtual_base_class<IBayesFilter<T>>(this)), CEREAL_NVP(m_measNoise), CEREAL_NVP(m_procNoise), CEREAL_NVP(m_dynObj));
+    }
+
     matrix::Matrix<T> m_measNoise;
     matrix::Matrix<T> m_procNoise;
 
@@ -102,3 +122,5 @@ private:
 };
     
 } // namespace lager::gncpy::filters
+
+GNCPY_SERIALIZE_TYPES(lager::gncpy::filters::Kalman)

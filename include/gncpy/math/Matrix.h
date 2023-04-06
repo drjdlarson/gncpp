@@ -696,4 +696,4 @@ lager::gncpy::matrix::Matrix<T> LU_solve(const lager::gncpy::matrix::Matrix<T>& 
 
 } // namespace lager::gncpy::matrix
 
-CEREAL_REGISTER_TYPE(lager::gncpy::matrix::Matrix<double>);
+GNCPY_SERIALIZE_TYPES(lager::gncpy::matrix::Matrix)
