@@ -110,7 +110,7 @@ public:
 private:
     template <class Archive>
     void serialize(Archive& ar) {
-        ar(cereal::make_nvp("IBayesFilter", cereal::virtual_base_class<IBayesFilter<T>>(this)), CEREAL_NVP(m_measNoise), CEREAL_NVP(m_procNoise), CEREAL_NVP(m_dynObj));
+        ar(cereal::make_nvp("IBayesFilter", cereal::virtual_base_class<IBayesFilter<T>>(this)), CEREAL_NVP(m_measNoise), CEREAL_NVP(m_procNoise), CEREAL_NVP(m_dynObj), CEREAL_NVP(m_measObj));
     }
 
     matrix::Matrix<T> m_measNoise;
