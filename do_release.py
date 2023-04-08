@@ -84,7 +84,7 @@ if __name__ == "__main__":
     version_str = "v{:d}.{:d}.{:d}".format(major, minor, patch)
     print("Releasing version: {:s}".format(version_str[1:]))
 
-    cmd_str = "git tag -a {:s}".format(version_str)
+    cmd_str = "git tag -a {:s} -m 'Automatic release'".format(version_str)
     subprocess.run(cmd_str, shell=True)
 
     cmd_str = "git push origin {:s}".format(version_str)

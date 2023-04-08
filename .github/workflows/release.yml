@@ -104,7 +104,7 @@ jobs:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
     permissions:
-      contents: read
+      contents: read|write
       packages: write
       deployments: write
 
