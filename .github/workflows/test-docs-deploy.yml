@@ -9,22 +9,20 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_BASE_NAME: ${{ github.repository }}
 
+
 jobs:
   deploy-docs:
       runs-on: ubuntu-latest
       container: ghcr.io/${{ github.repository }}-dev:latest
-      permissions:
-        contents: write
-        pages: write
-        id-token: write
+      permissions: write-all
       # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
       # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-      concurrency:
-        group: "pages"
-        cancel-in-progress: false
-      environment:
-        name: github-pages
-        url: ${{ steps.deploy-docs.outputs.page_url }}
+      # concurrency:
+      #   group: "pages"
+      #   cancel-in-progress: false
+      # environment:
+      #   name: github-pages
+      #   url: ${{ steps.deploy-docs.outputs.page_url }}
       steps:
         - name: Checkout
           uses: actions/checkout@v3
@@ -34,8 +32,11 @@ jobs:
             cd build
             cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF ..
             make
-        - name: Deploy to GitHub Pages
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./build/docs/docs/html
+            cd ..
+            mkdir public
+            mv -r build/docs/docs/html ./public/
+        # - name: Deploy to GitHub Pages
+        #   uses: peaceiris/actions-gh-pages@v3
+        #   with:
+        #     github_token: ${{ secrets.GITHUB_TOKEN }}
+        #     publish_dir: ./build/docs/docs/html

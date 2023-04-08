@@ -105,7 +105,7 @@ jobs:
     needs: build-dev-image
     container: ghcr.io/${{ github.repository }}-dev:latest
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
     # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
