@@ -28,6 +28,15 @@ def define_parser() -> argparse.ArgumentParser:
             + "If this is passed then the type is irrelevant.",
     )
 
+    default = "Automatic release"
+    p.add_argument(
+        "-m",
+        "--message",
+        type=str,
+        default=default,
+        help="Message for the release (Doesn't seem to be used in CI/CD). The default is: {:s}".format(default)
+    )
+
     return p
 
 
@@ -84,7 +93,7 @@ if __name__ == "__main__":
     version_str = "v{:d}.{:d}.{:d}".format(major, minor, patch)
     print("Releasing version: {:s}".format(version_str[1:]))
 
-    cmd_str = "git tag -a {:s} -m 'Automatic release'".format(version_str)
+    cmd_str = "git tag -a {:s} -m '{:s}'".format(version_str, args.message)
     subprocess.run(cmd_str, shell=True)
 
     cmd_str = "git push origin {:s}".format(version_str)

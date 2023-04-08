@@ -232,7 +232,7 @@ endif ()
 
 if (GNCPY_DOC)
     message(STATUS "Adding documentation...")
-    # add_subdirectory(docs)
+    add_subdirectory(docs)
 endif ()
 
 if (GNCPY_TEST)
