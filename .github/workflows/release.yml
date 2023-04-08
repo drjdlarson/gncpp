@@ -12,6 +12,7 @@ env:
 
 jobs:
    build-dev-image:
+    name: build-dev-image
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -50,7 +51,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v4.3
+        uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_BASE_NAME }}-dev
           tags: |
@@ -84,6 +85,7 @@ jobs:
 
    build-devcontainer:
     runs-on: ubuntu-latest
+    needs: build-dev-image
     steps:
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
