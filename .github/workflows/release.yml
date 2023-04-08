@@ -103,7 +103,7 @@ jobs:
   deploy-docs:
     runs-on: ubuntu-latest
     needs: build-dev-image
-    container: ${{ env.REGISTRY }}/${{ env.IMAGE_BASE_NAME }}-dev:latest
+    container: ghcr.io/${{ github.repository }}-dev:latest
     permissions:
       contents: read
       pages: write
