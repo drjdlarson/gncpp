@@ -70,9 +70,7 @@ jobs:
 
       # Sign the resulting Docker image digest.
       - name: Sign the images with GitHub OIDC Token **not production ready**
-        run: cosign sign --yes ${TAGS}
-        env:
-          TAGS: ${{ steps.docker_meta.outputs.tags }}
+        run: cosign sign --yes ${{ steps.docker_meta.outputs.tags }}
 
    build-devcontainer:
     runs-on: ubuntu-latest
