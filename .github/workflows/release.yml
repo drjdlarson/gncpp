@@ -103,6 +103,10 @@ jobs:
    tagged-release:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
+    permissions:
+      contents: read
+      packages: write
+      deployments: write
 
     steps:
       - uses: "marvinpinto/action-automatic-releases@latest"
