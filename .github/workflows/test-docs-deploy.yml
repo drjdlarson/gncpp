@@ -1,0 +1,42 @@
+name: release
+on:
+  push:
+    branches: devops
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_BASE_NAME: ${{ github.repository }}
+
+
+deploy-docs:
+    runs-on: ubuntu-latest
+    needs: build-dev-image
+    container: ghcr.io/${{ github.repository }}-dev:latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+    # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy-docs.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build Documentation
+        run: |
+          mkdir build
+          cd build
+          cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF ..
+          make
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/docs/docs/html
