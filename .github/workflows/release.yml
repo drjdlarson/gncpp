@@ -30,8 +30,6 @@ jobs:
       - name: Install cosign
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@main
-        with:
-          cosign-release: 'v3.0.2'
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -86,6 +84,9 @@ jobs:
    build-devcontainer:
     runs-on: ubuntu-latest
     needs: build-dev-image
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
