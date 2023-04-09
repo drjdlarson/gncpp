@@ -13,7 +13,17 @@ env:
 jobs:
   deploy-docs:
       runs-on: ubuntu-latest
-      container: ghcr.io/${{ github.repository }}-dev:latest
+      container:
+        env:
+          REGISTRY: ${{ env.REGISTRY }}
+          IMAGE_BASE_NAME: ${{ github.repository }}
+        credentials:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+        image: ${{ env.REGISTRY }}/${{ IMAGE_BASE_NAME }}-dev:latest
+        volumes:
+          - ./${{ github.repository }}:/workspace
+        options: --cpus 1
       permissions: write-all
       # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
       # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -28,6 +38,8 @@ jobs:
           uses: actions/checkout@v3
         - name: Build Documentation
           run: |
+            pwd
+            ls
             mkdir build
             cd build
             cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF ..
