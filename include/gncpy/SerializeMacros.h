@@ -1,8 +1,8 @@
 #pragma once
 
 #define GNCPY_SERIALIZE_TYPES(Class_t) \
-    CEREAL_REGISTER_TYPE(Class_t<float>); \
-    CEREAL_REGISTER_TYPE(Class_t<double>);
+    CEREAL_REGISTER_TYPE(Class_t<float>) \
+    CEREAL_REGISTER_TYPE(Class_t<double>)
 
 // see https://stackoverflow.com/questions/42253474/trouble-deserializing-cereal-portablebinaryarchive
 // for details on save/load class state
@@ -16,7 +16,7 @@
         static Class_t<T> loadClass(std::stringstream& fState) { \
             Class_t<T> out; \
             createInputArchive<cereal::PortableBinaryInputArchive>(fState, out); \
-            return std::move(out); \
+            return out; \
         } \
         virtual std::string toJSON() { \
             std::stringstream ss(std::ios::out); \

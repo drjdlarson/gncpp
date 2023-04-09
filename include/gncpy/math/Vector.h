@@ -93,7 +93,7 @@ public:
     }
 
     T dot(const Vector& rhs) const {
-        if (!this->size() == rhs.size()){
+        if (this->size() != rhs.size()){
             throw BadDimension("Vector size do not match");
         }
         T sum = 0;
@@ -104,10 +104,10 @@ public:
     }
 
     Vector<T> cross(const Vector& rhs) const {
-        if (!this->size() == rhs.size()){
+        if (this->size() != rhs.size()){
             throw BadDimension("Vector size do not match");
         }
-        if (!this->size() > 3 || rhs.size() > 3){
+        if (this->size() > 3 || rhs.size() > 3){
             throw BadDimension("Can only do cross product on 3D vector");
         }
         std::vector<T> out {0,0,0};

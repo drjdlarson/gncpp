@@ -118,8 +118,8 @@ public:
         m_strides[1] = m_shape[2];
         m_strides[2] = 1;
     
-        for (int r = 0; r < m_nRows; r++) {
-            for (int c = 0; c < m_nCols; c++) {
+        for (size_t r = 0; r < m_nRows; r++) {
+            for (size_t c = 0; c < m_nCols; c++) {
                 m_data.emplace_back(((listlist.begin()+r)->begin())[c]);
             }
         }
@@ -150,8 +150,8 @@ public:
         m_strides[1] = m_shape[2];
         m_strides[2] = 1;
 
-        for (int r = 0; r < m_nRows; r++) {
-            for (int c = 0; c < m_nCols; c++) {
+        for (size_t r = 0; r < m_nRows; r++) {
+            for (size_t c = 0; c < m_nCols; c++) {
                 m_data.emplace_back(static_cast<T>(0));
             }
         }

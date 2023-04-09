@@ -41,7 +41,7 @@ public:
         return this->m_dynObj->propagateState(timestep, curState, params->stateTransParams.get());
     }
 
-    matrix::Vector<T> correct(T timestep, const matrix::Vector<T>& meas, const matrix::Vector<T>& curState, T& measFitProb, const BayesCorrectParams* params=nullptr) override {
+    matrix::Vector<T> correct([[maybe_unused]] T timestep, const matrix::Vector<T>& meas, const matrix::Vector<T>& curState, T& measFitProb, const BayesCorrectParams* params=nullptr) override {
         if (params != nullptr && !utilities::instanceof<BayesCorrectParams>(params)) {
             throw exceptions::BadParams("Params must be BayesCorrectParams");
         }

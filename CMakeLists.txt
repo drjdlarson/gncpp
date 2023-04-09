@@ -51,8 +51,20 @@ endif ()
 project(gncpy CXX)
 include(GNUInstallDirs)
 
+#---------------------------------------------------------------------------
+# compile settings
+#---------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 20)
 set(CXX_STANDARD_REQUIRED YES)
+set(CMAKE_CXX_FLAGS "-fPIC -Wall -Wextra -Wpedantic")
+
+if(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
+    set(CMAKE_CXX_FLAGS_DEBUG "-gdwarf-4 -gstatement-frontiers -gvariable-location-views -ginline-points -fno-eliminate-unused-debug-symbols -fvar-tracking -fvar-tracking-assignments -Og")
+
+elseif(CMAKE_BUILD_TYPE MATCHES "^[Rr]elease")
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
+endif()
 
 set_verbose(GNCPY_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE STRING
             "Installation directory for include files, a relative path that "
