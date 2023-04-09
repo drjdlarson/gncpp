@@ -1,7 +1,7 @@
 #pragma once
 
 // The gncpy library version in the form major * 10000 + minor * 100 + patch.
-#define GNCPY_VERSION 00100
+#define GNCPY_VERSION 000101
 
 
 #ifndef GNCPY_BEGIN_NAMESPACE
