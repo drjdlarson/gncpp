@@ -49,8 +49,9 @@ public:
         while ( m_shape.size()<3 ) { m_shape.push_back(1); }
         while ( m_strides.size()<3 ) { m_strides.push_back(1); }
 
-        for ( int i=0 ; i<shape.size() ; i++ )
+        for(size_t i=0 ; i<shape.size() ; i++ ) {
             m_shape[i] = shape[i];
+        }
 
         m_strides[0] = m_shape[2]*m_shape[1];
         m_strides[1] = m_shape[2];
