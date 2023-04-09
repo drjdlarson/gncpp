@@ -16,13 +16,26 @@ RUN apt-get update \
         python-is-python3 \
         g++ \
         make \
-        cmake \
         git \
-    # && add-apt-repository -y ppa:deadsnakes/ppa \
-    # && apt-get update \
-    # && apt-get install python3.7 python3.7-dev \
-    # && python3 -m pip install --upgrade pip \
+        curl \
+        gpg \
+        gpg-agent \
+        dirmngr \
     && rm -rf /var/lib/apt/lists/*
 
-# RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1 \
-#     && update-alternatives  --set python /usr/bin/python3.6
+# install updated cmake, verify sha file, then verify tar file, then install
+RUN cd ~ \
+    && curl -OL https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3.tar.gz \
+    && curl -OL https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-SHA-256.txt \
+    && curl -OL https://github.com/Kitware/CMake/releases/download/v3.26.3/cmake-3.26.3-SHA-256.txt.asc \
+    && gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys C6C265324BBEBDC350B513D02D2CEF1034921684 \
+    && gpg --verify cmake-3.26.3-SHA-256.txt.asc cmake-3.26.3-SHA-256.txt \
+    && sha256sum -c --ignore-missing cmake-3.26.3-SHA-256.txt \
+    && tar -xf cmake-3.26.3.tar.gz \
+    && cd cmake-3.26.3 \
+    && ./bootstrap -- -DCMAKE_BUILD_TYPE:STRING=Release \
+    && make -j4 \
+    && make install
+
+# install additional tools for generating test status and coverage badges
+RUN pip install genbadge[tests,coverage] gcovr

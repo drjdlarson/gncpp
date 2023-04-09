@@ -8,7 +8,7 @@
 // for details on save/load class state
 #define GNCPY_SERIALIZE_CLASS(Class_t, T) \
     public: \
-        std::stringstream saveClassState() { \
+        std::stringstream saveClassState() const { \
             std::stringstream ssb(std::ios::in | std::ios::out | std::ios::binary); \
             createOutputArchive<cereal::PortableBinaryOutputArchive>(ssb); \
             return ssb; \
@@ -18,14 +18,14 @@
             createInputArchive<cereal::PortableBinaryInputArchive>(fState, out); \
             return out; \
         } \
-        virtual std::string toJSON() { \
+        virtual std::string toJSON() const { \
             std::stringstream ss(std::ios::out); \
             createOutputArchive<cereal::JSONOutputArchive>(ss); \
             return ss.str(); \
         } \
     private: \
         template<class Archive> \
-        void createOutputArchive(std::stringstream& os) { \
+        void createOutputArchive(std::stringstream& os) const { \
             Archive ar(os); \
             ar(*this); \
         } \

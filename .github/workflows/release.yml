@@ -100,10 +100,46 @@ jobs:
           # Change this to point to your image name
           imageName: ${{ env.REGISTRY }}/${{ env.IMAGE_BASE_NAME }}-devcontainer
 
+    unit-test:
+      name: unit-test
+      runs-on: ubuntu-latest
+      needs: build-dev-image
+      container:
+        credentials:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+        image: ghcr.io/${{ github.repository }}-dev:latest
+        options: --cpus 2
+
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - name: Build in Debug
+          run: |
+            cd build
+            make clean
+            cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Debug ..
+            make -j2
+
+        - name: Unit test in Debug
+          run: |
+            cd build
+            ctest --output-on-failure -j2 --output-junit ${{ github.workspace }}/build/docs/html/reports/junit/junit.xml
+        
+        - name: Generate test badge
+          run: |
+            genbadge tests -i ${{ github.workspace }}/build/docs/html/reports/junit/junit.xml -o ${{ github.workspace }}/build/docs/html/reports/junit/tests-badge.svg
+        
+        - name: Generate coverage report and badge
+          run: |
+            gcovr -r .. -o ${{ github.workspace }}/build/docs/html/reports/coverage --html --html-nested --xml ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml
+            genbadge coverage -i -i ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml -o ${{ github.workspace }}/build/docs/html/reports/coverage/coverage-badge.svg
+
   deploy-docs:
     name: deploy-docs
     runs-on: ubuntu-latest
-    needs: build-dev-image
+    needs: unit-test
     container:
       credentials:
         username: ${{ github.actor }}

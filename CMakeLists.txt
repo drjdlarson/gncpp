@@ -56,13 +56,18 @@ include(GNUInstallDirs)
 #---------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 20)
 set(CXX_STANDARD_REQUIRED YES)
-set(CMAKE_CXX_FLAGS "-fPIC -Wall -Wextra -Wpedantic")
+set(GNCPY_COMPILE_FLAGS "-fPIC" "-Wall" "-Wextra" "-Wpedantic")
 
 if(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
-    set(CMAKE_CXX_FLAGS_DEBUG "-gdwarf-4 -gstatement-frontiers -gvariable-location-views -ginline-points -fno-eliminate-unused-debug-symbols -fvar-tracking -fvar-tracking-assignments -Og")
+    if(NOT GNCPY_TEST)
+        list(APPEND GNCPY_COMPILE_FLAGS "-Og")
+    endif()
+    list(APPEND GNCPY_COMPILE_FLAGS "-gdwarf-4" "-gstatement-frontiers" "-gvariable-location-views" "-ginline-points" "-fno-eliminate-unused-debug-symbols" "-fvar-tracking" "-fvar-tracking-assignments")
 
 elseif(CMAKE_BUILD_TYPE MATCHES "^[Rr]elease")
-    set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+    if(NOT GNCPY_TEST)
+        list(APPEND GNCPY_COMPILE_FLAGS "-O3")
+    endif()
 
 endif()
 
@@ -87,7 +92,7 @@ math(EXPR CPACK_PACKAGE_VERSION_MINOR ${CMAKE_MATCH_2})
 math(EXPR CPACK_PACKAGE_VERSION_PATCH ${CMAKE_MATCH_3})
 join(GNCPY_VERSION ${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.
                  ${CPACK_PACKAGE_VERSION_PATCH})
-message(STATUS "Version: ${GNCPY_VERSION}")
+message(STATUS "GNCPY_CPP Version: ${GNCPY_VERSION}")
 
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
@@ -133,6 +138,44 @@ FetchContent_MakeAvailable(cereal)
 
 
 # ------------------------------------------------------------------
+# --------------------- Check status of options --------------------
+# ------------------------------------------------------------------
+if (GNCPY_DOC)
+    message(STATUS "Adding documentation...")
+    add_subdirectory(docs)
+endif ()
+
+if (GNCPY_TEST)
+    message(STATUS "Enabling testing...")
+    list(APPEND GNCPY_COMPILE_FLAGS "--coverage" "-g" "-O0")
+    enable_testing()
+    add_subdirectory(test)
+endif ()
+
+set(gitignore ${PROJECT_SOURCE_DIR}/.gitignore)
+if (GNCPY_MASTER_PROJECT AND EXISTS ${gitignore})
+    # Get the list of ignored files from .gitignore.
+    file (STRINGS ${gitignore} lines)
+    list(REMOVE_ITEM lines /doc/html)
+    foreach (line ${lines})
+        string(REPLACE "." "[.]" line "${line}")
+        string(REPLACE "*" ".*" line "${line}")
+        set(ignored_files ${ignored_files} "${line}$" "${line}/")
+    endforeach ()
+    set(ignored_files ${ignored_files}
+        /.git /breathe /format-benchmark sphinx/ .buildinfo .doctrees
+    )
+
+    set(CPACK_SOURCE_GENERATOR ZIP)
+    set(CPACK_SOURCE_IGNORE_FILES ${ignored_files})
+    set(CPACK_SOURCE_PACKAGE_FILE_NAME gncpy-${GNCPY_VERSION})
+    set(CPACK_PACKAGE_NAME gncpy)
+    set(CPACK_RESOURCE_FILE_README ${PROJECT_SOURCE_DIR}/README.rst)
+    include(CPack)
+endif ()
+
+
+# ------------------------------------------------------------------
 # ----------------------- Add GNCPy Library ------------------------
 # ------------------------------------------------------------------
 file(GLOB_RECURSE SRCS src/*.cpp)
@@ -143,10 +186,14 @@ add_library(gncpy ${HDRS} ${SRCS} README.rst)
 add_library(lager::gncpy ALIAS gncpy)
 
 target_link_libraries(gncpy cereal::cereal)
+if(GNCPY_TEST)
+    target_link_libraries(gncpy gcov)
+endif()
 target_include_directories(gncpy PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${GNCPY_INC_DIR}>
 )
+target_compile_options(gncpy PRIVATE ${GNCPY_COMPILE_FLAGS})
 
 set(GNCPY_DEBUG_POSTFIX d CACHE STRING "Debug library postfix.")
 
@@ -240,37 +287,4 @@ if (GNCPY_INSTALL)
         )
     endif()
     install(FILES "${pkgconfig}" DESTINATION "${GNCPY_PKGCONFIG_DIR}")
-endif ()
-
-if (GNCPY_DOC)
-    message(STATUS "Adding documentation...")
-    add_subdirectory(docs)
-endif ()
-
-if (GNCPY_TEST)
-    message(STATUS "Enabling testing...")
-    enable_testing()
-    add_subdirectory(test)
-endif ()
-
-set(gitignore ${PROJECT_SOURCE_DIR}/.gitignore)
-if (GNCPY_MASTER_PROJECT AND EXISTS ${gitignore})
-    # Get the list of ignored files from .gitignore.
-    file (STRINGS ${gitignore} lines)
-    list(REMOVE_ITEM lines /doc/html)
-    foreach (line ${lines})
-        string(REPLACE "." "[.]" line "${line}")
-        string(REPLACE "*" ".*" line "${line}")
-        set(ignored_files ${ignored_files} "${line}$" "${line}/")
-    endforeach ()
-    set(ignored_files ${ignored_files}
-        /.git /breathe /format-benchmark sphinx/ .buildinfo .doctrees
-    )
-
-    set(CPACK_SOURCE_GENERATOR ZIP)
-    set(CPACK_SOURCE_IGNORE_FILES ${ignored_files})
-    set(CPACK_SOURCE_PACKAGE_FILE_NAME gncpy-${GNCPY_VERSION})
-    set(CPACK_PACKAGE_NAME gncpy)
-    # set(CPACK_RESOURCE_FILE_README ${PROJECT_SOURCE_DIR}/README.rst)
-    include(CPack)
 endif ()

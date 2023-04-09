@@ -1,3 +1,5 @@
+![Tests Status](https://ryan4984.github.io/gncpy_cpp/reports/junit/tests-badge.svg?dummy=8484744) [![Test Cov](https://ryan4984.github.io/gncpy_cpp/reports/coverage/coverage-badge.svg?dummy=8484744)](https://ryan4984.github.io/gncpy_cpp/reports/coverage/index.html)
+
 Conan testing flow for out-of-source packages
 https://bincrafters.github.io/2018/02/27/Updated-Conan-Package-Flow-1.1/
 
