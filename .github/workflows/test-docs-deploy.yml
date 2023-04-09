@@ -18,9 +18,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
         image: ghcr.io/${{ github.repository }}-dev:latest
-        volumes:
-          - ./${{ github.repository }}:/workspace
-        options: --cpus 1
+        options: --cpus 4
       permissions: write-all
       # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
       # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -40,7 +38,7 @@ jobs:
             mkdir build
             cd build
             cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF ..
-            make
+            make -j4
             cd ..
             mkdir public
             mv -r build/docs/docs/html ./public/
