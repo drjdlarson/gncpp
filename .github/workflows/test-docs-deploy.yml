@@ -39,9 +39,6 @@ jobs:
             cd build
             cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF ..
             make -j2
-            cd ..
-            mkdir public
-            mv -r build/docs/docs/html ./public/
         # - name: Deploy to GitHub Pages
         #   uses: peaceiris/actions-gh-pages@v3
         #   with:
