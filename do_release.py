@@ -93,6 +93,9 @@ if __name__ == "__main__":
     version_str = "v{:d}.{:d}.{:d}".format(major, minor, patch)
     print("Releasing version: {:s}".format(version_str[1:]))
 
+    cmd_str = "git add -u && git commit -m 'bump version' && git push"
+    subprocess.run(cmd_str, shell=True)
+
     cmd_str = "git tag -a {:s} -m '{:s}'".format(version_str, args.message)
     subprocess.run(cmd_str, shell=True)
 
