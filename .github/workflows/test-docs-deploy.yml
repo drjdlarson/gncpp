@@ -14,13 +14,10 @@ jobs:
   deploy-docs:
       runs-on: ubuntu-latest
       container:
-        env:
-          REGISTRY: ${{ env.REGISTRY }}
-          IMAGE_BASE_NAME: ${{ github.repository }}
         credentials:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-        image: ${{ env.REGISTRY }}/${{ IMAGE_BASE_NAME }}-dev:latest
+        image: ghcr.io/${{ github.repository }}-dev:latest
         volumes:
           - ./${{ github.repository }}:/workspace
         options: --cpus 1
