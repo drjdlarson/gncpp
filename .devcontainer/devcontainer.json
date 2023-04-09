@@ -2,9 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/cpp
 {
 	"name": "gncpy_cpp-dev",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"image": "ghcr.io/ryan4984/gncpy_cpp-dev:latest",
 	"customizations": {
 		"vscode": {
 			"extensions": [
