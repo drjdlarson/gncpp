@@ -4,6 +4,11 @@
 // https://stackoverflow.com/questions/3525631/documenting-namespaces-that-span-multiple-files-doxygen
 
 
+/**
+ * @namespace lager
+ * @brief Top level namespace for all LAGER code
+ * 
+ */
 namespace lager {
     namespace gncpy {
         

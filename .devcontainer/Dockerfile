@@ -9,6 +9,8 @@ ARG USER_GID=1000
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         openssh-client \
+        doxygen \
+        graphviz \
         software-properties-common \
         python3-pip \
         python-is-python3 \
