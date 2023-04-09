@@ -13,6 +13,7 @@ env:
 jobs:
   unit-test:
     name: unit-test
+    runs-on: ubuntu-latest
     container:
       credentials:
         username: ${{ github.actor }}
