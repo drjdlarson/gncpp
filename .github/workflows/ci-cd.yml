@@ -1,0 +1,48 @@
+name: CI/CD
+on:
+  push:
+  pull_request:
+    branches: master
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_BASE_NAME: ${{ github.repository }}
+
+jobs:
+  unit-test:
+    name: unit-test
+    container:
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      image: ghcr.io/${{ github.repository }}-dev:latest
+      options: --cpus 2
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build in Debug
+        run: |
+          mkdir build
+          cd build
+          cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Debug ..
+          make -j2
+
+      - name: Unit test in Debug
+        run: |
+          cd build
+          ctest --output-on-failure -j2
+
+      - name: Build in Release
+        run: |
+          cd build
+          make clean
+          cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Release ..
+          make -j2
+
+      - name: Unit test in Debug
+        run: |
+          cd build
+          ctest --output-on-failure -j2
