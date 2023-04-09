@@ -9,6 +9,7 @@ ARG USER_GID=1000
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         openssh-client \
+        libssl-dev \
         doxygen \
         graphviz \
         software-properties-common \
