@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
+set(CMP0135 NEW)
+
 # Determine if gncpy is built as a subproject (using add_subdirectory)
 # or if it is the master project.
 if (NOT DEFINED GNCPY_MASTER_PROJECT)
