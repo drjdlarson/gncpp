@@ -39,4 +39,4 @@ RUN cd ~ \
     && make install
 
 # install additional tools for generating test status and coverage badges
-RUN pip install genbadge[tests,coverage] gcovr
+RUN pip install genbadge[tests,coverage] gcovr junit2html

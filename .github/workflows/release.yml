@@ -117,8 +117,8 @@ jobs:
 
       - name: Build in Debug
         run: |
+          mkdir build
           cd build
-          make clean
           cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Debug ..
           make -j2
 
@@ -126,15 +126,16 @@ jobs:
         run: |
           cd build
           ctest --output-on-failure -j2 --output-junit ${{ github.workspace }}/build/docs/html/reports/junit/junit.xml
-      
-      - name: Generate test badge
+
+      - name: Generate test report and badge
         run: |
+          junit2html ${{ github.workspace }}/build/docs/html/reports/junit/junit.xml ${{ github.workspace }}/build/docs/html/reports/junit/junit.html
           genbadge tests -i ${{ github.workspace }}/build/docs/html/reports/junit/junit.xml -o ${{ github.workspace }}/build/docs/html/reports/junit/tests-badge.svg
-      
+
       - name: Generate coverage report and badge
         run: |
-          gcovr -r .. -o ${{ github.workspace }}/build/docs/html/reports/coverage --html --html-nested --xml ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml
-          genbadge coverage -i -i ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml -o ${{ github.workspace }}/build/docs/html/reports/coverage/coverage-badge.svg
+          gcovr -r .. -o ${{ github.workspace }}/build/docs/html/reports/coverage/ --html --html-nested --xml ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml 
+          genbadge coverage -i ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml -o ${{ github.workspace }}/build/docs/html/reports/coverage/coverage-badge.svg
 
   deploy-docs:
     name: deploy-docs
@@ -152,9 +153,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Build Documentation
         run: |
-          mkdir build
           cd build
-          cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF -DCMAKE_BUILD_TYPE=Release ..
+          cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF -DCMAKE_BUILD_TYPE=Debug ..
           make -j2
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
