@@ -179,7 +179,7 @@ jobs:
           prerelease: false
           # TODO: the files can't be found so the full repo is zipped
           files: |
-            README.rst
+            README.md
             CMakeLists.txt
             docs/*
             include/*
