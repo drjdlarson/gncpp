@@ -120,9 +120,9 @@ private:
     std::shared_ptr<measurements::ILinearMeasModel<T>> m_measObj;
 
 };
-    
+
 } // namespace lager::gncpy::filters
 
 // see https://uscilab.github.io/cereal/assets/doxygen/polymorphic_8hpp.html#a01ebe0f840ac20c307f64622384e4dae
 // and "Registering from a source file" here https://uscilab.github.io/cereal/polymorphism.html
-CEREAL_FORCE_DYNAMIC_INIT(gncpy)
+CEREAL_FORCE_DYNAMIC_INIT(Kalman)

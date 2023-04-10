@@ -137,4 +137,4 @@ private:
     
 } // namespace lager::gncpy::matrix
 
-GNCPY_SERIALIZE_TYPES(lager::gncpy::matrix::Vector)
+GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::matrix::Vector)

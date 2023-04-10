@@ -81,4 +81,4 @@ private:
 
 } // namespace lager::gncpy::measurements
 
-GNCPY_SERIALIZE_TYPES(lager::gncpy::measurements::RangeAndBearing)
+GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::measurements::RangeAndBearing)

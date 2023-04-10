@@ -68,4 +68,4 @@ private:
 
 } // namespace lager::gncpy::dynamics
 
-GNCPY_SERIALIZE_TYPES(lager::gncpy::dynamics::IDynamics)
+GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::dynamics::IDynamics)

@@ -46,4 +46,4 @@ private:
 
 } // namespace lager::gncpy::filters
 
-GNCPY_SERIALIZE_TYPES(lager::gncpy::filters::IBayesFilter)
+GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::filters::IBayesFilter)

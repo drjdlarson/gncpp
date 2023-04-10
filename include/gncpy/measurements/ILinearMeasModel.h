@@ -33,4 +33,4 @@ private:
 
 } // namespace lager::gncpy::measurements
 
-GNCPY_SERIALIZE_TYPES(lager::gncpy::measurements::ILinearMeasModel)
+GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::measurements::ILinearMeasModel)

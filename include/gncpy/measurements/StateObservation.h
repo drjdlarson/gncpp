@@ -70,4 +70,6 @@ private:
 };
 }  // namespace lager::gncpy::measurements
 
-GNCPY_SERIALIZE_TYPES(lager::gncpy::measurements::StateObservation)
+// see https://uscilab.github.io/cereal/assets/doxygen/polymorphic_8hpp.html#a01ebe0f840ac20c307f64622384e4dae
+// and "Registering from a source file" here https://uscilab.github.io/cereal/polymorphism.html
+CEREAL_FORCE_DYNAMIC_INIT(StateObservation)
