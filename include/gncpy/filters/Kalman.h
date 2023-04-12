@@ -2,15 +2,14 @@
 #include <memory>
 #include <optional>
 
-#include "gncpy/dynamics/ILinearDynamics.h"
-#include "gncpy/dynamics/DoubleIntegrator.h"
+#include "gncpy/dynamics/SerializableTypes.h"
 #include "gncpy/Exceptions.h"
 #include "gncpy/filters/IBayesFilter.h"
 #include "gncpy/filters/Parameters.h"
 #include "gncpy/math/Vector.h"
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Math.h"
-#include "gncpy/measurements/ILinearMeasModel.h"
+#include "gncpy/measurements/SerializableTypes.h"
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/Utilities.h"
 
