@@ -1,4 +1,4 @@
-#pragma once
+// Note no include gaurd here ince it honly includes other headers which all have include gaurds
 
 #include "gncpy/measurements/IMeasModel.h"
 #include "gncpy/measurements/ILinearMeasModel.h"
