@@ -1,5 +1,6 @@
 #pragma once
 
+// CEREAL_FORCE_DYNAMIC_INIT(gncpy)
 
 #define GNCPY_REGISTER_SERIALIZE_TYPES(Class_t) \
     CEREAL_REGISTER_TYPE(Class_t<float>) \
@@ -42,6 +43,4 @@
 // and "Registering from a source file" here https://uscilab.github.io/cereal/polymorphism.html
 #define GNCPY_POPULATE_SERIALIZE(Class_t, LibName) \
     template class Class_t<float>; \
-    template class Class_t<double>; \
-    CEREAL_REGISTER_DYNAMIC_INIT(LibName) \
-    GNCPY_REGISTER_SERIALIZE_TYPES(Class_t)
+    template class Class_t<double>;

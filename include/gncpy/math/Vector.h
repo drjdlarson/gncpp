@@ -71,10 +71,10 @@ public:
 
     T magnitude() const {
         T sum = 0;
-        for (auto const & i : *this){
-                sum += i * i;
-            }
-        return T(sqrt(sum)); 
+        for (auto const& i : *this){
+            sum += i * i;
+        }
+        return static_cast<T>(sqrt(sum)); 
     }
 
     Vector<T> normalize(bool in_place = false) {
@@ -85,10 +85,10 @@ public:
         }
         else {
             std::vector<T> out;
-            for (auto const & i : *this){
+            for (auto& i : *this){
                 out.emplace_back(i/mag);
             }
-            return Vector<T> (out.size(), out);
+            return Vector<T>(out.size(), out);
         }
     }
 
@@ -111,9 +111,9 @@ public:
             throw BadDimension("Can only do cross product on 3D vector");
         }
         std::vector<T> out {0,0,0};
-        out[0] = static_cast <T> (this->operator()(1) * rhs(2) - this->operator()(2) * rhs(1));
-        out[1] = static_cast <T> (this->operator()(2) * rhs(0) - this->operator()(0) * rhs(2));
-        out[2] = static_cast <T> (this->operator()(0) * rhs(1) - this->operator()(1) * rhs(0));
+        out[0] = static_cast<T>(this->operator()(1) * rhs(2) - this->operator()(2) * rhs(1));
+        out[1] = static_cast<T>(this->operator()(2) * rhs(0) - this->operator()(0) * rhs(2));
+        out[2] = static_cast<T>(this->operator()(0) * rhs(1) - this->operator()(1) * rhs(0));
         return Vector<T> (out.size(), out);
     }
 

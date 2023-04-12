@@ -263,7 +263,7 @@ public:
             out.emplace_back(total);
         }
 
-        return Vector(out.size(), out);
+        return Vector<T>(out.size(), out);
     }
 
 
@@ -448,7 +448,7 @@ public:
         for (size_t i = 0; i < m_nCols; i++){
             out.emplace_back(this->operator()(i,i));
         }
-        return Vector(out.size(), out);
+        return Vector<T>(out.size(), out);
     }
 
     /**

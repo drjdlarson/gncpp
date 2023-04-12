@@ -2,13 +2,6 @@
 #include <functional>
 #include <vector>
 
-#include <cereal/access.hpp>
-#include <cereal/archives/json.hpp>
-#include <cereal/archives/binary.hpp>
-#include <cereal/archives/portable_binary.hpp>
-#include <cereal/types/base_class.hpp>
-#include <cereal/types/polymorphic.hpp>
-
 #include "gncpy/math/Vector.h"
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Math.h"

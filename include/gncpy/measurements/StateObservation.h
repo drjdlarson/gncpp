@@ -1,13 +1,6 @@
 #pragma once
 #include <vector>
 
-#include <cereal/access.hpp>
-#include <cereal/archives/json.hpp>
-#include <cereal/archives/binary.hpp>
-#include <cereal/archives/portable_binary.hpp>
-#include <cereal/types/base_class.hpp>
-#include <cereal/types/polymorphic.hpp>
-
 #include "gncpy/math/Vector.h"
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Math.h"
@@ -72,4 +65,5 @@ private:
 
 // see https://uscilab.github.io/cereal/assets/doxygen/polymorphic_8hpp.html#a01ebe0f840ac20c307f64622384e4dae
 // and "Registering from a source file" here https://uscilab.github.io/cereal/polymorphism.html
-CEREAL_FORCE_DYNAMIC_INIT(StateObservation)
+// CEREAL_FORCE_DYNAMIC_INIT(StateObservation)
+GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::measurements::StateObservation)
