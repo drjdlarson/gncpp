@@ -19,6 +19,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: print dir info
         run: |
           pwd
@@ -40,6 +41,12 @@ jobs:
     steps:
       # - name: Checkout repository
       #   uses: actions/checkout@v3
+      - name: print dir info
+        run: |
+          pwd
+          ls
+          echo "ls of ${{ github.workspace }}"
+          ls ${{ github.workspace }}
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
@@ -73,22 +80,22 @@ jobs:
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
-      - name: Build and push Docker image
-        id: build-and-push
-        uses: docker/build-push-action@v4
-        with:
-          context: .devcontainer/
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+      # - name: Build and push Docker image
+      #   id: build-and-push
+      #   uses: docker/build-push-action@v4
+      #   with:
+      #     context: .devcontainer/
+      #     push: ${{ github.event_name != 'pull_request' }}
+      #     tags: ${{ steps.meta.outputs.tags }}
+      #     labels: ${{ steps.meta.outputs.labels }}
+      #     cache-from: type=gha
+      #     cache-to: type=gha,mode=max
 
-      # Sign the resulting Docker image digest.
-      - name: Sign the images with GitHub OIDC Token **not production ready**
-        run: cosign sign --yes ${TAGS}
-        env:
-          TAGS: ${{ steps.meta.outputs.tags }}
+      # # Sign the resulting Docker image digest.
+      # - name: Sign the images with GitHub OIDC Token **not production ready**
+      #   run: cosign sign --yes ${TAGS}
+      #   env:
+      #     TAGS: ${{ steps.meta.outputs.tags }}
 
   build-devcontainer:
     runs-on: ubuntu-latest
@@ -110,11 +117,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and run Dev Container task
-        uses: devcontainers/ci@v0.3
-        with:
-          # Change this to point to your image name
-          imageName: ${{ env.REGISTRY }}/${{ env.IMAGE_BASE_NAME }}-devcontainer
+      # - name: Build and run Dev Container task
+      #   uses: devcontainers/ci@v0.3
+      #   with:
+      #     # Change this to point to your image name
+      #     imageName: ${{ env.REGISTRY }}/${{ env.IMAGE_BASE_NAME }}-devcontainer
 
   unit-test:
     name: unit-test
