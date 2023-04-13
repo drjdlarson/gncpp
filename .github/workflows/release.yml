@@ -114,7 +114,7 @@ jobs:
       options: --cpus 2
 
     steps:
-      -name: print dir info
+      - name: print dir info
         run: |
           pwd
           ls
