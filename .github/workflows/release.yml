@@ -138,9 +138,6 @@ jobs:
           cd build
           gcovr -r .. -o docs/html/reports/coverage/ --html --html-nested --xml docs/html/reports/coverage/coverage.xml 
           genbadge coverage -i docs/html/reports/coverage/coverage.xml -o docs/html/reports/coverage/coverage-badge.svg
-          pwd
-          ls docs/html/reports/**/*
-          rm .gitignore
 
       - name: Cache test reports
         id: cache-test-reports
@@ -153,8 +150,8 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: test-reports-artifact
-          path: docs/html/reports/coverage/coverage-badge.svg
-          # path: docs/html/reports/**/*
+          # path: docs/html/reports/coverage/coverage-badge.svg
+          path: docs/html/reports/**/*
           if-no-files-found: warn
 
   deploy-docs:
