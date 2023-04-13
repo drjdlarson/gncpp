@@ -148,11 +148,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: unit-test
     steps:
-      - run: |
-        pwd
-        ls build/docs/html
-        echo "ls of build/docs/html/reports"
-        ls build/docs/html/reports
+      - name: sanity chcek 
+        run: |
+          pwd
+          ls build/docs/html
+          echo "ls of build/docs/html/reports"
+          ls build/docs/html/reports
 
   deploy-docs:
     name: deploy-docs
