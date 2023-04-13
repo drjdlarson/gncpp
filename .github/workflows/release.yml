@@ -125,26 +125,37 @@ jobs:
       - name: Unit test in Debug
         run: |
           cd build
-          ctest --output-on-failure -j2 --output-junit ${{ github.workspace }}/build/docs/html/reports/junit/junit.xml
+          ctest --output-on-failure -j2 --output-junit docs/html/reports/junit/junit.xml
 
       - name: Generate test report and badge
         run: |
-          junit2html ${{ github.workspace }}/build/docs/html/reports/junit/junit.xml ${{ github.workspace }}/build/docs/html/reports/junit/junit.html
-          genbadge tests -i ${{ github.workspace }}/build/docs/html/reports/junit/junit.xml -o ${{ github.workspace }}/build/docs/html/reports/junit/tests-badge.svg
+          cd build
+          junit2html docs/html/reports/junit/junit.xml docs/html/reports/junit/junit.html
+          genbadge tests -i docs/html/reports/junit/junit.xml -o docs/html/reports/junit/tests-badge.svg
 
       - name: Generate coverage report and badge
         run: |
-          gcovr -r .. -o ${{ github.workspace }}/build/docs/html/reports/coverage/ --html --html-nested --xml ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml 
-          genbadge coverage -i ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml -o ${{ github.workspace }}/build/docs/html/reports/coverage/coverage-badge.svg
+          cd build
+          gcovr -r .. -o docs/html/reports/coverage/ --html --html-nested --xml docs/html/reports/coverage/coverage.xml 
+          genbadge coverage -i docs/html/reports/coverage/coverage.xml -o docs/html/reports/coverage/coverage-badge.svg
           pwd
-          rm ../.gitignore
+          ls docs/html/reports/**/*
+          rm .gitignore
+
+      - name: Cache test reports
+        id: cache-test-reports
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            docs/html/reports
+          key: cache-test-reports
 
       - uses: actions/upload-artifact@v3
         with:
           name: test-reports-artifact
-          path: ./docs/html/reports/coverage/coverage-badge.svg
-          # path: ${{ github.workspace }}/build/docs/html/reports/**/*
-          if-no-files-found: error
+          path: docs/html/reports/coverage/coverage-badge.svg
+          # path: docs/html/reports/**/*
+          if-no-files-found: warn
 
   deploy-docs:
     name: deploy-docs
@@ -168,11 +179,26 @@ jobs:
           cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF -DCMAKE_BUILD_TYPE=Debug ..
           make -j2
       
+      - name: Restore cached test results
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            docs/html/reports
+          key: ${{ jobs.unit-test.steps.cache-test-reports.output.cache-primary-key }}
+        
+      - name: sanity check
+        run: |
+          pwd
+          echo "ls of current dir"
+          ls
+          echo "ls of docs/html/reports"
+          ls docs/html/reports
+
       - name: Download test report artifacts
         uses: actions/download-artifact@v3
         with:
           name: test-reports-artifact
-          path: ./build/docs/html/reports
+          path: docs/html/reports
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
