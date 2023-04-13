@@ -1,7 +1,6 @@
 name: CI/CD
 on:
   push:
-    branches: conan
   pull_request:
     branches: master
 
@@ -12,8 +11,8 @@ env:
   IMAGE_BASE_NAME: ${{ github.repository }}
 
 jobs:
-  unit-test:
-    name: unit-test
+  unit-test-dbg:
+    name: unit-test-dbg
     runs-on: ubuntu-latest
     container:
       credentials:
@@ -25,6 +24,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Build in Debug
         run: |
           mkdir build
@@ -36,6 +36,20 @@ jobs:
         run: |
           cd build
           ctest --output-on-failure -j2
+
+  unit-test-rel:
+    name: unit-test-rel
+    runs-on: ubuntu-latest
+    container:
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      image: ghcr.io/${{ github.repository }}-dev:latest
+      options: --cpus 2
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Build in Release
         run: |
