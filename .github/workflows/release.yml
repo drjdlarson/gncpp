@@ -114,8 +114,16 @@ jobs:
       options: --cpus 2
 
     steps:
+      -name: print dir info
+        run: |
+          pwd
+          ls
+          echo "ls of /workspace"
+          ls /workspace
+
       - name: Build in Debug
         run: |
+          cd /workspace
           mkdir build
           cd build
           cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Debug ..
