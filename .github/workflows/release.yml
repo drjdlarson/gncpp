@@ -141,7 +141,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-reports-artifact
-          path: ${{ github.workspace }}/build/docs/html/reports
+          path: ${{ github.workspace }}/build/docs/html/reports/**/*
 
   deploy-docs:
     name: deploy-docs
