@@ -137,6 +137,12 @@ jobs:
           gcovr -r .. -o ${{ github.workspace }}/build/docs/html/reports/coverage/ --html --html-nested --xml ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml 
           genbadge coverage -i ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml -o ${{ github.workspace }}/build/docs/html/reports/coverage/coverage-badge.svg
 
+      - name: Upload report artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports-artifact
+          path: ${{ github.workspace }}/build/docs/html/reports
+
   deploy-docs:
     name: deploy-docs
     runs-on: ubuntu-latest
@@ -151,11 +157,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Build Documentation
         run: |
+          mkdir build
           cd build
           cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF -DCMAKE_BUILD_TYPE=Debug ..
           make -j2
+      
+      - name: Download test report artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: test-reports-artifact
+          path: ./build/docs/html/reports
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
