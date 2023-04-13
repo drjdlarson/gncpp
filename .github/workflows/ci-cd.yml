@@ -1,6 +1,7 @@
 name: CI/CD
 on:
   push:
+    branches: conan
   pull_request:
     branches: master
 
