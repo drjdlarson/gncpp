@@ -184,7 +184,7 @@ jobs:
         with:
           path: |
             docs/html/reports
-          key: ${{ jobs.unit-test.steps.cache-test-reports.output.cache-primary-key }}
+          key: cache-test-reports
         
       - name: sanity check
         run: |
