@@ -6,9 +6,9 @@
 	skipped="0"
 	hostname=""
 	time="0"
-	timestamp="2023-04-13T20:26:38"
+	timestamp="2023-04-13T20:45:44"
 	>
-	<testcase name="DoubleInt.Propagate" classname="DoubleInt.Propagate" time="0.00387669" status="run">
+	<testcase name="DoubleInt.Propagate" classname="DoubleInt.Propagate" time="0.00274731" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = DoubleInt.Propagate
 [==========] Running 1 test from 1 test suite.
@@ -33,7 +33,7 @@ t = 0.9: 1 0 1 0
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="DoubleInt.serialize" classname="DoubleInt.serialize" time="0.0025437" status="run">
+	<testcase name="DoubleInt.serialize" classname="DoubleInt.serialize" time="0.00415712" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = DoubleInt.serialize
 [==========] Running 1 test from 1 test suite.
@@ -72,7 +72,7 @@ Loaded class:
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.Index" classname="MatrixTest.Index" time="0.00302939" status="run">
+	<testcase name="MatrixTest.Index" classname="MatrixTest.Index" time="0.00291071" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.Index
 [==========] Running 1 test from 1 test suite.
@@ -87,7 +87,7 @@ Note: Google Test filter = MatrixTest.Index
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.Add" classname="MatrixTest.Add" time="0.00500019" status="run">
+	<testcase name="MatrixTest.Add" classname="MatrixTest.Add" time="0.00242241" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.Add
 [==========] Running 1 test from 1 test suite.
@@ -102,7 +102,7 @@ Note: Google Test filter = MatrixTest.Add
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.Multiply" classname="MatrixTest.Multiply" time="0.00484589" status="run">
+	<testcase name="MatrixTest.Multiply" classname="MatrixTest.Multiply" time="0.00365961" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.Multiply
 [==========] Running 1 test from 1 test suite.
@@ -117,7 +117,7 @@ Note: Google Test filter = MatrixTest.Multiply
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.MultiplyNonSquare" classname="MatrixTest.MultiplyNonSquare" time="0.00578179" status="run">
+	<testcase name="MatrixTest.MultiplyNonSquare" classname="MatrixTest.MultiplyNonSquare" time="0.00405292" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.MultiplyNonSquare
 [==========] Running 1 test from 1 test suite.
@@ -132,7 +132,7 @@ Note: Google Test filter = MatrixTest.MultiplyNonSquare
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.MultiplyVector" classname="MatrixTest.MultiplyVector" time="0.0020786" status="run">
+	<testcase name="MatrixTest.MultiplyVector" classname="MatrixTest.MultiplyVector" time="0.00259561" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.MultiplyVector
 [==========] Running 1 test from 1 test suite.
@@ -167,7 +167,7 @@ m2 =
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.TransposeMatrix" classname="MatrixTest.TransposeMatrix" time="0.00274269" status="run">
+	<testcase name="MatrixTest.TransposeMatrix" classname="MatrixTest.TransposeMatrix" time="0.00371142" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.TransposeMatrix
 [==========] Running 1 test from 1 test suite.
@@ -182,7 +182,7 @@ Note: Google Test filter = MatrixTest.TransposeMatrix
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.TransposeMatrixInPlace" classname="MatrixTest.TransposeMatrixInPlace" time="0.00328829" status="run">
+	<testcase name="MatrixTest.TransposeMatrixInPlace" classname="MatrixTest.TransposeMatrixInPlace" time="0.00387892" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.TransposeMatrixInPlace
 [==========] Running 1 test from 1 test suite.
@@ -197,7 +197,7 @@ Note: Google Test filter = MatrixTest.TransposeMatrixInPlace
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.InovCovCalc" classname="MatrixTest.InovCovCalc" time="0.00294109" status="run">
+	<testcase name="MatrixTest.InovCovCalc" classname="MatrixTest.InovCovCalc" time="0.00254191" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.InovCovCalc
 [==========] Running 1 test from 1 test suite.
@@ -221,7 +221,7 @@ Note: Google Test filter = MatrixTest.InovCovCalc
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MatrixTest.serialize" classname="MatrixTest.serialize" time="0.00327889" status="run">
+	<testcase name="MatrixTest.serialize" classname="MatrixTest.serialize" time="0.00418972" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MatrixTest.serialize
 [==========] Running 1 test from 1 test suite.
@@ -277,7 +277,7 @@ Loaded class:
 [This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
 </system-out>
 	</testcase>
-	<testcase name="VectorTest.Index" classname="VectorTest.Index" time="0.0028127" status="run">
+	<testcase name="VectorTest.Index" classname="VectorTest.Index" time="0.00472312" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = VectorTest.Index
 [==========] Running 1 test from 1 test suite.
@@ -292,7 +292,7 @@ Note: Google Test filter = VectorTest.Index
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="VectorTest.Add" classname="VectorTest.Add" time="0.00312629" status="run">
+	<testcase name="VectorTest.Add" classname="VectorTest.Add" time="0.00259331" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = VectorTest.Add
 [==========] Running 1 test from 1 test suite.
@@ -307,7 +307,7 @@ Note: Google Test filter = VectorTest.Add
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="VectorTest.Subtract" classname="VectorTest.Subtract" time="0.00330199" status="run">
+	<testcase name="VectorTest.Subtract" classname="VectorTest.Subtract" time="0.00252091" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = VectorTest.Subtract
 [==========] Running 1 test from 1 test suite.
@@ -322,7 +322,7 @@ Note: Google Test filter = VectorTest.Subtract
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="VectorTest.serialize" classname="VectorTest.serialize" time="0.0024912" status="run">
+	<testcase name="VectorTest.serialize" classname="VectorTest.serialize" time="0.00410502" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = VectorTest.serialize
 [==========] Running 1 test from 1 test suite.
@@ -371,7 +371,7 @@ Loaded class:
 [This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
 </system-out>
 	</testcase>
-	<testcase name="MathTest.JacobianVec" classname="MathTest.JacobianVec" time="0.00338809" status="run">
+	<testcase name="MathTest.JacobianVec" classname="MathTest.JacobianVec" time="0.00439522" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.JacobianVec
 [==========] Running 1 test from 1 test suite.
@@ -386,7 +386,7 @@ Note: Google Test filter = MathTest.JacobianVec
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.JacobianSquareMat" classname="MathTest.JacobianSquareMat" time="0.0025914" status="run">
+	<testcase name="MathTest.JacobianSquareMat" classname="MathTest.JacobianSquareMat" time="0.00228081" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.JacobianSquareMat
 [==========] Running 1 test from 1 test suite.
@@ -401,7 +401,7 @@ Note: Google Test filter = MathTest.JacobianSquareMat
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.JacobianMat" classname="MathTest.JacobianMat" time="0.00445809" status="run">
+	<testcase name="MathTest.JacobianMat" classname="MathTest.JacobianMat" time="0.00361791" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.JacobianMat
 [==========] Running 1 test from 1 test suite.
@@ -416,7 +416,7 @@ Note: Google Test filter = MathTest.JacobianMat
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.GaussianPDF" classname="MathTest.GaussianPDF" time="0.0019914" status="run">
+	<testcase name="MathTest.GaussianPDF" classname="MathTest.GaussianPDF" time="0.00375151" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.GaussianPDF
 [==========] Running 1 test from 1 test suite.
@@ -431,7 +431,7 @@ Note: Google Test filter = MathTest.GaussianPDF
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.GaussianPDFVec" classname="MathTest.GaussianPDFVec" time="0.0024498" status="run">
+	<testcase name="MathTest.GaussianPDFVec" classname="MathTest.GaussianPDFVec" time="0.00357401" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.GaussianPDFVec
 [==========] Running 1 test from 1 test suite.
@@ -446,7 +446,7 @@ Note: Google Test filter = MathTest.GaussianPDFVec
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MeasurementTest.StateObservationMeasure" classname="MeasurementTest.StateObservationMeasure" time="0.00363629" status="run">
+	<testcase name="MeasurementTest.StateObservationMeasure" classname="MeasurementTest.StateObservationMeasure" time="0.00381831" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MeasurementTest.StateObservationMeasure
 [==========] Running 1 test from 1 test suite.
@@ -461,7 +461,7 @@ Note: Google Test filter = MeasurementTest.StateObservationMeasure
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MeasurementTest.StateObservationMeasMat" classname="MeasurementTest.StateObservationMeasMat" time="0.0029355" status="run">
+	<testcase name="MeasurementTest.StateObservationMeasMat" classname="MeasurementTest.StateObservationMeasMat" time="0.00342151" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MeasurementTest.StateObservationMeasMat
 [==========] Running 1 test from 1 test suite.
@@ -476,7 +476,7 @@ Note: Google Test filter = MeasurementTest.StateObservationMeasMat
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MeasurementTest.RangeBearingMeasure" classname="MeasurementTest.RangeBearingMeasure" time="0.00481949" status="run">
+	<testcase name="MeasurementTest.RangeBearingMeasure" classname="MeasurementTest.RangeBearingMeasure" time="0.00497292" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MeasurementTest.RangeBearingMeasure
 [==========] Running 1 test from 1 test suite.
@@ -491,7 +491,7 @@ Note: Google Test filter = MeasurementTest.RangeBearingMeasure
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MeasurementTest.RangeBearingMeasMat" classname="MeasurementTest.RangeBearingMeasMat" time="0.0022675" status="run">
+	<testcase name="MeasurementTest.RangeBearingMeasMat" classname="MeasurementTest.RangeBearingMeasMat" time="0.00490862" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MeasurementTest.RangeBearingMeasMat
 [==========] Running 1 test from 1 test suite.
@@ -506,7 +506,7 @@ Note: Google Test filter = MeasurementTest.RangeBearingMeasMat
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.SetStateModel" classname="KFTest.SetStateModel" time="0.00498319" status="run">
+	<testcase name="KFTest.SetStateModel" classname="KFTest.SetStateModel" time="0.00499162" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.SetStateModel
 [==========] Running 1 test from 1 test suite.
@@ -521,7 +521,7 @@ Note: Google Test filter = KFTest.SetStateModel
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.SetMeasModel" classname="KFTest.SetMeasModel" time="0.002469" status="run">
+	<testcase name="KFTest.SetMeasModel" classname="KFTest.SetMeasModel" time="0.00579042" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.SetMeasModel
 [==========] Running 1 test from 1 test suite.
@@ -536,7 +536,7 @@ Note: Google Test filter = KFTest.SetMeasModel
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.GetSetCovariance" classname="KFTest.GetSetCovariance" time="0.0027999" status="run">
+	<testcase name="KFTest.GetSetCovariance" classname="KFTest.GetSetCovariance" time="0.00403472" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.GetSetCovariance
 [==========] Running 1 test from 1 test suite.
@@ -551,7 +551,7 @@ Note: Google Test filter = KFTest.GetSetCovariance
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.FilterPredict" classname="KFTest.FilterPredict" time="0.00376869" status="run">
+	<testcase name="KFTest.FilterPredict" classname="KFTest.FilterPredict" time="0.00445322" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.FilterPredict
 [==========] Running 1 test from 1 test suite.
@@ -566,7 +566,7 @@ Note: Google Test filter = KFTest.FilterPredict
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.FilterCorrect" classname="KFTest.FilterCorrect" time="0.0030211" status="run">
+	<testcase name="KFTest.FilterCorrect" classname="KFTest.FilterCorrect" time="0.00507532" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.FilterCorrect
 [==========] Running 1 test from 1 test suite.
@@ -581,7 +581,7 @@ Note: Google Test filter = KFTest.FilterCorrect
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.serialize" classname="KFTest.serialize" time="0.00368209" status="run">
+	<testcase name="KFTest.serialize" classname="KFTest.serialize" time="0.00348421" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.serialize
 [==========] Running 1 test from 1 test suite.
