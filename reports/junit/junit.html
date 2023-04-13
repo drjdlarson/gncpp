@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>junit.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em solid lightyellow;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : junit.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>DoubleInt.Propagate
+                <ul>
+                    
+                    <li><a href="#092896d9-3011-4d5d-b19d-49e4c3d58166">DoubleInt.Propagate</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>DoubleInt.serialize
+                <ul>
+                    
+                    <li><a href="#72aaf81a-0175-4673-97d9-a3735f7fc87f">DoubleInt.serialize</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.Index
+                <ul>
+                    
+                    <li><a href="#1a0eb11d-f5df-4496-8613-bf21eaf9052f">MatrixTest.Index</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.Add
+                <ul>
+                    
+                    <li><a href="#23fc3169-07a1-432b-b3f5-70ae301e107d">MatrixTest.Add</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.Multiply
+                <ul>
+                    
+                    <li><a href="#b807f240-0298-412e-9d74-4bbe54513e04">MatrixTest.Multiply</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.MultiplyNonSquare
+                <ul>
+                    
+                    <li><a href="#5e58b58c-6fcf-4809-b61c-c6883ae1577e">MatrixTest.MultiplyNonSquare</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.MultiplyVector
+                <ul>
+                    
+                    <li><a href="#9c3b3e4c-c5af-4daf-bf59-1e0ab5a5a5ac">MatrixTest.MultiplyVector</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.TransposeMatrix
+                <ul>
+                    
+                    <li><a href="#a2f023aa-ec6e-4c79-962d-61cc5049aebb">MatrixTest.TransposeMatrix</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.TransposeMatrixInPlace
+                <ul>
+                    
+                    <li><a href="#4e33c2f1-c661-4d74-87c7-4edef5f78e7d">MatrixTest.TransposeMatrixInPlace</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.InovCovCalc
+                <ul>
+                    
+                    <li><a href="#6039972b-109a-47fe-8da6-7bf6fdbbe3b5">MatrixTest.InovCovCalc</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MatrixTest.serialize
+                <ul>
+                    
+                    <li><a href="#aff93346-f23b-4205-b172-b865b01421cb">MatrixTest.serialize</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>VectorTest.Index
+                <ul>
+                    
+                    <li><a href="#f1b28957-ec0b-4ee9-b659-1745c7ec9a3f">VectorTest.Index</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>VectorTest.Add
+                <ul>
+                    
+                    <li><a href="#b87ce842-ff8c-4c50-8bcc-e9ef2b0a9f0b">VectorTest.Add</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>VectorTest.Subtract
+                <ul>
+                    
+                    <li><a href="#493388ad-1e08-4ad7-b14b-9425713b53f2">VectorTest.Subtract</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>VectorTest.serialize
+                <ul>
+                    
+                    <li><a href="#2827f29e-49c0-4650-9e75-7da0ebf072d0">VectorTest.serialize</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MathTest.JacobianVec
+                <ul>
+                    
+                    <li><a href="#df36ad97-6582-4b99-8a73-11d834bba69b">MathTest.JacobianVec</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MathTest.JacobianSquareMat
+                <ul>
+                    
+                    <li><a href="#347cd203-3131-45c0-a3cc-6bc78cd9f526">MathTest.JacobianSquareMat</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MathTest.JacobianMat
+                <ul>
+                    
+                    <li><a href="#31e176b7-a6af-4550-b9dc-1a1963ca59d7">MathTest.JacobianMat</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MathTest.GaussianPDF
+                <ul>
+                    
+                    <li><a href="#f0e0c15d-015d-4f09-bd3c-dc09e300a288">MathTest.GaussianPDF</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MathTest.GaussianPDFVec
+                <ul>
+                    
+                    <li><a href="#679dea5a-f3c3-4505-a1f8-fad05d504c26">MathTest.GaussianPDFVec</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MeasurementTest.StateObservationMeasure
+                <ul>
+                    
+                    <li><a href="#b7f779c9-b295-4a7e-b200-f6512669c057">MeasurementTest.StateObservationMeasure</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MeasurementTest.StateObservationMeasMat
+                <ul>
+                    
+                    <li><a href="#a25b7a2a-400a-424c-9f53-55c78cfe89bc">MeasurementTest.StateObservationMeasMat</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MeasurementTest.RangeBearingMeasure
+                <ul>
+                    
+                    <li><a href="#92af7ae0-22f0-498b-aead-45a54fe6ae66">MeasurementTest.RangeBearingMeasure</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>MeasurementTest.RangeBearingMeasMat
+                <ul>
+                    
+                    <li><a href="#ddc8ae21-8d91-47d8-9682-0167c954eee1">MeasurementTest.RangeBearingMeasMat</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>KFTest.SetStateModel
+                <ul>
+                    
+                    <li><a href="#1318b50e-966b-452f-97fa-6fb26eb0cf3a">KFTest.SetStateModel</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>KFTest.SetMeasModel
+                <ul>
+                    
+                    <li><a href="#ce261975-33e6-4642-a829-24f757defc7b">KFTest.SetMeasModel</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>KFTest.GetSetCovariance
+                <ul>
+                    
+                    <li><a href="#b01f51cf-8470-4423-b377-6f056f26a4b6">KFTest.GetSetCovariance</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>KFTest.FilterPredict
+                <ul>
+                    
+                    <li><a href="#a02dc087-14df-4169-8e10-ad6b11bff361">KFTest.FilterPredict</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>KFTest.FilterCorrect
+                <ul>
+                    
+                    <li><a href="#6953e6f3-5169-482a-bdad-a00538191542">KFTest.FilterCorrect</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>KFTest.serialize
+                <ul>
+                    
+                    <li><a href="#8de530f3-9ef0-4e5b-8c77-721306ffbaed">KFTest.serialize</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="testsuite">
+        <h2>Test Suite: (empty)</h2>
+        <a id="630adf45-278a-46dd-a228-5961372a4409"></a>
+        
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>0.0 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>30</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>0</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>DoubleInt.Propagate</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="092896d9-3011-4d5d-b19d-49e4c3d58166"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>DoubleInt.Propagate</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DoubleInt.Propagate
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DoubleInt
+[ RUN      ] DoubleInt.Propagate
+t = 0: 0.1 0 1 0 
+t = 0.1: 0.2 0 1 0 
+t = 0.2: 0.3 0 1 0 
+t = 0.3: 0.4 0 1 0 
+t = 0.4: 0.5 0 1 0 
+t = 0.5: 0.6 0 1 0 
+t = 0.6: 0.7 0 1 0 
+t = 0.7: 0.8 0 1 0 
+t = 0.8: 0.9 0 1 0 
+t = 0.9: 1 0 1 0 
+[       OK ] DoubleInt.Propagate (0 ms)
+[----------] 1 test from DoubleInt (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>DoubleInt.serialize</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="72aaf81a-0175-4673-97d9-a3735f7fc87f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>DoubleInt.serialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DoubleInt.serialize
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DoubleInt
+[ RUN      ] DoubleInt.serialize
+Original class:
+{
+    &#34;value0&#34;: {
+        &#34;ILinearDynamics&#34;: {
+            &#34;IDynamics&#34;: {
+                &#34;m_hasStateConstraint&#34;: false
+            },
+            &#34;m_hasContolModel&#34;: false
+        },
+        &#34;m_dt&#34;: 0.1
+    }
+}
+Loaded class:
+{
+    &#34;value0&#34;: {
+        &#34;ILinearDynamics&#34;: {
+            &#34;IDynamics&#34;: {
+                &#34;m_hasStateConstraint&#34;: false
+            },
+            &#34;m_hasContolModel&#34;: false
+        },
+        &#34;m_dt&#34;: 0.1
+    }
+}
+[       OK ] DoubleInt.serialize (0 ms)
+[----------] 1 test from DoubleInt (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.Index</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="1a0eb11d-f5df-4496-8613-bf21eaf9052f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.Index</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.Index
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.Index
+[       OK ] MatrixTest.Index (0 ms)
+[----------] 1 test from MatrixTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.Add</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="23fc3169-07a1-432b-b3f5-70ae301e107d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.Add</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.Add
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.Add
+1251[       OK ] MatrixTest.Add (0 ms)
+[----------] 1 test from MatrixTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.Multiply</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b807f240-0298-412e-9d74-4bbe54513e04"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.Multiply</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.Multiply
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.Multiply
+451621[       OK ] MatrixTest.Multiply (0 ms)
+[----------] 1 test from MatrixTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.MultiplyNonSquare</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="5e58b58c-6fcf-4809-b61c-c6883ae1577e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.MultiplyNonSquare</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.006 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.MultiplyNonSquare
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.MultiplyNonSquare
+[       OK ] MatrixTest.MultiplyNonSquare (0 ms)
+[----------] 1 test from MatrixTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.MultiplyVector</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="9c3b3e4c-c5af-4daf-bf59-1e0ab5a5a5ac"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.MultiplyVector</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.MultiplyVector
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.MultiplyVector
+v1 = 
+2.000000	
+3.000000	
+
+v2 = 
+2.000000	
+3.000000	
+
+m1 = 
+1.000000	2.000000	
+3.000000	4.000000	
+
+m2 = 
+1.000000	0.000000	0.000000	
+0.000000	1.000000	0.000000	
+
+8
+18
+4
+5
+[       OK ] MatrixTest.MultiplyVector (0 ms)
+[----------] 1 test from MatrixTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.TransposeMatrix</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="a2f023aa-ec6e-4c79-962d-61cc5049aebb"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.TransposeMatrix</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.TransposeMatrix
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.TransposeMatrix
+15263748[       OK ] MatrixTest.TransposeMatrix (0 ms)
+[----------] 1 test from MatrixTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.TransposeMatrixInPlace</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="4e33c2f1-c661-4d74-87c7-4edef5f78e7d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.TransposeMatrixInPlace</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.TransposeMatrixInPlace
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.TransposeMatrixInPlace
+15263748[       OK ] MatrixTest.TransposeMatrixInPlace (0 ms)
+[----------] 1 test from MatrixTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.InovCovCalc</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="6039972b-109a-47fe-8da6-7bf6fdbbe3b5"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.InovCovCalc</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.InovCovCalc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.InovCovCalc
+1.000000	0.000000	
+0.000000	1.000000	
+0.000000	0.000000	
+0.000000	0.000000	
+
+1.000000	0.000000	
+0.000000	1.000000	
+0.000000	0.000000	
+0.000000	0.000000	
+[       OK ] MatrixTest.InovCovCalc (0 ms)
+[----------] 1 test from MatrixTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MatrixTest.serialize</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="aff93346-f23b-4205-b172-b865b01421cb"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MatrixTest.serialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MatrixTest.serialize
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatrixTest
+[ RUN      ] MatrixTest.serialize
+Original class:
+{
+    &#34;value0&#34;: {
+        &#34;m_transposed&#34;: false,
+        &#34;m_nRows&#34;: 2,
+        &#34;m_nCols&#34;: 4,
+        &#34;m_shape&#34;: [
+            2,
+            4,
+            1
+        ],
+        &#34;m_strides&#34;: [
+            4,
+            1,
+            1
+        ],
+        &#34;m_data&#34;: [
+            1.0,
+            0.0,
+            0.4,
+            2.5,
+            -2.3,
+            1.0,
+            8.9,
+            -9.2
+        ]
+    }
+}
+Loaded class:
+{
+    &#34;value0&#34;: {
+        &#34;m_transposed&#34;: false,
+        &#34;m_nRows&#34;: 2,
+        &#34;m_nCols&#34;: 4,
+        &#34;m_shape&#34;: [
+            2,
+            4,
+            1
+        ],
+        &#34;m_strides&#34;: [
+            4,
+            1,
+            1
+        ],
+        &#34;m_data&#34;: [
+        ...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>VectorTest.Index</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="f1b28957-ec0b-4ee9-b659-1745c7ec9a3f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>VectorTest.Index</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = VectorTest.Index
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorTest
+[ RUN      ] VectorTest.Index
+[       OK ] VectorTest.Index (0 ms)
+[----------] 1 test from VectorTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>VectorTest.Add</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b87ce842-ff8c-4c50-8bcc-e9ef2b0a9f0b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>VectorTest.Add</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = VectorTest.Add
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorTest
+[ RUN      ] VectorTest.Add
+[       OK ] VectorTest.Add (0 ms)
+[----------] 1 test from VectorTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>VectorTest.Subtract</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="493388ad-1e08-4ad7-b14b-9425713b53f2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>VectorTest.Subtract</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = VectorTest.Subtract
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorTest
+[ RUN      ] VectorTest.Subtract
+[       OK ] VectorTest.Subtract (0 ms)
+[----------] 1 test from VectorTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>VectorTest.serialize</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="2827f29e-49c0-4650-9e75-7da0ebf072d0"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>VectorTest.serialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = VectorTest.serialize
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from VectorTest
+[ RUN      ] VectorTest.serialize
+Original class:
+{
+    &#34;value0&#34;: {
+        &#34;Matrix&#34;: {
+            &#34;m_transposed&#34;: false,
+            &#34;m_nRows&#34;: 4,
+            &#34;m_nCols&#34;: 1,
+            &#34;m_shape&#34;: [
+                4,
+                1,
+                1
+            ],
+            &#34;m_strides&#34;: [
+                1,
+                1,
+                1
+            ],
+            &#34;m_data&#34;: [
+                -2.3,
+                1.0,
+                8.9,
+                -9.2
+            ]
+        }
+    }
+}
+Loaded class:
+{
+    &#34;value0&#34;: {
+        &#34;Matrix&#34;: {
+            &#34;m_transposed&#34;: false,
+            &#34;m_nRows&#34;: 4,
+            &#34;m_nCols&#34;: 1,
+            &#34;m_shape&#34;: [
+                4,
+                1,
+                1
+            ],
+            &#34;m_s...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MathTest.JacobianVec</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="df36ad97-6582-4b99-8a73-11d834bba69b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MathTest.JacobianVec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MathTest.JacobianVec
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MathTest
+[ RUN      ] MathTest.JacobianVec
+012101210121012101210121[       OK ] MathTest.JacobianVec (0 ms)
+[----------] 1 test from MathTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MathTest.JacobianSquareMat</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="347cd203-3131-45c0-a3cc-6bc78cd9f526"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MathTest.JacobianSquareMat</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MathTest.JacobianSquareMat
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MathTest
+[ RUN      ] MathTest.JacobianSquareMat
+012101210121012101210121002100210021002100210021201120112011201120112011[       OK ] MathTest.JacobianSquareMat (0 ms)
+[----------] 1 test from MathTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MathTest.JacobianMat</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="31e176b7-a6af-4550-b9dc-1a1963ca59d7"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MathTest.JacobianMat</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MathTest.JacobianMat
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MathTest
+[ RUN      ] MathTest.JacobianMat
+0000010101010000[       OK ] MathTest.JacobianMat (0 ms)
+[----------] 1 test from MathTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MathTest.GaussianPDF</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="f0e0c15d-015d-4f09-bd3c-dc09e300a288"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MathTest.GaussianPDF</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MathTest.GaussianPDF
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MathTest
+[ RUN      ] MathTest.GaussianPDF
+[       OK ] MathTest.GaussianPDF (0 ms)
+[----------] 1 test from MathTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MathTest.GaussianPDFVec</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="679dea5a-f3c3-4505-a1f8-fad05d504c26"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MathTest.GaussianPDFVec</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MathTest.GaussianPDFVec
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MathTest
+[ RUN      ] MathTest.GaussianPDFVec
+[       OK ] MathTest.GaussianPDFVec (0 ms)
+[----------] 1 test from MathTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MeasurementTest.StateObservationMeasure</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b7f779c9-b295-4a7e-b200-f6512669c057"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MeasurementTest.StateObservationMeasure</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MeasurementTest.StateObservationMeasure
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MeasurementTest
+[ RUN      ] MeasurementTest.StateObservationMeasure
+[       OK ] MeasurementTest.StateObservationMeasure (0 ms)
+[----------] 1 test from MeasurementTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MeasurementTest.StateObservationMeasMat</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="a25b7a2a-400a-424c-9f53-55c78cfe89bc"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MeasurementTest.StateObservationMeasMat</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MeasurementTest.StateObservationMeasMat
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MeasurementTest
+[ RUN      ] MeasurementTest.StateObservationMeasMat
+[       OK ] MeasurementTest.StateObservationMeasMat (0 ms)
+[----------] 1 test from MeasurementTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MeasurementTest.RangeBearingMeasure</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="92af7ae0-22f0-498b-aead-45a54fe6ae66"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MeasurementTest.RangeBearingMeasure</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MeasurementTest.RangeBearingMeasure
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MeasurementTest
+[ RUN      ] MeasurementTest.RangeBearingMeasure
+001101[       OK ] MeasurementTest.RangeBearingMeasure (0 ms)
+[----------] 1 test from MeasurementTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>MeasurementTest.RangeBearingMeasMat</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="ddc8ae21-8d91-47d8-9682-0167c954eee1"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>MeasurementTest.RangeBearingMeasMat</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MeasurementTest.RangeBearingMeasMat
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MeasurementTest
+[ RUN      ] MeasurementTest.RangeBearingMeasMat
+001100110011001100110011010101010101[       OK ] MeasurementTest.RangeBearingMeasMat (0 ms)
+[----------] 1 test from MeasurementTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>KFTest.SetStateModel</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="1318b50e-966b-452f-97fa-6fb26eb0cf3a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>KFTest.SetStateModel</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = KFTest.SetStateModel
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from KFTest
+[ RUN      ] KFTest.SetStateModel
+[       OK ] KFTest.SetStateModel (0 ms)
+[----------] 1 test from KFTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>KFTest.SetMeasModel</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="ce261975-33e6-4642-a829-24f757defc7b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>KFTest.SetMeasModel</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = KFTest.SetMeasModel
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from KFTest
+[ RUN      ] KFTest.SetMeasModel
+[       OK ] KFTest.SetMeasModel (0 ms)
+[----------] 1 test from KFTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>KFTest.GetSetCovariance</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b01f51cf-8470-4423-b377-6f056f26a4b6"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>KFTest.GetSetCovariance</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = KFTest.GetSetCovariance
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from KFTest
+[ RUN      ] KFTest.GetSetCovariance
+[       OK ] KFTest.GetSetCovariance (0 ms)
+[----------] 1 test from KFTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>KFTest.FilterPredict</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="a02dc087-14df-4169-8e10-ad6b11bff361"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>KFTest.FilterPredict</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = KFTest.FilterPredict
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from KFTest
+[ RUN      ] KFTest.FilterPredict
+[       OK ] KFTest.FilterPredict (0 ms)
+[----------] 1 test from KFTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>KFTest.FilterCorrect</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="6953e6f3-5169-482a-bdad-a00538191542"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>KFTest.FilterCorrect</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = KFTest.FilterCorrect
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from KFTest
+[ RUN      ] KFTest.FilterCorrect
+[       OK ] KFTest.FilterCorrect (0 ms)
+[----------] 1 test from KFTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>KFTest.serialize</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="8de530f3-9ef0-4e5b-8c77-721306ffbaed"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>KFTest.serialize</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>None</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>None</pre>
+                        
+                        
+
+                        
+                        
+                        <div class="stdout"><i>Stdout</i><br>
+                            <pre>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = KFTest.serialize
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from KFTest
+[ RUN      ] KFTest.serialize
+Original class:
+{
+    &#34;value0&#34;: {
+        &#34;IBayesFilter&#34;: {
+            &#34;cov&#34;: {
+                &#34;m_transposed&#34;: false,
+                &#34;m_nRows&#34;: 4,
+                &#34;m_nCols&#34;: 4,
+                &#34;m_shape&#34;: [
+                    4,
+                    4,
+                    1
+                ],
+                &#34;m_strides&#34;: [
+                    4,
+                    1,
+                    1
+                ],
+                &#34;m_data&#34;: [
+                    1.0,
+                    0.0,
+                    0.3,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    4.0,
+                    0.0,
+                    3.0,
+                    1.0,
+                    0....
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
