@@ -14,7 +14,7 @@ class DoubleIntegrator final: public ILinearDynamics<T>{
 
 friend class cereal::access;
 
-GNCPY_SERIALIZE_CLASS(DoubleIntegrator, T)
+GNCPY_SERIALIZE_CLASS(DoubleIntegrator<T>)
 
 public:
     DoubleIntegrator<T>() = default;

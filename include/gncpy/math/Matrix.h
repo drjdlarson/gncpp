@@ -31,7 +31,7 @@ class Matrix {
 
 friend class cereal::access;
 
-GNCPY_SERIALIZE_CLASS(Matrix, T)
+GNCPY_SERIALIZE_CLASS(Matrix<T>)
 
 public:
     Matrix<T>() = default;

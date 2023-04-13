@@ -9,15 +9,15 @@
 
 // see https://stackoverflow.com/questions/42253474/trouble-deserializing-cereal-portablebinaryarchive
 // for details on save/load class state
-#define GNCPY_SERIALIZE_CLASS(Class_t, T) \
+#define GNCPY_SERIALIZE_CLASS(Class_t) \
     public: \
         std::stringstream saveClassState() const { \
             std::stringstream ssb(std::ios::in | std::ios::out | std::ios::binary); \
             createOutputArchive<cereal::PortableBinaryOutputArchive>(ssb); \
             return ssb; \
         } \
-        static Class_t<T> loadClass(std::stringstream& fState) { \
-            Class_t<T> out; \
+        static Class_t loadClass(std::stringstream& fState) { \
+            Class_t out; \
             createInputArchive<cereal::PortableBinaryInputArchive>(fState, out); \
             return out; \
         } \

@@ -14,13 +14,25 @@
 namespace lager::gncpy::measurements {
 
 class StateObservationParams final: public MeasParams {
+
+friend class cereal::access;
+
+GNCPY_SERIALIZE_CLASS(StateObservationParams)
+
 public:
+    StateObservationParams() = default;
     explicit StateObservationParams(const std::vector<uint8_t>& obsInds)
     : obsInds(obsInds) {
 
     }
 
     std::vector<uint8_t> obsInds;
+
+private:
+    template <class Archive>
+    void serialize([[maybe_unused]] Archive& ar) {
+        ar(cereal::make_nvp("MeasParams", cereal::virtual_base_class<MeasParams>(this)), CEREAL_NVP(obsInds));
+    }
 };
 
 
@@ -29,7 +41,7 @@ class StateObservation final: public ILinearMeasModel<T> {
 
 friend class cereal::access;
 
-GNCPY_SERIALIZE_CLASS(StateObservation, T)
+GNCPY_SERIALIZE_CLASS(StateObservation<T>)
 
 public:
     StateObservation() = default;
@@ -67,3 +79,4 @@ private:
 // and "Registering from a source file" here https://uscilab.github.io/cereal/polymorphism.html
 // CEREAL_FORCE_DYNAMIC_INIT(StateObservation)
 GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::measurements::StateObservation)
+CEREAL_REGISTER_TYPE(lager::gncpy::measurements::StateObservationParams)

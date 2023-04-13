@@ -20,7 +20,7 @@ class Vector final: public Matrix<T> {
 
 friend class cereal::access;
 
-GNCPY_SERIALIZE_CLASS(Vector, T)
+GNCPY_SERIALIZE_CLASS(Vector<T>)
 
 public:
     Vector<T>()

@@ -21,7 +21,7 @@ class Kalman : public IBayesFilter<T> {
 
 friend class cereal::access;
 
-GNCPY_SERIALIZE_CLASS(Kalman, T)
+GNCPY_SERIALIZE_CLASS(Kalman<T>)
 
 public:
     matrix::Vector<T> predict(T timestep, const matrix::Vector<T>& curState, [[maybe_unused]] const std::optional<matrix::Vector<T>> controlInput, const BayesPredictParams* params=nullptr) override {

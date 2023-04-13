@@ -38,7 +38,7 @@ class RangeAndBearing final: public INonLinearMeasModel<T> {
 
 friend class cereal::access;
 
-GNCPY_SERIALIZE_CLASS(RangeAndBearing, T)
+GNCPY_SERIALIZE_CLASS(RangeAndBearing<T>)
 
 public:
     RangeAndBearing() = default;
