@@ -1,2 +1,5 @@
 .vscode/
 build/
+
+# keep the build/docs folder so artifact upload/download works in github actions 
+!/build/docs
