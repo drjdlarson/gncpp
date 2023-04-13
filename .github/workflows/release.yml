@@ -11,26 +11,9 @@ env:
   IMAGE_BASE_NAME: ${{ github.repository }}
 
 jobs:
-  clone-repo:
-    name: clone-repo
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: print dir info
-        run: |
-          pwd
-          ls
-          echo "ls of ${{ github.workspace }}"
-          ls ${{ github.workspace }}
-
   build-dev-image:
     name: build-dev-image
     runs-on: ubuntu-latest
-    needs: clone-repo
     permissions:
       contents: read
       packages: write
@@ -39,14 +22,8 @@ jobs:
       id-token: write
 
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v3
-      - name: print dir info
-        run: |
-          pwd
-          ls
-          echo "ls of ${{ github.workspace }}"
-          ls ${{ github.workspace }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
@@ -104,8 +81,8 @@ jobs:
       contents: read
       packages: write
     steps:
-      # - name: Checkout (GitHub)
-      #   uses: actions/checkout@v3
+      - name: Checkout (GitHub)
+        uses: actions/checkout@v3
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
@@ -123,10 +100,11 @@ jobs:
       #     # Change this to point to your image name
       #     imageName: ${{ env.REGISTRY }}/${{ env.IMAGE_BASE_NAME }}-devcontainer
 
-  unit-test:
-    name: unit-test
+  release:
+    name: release
     runs-on: ubuntu-latest
     needs: build-dev-image
+    permissions: write-all
     container:
       credentials:
         username: ${{ github.actor }}
@@ -137,12 +115,8 @@ jobs:
       options: --cpus 2
 
     steps:
-      - name: print dir info
-        run: |
-          pwd
-          ls
-          echo "ls of /workspace"
-          ls /workspace
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Build in Debug
         run: |
@@ -172,53 +146,14 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: test-reports-artifact
-          path: /workspace/build/docs/html/reports/**/*
+          path: ${{ github.workspace }}/build/docs/html/reports/**/*
           if-no-files-found: warn
 
-  sanity:
-    runs-on: ubuntu-latest
-    needs: unit-test
-    steps:
-      - name: sanity chcek 
-        run: |
-          pwd
-          ls build/docs/html
-          echo "ls of build/docs/html/reports"
-          ls build/docs/html/reports
-
-  build-docs:
-    name: build-docs
-    runs-on: ubuntu-latest
-    needs: unit-test
-    container:
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-      image: ghcr.io/${{ github.repository }}-dev:latest
-      options: --cpus 2
-      volumes:
-        - ${{ github.workspace }}:/workspace
-    
-    steps:
       - name: Build Documentation
         run: |
           cd /workspace/build
           cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF -DCMAKE_BUILD_TYPE=Debug ..
           make -j2
-  
-  deploy-docs:
-    name: deploy-docs
-    runs-on: ubuntu-latest
-    needs: build-docs
-    permissions: write-all
-    steps:
-      - name: sanity check
-        run: |
-          pwd
-          echo "ls of current dir"
-          ls
-          echo "ls of docs/html/reports"
-          ls build/docs/html/reports
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
