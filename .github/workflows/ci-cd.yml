@@ -53,8 +53,8 @@ jobs:
 
       - name: Build in Release
         run: |
+          mkdir build
           cd build
-          make clean
           cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Release ..
           make -j2
 
