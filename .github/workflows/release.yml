@@ -136,12 +136,15 @@ jobs:
         run: |
           gcovr -r .. -o ${{ github.workspace }}/build/docs/html/reports/coverage/ --html --html-nested --xml ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml 
           genbadge coverage -i ${{ github.workspace }}/build/docs/html/reports/coverage/coverage.xml -o ${{ github.workspace }}/build/docs/html/reports/coverage/coverage-badge.svg
+          ls ${{ github.workspace }}/build/docs/html/reports
+          ls ${{ github.workspace }}/build/docs/html/reports/coverage
+          ls ${{ github.workspace }}/build/docs/html/reports/junit
 
       - name: Upload report artifacts
         uses: actions/upload-artifact@v3
         with:
           name: test-reports-artifact
-          path: ${{ github.workspace }}/build/docs/html/reports/**/*
+          path: ./build/docs/html/reports/**/*
 
   deploy-docs:
     name: deploy-docs
