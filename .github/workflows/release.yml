@@ -141,7 +141,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-reports-artifact
-          path: ${{ github.workspace }}/build/docs/html/reports/**/*
+          path: ${{ github.workspace }}/build/docs/html/reports/coverage/coverage-badge.svg
+          # path: ${{ github.workspace }}/build/docs/html/reports/**/*
           if-no-files-found: error
 
   deploy-docs:
