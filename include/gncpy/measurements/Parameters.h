@@ -5,6 +5,8 @@
 #include <cereal/archives/portable_binary.hpp>
 #include <cereal/types/polymorphic.hpp>
 
+#include "gncpy/SerializeMacros.h"
+
 
 namespace lager::gncpy::measurements {
 
