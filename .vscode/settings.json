@@ -1,0 +1,7 @@
+{
+    "cmake.configureOnOpen": true,
+    "C_Cpp.default.cppStandard": "c++20",
+    "editor.formatOnSave": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json"
+}

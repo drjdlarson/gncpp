@@ -22,6 +22,7 @@ RUN apt-get update \
         gpg \
         gpg-agent \
         dirmngr \
+        clang-format \
     && rm -rf /var/lib/apt/lists/*
 
 # install updated cmake, verify sha file, then verify tar file, then install
