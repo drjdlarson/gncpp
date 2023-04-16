@@ -22,6 +22,7 @@ RUN apt-get update \
         gpg \
         gpg-agent \
         dirmngr \
+        clang-format \
     && rm -rf /var/lib/apt/lists/*
 
 # install updated cmake, verify sha file, then verify tar file, then install
@@ -38,5 +39,5 @@ RUN cd ~ \
     && make -j4 \
     && make install
 
-# install additional tools for generating test status and coverage badges
-RUN pip install genbadge[tests,coverage] gcovr junit2html
+# install additional tools for generating test status and coverage badges, and generating documentation
+RUN pip install genbadge[tests,coverage] gcovr junit2html sphinx sphinx_rtd_theme sphinxcontrib-bibtex sphinx-copybutton sphinx_sitemap

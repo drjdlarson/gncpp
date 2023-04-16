@@ -3,14 +3,9 @@
 namespace lager::gncpy::dynamics {
 
 NoControlError::NoControlError() noexcept
-: std::runtime_error("No control model set") {
-    
-}
-
+    : std::runtime_error("No control model set") {}
 
 NoStateConstraintError::NoStateConstraintError() noexcept
-: std::runtime_error("No state constraint set") {
-    
-}
-    
-} // namespace lager::gncpy::dynamics
+    : std::runtime_error("No state constraint set") {}
+
+}  // namespace lager::gncpy::dynamics

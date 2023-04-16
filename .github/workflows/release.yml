@@ -166,12 +166,3 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          # TODO: the files can't be found so the full repo is zipped
-          files: |
-            README.md
-            CMakeLists.txt
-            docs/*
-            include/*
-            src/*
-            support/*
-            test/*

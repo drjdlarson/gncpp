@@ -125,6 +125,7 @@ endif ()
 # ------------------------------------------------------------------
 # ---------------------- Find dependencies -------------------------
 # ------------------------------------------------------------------
+message(STATUS "Fetching cereal dependency...")
 include(FetchContent)
 FetchContent_Declare(
     cereal
