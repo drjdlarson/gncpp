@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quickstart &mdash; GNCPy C++ 0.1.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+    <link rel="canonical" href="https://drjdlarson.github.io/gncpy_cpp/Quickstart.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CI/CD Pipeline" href="cicd.html" />
+    <link rel="prev" title="GNCPY C++ Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #9E1B32" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            GNCPy C++
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.1.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-ide">Installing the IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extra-information-on-docker">Extra information on Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-code">Getting the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development">Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#building-and-testing-the-code">Building and testing the code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-release">Creating a Release</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cicd.html">CI/CD Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cicd.html#github-actions-quick-guide">Github Actions Quick Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="./api/index.html#http://">Library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #9E1B32" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GNCPy C++</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#installing-the-ide" id="id1">Installing the IDE</a></p>
+<ul>
+<li><p><a class="reference internal" href="#extra-information-on-docker" id="id2">Extra information on Docker</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#getting-the-code" id="id3">Getting the code</a></p></li>
+<li><p><a class="reference internal" href="#development" id="id4">Development</a></p>
+<ul>
+<li><p><a class="reference internal" href="#building-and-testing-the-code" id="id5">Building and testing the code</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-release" id="id6">Creating a Release</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>The following subsections give an overview of how to get started developing for the library. This is just one example workflow, others exist but will not be covered here.</p>
+<section id="installing-the-ide">
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Installing the IDE</a><a class="headerlink" href="#installing-the-ide" title="Permalink to this heading"></a></h2>
+<p>The fastest way to get the full toolchain installed is to use the dev containers extension within VS Code. To do this install VS Code and the dev container extension by following their <a class="reference external" href="https://code.visualstudio.com/docs/devcontainers/containers#_getting-started">guide</a> from “Getting Started” though “Working with Git?”. Their guide walks you through installing VS Code, the dev container extension, Docker, and any other needed prereq’s based on your operating system.</p>
+<section id="extra-information-on-docker">
+<h3><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Extra information on Docker</a><a class="headerlink" href="#extra-information-on-docker" title="Permalink to this heading"></a></h3>
+<p>Note, you can think of Docker containers as a tool to allow you to run a mini “Virtual Machine” (VM) and share a folder between the container and your local computer. You have an image which is like the base built version of the container definition (the definition is within a Dockerfile). From this image you can run many containers (i.e. separate instances of the “VM”), with each container being independent. That is, if you install things inside one container, it won’t affect what is installed within another container, even if they are from the same image (and installing things within the container does not alter your local PC). This allows the entire toolchain needed to compile the code, run the tests, and generate code coverage reports to be packaged in a reusable and distributatble fashion to ease setup.</p>
+<p>Images can be built locally based on the Dockerfile, this capability is provided by the Docker program. Alternatively, prebuilt versions can be downloaded from a central repository such as, Docker hub or Github Package Repository.</p>
+<p>The VS Code dev containers extension allows for automatically loading one of these container and adds mechanisms for automatically installing extensions. The definition for what container to use and what other extensions to install are contained in the <code class="code docutils literal notranslate"><span class="pre">.devcontainer/devcontainer.json</span></code>. This dev container can also be prebuilt and hosted in a similar fashion to the Docker containers.</p>
+</section>
+</section>
+<section id="getting-the-code">
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Getting the code</a><a class="headerlink" href="#getting-the-code" title="Permalink to this heading"></a></h2>
+<p>Once the IDE is setup, you can obtain a copy of the code. The recommended way is to clone the repo locally using git. However, you can also click the dev containers button on the documentation or github repo webpages to automatically open the container and clone the repo inside the container. The downside to this approach is the code only exists inside the container, so if the container gets deleted, the code might go with it. Additionally, you won’t have access to the files through your local operating systems file browser.</p>
+<p>If you clone the repo using git, the next step is to open the top level folder in VS code. You will then be notified that there is a container definition and asked if you want to reopen in the container. Select yes. Once the folder is open in the container, the terminal in VS code will be the terminal in the container. The container is running Debian, so the terminal is a normal Debian terminal (i.e. a bash terminal).</p>
+</section>
+<section id="development">
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Development</a><a class="headerlink" href="#development" title="Permalink to this heading"></a></h2>
+<p>Most of the development should occur on branches to implement a given feature. Once the feature is implemented, tested and pushed to Github, a Pull Request (PR) can be initiated to bring the code into the master branch. The PR should be merged with the squash strategy, which means all the commits on the branch get combined into one commit when placed on the master branch. This will make it easier to track the addition of features through the commit messages in the releases. An example of the typical flow is</p>
+<ol class="arabic simple">
+<li><p>Create a branch with a name representing the feature/update to be implemented</p></li>
+<li><p>Get the branch locally (if created on github), and checkout to the branch</p></li>
+<li><p>Make changes to the code, creating commits and pushing to the remote (ie github) as needed</p></li>
+<li><p>Once the feature is implemented and tested, make sure all changes have been committed.</p></li>
+<li><p>Run a <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code> to make sure there will be no problems with the PR, resolve any merge conflicts and make a commit to close them out (if needed)</p></li>
+<li><p>Start the PR on github</p></li>
+<li><p>Once the PR is approved, merge it to master using the squash startegy and delete the feature branch.</p></li>
+<li><p>On your local branch you can now checkout to master (<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code>), update your local copy (<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>), and delete your local copy of the branch that was just merged (CAUTION: make sure the branch was actually merged and the version of master on github contains your changes) (<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-D</span> <span class="pre">BRANCH_NAME</span></code> replace <code class="code docutils literal notranslate"><span class="pre">BRANCH_NAME</span></code> with the appropriate value)</p></li>
+</ol>
+<section id="building-and-testing-the-code">
+<h3><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Building and testing the code</a><a class="headerlink" href="#building-and-testing-the-code" title="Permalink to this heading"></a></h3>
+<p>This code base is setup to use <code class="code docutils literal notranslate"><span class="pre">cmake</span></code> for generating the <code class="code docutils literal notranslate"><span class="pre">make</span></code> files, and <code class="code docutils literal notranslate"><span class="pre">g++`</span></code> for compiling the code. These tools are packaged into the docker container. After editing the code, a build can be started by running the following from the base of the repo</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span><span class="w"> </span><span class="n">build</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">build</span>
+<span class="n">cmake</span><span class="w"> </span><span class="o">-</span><span class="n">DGNCPY_TEST</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="o">-</span><span class="n">DCMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Debug</span><span class="w"> </span><span class="p">..</span>
+<span class="n">make</span>
+</pre></div>
+</div>
+<p>This will create an out-of-source build. To reset/cleanup the build, the build folder can be safely deleted and recreated. CMake will go and generate all the necessary Makefiles based on the definitions in the CMakeLists.txt files. Additionaly options to customize the built process can be found by running <code class="code docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-LH</span> <span class="pre">..</span></code> from the build directory, all options that start with <code class="code docutils literal notranslate"><span class="pre">GNCPY</span></code> are specific to this library. Then <code class="code docutils literal notranslate"><span class="pre">make</span></code> can be used to invoke <code class="code docutils literal notranslate"><span class="pre">g++</span></code> according to the rules in the Makefiles. The <code class="code docutils literal notranslate"><span class="pre">-j4</span></code> flag can be passed to build the code in parallel, where the number represents the number of processors to use in parallel.</p>
+<p>The tests utilize Google Test (gtest) to make writing the unit tests easier. They can be run by <code class="code docutils literal notranslate"><span class="pre">ctest</span></code> which automatically runs all the tests, collects the output, and can provide summaries of the passing/failing tests. Again, <code class="code docutils literal notranslate"><span class="pre">ctest</span></code> has been included in the docker container and gtest gets pulled in and built during the building of the library (if the tests are enabled). After compiling the code, the tests can be run by the following (assuming you are still in the build directory from the out-of-source build process).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ctest</span><span class="w"> </span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">failure</span>
+</pre></div>
+</div>
+<p>Additional options can be passed to only run tests based upon different criteria. The <code class="code docutils literal notranslate"><span class="pre">-j</span></code> flag can als be passed to run tests in parallel (similar to the <code class="code docutils literal notranslate"><span class="pre">make</span></code> command).</p>
+</section>
+<section id="creating-a-release">
+<h3><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Creating a Release</a><a class="headerlink" href="#creating-a-release" title="Permalink to this heading"></a></h3>
+<p>After enough features have been implemented, it is time to create a new release (i.e. a tagged snapshot of the repository people can easily download and refer back to). Tools exist within the repo and workflows to automate much of this process. It proceeds as follows</p>
+<ol class="arabic simple">
+<li><p>Make sure all the code that will be part of the release is on the master branch</p></li>
+<li><p>Checkout to master (<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code>)</p></li>
+<li><p>Update your local copy of master (<code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>), make sure you have no local changes to master</p></li>
+<li><p>Determine how the version number should be bumped according to the semantic versioning rules (i.e. should “major”, “minor”, or “patch” version be incremented)</p></li>
+<li><p>Run <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">do_release.py</span> <span class="pre">TYPE</span></code> where <code class="code docutils literal notranslate"><span class="pre">TYPE</span></code> is the version type to bump (i.e. should “major”, “minor”, or “patch”)</p></li>
+<li><p>Check that the automated release workflow finishes successfully. This should happen assuming all the prior CI/CD builds where passing and there are no errors in the documentation</p></li>
+</ol>
+<p>The <code class="code docutils literal notranslate"><span class="pre">do_release.py</span></code> script increments the appropriate version number in <code class="code docutils literal notranslate"><span class="pre">include/gncpy/core.h</span></code>, adds all updated files (this script should be run from a clean master branch so only the <code class="code docutils literal notranslate"><span class="pre">core.h</span></code> update should be present) to a commit, pushes the commit to the remote, creates a tag with the new version number, and pushes the tag to the remote. When github sees this version tag it kicks off the release workflow which runs the tests, updates the documentation on the website, and packages a release so it shows up on the releases page.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="GNCPY C++ Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cicd.html" class="btn btn-neutral float-right" title="CI/CD Pipeline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Laboratory for Autonomy, GNC, and Estimation Research (LAGER).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
