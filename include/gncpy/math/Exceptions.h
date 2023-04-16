@@ -8,6 +8,10 @@ class BadIndex final : public std::runtime_error {
   explicit BadIndex(char const* const message) noexcept;
 };
 
+/**
+ * @brief Runtime error for inmproper dimensions
+ *
+ */
 class BadDimension final : public std::runtime_error {
  public:
   BadDimension() noexcept;

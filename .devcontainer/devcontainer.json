@@ -6,12 +6,16 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				// C++ dev tools
 				"ms-vscode.cpptools-extension-pack",
-				// "ms-vscode.cpptools",
 				"twxs.cmake",
-				// "ms-vscode.cmake-tools",
+				"SonarSource.sonarlint-vscode",
+				// c++ documentation helper
 				"cschlosser.doxdocgen",
-				"SonarSource.sonarlint-vscode"
+				// sphinx/rst documentation stuff
+				"lextudio.restructuredtext",
+				"trond-snekvik.simple-rst",
+				"swyddfa.esbonio"
 			]
 		}
 	}

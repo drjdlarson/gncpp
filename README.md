@@ -18,9 +18,9 @@ To being, make sure VS Code and git are installed. Additionally, make sure docke
 Note if you click the open in container button on the repo's page it will automatically open VS Code, open the container, and clone the repo for you. However, it will do this within a docker volume so the files are only accessible within the container (ie you can't view them through your local file browser).
 
 
-Example Workflow
-----------------
-A typical example workflow might look something like the following. You edit some files, add some test cases, and want to compile the code and run the tests. You would then run the following (assuming you start at the root of the repository)
+Example Build
+-------------
+A typical example build might look something like the following. You edit some files, add some test cases, and want to compile the code and run the tests. You would then run the following (assuming you start at the root of the repository)
 
 ```
 mkdir build
