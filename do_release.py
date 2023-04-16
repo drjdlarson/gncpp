@@ -2,11 +2,23 @@ import argparse
 import subprocess
 import re
 import os
+import sys
 
 from typing import Tuple
+from pathlib import Path
 
 
 VERSION_FILE = os.path.join(os.path.dirname(__file__), "include", "gncpy", "core.h")
+
+
+def get_active_branch_name():
+
+    head_dir = Path(".") / ".git" / "HEAD"
+    with head_dir.open("r") as f: content = f.read().splitlines()
+
+    for line in content:
+        if line[0:4] == "ref:":
+            return line.partition("refs/heads/")[2]
 
 
 def define_parser() -> argparse.ArgumentParser:
@@ -74,6 +86,11 @@ if __name__ == "__main__":
 
     major, minor, patch = get_version()
     print("Current version: {:d}.{:d}.{:d}".format(major, minor, patch))
+
+    cur_branch = get_active_branch_name()
+    if cur_branch.lower() != "master":
+        print("WARN: Not on master branch ({:s}), checkout to master branch for release".format(cur_branch))
+        sys.exit(-1)
 
     if not args.skip_increment:
         if args.type == "major":
