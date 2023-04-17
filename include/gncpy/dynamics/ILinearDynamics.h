@@ -27,9 +27,9 @@ class ILinearDynamics : public IDynamics<T> {
      * allow specific values per dynamics type. This returns the A matrix from
      * the following equation.
      *
-     * \f{
-     * x_{k+1} = A(t) x_k + B(t) u_k
-     * \f}
+     * \f[
+     *      x_{k+1} = A(t) x_k + B(t) u_k
+     * \f]
      *
      *
      * @param timestep current timestep
@@ -96,9 +96,9 @@ class ILinearDynamics : public IDynamics<T> {
      * varying and depend on external parameters. The parameters can be
      * subclassed based on the control model used.
      *
-     * \f{
-     * x_{k+1} = A(t) x_k + B(t) u_k
-     * \f}
+     * \f[
+     *      x_{k+1} = A(t) x_k + B(t) u_k
+     * \f]
      *
      * @param timestep
      * @param controlParams

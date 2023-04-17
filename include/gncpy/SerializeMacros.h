@@ -42,11 +42,3 @@
         Archive ar(is);                                                      \
         ar(cls);                                                             \
     }
-
-// see
-// https://uscilab.github.io/cereal/assets/doxygen/polymorphic_8hpp.html#a01ebe0f840ac20c307f64622384e4dae
-// and "Registering from a source file" here
-// https://uscilab.github.io/cereal/polymorphism.html
-#define GNCPY_POPULATE_SERIALIZE(Class_t, LibName) \
-    template class Class_t<float>;                 \
-    template class Class_t<double>;
