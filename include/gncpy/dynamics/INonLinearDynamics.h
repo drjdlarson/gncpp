@@ -7,8 +7,10 @@
 
 namespace lager::gncpy::dynamics {
 
+/// @brief Interface for all non-linear dynamics models
+/// @todo Finish implementing this class
 template <typename T>
-class NonLinearDynamics : public IDynamics<T> {
+class INonLinearDynamics : public IDynamics<T> {
     using control_fun_sig = (T timestep, const matrix::Vector<T>& state,
                              const matrix::Vector<T>& control,
                              const ControlParams* controlParams);

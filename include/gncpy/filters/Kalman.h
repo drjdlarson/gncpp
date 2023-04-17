@@ -15,6 +15,14 @@
 
 namespace lager::gncpy::filters {
 
+/**
+ * @brief Implements a Kalman Filter
+ *
+ * This is a discrete time KF loosely based on
+ * @cite Crassidis2011_OptimalEstimationofDynamicSystems
+ *
+ * @tparam T
+ */
 template <typename T>
 class Kalman : public IBayesFilter<T> {
     friend class cereal::access;
@@ -22,6 +30,15 @@ class Kalman : public IBayesFilter<T> {
     GNCPY_SERIALIZE_CLASS(Kalman<T>)
 
    public:
+    /**
+     * @brief Implements a discrete time prediction step
+     *
+     * @param timestep current timestep
+     * @param curState current state estmiate
+     * @param controlInput optional control input
+     * @param params prediction parameters
+     * @return matrix::Vector<T> predicted state estimate
+     */
     matrix::Vector<T> predict(
         T timestep, const matrix::Vector<T>& curState,
         [[maybe_unused]] const std::optional<matrix::Vector<T>> controlInput,
@@ -41,6 +58,16 @@ class Kalman : public IBayesFilter<T> {
                                               params->stateTransParams.get());
     }
 
+    /**
+     * @brief Implements a discrete time correction step
+     *
+     * @param timestep current timestep
+     * @param meas current measurement
+     * @param curState current state estimate
+     * @param measFitProb ouptut measurement fit probability
+     * @param params correction step parameters
+     * @return matrix::Vector<T> corrected state estimate
+     */
     matrix::Vector<T> correct(
         [[maybe_unused]] T timestep, const matrix::Vector<T>& meas,
         const matrix::Vector<T>& curState, T& measFitProb,
@@ -68,6 +95,19 @@ class Kalman : public IBayesFilter<T> {
         return curState + kalmanGain * inov;
     }
 
+    /**
+     * @brief Sets the state model equation for the filter.
+     *
+     * The dynamics must be linear and may be constant or time varying. This
+     * assumes a discrete model of the form
+     *
+     * \f[
+     *      x_{k+1} = F(t) x_k + G(t) u_k
+     * \f]
+     *
+     * @param dynObj Linear dynamics of type dynamics::ILinearDynamics
+     * @param procNoise Process noise matrix for the filter
+     */
     void setStateModel(std::shared_ptr<dynamics::IDynamics<T>> dynObj,
                        matrix::Matrix<T> procNoise) override {
         if (!dynObj || !utilities:: instanceof
@@ -89,6 +129,20 @@ class Kalman : public IBayesFilter<T> {
         this->m_procNoise = procNoise;
     }
 
+    /**
+     * @brief Sets the measurement model for the filter.
+     *
+     * This can either set the constant measurement matrix, or the matrix can be
+     * time varying. This assumes a measurement model of the form
+     *
+     * \f[
+     *      \tilde{y}_{k+1} = H(t) x_{k+1}^-
+     * \f]
+     *
+     * @param measObj linear measurement model of type
+     * measurements::ILinearMeasModel
+     * @param measNoise measurement nosie matrix for the filter
+     */
     void setMeasurementModel(
         std::shared_ptr<measurements::IMeasModel<T>> measObj,
         matrix::Matrix<T> measNoise) override {
@@ -144,9 +198,4 @@ class Kalman : public IBayesFilter<T> {
 
 }  // namespace lager::gncpy::filters
 
-// see
-// https://uscilab.github.io/cereal/assets/doxygen/polymorphic_8hpp.html#a01ebe0f840ac20c307f64622384e4dae
-// and "Registering from a source file" here
-// https://uscilab.github.io/cereal/polymorphism.html
-// CEREAL_FORCE_DYNAMIC_INIT(Kalman)
 GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::filters::Kalman)

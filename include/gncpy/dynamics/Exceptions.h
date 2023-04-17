@@ -1,4 +1,3 @@
-/// @file Exceptions specific to the dynamics models
 #pragma once
 #include <stdexcept>
 

@@ -13,6 +13,7 @@
 
 namespace lager::gncpy::matrix {
 
+/// @brief Wrapper for vector operations
 template <typename T>
 class Vector final : public Matrix<T> {
     friend class cereal::access;

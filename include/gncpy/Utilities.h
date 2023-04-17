@@ -1,4 +1,3 @@
-/// @file Contains utility functions and classes
 #pragma once
 
 namespace lager::gncpy::utilities {

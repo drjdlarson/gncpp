@@ -13,6 +13,15 @@
 
 namespace lager::gncpy::filters {
 
+/**
+ * @brief Base polymorphic class for the prediction step of bayes filters.
+ *
+ * This can be subclassed if needed to allow for other parameters for specific
+ * filter implementations. Most of these modifications should be able to be
+ * taken care of by the polymorphic state transition and control parameter
+ * object members.
+ *
+ */
 class BayesPredictParams {
     friend class cereal::access;
 
@@ -31,6 +40,14 @@ class BayesPredictParams {
     }
 };
 
+/**
+ * @brief Base polymorphic class for the correction step of bayes filters.
+ *
+ * This can be subclassed if needed to allow for other parameters for specific
+ * filter implementations. Most of these modifications should be able to be
+ * taken care of by the polymorphic measurement parameter object members.
+ *
+ */
 class BayesCorrectParams {
     friend class cereal::access;
 

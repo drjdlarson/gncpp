@@ -25,7 +25,13 @@ namespace lager::gncpy::matrix {
 template <typename T>
 class Vector;
 
-// row-major ordering
+/**
+ * @brief Wrapper for handling matrix operations.
+ *
+ * This uses row-major ordering
+ *
+ * @tparam T underlying type of the numbers in the matrix
+ */
 template <typename T>
 class Matrix {
     friend class cereal::access;

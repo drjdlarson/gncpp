@@ -1,4 +1,3 @@
-/// @file Header containing version info and other core macros
 #pragma once
 
 // The gncpy library version in the form major * 10000 + minor * 100 + patch.

@@ -1,7 +1,4 @@
-/// @file Helpful macros for the serialization of classes
 #pragma once
-
-// CEREAL_FORCE_DYNAMIC_INIT(gncpy)
 
 // register a template class for all supported types
 #define GNCPY_REGISTER_SERIALIZE_TYPES(Class_t) \

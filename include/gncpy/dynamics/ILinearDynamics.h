@@ -1,4 +1,3 @@
-/// @file Interface for all linear dynamics models
 #pragma once
 #include <functional>
 
@@ -28,7 +27,7 @@ class ILinearDynamics : public IDynamics<T> {
      * the following equation.
      *
      * \f[
-     *      x_{k+1} = A(t) x_k + B(t) u_k
+     *      x_{k+1} = F(t) x_k + G(t) u_k
      * \f]
      *
      *

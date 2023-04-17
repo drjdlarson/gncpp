@@ -1,6 +1,6 @@
-#include <gtest/gtest.h>
 #include "gncpy/math/Vector.h"
 
+#include <gtest/gtest.h>
 
 TEST(VectorTest, Index) {
     lager::gncpy::matrix::Vector v({2, 3});
@@ -27,7 +27,7 @@ TEST(VectorTest, Add) {
 TEST(VectorTest, Subtract) {
     lager::gncpy::matrix::Vector v1({2, 3});
     lager::gncpy::matrix::Vector v2({1, 1});
-    
+
     lager::gncpy::matrix::Vector<int> res = v1 - v2;
     lager::gncpy::matrix::Vector exp({1, 2});
 
@@ -49,7 +49,7 @@ TEST(VectorTest, serialize) {
     EXPECT_EQ(v.numRows(), v2.numRows());
     EXPECT_EQ(v.numCols(), v2.numCols());
 
-    for(size_t ii = 0; ii < v.size(); ii++) {
+    for (size_t ii = 0; ii < v.size(); ii++) {
         EXPECT_DOUBLE_EQ(v(ii), v2(ii));
     }
 

@@ -10,6 +10,14 @@
 
 namespace lager::gncpy::dynamics {
 
+/**
+ * @brief Base class for all state transition parameters
+ *
+ * Polymorphic base class such that any child class can be passed into filters,
+ * dynamics, etc. and the object using the child can dynamic cast to the
+ * appropriate polymorphic type.
+ *
+ */
 class StateTransParams {
     friend class cereal::access;
 
@@ -20,9 +28,19 @@ class StateTransParams {
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {}
+    void serialize([[maybe_unused]] Archive& ar) {
+        /* nothing to serialize */
+    }
 };
 
+/**
+ * @brief Base class for all control parameters
+ *
+ * Polymorphic base class such that any child class can be passed into filters,
+ * dynamics, etc. and the object using the child can dynamic cast to the
+ * appropriate polymorphic type.
+ *
+ */
 class ControlParams {
     friend class cereal::access;
 
@@ -33,9 +51,19 @@ class ControlParams {
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {}
+    void serialize([[maybe_unused]] Archive& ar) {
+        /* nothing to serialize */
+    }
 };
 
+/**
+ * @brief Base class for all state constraint parameters
+ *
+ * Polymorphic base class such that any child class can be passed into filters,
+ * dynamics, etc. and the object using the child can dynamic cast to the
+ * appropriate polymorphic type.
+ *
+ */
 class ConstraintParams {
     friend class cereal::access;
 
@@ -46,7 +74,9 @@ class ConstraintParams {
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {}
+    void serialize([[maybe_unused]] Archive& ar) {
+        /* nothing to serialize */
+    }
 };
 
 }  // namespace lager::gncpy::dynamics

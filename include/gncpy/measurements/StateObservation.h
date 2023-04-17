@@ -76,10 +76,5 @@ class StateObservation final : public ILinearMeasModel<T> {
 };
 }  // namespace lager::gncpy::measurements
 
-// see
-// https://uscilab.github.io/cereal/assets/doxygen/polymorphic_8hpp.html#a01ebe0f840ac20c307f64622384e4dae
-// and "Registering from a source file" here
-// https://uscilab.github.io/cereal/polymorphism.html
-// CEREAL_FORCE_DYNAMIC_INIT(StateObservation)
 GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::measurements::StateObservation)
 CEREAL_REGISTER_TYPE(lager::gncpy::measurements::StateObservationParams)
