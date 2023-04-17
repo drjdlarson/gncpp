@@ -14,37 +14,37 @@
 namespace lager::gncpy::filters {
 
 class BayesPredictParams {
-  friend class cereal::access;
+    friend class cereal::access;
 
-  GNCPY_SERIALIZE_CLASS(BayesPredictParams)
+    GNCPY_SERIALIZE_CLASS(BayesPredictParams)
 
- public:
-  virtual ~BayesPredictParams() = default;
+   public:
+    virtual ~BayesPredictParams() = default;
 
-  std::shared_ptr<lager::gncpy::dynamics::StateTransParams> stateTransParams;
-  std::shared_ptr<lager::gncpy::dynamics::ControlParams> controlParams;
+    std::shared_ptr<lager::gncpy::dynamics::StateTransParams> stateTransParams;
+    std::shared_ptr<lager::gncpy::dynamics::ControlParams> controlParams;
 
- private:
-  template <class Archive>
-  void serialize(Archive& ar) {
-    ar(CEREAL_NVP(stateTransParams), CEREAL_NVP(controlParams));
-  }
+   private:
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(stateTransParams), CEREAL_NVP(controlParams));
+    }
 };
 
 class BayesCorrectParams {
-  friend class cereal::access;
+    friend class cereal::access;
 
-  GNCPY_SERIALIZE_CLASS(BayesCorrectParams)
+    GNCPY_SERIALIZE_CLASS(BayesCorrectParams)
 
- public:
-  virtual ~BayesCorrectParams() = default;
-  std::shared_ptr<lager::gncpy::measurements::MeasParams> measParams;
+   public:
+    virtual ~BayesCorrectParams() = default;
+    std::shared_ptr<lager::gncpy::measurements::MeasParams> measParams;
 
- private:
-  template <class Archive>
-  void serialize(Archive& ar) {
-    ar(CEREAL_NVP(measParams));
-  }
+   private:
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(measParams));
+    }
 };
 
 }  // namespace lager::gncpy::filters

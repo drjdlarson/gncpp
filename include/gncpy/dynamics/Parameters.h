@@ -11,42 +11,42 @@
 namespace lager::gncpy::dynamics {
 
 class StateTransParams {
-  friend class cereal::access;
+    friend class cereal::access;
 
-  GNCPY_SERIALIZE_CLASS(StateTransParams)
+    GNCPY_SERIALIZE_CLASS(StateTransParams)
 
- public:
-  virtual ~StateTransParams() = default;
+   public:
+    virtual ~StateTransParams() = default;
 
- private:
-  template <class Archive>
-  void serialize([[maybe_unused]] Archive& ar) {}
+   private:
+    template <class Archive>
+    void serialize([[maybe_unused]] Archive& ar) {}
 };
 
 class ControlParams {
-  friend class cereal::access;
+    friend class cereal::access;
 
-  GNCPY_SERIALIZE_CLASS(ControlParams)
+    GNCPY_SERIALIZE_CLASS(ControlParams)
 
- public:
-  virtual ~ControlParams() = default;
+   public:
+    virtual ~ControlParams() = default;
 
- private:
-  template <class Archive>
-  void serialize([[maybe_unused]] Archive& ar) {}
+   private:
+    template <class Archive>
+    void serialize([[maybe_unused]] Archive& ar) {}
 };
 
 class ConstraintParams {
-  friend class cereal::access;
+    friend class cereal::access;
 
-  GNCPY_SERIALIZE_CLASS(ConstraintParams)
+    GNCPY_SERIALIZE_CLASS(ConstraintParams)
 
- public:
-  virtual ~ConstraintParams() = default;
+   public:
+    virtual ~ConstraintParams() = default;
 
- private:
-  template <class Archive>
-  void serialize([[maybe_unused]] Archive& ar) {}
+   private:
+    template <class Archive>
+    void serialize([[maybe_unused]] Archive& ar) {}
 };
 
 }  // namespace lager::gncpy::dynamics

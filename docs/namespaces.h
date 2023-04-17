@@ -65,11 +65,11 @@ namespace math {}
 namespace measurements {}
 
 /**
- * @namespace lager::gncpy::utility
+ * @namespace lager::gncpy::utilities
  * @brief Contains utility functions for all GNCPy
  *
  */
-namespace measurements {}
+namespace utilities {}
 
 }  // namespace gncpy
 

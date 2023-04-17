@@ -15,20 +15,20 @@ namespace lager::gncpy::measurements {
 
 template <typename T>
 class IMeasModel {
-  friend class cereal::access;
+    friend class cereal::access;
 
- public:
-  virtual ~IMeasModel() = default;
-  virtual matrix::Vector<T> measure(
-      const matrix::Vector<T>& state,
-      const MeasParams* params = nullptr) const = 0;
-  virtual matrix::Matrix<T> getMeasMat(
-      const matrix::Vector<T>& state,
-      const MeasParams* params = nullptr) const = 0;
+   public:
+    virtual ~IMeasModel() = default;
+    virtual matrix::Vector<T> measure(
+        const matrix::Vector<T>& state,
+        const MeasParams* params = nullptr) const = 0;
+    virtual matrix::Matrix<T> getMeasMat(
+        const matrix::Vector<T>& state,
+        const MeasParams* params = nullptr) const = 0;
 
- private:
-  template <class Archive>
-  void serialize([[maybe_unused]] Archive& ar) {}
+   private:
+    template <class Archive>
+    void serialize([[maybe_unused]] Archive& ar) {}
 };
 
 }  // namespace lager::gncpy::measurements

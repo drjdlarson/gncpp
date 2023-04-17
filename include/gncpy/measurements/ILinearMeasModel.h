@@ -8,20 +8,21 @@
 namespace lager::gncpy::measurements {
 template <typename T>
 class ILinearMeasModel : public IMeasModel<T> {
-  friend class cereal::access;
+    friend class cereal::access;
 
- public:
-  matrix::Vector<T> measure(const matrix::Vector<T>& state,
-                            const MeasParams* params = nullptr) const override {
-    return this->getMeasMat(state, params) * state;
-  }
+   public:
+    matrix::Vector<T> measure(
+        const matrix::Vector<T>& state,
+        const MeasParams* params = nullptr) const override {
+        return this->getMeasMat(state, params) * state;
+    }
 
- private:
-  template <class Archive>
-  void serialize([[maybe_unused]] Archive& ar) {
-    ar(cereal::make_nvp("IMeasModel",
-                        cereal::virtual_base_class<IMeasModel<T>>(this)));
-  }
+   private:
+    template <class Archive>
+    void serialize([[maybe_unused]] Archive& ar) {
+        ar(cereal::make_nvp("IMeasModel",
+                            cereal::virtual_base_class<IMeasModel<T>>(this)));
+    }
 };
 
 }  // namespace lager::gncpy::measurements

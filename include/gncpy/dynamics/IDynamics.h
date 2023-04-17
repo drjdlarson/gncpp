@@ -15,68 +15,102 @@
 
 namespace lager::gncpy::dynamics {
 
+/// @brief Base interface for all dynamics
 template <typename T>
 class IDynamics {
-  friend class cereal::access;
+    friend class cereal::access;
 
- public:
-  virtual ~IDynamics() = default;
+   public:
+    virtual ~IDynamics() = default;
 
-  virtual matrix::Vector<T> propagateState(
-      T timestep, const matrix::Vector<T>& state,
-      const StateTransParams* const stateTransParams = nullptr) const = 0;
-  virtual matrix::Vector<T> propagateState(
-      T timestep, const matrix::Vector<T>& state,
-      const matrix::Vector<T>& control) const = 0;
-  virtual matrix::Vector<T> propagateState(
-      T timestep, const matrix::Vector<T>& state,
-      const matrix::Vector<T>& control,
-      const StateTransParams* const stateTransParams,
-      const ControlParams* const controlParams,
-      const ConstraintParams* const constraintParams) const = 0;
+    /**
+     * @brief Propagate the state forward one timestep
+     *
+     * @param timestep current time
+     * @param state current state
+     * @param stateTransParams Parameters needed by the transition model
+     * @return matrix::Vector<T> Next state
+     */
+    virtual matrix::Vector<T> propagateState(
+        T timestep, const matrix::Vector<T>& state,
+        const StateTransParams* const stateTransParams = nullptr) const = 0;
 
-  virtual void clearControlModel() = 0;
-  virtual bool hasControlModel() const = 0;
+    /**
+     * @brief Propagate the state forward one timestep
+     *
+     * @param timestep current time step
+     * @param state current state
+     * @param control control input vector
+     * @return matrix::Vector<T> Next state
+     */
+    virtual matrix::Vector<T> propagateState(
+        T timestep, const matrix::Vector<T>& state,
+        const matrix::Vector<T>& control) const = 0;
 
-  virtual std::vector<std::string> stateNames() const = 0;
+    /**
+     * @brief Propagate the state forward one timestep
+     *
+     * @param timestep current time step
+     * @param state current state
+     * @param control control input vector
+     * @param stateTransParams Parameters needed by the transition model
+     * @param controlParams Parameters needed by the control model
+     * @param constraintParams Parameters needed by the constraint model
+     * @return matrix::Vector<T> Next state
+     */
+    virtual matrix::Vector<T> propagateState(
+        T timestep, const matrix::Vector<T>& state,
+        const matrix::Vector<T>& control,
+        const StateTransParams* const stateTransParams,
+        const ControlParams* const controlParams,
+        const ConstraintParams* const constraintParams) const = 0;
 
-  template <typename F>
-  inline void setStateConstraints(F&& constrants) {
-    m_hasStateConstraint = false;
-    m_stateConstraints = std::forward<F>(constrants);
-  }
-  inline void clearStateConstraints() { m_hasStateConstraint = false; }
-  inline bool hasStateConstraint() const { return m_hasStateConstraint; }
+    /// @brief Remove the control model
+    virtual void clearControlModel() = 0;
 
-  inline std::function<void(T timestep, matrix::Vector<T>& state,
-                            const ConstraintParams* const constraintParams)>
-  stateConstraints() const {
-    return m_stateConstraints;
-  }
+    /// @brief Indicates if there is a control model
+    virtual bool hasControlModel() const = 0;
 
- protected:
-  inline void stateConstraint(
-      T timestep, matrix::Vector<T>& state,
-      const ConstraintParams* const constraintParams = nullptr) const {
-    if (m_hasStateConstraint) {
-      m_stateConstraints(timestep, state, constraintParams);
+    /// @brief Gives a list of the state names, in order
+    virtual std::vector<std::string> stateNames() const = 0;
+
+    /**
+     * @brief Set the State Constraints object
+     *
+     * @tparam F
+     * @param constrants
+     */
+    template <typename F>
+    inline void setStateConstraints(F&& constrants) {
+        m_hasStateConstraint = false;
+        m_stateConstraints = std::forward<F>(constrants);
     }
-    throw NoStateConstraintError();
-  }
+    inline void clearStateConstraints() { m_hasStateConstraint = false; }
+    inline bool hasStateConstraint() const { return m_hasStateConstraint; }
 
- private:
-  template <class Archive>
-  void serialize(Archive& ar) {
-    bool tmp = m_hasStateConstraint;
-    m_hasStateConstraint = false;
-    ar(CEREAL_NVP(m_hasStateConstraint));
-    m_hasStateConstraint = tmp;
-  }
+   protected:
+    inline void stateConstraint(
+        T timestep, matrix::Vector<T>& state,
+        const ConstraintParams* const constraintParams = nullptr) const {
+        if (m_hasStateConstraint) {
+            m_stateConstraints(timestep, state, constraintParams);
+        }
+        throw NoStateConstraintError();
+    }
 
-  bool m_hasStateConstraint = false;
-  std::function<void(T timestep, matrix::Vector<T>& state,
-                     const ConstraintParams* const constraintParams)>
-      m_stateConstraints;
+   private:
+    template <class Archive>
+    void serialize(Archive& ar) {
+        bool tmp = m_hasStateConstraint;
+        m_hasStateConstraint = false;
+        ar(CEREAL_NVP(m_hasStateConstraint));
+        m_hasStateConstraint = tmp;
+    }
+
+    bool m_hasStateConstraint = false;
+    std::function<void(T timestep, matrix::Vector<T>& state,
+                       const ConstraintParams* const constraintParams)>
+        m_stateConstraints;
 };
 
 }  // namespace lager::gncpy::dynamics
