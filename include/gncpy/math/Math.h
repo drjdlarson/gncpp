@@ -9,7 +9,7 @@
 namespace lager::gncpy::math {
 
 /**
- * @brief Get the Jacobian vector of the function
+ * @brief Get the gradient vector of the function
  *
  * This numerically calculates the Jacobian vector/gradient of \f$ f(\vec{x})
  * \f$ using a midpoint rule, i.e.
@@ -28,8 +28,10 @@ namespace lager::gncpy::math {
  * type T
  * @return matrix::Vector<T> Jacobian/gradient vector
  */
-template <typename T, typename F>
-matrix::Vector<T> getJacobian(const matrix::Vector<T>& x, const F& fnc) {
+template <typename T>
+matrix::Vector<T> getGradient(
+    const matrix::Vector<T>& x,
+    std::function<T(const matrix::Vector<T>&)> const& fnc) {
     const double step = 1e-7;
     const T invStep2 = 1. / (2. * step);
 
@@ -47,7 +49,7 @@ matrix::Vector<T> getJacobian(const matrix::Vector<T>& x, const F& fnc) {
         xL(ii) += step;
     }
 
-    return matrix::Vector(data.size(), data);
+    return matrix::Vector<T>(data.size(), data);
 }
 
 /**
@@ -82,16 +84,36 @@ matrix::Vector<T> getJacobian(const matrix::Vector<T>& x, const F& fnc) {
 template <typename T>
 matrix::Matrix<T> getJacobian(
     const matrix::Vector<T>& x,
-    const std::vector<std::function<T(const lager::gncpy::matrix::Vector<T>&)>>&
-        fncLst) {
+    const std::vector<std::function<T(const matrix::Vector<T>&)>>& fncLst) {
     std::vector<T> data;
     for (auto const& f : fncLst) {
-        for (auto& val : getJacobian(x, f)) {
+        for (auto& val : getGradient<T>(x, f)) {
             data.emplace_back(val);
         }
     }
 
-    return matrix::Matrix(fncLst.size(), x.size(), data);
+    return matrix::Matrix<T>(fncLst.size(), x.size(), data);
+}
+
+template <typename T>
+matrix::Matrix<T> getJacobian(
+    const matrix::Vector<T>& x,
+    std::function<matrix::Vector<T>(const matrix::Vector<T>&)> const& fnc,
+    size_t numFunOutputs) {
+    std::vector<T> data(numFunOutputs * x.size());
+    size_t ind = 0;
+
+    for (size_t row = 0; row < numFunOutputs; row++) {
+        auto fi = [&fnc, row](const matrix::Vector<T>& x_) {
+            return fnc(x_)(row);
+        };
+        for (auto& val : getGradient<double>(x, fi)) {
+            data[ind] = val;
+            ind++;
+        }
+    }
+
+    return matrix::Matrix(numFunOutputs, x.size(), data);
 }
 
 /**
@@ -121,4 +143,18 @@ T calcGaussianPDF(const matrix::Vector<T>& x, const matrix::Vector<T>& m,
     return std::exp(val);
 }
 
+template <typename T>
+matrix::Vector<T> rungeKutta4(
+    T t0, const matrix::Vector<T>& x0, T dt,
+    std::function<matrix::Vector<T>(T, const matrix::Vector<T>&)> const& fnc) {
+    T dtHalf = static_cast<T>(0.5) * dt;
+    T tHalf = t0 + dtHalf;
+    matrix::Vector<T> k0 = fnc(t0, x0);
+    matrix::Vector<T> k1 = fnc(tHalf, x0 + dtHalf * k0);
+    matrix::Vector<T> k2 = fnc(tHalf, x0 + dtHalf * k1);
+    matrix::Vector<T> k3 = fnc(t0 + dt, x0 + dt * k2);
+
+    return x0 +
+           dt / static_cast<T>(6.0) * (k0 + static_cast<T>(2) * (k1 + k2) + k3);
+}
 }  // namespace lager::gncpy::math

@@ -356,7 +356,6 @@ class Matrix {
     Matrix& operator()(const size_t start_row, const size_t start_col,
                        const size_t row_span, const size_t col_span,
                        const Matrix& rhs) {
-        std::cout << "";  // Hack to make code works. No clue why
         if (start_row + row_span > this->m_nRows) {
             throw BadIndex("Indexing outside rows");
         }

@@ -45,7 +45,6 @@ class Vector final : public Matrix<T> {
     }
 
     T operator()(size_t elem) const {
-        std::cout << elem;
         if (elem >= this->size()) {
             throw BadIndex("Indexing outside vector");
         }

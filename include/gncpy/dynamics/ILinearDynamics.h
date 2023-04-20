@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 
+#include "gncpy/Exceptions.h"
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
@@ -59,6 +60,9 @@ class ILinearDynamics : public IDynamics<T> {
 
         if (this->hasControlModel()) {
             nextState += this->getInputMat(timestep) * control;
+        } else {
+            throw exceptions::BadParams(
+                "Control input given but no control model set");
         }
 
         if (this->hasStateConstraint()) {
