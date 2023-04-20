@@ -101,13 +101,13 @@ class INonLinearDynamics : public IDynamics<T> {
     }
 
     template <typename F>
-    inline void setControlModel(F&& model, bool continuousModel) {
+    void setControlModel(F&& model, bool continuousModel) {
         m_hasControlModel = true;
         m_continuousControl = continuousModel;
         m_controlModel = std::forward<F>(model);
     }
-    inline void clearControlModel() override { m_hasControlModel = false; }
-    inline bool hasControlModel() const override { return m_hasControlModel; }
+    void clearControlModel() override { m_hasControlModel = false; }
+    bool hasControlModel() const override { return m_hasControlModel; }
 
     matrix::Matrix<T> getStateMat(T timestep, const matrix::Vector<T>& state,
                                   const StateTransParams* stateTransParams = nullptr) const {
