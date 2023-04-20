@@ -11,3 +11,17 @@ target_link_libraries(
   lager::gncpy
 )
 gtest_discover_tests(double_int_dyn_test)
+
+#---------------------------------------------------------------------------
+# setup Double Integrator dynamics tests
+#---------------------------------------------------------------------------
+add_executable(
+  curvilinear_dyn_test
+  CurvilinearMotion.cpp
+)
+target_link_libraries(
+  curvilinear_dyn_test
+  GTest::gtest_main
+  lager::gncpy
+)
+gtest_discover_tests(curvilinear_dyn_test)

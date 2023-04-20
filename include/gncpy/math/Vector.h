@@ -44,7 +44,7 @@ class Vector final : public Matrix<T> {
         return Matrix<T>::operator()(elem, 0);
     }
 
-    T operator()(size_t elem) const {
+    const T& operator()(size_t elem) const {
         if (elem >= this->size()) {
             throw BadIndex("Indexing outside vector");
         }

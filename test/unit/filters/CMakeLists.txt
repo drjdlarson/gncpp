@@ -1,13 +1,13 @@
 #---------------------------------------------------------------------------
-# setup Filter tests
+# setup Kalman Filter tests
 #---------------------------------------------------------------------------
 add_executable(
-  filter_test
-  Filters.cpp
+  kalman_test
+  Kalman.cpp
 )
 target_link_libraries(
-  filter_test
+  kalman_test
   GTest::gtest_main
   lager::gncpy
 )
-gtest_discover_tests(filter_test)
+gtest_discover_tests(kalman_test)
