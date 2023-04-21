@@ -7,6 +7,7 @@ GNCPY C++ Documentation
 
    Quickstart
    cicd
+   development
    Library API <./api/index.html#http://>
    Test Coverage Report <./reports/coverage/coverage.html#http://>
    Test Results Report <./reports/junit/junit.html#http://>

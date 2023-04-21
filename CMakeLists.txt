@@ -201,7 +201,7 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
             math_test
         # measurement dependencies
             measurement_test
-        EXCLUDE build/*
+        EXCLUDE build/* test/*
     )
     setup_target_for_coverage_gcovr_html(
         NAME ctest_coverage_html
@@ -219,7 +219,7 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
             math_test
         # measurement dependencies
             measurement_test
-        EXCLUDE build/*
+        EXCLUDE build/* test/*
     )
 elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
     target_compile_options(gncpy PRIVATE
