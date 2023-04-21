@@ -33,10 +33,8 @@ TEST(DoubleInt, serialize) {
     lager::gncpy::dynamics::DoubleIntegrator dyn(dt);
     dyn.setControlModel(
         []([[maybe_unused]] double t,
-           [[maybe_unused]] const lager::gncpy::dynamics::ControlParams* params)
-            -> lager::gncpy::matrix::Matrix<double> {
-            return lager::gncpy::matrix::identity<double>(4);
-        });
+           [[maybe_unused]] const lager::gncpy::dynamics::ControlParams*
+               params) { return lager::gncpy::matrix::identity<double>(4); });
 
     std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
 

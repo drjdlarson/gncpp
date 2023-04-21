@@ -65,7 +65,7 @@ class Vector final : public Matrix<T> {
     Vector<T> normalize(bool in_place = false) {
         T mag = this->magnitude();
         if (in_place) {
-            *this /= (mag);
+            *this /= mag;
             return *this;
         } else {
             std::vector<T> out;

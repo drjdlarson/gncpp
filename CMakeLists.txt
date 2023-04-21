@@ -189,9 +189,11 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
         NAME ctest_coverage_xml
         EXECUTABLE ctest -j3
         DEPENDENCIES
-        # filter dependencies
+        # dynamics dependencies
             double_int_dyn_test
-            filter_test
+            curvilinear_dyn_test
+        # filter dependencies
+            kalman_test
         # math dependencies
             matrix_test
             matrix_test
@@ -205,9 +207,11 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
         NAME ctest_coverage_html
         EXECUTABLE ctest -j3
         DEPENDENCIES 
-        # filter dependencies
+        # dynamics dependencies
             double_int_dyn_test
-            filter_test
+            curvilinear_dyn_test
+        # filter dependencies
+            kalman_test
         # math dependencies
             matrix_test
             matrix_test

@@ -178,7 +178,9 @@ TEST(MathTest, RungeKutta4) {
     };
 
     lager::gncpy::matrix::Vector res =
-        lager::gncpy::math::rungeKutta4<double>(0.0, x, dt, fnc);
+        lager::gncpy::math::rungeKutta4<lager::gncpy::matrix::Vector<double>,
+                                        lager::gncpy::matrix::Vector<double>,
+                                        double>(0.0, x, dt, fnc);
     lager::gncpy::matrix::Vector exp = integral(dt, x);
 
     EXPECT_EQ(exp.size(), res.size());

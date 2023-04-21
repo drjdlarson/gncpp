@@ -26,11 +26,12 @@ class INonLinearDynamics : public IDynamics<T> {
     matrix::Vector<T> propagateState(
         T timestep, const matrix::Vector<T>& state,
         const StateTransParams* stateTransParams = nullptr) const override {
-        matrix::Vector<T> nextState = math::rungeKutta4<T>(
-            timestep, state, this->dt(),
-            [this, stateTransParams](T t, const matrix::Vector<T>& x) {
-                return this->continuousDynamics(t, x, stateTransParams);
-            });
+        matrix::Vector<T> nextState =
+            math::rungeKutta4<matrix::Vector<T>, matrix::Vector<T>, T>(
+                timestep, state, this->dt(),
+                [this, stateTransParams](T t, const matrix::Vector<T>& x) {
+                    return this->continuousDynamics(t, x, stateTransParams);
+                });
 
         if (this->hasStateConstraint()) {
             this->stateConstraint(timestep, nextState);
@@ -44,18 +45,20 @@ class INonLinearDynamics : public IDynamics<T> {
         const matrix::Vector<T>& control) const override {
         matrix::Vector<T> nextState;
         if (m_hasControlModel && m_continuousControl) {
-            nextState = math::rungeKutta4<T>(
-                timestep, state, this->dt(),
-                [this, &control](T t, const matrix::Vector<T>& x) {
-                    return this->continuousDynamics(t, x) +
-                           this->m_controlModel(t, x, control, nullptr);
-                });
+            nextState =
+                math::rungeKutta4<matrix::Vector<T>, matrix::Vector<T>, T>(
+                    timestep, state, this->dt(),
+                    [this, &control](T t, const matrix::Vector<T>& x) {
+                        return this->continuousDynamics(t, x) +
+                               this->m_controlModel(t, x, control, nullptr);
+                    });
         } else if (m_hasControlModel) {
             nextState =
-                math::rungeKutta4<T>(timestep, state, this->dt(),
-                                     [this](T t, const matrix::Vector<T>& x) {
-                                         return this->continuousDynamics(t, x);
-                                     });
+                math::rungeKutta4<matrix::Vector<T>, matrix::Vector<T>, T>(
+                    timestep, state, this->dt(),
+                    [this](T t, const matrix::Vector<T>& x) {
+                        return this->continuousDynamics(t, x);
+                    });
 
             nextState +=
                 this->m_controlModel(timestep, state, control, nullptr);
@@ -79,28 +82,33 @@ class INonLinearDynamics : public IDynamics<T> {
         const ConstraintParams* const constraintParams) const final {
         matrix::Vector<T> nextState;
         if (m_hasControlModel && m_continuousControl) {
-            nextState = math::rungeKutta4<T>(
-                timestep, state, this->dt(),
-                [this, &control, stateTransParams, controlParams](
-                    T t, const matrix::Vector<T>& x) {
-                    return this->continuousDynamics(t, x, stateTransParams) +
-                           this->m_controlModel(t, x, control, controlParams);
-                });
+            nextState =
+                math::rungeKutta4<matrix::Vector<T>, matrix::Vector<T>, T>(
+                    timestep, state, this->dt(),
+                    [this, &control, stateTransParams, controlParams](
+                        T t, const matrix::Vector<T>& x) {
+                        return this->continuousDynamics(t, x,
+                                                        stateTransParams) +
+                               this->m_controlModel(t, x, control,
+                                                    controlParams);
+                    });
         } else if (m_hasControlModel) {
             nextState =
-                math::rungeKutta4<T>(timestep, state, this->dt(),
-                                     [this](T t, const matrix::Vector<T>& x) {
-                                         return this->continuousDynamics(t, x);
-                                     });
+                math::rungeKutta4<matrix::Vector<T>, matrix::Vector<T>, T>(
+                    timestep, state, this->dt(),
+                    [this](T t, const matrix::Vector<T>& x) {
+                        return this->continuousDynamics(t, x);
+                    });
 
             nextState +=
                 this->m_controlModel(timestep, state, control, controlParams);
         } else {
-            nextState = math::rungeKutta4<T>(
-                timestep, state, this->dt(),
-                [this, stateTransParams](T t, const matrix::Vector<T>& x) {
-                    return this->continuousDynamics(t, x, stateTransParams);
-                });
+            nextState =
+                math::rungeKutta4<matrix::Vector<T>, matrix::Vector<T>, T>(
+                    timestep, state, this->dt(),
+                    [this, stateTransParams](T t, const matrix::Vector<T>& x) {
+                        return this->continuousDynamics(t, x, stateTransParams);
+                    });
         }
 
         if (this->hasStateConstraint()) {

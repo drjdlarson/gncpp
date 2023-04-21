@@ -673,7 +673,6 @@ lager::gncpy::matrix::Matrix<T> forward_sub(
             which yield a unitary Lower matrix. Should save some time on
             division
             */
-            // x(i,k) = sum / L(i,i);
             x(i, k) = sum;
         }
     }

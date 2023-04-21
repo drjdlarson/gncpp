@@ -11,6 +11,24 @@
 #include "gncpy/math/Vector.h"
 
 namespace lager::gncpy::dynamics {
+
+/**
+ * @brief Implements a Curvilinear motion model
+ *
+ * This is a slight variation from normal INonLinearDynamics classes
+ * because it hardcodes a control model. Also, the angle state should be kept
+ * between 0-360 degrees. This implements the following system of ODEs
+ *
+ * \f{align}{
+ *      \dot{x} &= v cos(\psi) \\
+ *      \dot{y} &= v sin(\psi) \\
+ *      \dot{v} &= u_0 \\
+ *      \dot{\psi} &= u_1
+ * \f}
+ *
+ * See \cite Li2000_SurveyofManeuveringTargetTrackingDynamicModels for details.
+ *
+ */
 template <typename T>
 class CurvilinearMotion final : public INonLinearDynamics<T> {
     friend class cereal::access;
