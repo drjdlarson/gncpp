@@ -10,16 +10,16 @@
 namespace lager::gncpy::measurements {
 
 class MeasParams {
-  friend class cereal::access;
+    friend class cereal::access;
 
-  GNCPY_SERIALIZE_CLASS(MeasParams)
+    GNCPY_SERIALIZE_CLASS(MeasParams)
 
- public:
-  virtual ~MeasParams() = default;
+   public:
+    virtual ~MeasParams() = default;
 
- private:
-  template <class Archive>
-  void serialize([[maybe_unused]] Archive& ar) {}
+   private:
+    template <class Archive>
+    void serialize([[maybe_unused]] Archive& ar) {}
 };
 
 }  // namespace lager::gncpy::measurements

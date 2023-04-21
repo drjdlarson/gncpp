@@ -56,20 +56,6 @@ include(GNUInstallDirs)
 #---------------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 20)
 set(CXX_STANDARD_REQUIRED YES)
-set(GNCPY_COMPILE_FLAGS "-fPIC" "-Wall" "-Wextra" "-Wpedantic")
-
-if(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
-    if(NOT GNCPY_TEST)
-        list(APPEND GNCPY_COMPILE_FLAGS "-Og")
-    endif()
-    list(APPEND GNCPY_COMPILE_FLAGS "-gdwarf-4" "-gstatement-frontiers" "-gvariable-location-views" "-ginline-points" "-fno-eliminate-unused-debug-symbols" "-fvar-tracking" "-fvar-tracking-assignments")
-
-elseif(CMAKE_BUILD_TYPE MATCHES "^[Rr]elease")
-    if(NOT GNCPY_TEST)
-        list(APPEND GNCPY_COMPILE_FLAGS "-O3")
-    endif()
-
-endif()
 
 set_verbose(GNCPY_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE STRING
             "Installation directory for include files, a relative path that "
@@ -80,6 +66,10 @@ set_verbose(GNCPY_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE STRING
 option(GNCPY_DOC "Generate the doc target." ${GNCPY_MASTER_PROJECT})
 option(GNCPY_INSTALL "Generate the install target." ON)
 option(GNCPY_TEST "Generate the test target." ${GNCPY_MASTER_PROJECT})
+
+if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
+    set(GNCPY_TEST ON)
+endif()
 
 # Get version from core.h
 file(READ include/gncpy/core.h core_h)
@@ -148,7 +138,6 @@ endif ()
 
 if (GNCPY_TEST)
     message(STATUS "Enabling testing...")
-    list(APPEND GNCPY_COMPILE_FLAGS "--coverage" "-g" "-O0")
     enable_testing()
     add_subdirectory(test)
 endif ()
@@ -187,21 +176,79 @@ add_library(gncpy ${HDRS} ${SRCS} README.md)
 add_library(lager::gncpy ALIAS gncpy)
 
 target_link_libraries(gncpy cereal::cereal)
-if(GNCPY_TEST)
-    target_link_libraries(gncpy gcov)
-endif()
 target_include_directories(gncpy PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${GNCPY_INC_DIR}>
 )
-target_compile_options(gncpy PRIVATE ${GNCPY_COMPILE_FLAGS})
 
-set(GNCPY_DEBUG_POSTFIX d CACHE STRING "Debug library postfix.")
+if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
+    set(CODE_COVERAGE_VERBOSE ON)
+    include(CodeCoverage)
+    append_coverage_compiler_flags_to_target(gncpy)
+    setup_target_for_coverage_gcovr_xml(
+        NAME ctest_coverage_xml
+        EXECUTABLE ctest -j3
+        DEPENDENCIES
+        # dynamics dependencies
+            double_int_dyn_test
+            curvilinear_dyn_test
+        # filter dependencies
+            kalman_test
+        # math dependencies
+            matrix_test
+            matrix_test
+            vector_test
+            math_test
+        # measurement dependencies
+            measurement_test
+        EXCLUDE build/* test/*
+    )
+    setup_target_for_coverage_gcovr_html(
+        NAME ctest_coverage_html
+        EXECUTABLE ctest -j3
+        DEPENDENCIES 
+        # dynamics dependencies
+            double_int_dyn_test
+            curvilinear_dyn_test
+        # filter dependencies
+            kalman_test
+        # math dependencies
+            matrix_test
+            matrix_test
+            vector_test
+            math_test
+        # measurement dependencies
+            measurement_test
+        EXCLUDE build/* test/*
+    )
+elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
+    target_compile_options(gncpy PRIVATE
+        "-fPIC"
+        "-Wall"
+        "-Wextra"
+        "-Wpedantic"
+        "-gdwarf-4"
+        "-gstatement-frontiers"
+        "-gvariable-location-views"
+        "-ginline-points"
+        "-fno-eliminate-unused-debug-symbols"
+        "-fvar-tracking"
+        "-fvar-tracking-assignments"
+        "-Og"
+    )
+else()
+    target_compile_options(gncpy PRIVATE
+        "-fPIC"
+        "-Wall"
+        "-Wextra"
+        "-Wpedantic"
+        "-O3"
+    )
+endif()
 
 set_target_properties(gncpy 
     PROPERTIES
         VERSION ${GNCPY_VERSION} SOVERSION ${CPACK_PACKAGE_VERSION_MAJOR}
-        DEBUG_POSTFIX "${GNCPY_DEBUG_POSTFIX}"
 )
 
 # Install targets.

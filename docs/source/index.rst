@@ -7,7 +7,10 @@ GNCPY C++ Documentation
 
    Quickstart
    cicd
+   development
    Library API <./api/index.html#http://>
+   Test Coverage Report <./reports/coverage/coverage.html#http://>
+   Test Results Report <./reports/junit/junit.html#http://>
    References
    license
 
@@ -18,7 +21,7 @@ GNCPY C++ Documentation
 .. |Test Status| image:: https://drjdlarson.github.io/gncpy_cpp/reports/junit/tests-badge.svg?dummy=8484744
    :target: https://drjdlarson.github.io/gncpy_cpp/reports/junit/junit.html
 .. |Test Cov| image:: https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage-badge.svg?dummy=8484744
-   :target: https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage_nested.html
+   :target: https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage.html
 
 |Open in Dev Containers| |Test Status| |Test Cov|
 

@@ -72,5 +72,5 @@ html_theme_options = {
 }
 html_show_sourcelink = False
 html_baseurl = "https://drjdlarson.github.io/gncpy_cpp/"
-html_extra_path = ["api",]
+html_extra_path = ["api", "robots.txt"] # robots.txt is for search engine stuff
 html_logo = "logo.svg"
