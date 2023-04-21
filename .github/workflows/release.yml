@@ -143,7 +143,7 @@ jobs:
           cmake -DCMAKE_BUILD_TYPE=Coverage -DGNCPY_INSTALL=OFF -DGNCPY_TEST=ON -DGNCPY_DOC=ON ..
           make -j2
           make -j2 ctest_coverage_xml
-          make -j2 ctest_coverate_html
+          make -j2 ctest_coverage_html
           genbadge coverage -i docs/html/reports/coverage/coverage.xml -o docs/html/reports/coverage/coverage-badge.svg
 
       - uses: actions/upload-artifact@v3
