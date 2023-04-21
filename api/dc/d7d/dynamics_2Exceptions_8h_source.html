@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -103,29 +110,29 @@ $(document).ready(function(){initNavTree('dc/d7d/dynamics_2Exceptions_8h_source.
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d8/d46/namespacelager_1_1gncpy_1_1dynamics.html">lager::gncpy::dynamics</a> {</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html">NoControlError</a> final : <span class="keyword">public</span> std::runtime_error {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <a class="code" href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError_a99dd434ede7c3dea4e8f529793fc0d1c.html#a99dd434ede7c3dea4e8f529793fc0d1c">NoControlError</a>() noexcept;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;};</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html">NoStateConstraintError</a> final : <span class="keyword">public</span> std::runtime_error {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError_a6310706fffa3721265351cbcf371c687.html#a6310706fffa3721265351cbcf371c687">NoStateConstraintError</a>() noexcept;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}  <span class="comment">// namespace lager::gncpy::dynamics</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html">NoControlError</a> final : <span class="keyword">public</span> std::runtime_error {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError_a99dd434ede7c3dea4e8f529793fc0d1c.html#a99dd434ede7c3dea4e8f529793fc0d1c">NoControlError</a>() noexcept;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;};</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html">NoStateConstraintError</a> final : <span class="keyword">public</span> std::runtime_error {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError_a6310706fffa3721265351cbcf371c687.html#a6310706fffa3721265351cbcf371c687">NoStateConstraintError</a>() noexcept;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}  <span class="comment">// namespace lager::gncpy::dynamics</span></div>
 <div class="ttc" id="aclasslager_1_1gncpy_1_1dynamics_1_1NoControlError_a99dd434ede7c3dea4e8f529793fc0d1c_html_a99dd434ede7c3dea4e8f529793fc0d1c"><div class="ttname"><a href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError_a99dd434ede7c3dea4e8f529793fc0d1c.html#a99dd434ede7c3dea4e8f529793fc0d1c">lager::gncpy::dynamics::NoControlError::NoControlError</a></div><div class="ttdeci">NoControlError() noexcept</div><div class="ttdef"><b>Definition:</b> Exceptions.cpp:5</div></div>
-<div class="ttc" id="aclasslager_1_1gncpy_1_1dynamics_1_1NoControlError_html"><div class="ttname"><a href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html">lager::gncpy::dynamics::NoControlError</a></div><div class="ttdef"><b>Definition:</b> Exceptions.h:6</div></div>
+<div class="ttc" id="aclasslager_1_1gncpy_1_1dynamics_1_1NoControlError_html"><div class="ttname"><a href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html">lager::gncpy::dynamics::NoControlError</a></div><div class="ttdoc">No control model is given.</div><div class="ttdef"><b>Definition:</b> Exceptions.h:7</div></div>
 <div class="ttc" id="aclasslager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError_a6310706fffa3721265351cbcf371c687_html_a6310706fffa3721265351cbcf371c687"><div class="ttname"><a href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError_a6310706fffa3721265351cbcf371c687.html#a6310706fffa3721265351cbcf371c687">lager::gncpy::dynamics::NoStateConstraintError::NoStateConstraintError</a></div><div class="ttdeci">NoStateConstraintError() noexcept</div><div class="ttdef"><b>Definition:</b> Exceptions.cpp:8</div></div>
-<div class="ttc" id="aclasslager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError_html"><div class="ttname"><a href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html">lager::gncpy::dynamics::NoStateConstraintError</a></div><div class="ttdef"><b>Definition:</b> Exceptions.h:11</div></div>
-<div class="ttc" id="anamespacelager_1_1gncpy_1_1dynamics_html"><div class="ttname"><a href="../../d8/d46/namespacelager_1_1gncpy_1_1dynamics.html">lager::gncpy::dynamics</a></div><div class="ttdoc">Contains dynamics models.</div><div class="ttdef"><b>Definition:</b> DoubleIntegrator.h:9</div></div>
+<div class="ttc" id="aclasslager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError_html"><div class="ttname"><a href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html">lager::gncpy::dynamics::NoStateConstraintError</a></div><div class="ttdoc">No stat constraint is given.</div><div class="ttdef"><b>Definition:</b> Exceptions.h:13</div></div>
+<div class="ttc" id="anamespacelager_1_1gncpy_1_1dynamics_html"><div class="ttname"><a href="../../d8/d46/namespacelager_1_1gncpy_1_1dynamics.html">lager::gncpy::dynamics</a></div><div class="ttdoc">Contains dynamics models.</div><div class="ttdef"><b>Definition:</b> CurvilinearMotion.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../dir_9c86b5654810d41c464a5f110971a06c.html">dynamics</a></li><li class="navelem"><a class="el" href="../../dc/d7d/dynamics_2Exceptions_8h.html">Exceptions.h</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

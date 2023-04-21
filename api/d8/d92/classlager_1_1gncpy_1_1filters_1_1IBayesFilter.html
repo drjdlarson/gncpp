@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -105,6 +112,9 @@ $(document).ready(function(){initNavTree('d8/d92/classlager_1_1gncpy_1_1filters_
 </div><!--header-->
 <div class="contents">
 
+<p>Interface for all Bayes filters.  
+ <a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../df/d22/IBayesFilter_8h_source.html">IBayesFilter.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for lager::gncpy::filters::IBayesFilter&lt; T &gt;:</div>
@@ -113,8 +123,8 @@ $(document).ready(function(){initNavTree('d8/d92/classlager_1_1gncpy_1_1filters_
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/dbf/classlager_1_1gncpy_1_1filters_1_1IBayesFilter__inherit__graph.png" border="0" usemap="#alager_1_1gncpy_1_1filters_1_1IBayesFilter_3_01T_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="alager_1_1gncpy_1_1filters_1_1IBayesFilter_3_01T_01_4_inherit__map" id="alager_1_1gncpy_1_1filters_1_1IBayesFilter_3_01T_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,5,152,47"/>
-<area shape="rect" href="../../df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman.html" title=" " alt="" coords="5,95,152,136"/>
+<area shape="rect" title="Interface for all Bayes filters." alt="" coords="5,5,152,47"/>
+<area shape="rect" href="../../df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman.html" title="Implements a Kalman Filter." alt="" coords="5,95,152,136"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -123,16 +133,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a630fc8b7eedf55eaedc50485d393aa3a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a630fc8b7eedf55eaedc50485d393aa3a.html#a630fc8b7eedf55eaedc50485d393aa3a">~IBayesFilter</a> ()=default</td></tr>
 <tr class="separator:a630fc8b7eedf55eaedc50485d393aa3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19141acdbef35050ec9997a74321a6fa"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a19141acdbef35050ec9997a74321a6fa.html#a19141acdbef35050ec9997a74321a6fa">correct</a> (T timestep, const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;meas, const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;curState, T &amp;measFitProb, const <a class="el" href="../../d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams.html">BayesCorrectParams</a> *params=nullptr)=0</td></tr>
+<tr class="memdesc:a19141acdbef35050ec9997a74321a6fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the correction step of the filter.  <a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a19141acdbef35050ec9997a74321a6fa.html#a19141acdbef35050ec9997a74321a6fa">More...</a><br /></td></tr>
 <tr class="separator:a19141acdbef35050ec9997a74321a6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3e4055fbd82d750d5d3ccd4631dc332"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">dynamics::IDynamics</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_ac3e4055fbd82d750d5d3ccd4631dc332.html#ac3e4055fbd82d750d5d3ccd4631dc332">dynamicsModel</a> () const =0</td></tr>
 <tr class="separator:ac3e4055fbd82d750d5d3ccd4631dc332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dc3a3f0b706957db04f3a45f3656a65"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="../../d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel.html">measurements::IMeasModel</a>&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a8dc3a3f0b706957db04f3a45f3656a65.html#a8dc3a3f0b706957db04f3a45f3656a65">measurementModel</a> () const =0</td></tr>
 <tr class="separator:a8dc3a3f0b706957db04f3a45f3656a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aede6ce0dc1de176565bf99643c625d6d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_aede6ce0dc1de176565bf99643c625d6d.html#aede6ce0dc1de176565bf99643c625d6d">predict</a> (T timestep, const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;curState, const std::optional&lt; <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt;&gt; controlInput, const <a class="el" href="../../de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams.html">BayesPredictParams</a> *params=nullptr)=0</td></tr>
+<tr class="memdesc:aede6ce0dc1de176565bf99643c625d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the prediction step of the filter.  <a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_aede6ce0dc1de176565bf99643c625d6d.html#aede6ce0dc1de176565bf99643c625d6d">More...</a><br /></td></tr>
 <tr class="separator:aede6ce0dc1de176565bf99643c625d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5642598f9752078a92ca063916bd54bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a5642598f9752078a92ca063916bd54bc.html#a5642598f9752078a92ca063916bd54bc">setMeasurementModel</a> (std::shared_ptr&lt; <a class="el" href="../../d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel.html">measurements::IMeasModel</a>&lt; T &gt;&gt; measObj, <a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html">matrix::Matrix</a>&lt; T &gt; measNoise)=0</td></tr>
+<tr class="memdesc:a5642598f9752078a92ca063916bd54bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the measurement model.  <a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a5642598f9752078a92ca063916bd54bc.html#a5642598f9752078a92ca063916bd54bc">More...</a><br /></td></tr>
 <tr class="separator:a5642598f9752078a92ca063916bd54bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa04d0b84655b8d352936f3a6aa105c4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_aaa04d0b84655b8d352936f3a6aa105c4.html#aaa04d0b84655b8d352936f3a6aa105c4">setStateModel</a> (std::shared_ptr&lt; <a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">dynamics::IDynamics</a>&lt; T &gt;&gt; dynObj, <a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html">matrix::Matrix</a>&lt; T &gt; procNoise)=0</td></tr>
+<tr class="memdesc:aaa04d0b84655b8d352936f3a6aa105c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the state dynamics model.  <a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_aaa04d0b84655b8d352936f3a6aa105c4.html#aaa04d0b84655b8d352936f3a6aa105c4">More...</a><br /></td></tr>
 <tr class="separator:aaa04d0b84655b8d352936f3a6aa105c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -151,7 +165,12 @@ Friends</h2></td></tr>
 <tr class="memitem:ab2f44cbb59a08132f4c843e5225bba0e"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_ab2f44cbb59a08132f4c843e5225bba0e.html#ab2f44cbb59a08132f4c843e5225bba0e">cereal::access</a></td></tr>
 <tr class="separator:ab2f44cbb59a08132f4c843e5225bba0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class lager::gncpy::filters::IBayesFilter&lt; T &gt;</h3>
+
+<p>Interface for all Bayes filters. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/workspace/include/gncpy/filters/<a class="el" href="../../df/d22/IBayesFilter_8h_source.html">IBayesFilter.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -160,7 +179,7 @@ Friends</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d7f/namespacelager.html">lager</a></li><li class="navelem"><a class="el" href="../../d7/d25/namespacelager_1_1gncpy.html">gncpy</a></li><li class="navelem"><a class="el" href="../../d1/de2/namespacelager_1_1gncpy_1_1filters.html">filters</a></li><li class="navelem"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">IBayesFilter</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

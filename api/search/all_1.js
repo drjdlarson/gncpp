@@ -7,5 +7,6 @@ var searchData=
   ['bayescorrectparams_5',['BayesCorrectParams',['../d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams.html',1,'lager::gncpy::filters']]],
   ['bayespredictparams_6',['BayesPredictParams',['../de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams.html',1,'lager::gncpy::filters']]],
   ['bearing_7',['bearing',['../d4/de0/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearing_aface9a522f138ded46fba741ba139dea.html#aface9a522f138ded46fba741ba139dea',1,'lager::gncpy::measurements::RangeAndBearing']]],
-  ['begin_8',['begin',['../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a09c38a9618321e04f065c369b2f6385a.html#a09c38a9618321e04f065c369b2f6385a',1,'lager::gncpy::matrix::Matrix']]]
+  ['begin_8',['begin',['../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a09c38a9618321e04f065c369b2f6385a.html#a09c38a9618321e04f065c369b2f6385a',1,'lager::gncpy::matrix::Matrix']]],
+  ['bibliography_9',['Bibliography',['../d0/de3/citelist.html',1,'']]]
 ];

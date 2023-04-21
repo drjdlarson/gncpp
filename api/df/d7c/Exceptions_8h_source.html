@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -103,21 +110,21 @@ $(document).ready(function(){initNavTree('df/d7c/Exceptions_8h_source.html','../
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="../../d7/d01/namespacelager_1_1gncpy_1_1exceptions.html">    4</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d7/d01/namespacelager_1_1gncpy_1_1exceptions.html">lager::gncpy::exceptions</a> {</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html">BadParams</a> final : <span class="keyword">public</span> std::runtime_error {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams_a772a0cdd990efd9b8db159de29921774.html#a772a0cdd990efd9b8db159de29921774">BadParams</a>(<span class="keywordtype">char</span> <span class="keyword">const</span>* <span class="keyword">const</span> message) noexcept;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;};</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html">TypeError</a> final : <span class="keyword">public</span> std::runtime_error {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError_a1ab6f4bb96a1d84bba2aaeabe368bfb3.html#a1ab6f4bb96a1d84bba2aaeabe368bfb3">TypeError</a>(<span class="keywordtype">char</span> <span class="keyword">const</span>* <span class="keyword">const</span> message) noexcept;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}  <span class="comment">// namespace lager::gncpy::exceptions</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html">BadParams</a> final : <span class="keyword">public</span> std::runtime_error {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams_a772a0cdd990efd9b8db159de29921774.html#a772a0cdd990efd9b8db159de29921774">BadParams</a>(<span class="keywordtype">char</span> <span class="keyword">const</span>* <span class="keyword">const</span> message) noexcept;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;};</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html">TypeError</a> final : <span class="keyword">public</span> std::runtime_error {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError_a1ab6f4bb96a1d84bba2aaeabe368bfb3.html#a1ab6f4bb96a1d84bba2aaeabe368bfb3">TypeError</a>(<span class="keywordtype">char</span> <span class="keyword">const</span>* <span class="keyword">const</span> message) noexcept;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}  <span class="comment">// namespace lager::gncpy::exceptions</span></div>
 <div class="ttc" id="aclasslager_1_1gncpy_1_1exceptions_1_1BadParams_a772a0cdd990efd9b8db159de29921774_html_a772a0cdd990efd9b8db159de29921774"><div class="ttname"><a href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams_a772a0cdd990efd9b8db159de29921774.html#a772a0cdd990efd9b8db159de29921774">lager::gncpy::exceptions::BadParams::BadParams</a></div><div class="ttdeci">BadParams(char const *const message) noexcept</div><div class="ttdef"><b>Definition:</b> Exceptions.cpp:5</div></div>
-<div class="ttc" id="aclasslager_1_1gncpy_1_1exceptions_1_1BadParams_html"><div class="ttname"><a href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html">lager::gncpy::exceptions::BadParams</a></div><div class="ttdef"><b>Definition:</b> Exceptions.h:6</div></div>
+<div class="ttc" id="aclasslager_1_1gncpy_1_1exceptions_1_1BadParams_html"><div class="ttname"><a href="../../dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html">lager::gncpy::exceptions::BadParams</a></div><div class="ttdoc">General exception for when incorrect parameters are supplied.</div><div class="ttdef"><b>Definition:</b> Exceptions.h:7</div></div>
 <div class="ttc" id="aclasslager_1_1gncpy_1_1exceptions_1_1TypeError_a1ab6f4bb96a1d84bba2aaeabe368bfb3_html_a1ab6f4bb96a1d84bba2aaeabe368bfb3"><div class="ttname"><a href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError_a1ab6f4bb96a1d84bba2aaeabe368bfb3.html#a1ab6f4bb96a1d84bba2aaeabe368bfb3">lager::gncpy::exceptions::TypeError::TypeError</a></div><div class="ttdeci">TypeError(char const *const message) noexcept</div><div class="ttdef"><b>Definition:</b> Exceptions.cpp:8</div></div>
-<div class="ttc" id="aclasslager_1_1gncpy_1_1exceptions_1_1TypeError_html"><div class="ttname"><a href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html">lager::gncpy::exceptions::TypeError</a></div><div class="ttdef"><b>Definition:</b> Exceptions.h:11</div></div>
+<div class="ttc" id="aclasslager_1_1gncpy_1_1exceptions_1_1TypeError_html"><div class="ttname"><a href="../../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html">lager::gncpy::exceptions::TypeError</a></div><div class="ttdoc">General exception for when an incorrect type is used.</div><div class="ttdef"><b>Definition:</b> Exceptions.h:13</div></div>
 <div class="ttc" id="anamespacelager_1_1gncpy_1_1exceptions_html"><div class="ttname"><a href="../../d7/d01/namespacelager_1_1gncpy_1_1exceptions.html">lager::gncpy::exceptions</a></div><div class="ttdoc">Contains general exceptions applicable to all GNCPy.</div><div class="ttdef"><b>Definition:</b> Exceptions.h:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -125,7 +132,7 @@ $(document).ready(function(){initNavTree('df/d7c/Exceptions_8h_source.html','../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../df/d7c/Exceptions_8h.html">Exceptions.h</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

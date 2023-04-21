@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -102,6 +109,9 @@ $(document).ready(function(){initNavTree('d7/d93/classlager_1_1gncpy_1_1matrix_1
 </div><!--header-->
 <div class="contents">
 
+<p>Runtime error for indexing out of range.  
+ <a href="../../d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d1/d5d/math_2Exceptions_8h_source.html">Exceptions.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for lager::gncpy::matrix::BadIndex:</div>
@@ -110,7 +120,7 @@ $(document).ready(function(){initNavTree('d7/d93/classlager_1_1gncpy_1_1matrix_1
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d6/d1e/classlager_1_1gncpy_1_1matrix_1_1BadIndex__inherit__graph.png" border="0" usemap="#alager_1_1gncpy_1_1matrix_1_1BadIndex_inherit__map" alt="Inheritance graph"/></div>
 <map name="alager_1_1gncpy_1_1matrix_1_1BadIndex_inherit__map" id="alager_1_1gncpy_1_1matrix_1_1BadIndex_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,155,157,196"/>
+<area shape="rect" title="Runtime error for indexing out of range." alt="" coords="5,155,157,196"/>
 <area shape="rect" title=" " alt="" coords="12,80,151,107"/>
 <area shape="rect" title=" " alt="" coords="24,5,139,32"/>
 </map>
@@ -122,7 +132,7 @@ $(document).ready(function(){initNavTree('d7/d93/classlager_1_1gncpy_1_1matrix_1
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/d40/classlager_1_1gncpy_1_1matrix_1_1BadIndex__coll__graph.png" border="0" usemap="#alager_1_1gncpy_1_1matrix_1_1BadIndex_coll__map" alt="Collaboration graph"/></div>
 <map name="alager_1_1gncpy_1_1matrix_1_1BadIndex_coll__map" id="alager_1_1gncpy_1_1matrix_1_1BadIndex_coll__map">
-<area shape="rect" title=" " alt="" coords="5,155,157,196"/>
+<area shape="rect" title="Runtime error for indexing out of range." alt="" coords="5,155,157,196"/>
 <area shape="rect" title=" " alt="" coords="12,80,151,107"/>
 <area shape="rect" title=" " alt="" coords="24,5,139,32"/>
 </map>
@@ -133,7 +143,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae66c045130df8803d32c78617959bd65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex_ae66c045130df8803d32c78617959bd65.html#ae66c045130df8803d32c78617959bd65">BadIndex</a> (char const *const message) noexcept</td></tr>
 <tr class="separator:ae66c045130df8803d32c78617959bd65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Runtime error for indexing out of range. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/workspace/include/gncpy/math/<a class="el" href="../../d1/d5d/math_2Exceptions_8h_source.html">Exceptions.h</a></li>
 <li>/workspace/src/math/<a class="el" href="../../df/de6/math_2Exceptions_8cpp.html">Exceptions.cpp</a></li>
 </ul>
@@ -143,7 +155,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d7f/namespacelager.html">lager</a></li><li class="navelem"><a class="el" href="../../d7/d25/namespacelager_1_1gncpy.html">gncpy</a></li><li class="navelem"><a class="el" href="../../d2/dce/namespacelager_1_1gncpy_1_1matrix.html">matrix</a></li><li class="navelem"><a class="el" href="../../d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html">BadIndex</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:25 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

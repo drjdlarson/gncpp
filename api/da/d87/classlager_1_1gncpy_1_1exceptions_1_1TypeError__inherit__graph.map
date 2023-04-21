@@ -1,5 +1,5 @@
 <map id="lager::gncpy::exceptions::TypeError" name="lager::gncpy::exceptions::TypeError">
-<area shape="rect" id="node1" title=" " alt="" coords="5,155,185,196"/>
+<area shape="rect" id="node1" title="General exception for when an incorrect type is used." alt="" coords="5,155,185,196"/>
 <area shape="rect" id="node2" title=" " alt="" coords="26,80,165,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="38,5,153,32"/>
 </map>

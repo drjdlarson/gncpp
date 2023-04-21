@@ -1,5 +1,5 @@
 <map id="lager::gncpy::filters::BayesPredictParams" name="lager::gncpy::filters::BayesPredictParams">
-<area shape="rect" id="node1" title=" " alt="" coords="431,43,593,84"/>
+<area shape="rect" id="node1" title="Base polymorphic class for the prediction step of bayes filters." alt="" coords="431,43,593,84"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,263,47"/>
 <area shape="rect" id="node3" title=" " alt="" coords="27,71,241,127"/>
 </map>

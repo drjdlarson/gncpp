@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GNCPY C++ Documentation &mdash; GNCPy C++ 0.1.2 documentation</title>
+  <title>GNCPY C++ Documentation &mdash; GNCPy C++ 0.1.4 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -40,7 +40,7 @@
               <img src="_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.1.2
+                0.1.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -69,7 +69,18 @@
 <li class="toctree-l2"><a class="reference internal" href="cicd.html#github-actions-quick-guide">Github Actions Quick Guide</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development Tips and Tricks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#automated-releases">Automated Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#unit-tests">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#serialization">Serialization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#add-serialization-to-a-class">Add Serialization to a class</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="./api/index.html#http://">Library API</a></li>
+<li class="toctree-l1"><a class="reference external" href="./reports/coverage/coverage.html#http://">Test Coverage Report</a></li>
+<li class="toctree-l1"><a class="reference external" href="./reports/junit/junit.html#http://">Test Results Report</a></li>
 <li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
@@ -112,12 +123,20 @@
 <li class="toctree-l2"><a class="reference internal" href="cicd.html#github-actions-quick-guide">Github Actions Quick Guide</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development Tips and Tricks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#automated-releases">Automated Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#unit-tests">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#serialization">Serialization</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference external" href="./api/index.html#http://">Library API</a></li>
+<li class="toctree-l1"><a class="reference external" href="./reports/coverage/coverage.html#http://">Test Coverage Report</a></li>
+<li class="toctree-l1"><a class="reference external" href="./reports/junit/junit.html#http://">Test Results Report</a></li>
 <li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 </div>
-<p><a class="reference external" href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/drjdlarson/gncpy_cpp.git"><img alt="Open in Dev Containers" src="https://img.shields.io/static/v1?label=Dev%20Containers&amp;message=Open&amp;color=blue&amp;logo=visualstudiocode" /></a> <a class="reference external" href="https://drjdlarson.github.io/gncpy_cpp/reports/junit/junit.html"><img alt="Test Status" src="https://drjdlarson.github.io/gncpy_cpp/reports/junit/tests-badge.svg?dummy=8484744" /></a> <a class="reference external" href="https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage_nested.html"><img alt="Test Cov" src="https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage-badge.svg?dummy=8484744" /></a></p>
+<p><a class="reference external" href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/drjdlarson/gncpy_cpp.git"><img alt="Open in Dev Containers" src="https://img.shields.io/static/v1?label=Dev%20Containers&amp;message=Open&amp;color=blue&amp;logo=visualstudiocode" /></a> <a class="reference external" href="https://drjdlarson.github.io/gncpy_cpp/reports/junit/junit.html"><img alt="Test Status" src="https://drjdlarson.github.io/gncpy_cpp/reports/junit/tests-badge.svg?dummy=8484744" /></a> <a class="reference external" href="https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage.html"><img alt="Test Cov" src="https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage-badge.svg?dummy=8484744" /></a></p>
 <p>A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by the Laboratory for Autonomy, GNC, and Estimation Research (LAGER) at the University of Alabama (UA). Its primary goal is to serve as the backend for the similarily named python package <a class="reference external" href="https://github.com/drjdlarson/gncpy">GNCPy</a> however, it can be used as a library in other C++ projects. See the <a class="reference external" href="./api/index.html">library api</a>  page for information on the tool chain used when developing for the library and an example of how to build the library from source.</p>
 </section>
 <section id="indices-and-tables">

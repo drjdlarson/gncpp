@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -130,12 +137,17 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 : <a class="el" href="da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a1567b39c0e826122149c2f4a86ec26b9.html#a1567b39c0e826122149c2f4a86ec26b9">lager::gncpy::matrix::Matrix&lt; T &gt;</a>
 </li>
 <li>clearControlModel()
-: <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_aa48c1a5391f71d5baeb2dd2de05f1c97.html#aa48c1a5391f71d5baeb2dd2de05f1c97">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
+: <a class="el" href="d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion_a52acaa82ef80590628fa9398116eef2e.html#a52acaa82ef80590628fa9398116eef2e">lager::gncpy::dynamics::CurvilinearMotion&lt; T &gt;</a>
+, <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_aa48c1a5391f71d5baeb2dd2de05f1c97.html#aa48c1a5391f71d5baeb2dd2de05f1c97">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
 , <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_ad775650a6ddac2667bae5237bf90be5e.html#ad775650a6ddac2667bae5237bf90be5e">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
-, <a class="el" href="dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics_a059b04dc84a1a2d87749fa2262770a9a.html#a059b04dc84a1a2d87749fa2262770a9a">lager::gncpy::dynamics::NonLinearDynamics&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a4cbd1f65c59f6c9620be6fd8e8e852bc.html#a4cbd1f65c59f6c9620be6fd8e8e852bc">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>clearStateConstraints()
 : <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_aacfb6865638f3183cb4e5bdb90e33e5d.html#aacfb6865638f3183cb4e5bdb90e33e5d">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
+</li>
+<li>continuousDynamics()
+: <a class="el" href="d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion_a6b5433202bc671d998b43ce0e29a70d4.html#a6b5433202bc671d998b43ce0e29a70d4">lager::gncpy::dynamics::CurvilinearMotion&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a289df1ceb23cfd65f733a067b192bc5f.html#a289df1ceb23cfd65f733a067b192bc5f">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>controlModel()
 : <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_a24e44f3e60738556d40bf2cc6ef5dc52.html#a24e44f3e60738556d40bf2cc6ef5dc52">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
@@ -146,6 +158,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </li>
 <li>cross()
 : <a class="el" href="df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_a297fb7d38ac0fa971ca8d4e915fa8988.html#a297fb7d38ac0fa971ca8d4e915fa8988">lager::gncpy::matrix::Vector&lt; T &gt;</a>
+</li>
+<li>CurvilinearMotion()
+: <a class="el" href="d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion_a56659b0d2d5e6fa7cface9c1d3a43391.html#a56659b0d2d5e6fa7cface9c1d3a43391">lager::gncpy::dynamics::CurvilinearMotion&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -168,6 +183,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 </li>
 <li>dt()
 : <a class="el" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator_a7f3ba2bdaf27444a772757b0c3c718aa.html#a7f3ba2bdaf27444a772757b0c3c718aa">lager::gncpy::dynamics::DoubleIntegrator&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_ada42cf39070c255421c5c2c8179a95f3.html#ada42cf39070c255421c5c2c8179a95f3">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>dynamicsModel()
 : <a class="el" href="d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_ac3e4055fbd82d750d5d3ccd4631dc332.html#ac3e4055fbd82d750d5d3ccd4631dc332">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a>
@@ -202,7 +218,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>getStateMat()
 : <a class="el" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator_a76f072270a230f4648cb42f4ab4d1d70.html#a76f072270a230f4648cb42f4ab4d1d70">lager::gncpy::dynamics::DoubleIntegrator&lt; T &gt;</a>
 , <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_a7a2bb7389ee9fcb4b50e5f14ee0d84e4.html#a7a2bb7389ee9fcb4b50e5f14ee0d84e4">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
-, <a class="el" href="dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics_a3e52d826107e0e1b0d6b403ef232871e.html#a3e52d826107e0e1b0d6b403ef232871e">lager::gncpy::dynamics::NonLinearDynamics&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a6e26a6724c2665c6a79e11d25fa5d694.html#a6e26a6724c2665c6a79e11d25fa5d694">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -211,7 +227,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>hasControlModel()
 : <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a1b30b38c38337053edd358c9d5a51c34.html#a1b30b38c38337053edd358c9d5a51c34">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
 , <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_aaf14309b23ac3c75c45c4bc39dcda8c4.html#aaf14309b23ac3c75c45c4bc39dcda8c4">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
-, <a class="el" href="dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics_a3fb9122b7bfec131f5de95526adb360e.html#a3fb9122b7bfec131f5de95526adb360e">lager::gncpy::dynamics::NonLinearDynamics&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a981758dd8182c8dbec3e324502dd40d0.html#a981758dd8182c8dbec3e324502dd40d0">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>hasStateConstraint()
 : <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ac4bc20c85fbf84bcd613c6b4e6e80c74.html#ac4bc20c85fbf84bcd613c6b4e6e80c74">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
@@ -320,7 +336,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>propagateState()
 : <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ace702d5fdfd750664cfbbb4484b1ef41.html#ace702d5fdfd750664cfbbb4484b1ef41">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
 , <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_afc54bcc605f048a54726c8c1231fbb5f.html#afc54bcc605f048a54726c8c1231fbb5f">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
-, <a class="el" href="dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics_afeb303ca9931baf1f2c46eb5057a1528.html#afeb303ca9931baf1f2c46eb5057a1528">lager::gncpy::dynamics::NonLinearDynamics&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_ac38a510dbbfe265cd4630dc450ee2667.html#ac38a510dbbfe265cd4630dc450ee2667">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>propagateState_()
 : <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_ad983d7ad06380dec195f30ed70abca17.html#ad983d7ad06380dec195f30ed70abca17">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
@@ -348,9 +364,11 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>serialize()
 : <a class="el" href="d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams_a6725d4ae3ac51cd5c030c6a301ebe0ca.html#a6725d4ae3ac51cd5c030c6a301ebe0ca">lager::gncpy::dynamics::ConstraintParams</a>
 , <a class="el" href="dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams_ab5e373e077ce545c58538823c714ff25.html#ab5e373e077ce545c58538823c714ff25">lager::gncpy::dynamics::ControlParams</a>
+, <a class="el" href="d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion_acab296b04f8f1366edbf5a8790265e68.html#acab296b04f8f1366edbf5a8790265e68">lager::gncpy::dynamics::CurvilinearMotion&lt; T &gt;</a>
 , <a class="el" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator_a7fe0d166bbd335a3f1f9f802c2fe9cdb.html#a7fe0d166bbd335a3f1f9f802c2fe9cdb">lager::gncpy::dynamics::DoubleIntegrator&lt; T &gt;</a>
 , <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a582158b83bedeef91a38840d2cba8b5d.html#a582158b83bedeef91a38840d2cba8b5d">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
 , <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_a29ada17eeb3ab272b27a63583ae0376e.html#a29ada17eeb3ab272b27a63583ae0376e">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a29bfdab7a1040df5b6b238a5c2c49253.html#a29bfdab7a1040df5b6b238a5c2c49253">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 , <a class="el" href="d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams_ad1798a34c6379d11bc534c6d172b2ff3.html#ad1798a34c6379d11bc534c6d172b2ff3">lager::gncpy::dynamics::StateTransParams</a>
 , <a class="el" href="d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams_adfe33fa31b23dcc2bb1f1ddd14c4d7df.html#adfe33fa31b23dcc2bb1f1ddd14c4d7df">lager::gncpy::filters::BayesCorrectParams</a>
 , <a class="el" href="de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams_a3b0d53db4b78c379e029d5ed2746b12a.html#a3b0d53db4b78c379e029d5ed2746b12a">lager::gncpy::filters::BayesPredictParams</a>
@@ -367,11 +385,13 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="dc/db3/classlager_1_1gncpy_1_1measurements_1_1StateObservationParams_a5f52e521e23e4c4e1a88b3489f5d8ba8.html#a5f52e521e23e4c4e1a88b3489f5d8ba8">lager::gncpy::measurements::StateObservationParams</a>
 </li>
 <li>setControlModel()
-: <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_abde05e587b48f3b6991be52784459643.html#abde05e587b48f3b6991be52784459643">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
-, <a class="el" href="dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics_abc5f6012b7aa9bdb5ed127cdb98d8a52.html#abc5f6012b7aa9bdb5ed127cdb98d8a52">lager::gncpy::dynamics::NonLinearDynamics&lt; T &gt;</a>
+: <a class="el" href="d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion_afddd58d151fe1c306da45ac14ece9fa9.html#afddd58d151fe1c306da45ac14ece9fa9">lager::gncpy::dynamics::CurvilinearMotion&lt; T &gt;</a>
+, <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_abde05e587b48f3b6991be52784459643.html#abde05e587b48f3b6991be52784459643">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_af4ada107db7c3089f56aaf8b5ee01a16.html#af4ada107db7c3089f56aaf8b5ee01a16">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>setDt()
 : <a class="el" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator_a9e0d05df58d35b5423730949cfe0cd38.html#a9e0d05df58d35b5423730949cfe0cd38">lager::gncpy::dynamics::DoubleIntegrator&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a9f37777e42891f969a48f269c1ac81fb.html#a9f37777e42891f969a48f269c1ac81fb">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>setMeasurementModel()
 : <a class="el" href="d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a5642598f9752078a92ca063916bd54bc.html#a5642598f9752078a92ca063916bd54bc">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a>
@@ -396,11 +416,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>stateConstraint()
 : <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a4e8c8f45c3b83cb9e90e809b4ac0b0f9.html#a4e8c8f45c3b83cb9e90e809b4ac0b0f9">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
 </li>
-<li>stateConstraints()
-: <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a6f49f58b84c55417848e6a0f3035beb3.html#a6f49f58b84c55417848e6a0f3035beb3">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
-</li>
 <li>stateNames()
-: <a class="el" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator_a952e22f6fea28c6f20ea21f04cd8bbd6.html#a952e22f6fea28c6f20ea21f04cd8bbd6">lager::gncpy::dynamics::DoubleIntegrator&lt; T &gt;</a>
+: <a class="el" href="d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion_a890c893522f14b57aa76178e50bbcaff.html#a890c893522f14b57aa76178e50bbcaff">lager::gncpy::dynamics::CurvilinearMotion&lt; T &gt;</a>
+, <a class="el" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator_a952e22f6fea28c6f20ea21f04cd8bbd6.html#a952e22f6fea28c6f20ea21f04cd8bbd6">lager::gncpy::dynamics::DoubleIntegrator&lt; T &gt;</a>
 , <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a90fd5884143771b18a38ad9d9fc1a0cc.html#a90fd5884143771b18a38ad9d9fc1a0cc">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
 </li>
 <li>StateObservation()
@@ -460,6 +478,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>~IMeasModel()
 : <a class="el" href="d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel_af781e55f082f91e66c923fa600163882.html#af781e55f082f91e66c923fa600163882">lager::gncpy::measurements::IMeasModel&lt; T &gt;</a>
 </li>
+<li>~INonLinearDynamics()
+: <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a7925b61730157e54871e35d366ca68b2.html#a7925b61730157e54871e35d366ca68b2">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
+</li>
 <li>~Matrix()
 : <a class="el" href="da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_ab26971df1bd2baa057189558b667758e.html#ab26971df1bd2baa057189558b667758e">lager::gncpy::matrix::Matrix&lt; T &gt;</a>
 </li>
@@ -475,7 +496,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:25 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -103,59 +110,60 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 </div><table border="0" cellspacing="10" cellpadding="0">
 <tr><td><img src="inherit_graph_0.png" border="0" usemap="#alager_1_1gncpy_1_1dynamics_1_1ConstraintParams" alt=""/>
 <map name="alager_1_1gncpy_1_1dynamics_1_1ConstraintParams" id="alager_1_1gncpy_1_1dynamics_1_1ConstraintParams">
-<area shape="rect" href="d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html" title=" " alt="" coords="5,5,177,47"/>
+<area shape="rect" href="d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html" title="Base class for all state constraint parameters." alt="" coords="5,5,177,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_1.png" border="0" usemap="#alager_1_1gncpy_1_1dynamics_1_1ControlParams" alt=""/>
 <map name="alager_1_1gncpy_1_1dynamics_1_1ControlParams" id="alager_1_1gncpy_1_1dynamics_1_1ControlParams">
-<area shape="rect" href="dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html" title=" " alt="" coords="5,5,177,47"/>
+<area shape="rect" href="dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html" title="Base class for all control parameters." alt="" coords="5,5,177,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_2.png" border="0" usemap="#alager_1_1gncpy_1_1dynamics_1_1IDynamics_3_01T_01_4" alt=""/>
 <map name="alager_1_1gncpy_1_1dynamics_1_1IDynamics_3_01T_01_4" id="alager_1_1gncpy_1_1dynamics_1_1IDynamics_3_01T_01_4">
-<area shape="rect" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html" title=" " alt="" coords="5,39,177,80"/>
-<area shape="rect" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html" title=" " alt="" coords="236,5,413,47"/>
-<area shape="rect" href="dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics.html" title=" " alt="" coords="225,71,424,112"/>
-<area shape="rect" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title=" " alt="" coords="472,5,651,47"/>
+<area shape="rect" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html" title="Base interface for all dynamics." alt="" coords="5,39,177,80"/>
+<area shape="rect" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html" title="Interface for all linear dynamics models." alt="" coords="238,5,415,47"/>
+<area shape="rect" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html" title="Interface for all non&#45;linear dynamics models." alt="" coords="225,71,428,112"/>
+<area shape="rect" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title="Double integrator dynamics." alt="" coords="479,5,657,47"/>
+<area shape="rect" href="d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html" title="Implements a Curvilinear motion model." alt="" coords="476,71,660,112"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_3.png" border="0" usemap="#alager_1_1gncpy_1_1dynamics_1_1NoControlError" alt=""/>
 <map name="alager_1_1gncpy_1_1dynamics_1_1NoControlError" id="alager_1_1gncpy_1_1dynamics_1_1NoControlError">
 <area shape="rect" title=" " alt="" coords="5,177,120,203"/>
 <area shape="rect" title=" " alt="" coords="168,177,307,203"/>
-<area shape="rect" href="d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html" title=" " alt="" coords="359,5,531,47"/>
-<area shape="rect" href="d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html" title=" " alt="" coords="355,71,535,112"/>
-<area shape="rect" href="dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html" title=" " alt="" coords="355,136,535,177"/>
-<area shape="rect" href="de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html" title=" " alt="" coords="355,201,535,243"/>
+<area shape="rect" href="d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html" title="No control model is given." alt="" coords="359,5,531,47"/>
+<area shape="rect" href="d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html" title="No stat constraint is given." alt="" coords="355,71,535,112"/>
+<area shape="rect" href="dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html" title="General exception for when incorrect parameters are supplied." alt="" coords="355,136,535,177"/>
+<area shape="rect" href="de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html" title="General exception for when an incorrect type is used." alt="" coords="355,201,535,243"/>
 <area shape="rect" href="dc/dae/classlager_1_1gncpy_1_1matrix_1_1BadDimension.html" title="Runtime error for inmproper dimensions." alt="" coords="369,267,521,308"/>
-<area shape="rect" href="d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html" title=" " alt="" coords="369,332,521,373"/>
+<area shape="rect" href="d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html" title="Runtime error for indexing out of range." alt="" coords="369,332,521,373"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_4.png" border="0" usemap="#alager_1_1gncpy_1_1dynamics_1_1StateTransParams" alt=""/>
 <map name="alager_1_1gncpy_1_1dynamics_1_1StateTransParams" id="alager_1_1gncpy_1_1dynamics_1_1StateTransParams">
-<area shape="rect" href="d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html" title=" " alt="" coords="5,5,177,47"/>
+<area shape="rect" href="d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html" title="Base class for all state transition parameters." alt="" coords="5,5,177,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_5.png" border="0" usemap="#alager_1_1gncpy_1_1filters_1_1BayesCorrectParams" alt=""/>
 <map name="alager_1_1gncpy_1_1filters_1_1BayesCorrectParams" id="alager_1_1gncpy_1_1filters_1_1BayesCorrectParams">
-<area shape="rect" href="d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams.html" title=" " alt="" coords="5,5,171,47"/>
+<area shape="rect" href="d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams.html" title="Base polymorphic class for the correction step of bayes filters." alt="" coords="5,5,171,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_6.png" border="0" usemap="#alager_1_1gncpy_1_1filters_1_1BayesPredictParams" alt=""/>
 <map name="alager_1_1gncpy_1_1filters_1_1BayesPredictParams" id="alager_1_1gncpy_1_1filters_1_1BayesPredictParams">
-<area shape="rect" href="de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams.html" title=" " alt="" coords="5,5,168,47"/>
+<area shape="rect" href="de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams.html" title="Base polymorphic class for the prediction step of bayes filters." alt="" coords="5,5,168,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_7.png" border="0" usemap="#alager_1_1gncpy_1_1filters_1_1IBayesFilter_3_01T_01_4" alt=""/>
 <map name="alager_1_1gncpy_1_1filters_1_1IBayesFilter_3_01T_01_4" id="alager_1_1gncpy_1_1filters_1_1IBayesFilter_3_01T_01_4">
-<area shape="rect" href="d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html" title=" " alt="" coords="5,5,152,47"/>
-<area shape="rect" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman.html" title=" " alt="" coords="200,5,347,47"/>
+<area shape="rect" href="d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html" title="Interface for all Bayes filters." alt="" coords="5,5,152,47"/>
+<area shape="rect" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman.html" title="Implements a Kalman Filter." alt="" coords="200,5,347,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_8.png" border="0" usemap="#alager_1_1gncpy_1_1matrix_1_1Matrix_3_01T_01_4" alt=""/>
 <map name="alager_1_1gncpy_1_1matrix_1_1Matrix_3_01T_01_4" id="alager_1_1gncpy_1_1matrix_1_1Matrix_3_01T_01_4">
-<area shape="rect" href="da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html" title=" " alt="" coords="5,5,157,47"/>
-<area shape="rect" href="df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html" title=" " alt="" coords="205,5,357,47"/>
+<area shape="rect" href="da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html" title="Wrapper for handling matrix operations." alt="" coords="5,5,157,47"/>
+<area shape="rect" href="df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html" title="Wrapper for vector operations." alt="" coords="205,5,357,47"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_9.png" border="0" usemap="#alager_1_1gncpy_1_1measurements_1_1IMeasModel_3_01T_01_4" alt=""/>
@@ -180,7 +188,7 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:25 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

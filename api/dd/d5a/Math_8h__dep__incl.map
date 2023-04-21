@@ -1,10 +1,10 @@
 <map id="/workspace/include/gncpy/math/Math.h" name="/workspace/include/gncpy/math/Math.h">
-<area shape="rect" id="node1" title=" " alt="" coords="85,5,237,47"/>
-<area shape="rect" id="node2" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="5,407,177,448"/>
-<area shape="rect" id="node4" href="$de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="69,95,252,151"/>
-<area shape="rect" id="node7" href="$d8/d2a/StateObservation_8h.html" title=" " alt="" coords="276,95,443,151"/>
-<area shape="rect" id="node3" href="$d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="11,496,171,537"/>
-<area shape="rect" id="node5" href="$dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="69,199,236,255"/>
-<area shape="rect" id="node6" href="$d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="129,303,296,359"/>
-<area shape="rect" id="node8" href="$de/dc5/StateObservation_8cpp.html" title=" " alt="" coords="362,206,583,247"/>
+<area shape="rect" id="node1" title=" " alt="" coords="238,5,390,47"/>
+<area shape="rect" id="node2" href="$d8/d32/INonLinearDynamics_8h.html" title=" " alt="" coords="5,95,212,151"/>
+<area shape="rect" id="node4" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="224,407,396,448"/>
+<area shape="rect" id="node5" href="$de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="288,95,471,151"/>
+<area shape="rect" id="node8" href="$d8/d2a/StateObservation_8h.html" title=" " alt="" coords="531,199,697,255"/>
+<area shape="rect" id="node3" href="$da/d62/CurvilinearMotion_8h.html" title=" " alt="" coords="5,199,212,255"/>
+<area shape="rect" id="node6" href="$dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="288,199,455,255"/>
+<area shape="rect" id="node7" href="$d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="348,303,515,359"/>
 </map>

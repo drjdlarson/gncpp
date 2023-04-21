@@ -10,7 +10,7 @@ var classlager_1_1gncpy_1_1matrix_1_1Vector =
     [ "magnitude", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_ad41794258ce896f8b1c70a05e361be03.html#ad41794258ce896f8b1c70a05e361be03", null ],
     [ "normalize", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_a03c3557505221504d376191730b221e0.html#a03c3557505221504d376191730b221e0", null ],
     [ "operator()", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_acf2e0c31b67d21349159953be815c621.html#acf2e0c31b67d21349159953be815c621", null ],
-    [ "operator()", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_af8a8c6924a7f0a43316f7318a0cac317.html#af8a8c6924a7f0a43316f7318a0cac317", null ],
+    [ "operator()", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_aee7c1dcad7ac5df6754f68210d8f5332.html#aee7c1dcad7ac5df6754f68210d8f5332", null ],
     [ "serialize", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_ae66ea96a4afd5697ffc6c31a3c2d2512.html#ae66ea96a4afd5697ffc6c31a3c2d2512", null ],
     [ "skew", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_a1d4a659200c4b9beb8c69bc8d46b66f2.html#a1d4a659200c4b9beb8c69bc8d46b66f2", null ],
     [ "cereal::access", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_ab2f44cbb59a08132f4c843e5225bba0e.html#ab2f44cbb59a08132f4c843e5225bba0e", null ]

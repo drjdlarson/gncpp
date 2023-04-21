@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -106,6 +113,9 @@ $(document).ready(function(){initNavTree('dd/d87/classlager_1_1gncpy_1_1dynamics
 </div><!--header-->
 <div class="contents">
 
+<p>Base interface for all dynamics.  
+ <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d6/da9/IDynamics_8h_source.html">IDynamics.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for lager::gncpy::dynamics::IDynamics&lt; T &gt;:</div>
@@ -114,10 +124,11 @@ $(document).ready(function(){initNavTree('dd/d87/classlager_1_1gncpy_1_1dynamics
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/d70/classlager_1_1gncpy_1_1dynamics_1_1IDynamics__inherit__graph.png" border="0" usemap="#alager_1_1gncpy_1_1dynamics_1_1IDynamics_3_01T_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="alager_1_1gncpy_1_1dynamics_1_1IDynamics_3_01T_01_4_inherit__map" id="alager_1_1gncpy_1_1dynamics_1_1IDynamics_3_01T_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,39,177,80"/>
-<area shape="rect" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html" title=" " alt="" coords="236,5,413,47"/>
-<area shape="rect" href="../../dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics.html" title=" " alt="" coords="225,71,424,112"/>
-<area shape="rect" href="../../d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title=" " alt="" coords="472,5,651,47"/>
+<area shape="rect" title="Base interface for all dynamics." alt="" coords="5,39,177,80"/>
+<area shape="rect" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html" title="Interface for all linear dynamics models." alt="" coords="238,5,415,47"/>
+<area shape="rect" href="../../d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html" title="Interface for all non&#45;linear dynamics models." alt="" coords="225,71,428,112"/>
+<area shape="rect" href="../../d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title="Double integrator dynamics." alt="" coords="479,5,657,47"/>
+<area shape="rect" href="../../d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html" title="Implements a Curvilinear motion model." alt="" coords="476,71,660,112"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -126,25 +137,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a849d6c4e82b034474702332f9517324a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a849d6c4e82b034474702332f9517324a.html#a849d6c4e82b034474702332f9517324a">~IDynamics</a> ()=default</td></tr>
 <tr class="separator:a849d6c4e82b034474702332f9517324a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa48c1a5391f71d5baeb2dd2de05f1c97"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_aa48c1a5391f71d5baeb2dd2de05f1c97.html#aa48c1a5391f71d5baeb2dd2de05f1c97">clearControlModel</a> ()=0</td></tr>
+<tr class="memdesc:aa48c1a5391f71d5baeb2dd2de05f1c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the control model.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_aa48c1a5391f71d5baeb2dd2de05f1c97.html#aa48c1a5391f71d5baeb2dd2de05f1c97">More...</a><br /></td></tr>
 <tr class="separator:aa48c1a5391f71d5baeb2dd2de05f1c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacfb6865638f3183cb4e5bdb90e33e5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_aacfb6865638f3183cb4e5bdb90e33e5d.html#aacfb6865638f3183cb4e5bdb90e33e5d">clearStateConstraints</a> ()</td></tr>
 <tr class="separator:aacfb6865638f3183cb4e5bdb90e33e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b30b38c38337053edd358c9d5a51c34"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a1b30b38c38337053edd358c9d5a51c34.html#a1b30b38c38337053edd358c9d5a51c34">hasControlModel</a> () const =0</td></tr>
+<tr class="memdesc:a1b30b38c38337053edd358c9d5a51c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if there is a control model.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a1b30b38c38337053edd358c9d5a51c34.html#a1b30b38c38337053edd358c9d5a51c34">More...</a><br /></td></tr>
 <tr class="separator:a1b30b38c38337053edd358c9d5a51c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4bc20c85fbf84bcd613c6b4e6e80c74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ac4bc20c85fbf84bcd613c6b4e6e80c74.html#ac4bc20c85fbf84bcd613c6b4e6e80c74">hasStateConstraint</a> () const</td></tr>
 <tr class="separator:ac4bc20c85fbf84bcd613c6b4e6e80c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dfd7a8946b190103e8f7acd87f1beb3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a2dfd7a8946b190103e8f7acd87f1beb3.html#a2dfd7a8946b190103e8f7acd87f1beb3">propagateState</a> (T timestep, const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;state, const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;control) const =0</td></tr>
+<tr class="memdesc:a2dfd7a8946b190103e8f7acd87f1beb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the state forward one timestep.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a2dfd7a8946b190103e8f7acd87f1beb3.html#a2dfd7a8946b190103e8f7acd87f1beb3">More...</a><br /></td></tr>
 <tr class="separator:a2dfd7a8946b190103e8f7acd87f1beb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a3da6775a2ef041b06c625069bb0ec5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a1a3da6775a2ef041b06c625069bb0ec5.html#a1a3da6775a2ef041b06c625069bb0ec5">propagateState</a> (T timestep, const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;state, const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;control, const <a class="el" href="../../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html">StateTransParams</a> *const stateTransParams, const <a class="el" href="../../dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html">ControlParams</a> *const controlParams, const <a class="el" href="../../d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html">ConstraintParams</a> *const constraintParams) const =0</td></tr>
+<tr class="memdesc:a1a3da6775a2ef041b06c625069bb0ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the state forward one timestep.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a1a3da6775a2ef041b06c625069bb0ec5.html#a1a3da6775a2ef041b06c625069bb0ec5">More...</a><br /></td></tr>
 <tr class="separator:a1a3da6775a2ef041b06c625069bb0ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace702d5fdfd750664cfbbb4484b1ef41"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ace702d5fdfd750664cfbbb4484b1ef41.html#ace702d5fdfd750664cfbbb4484b1ef41">propagateState</a> (T timestep, const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;state, const <a class="el" href="../../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html">StateTransParams</a> *const stateTransParams=nullptr) const =0</td></tr>
+<tr class="memdesc:ace702d5fdfd750664cfbbb4484b1ef41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the state forward one timestep.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ace702d5fdfd750664cfbbb4484b1ef41.html#ace702d5fdfd750664cfbbb4484b1ef41">More...</a><br /></td></tr>
 <tr class="separator:ace702d5fdfd750664cfbbb4484b1ef41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae11781ddaef789730326ae08a6405dce"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:ae11781ddaef789730326ae08a6405dce"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ae11781ddaef789730326ae08a6405dce.html#ae11781ddaef789730326ae08a6405dce">setStateConstraints</a> (F &amp;&amp;constrants)</td></tr>
+<tr class="memdesc:ae11781ddaef789730326ae08a6405dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the State Constraints object.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ae11781ddaef789730326ae08a6405dce.html#ae11781ddaef789730326ae08a6405dce">More...</a><br /></td></tr>
 <tr class="separator:ae11781ddaef789730326ae08a6405dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f49f58b84c55417848e6a0f3035beb3"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(T timestep, <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">matrix::Vector</a>&lt; T &gt; &amp;state, const <a class="el" href="../../d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html">ConstraintParams</a> *const constraintParams)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a6f49f58b84c55417848e6a0f3035beb3.html#a6f49f58b84c55417848e6a0f3035beb3">stateConstraints</a> () const</td></tr>
-<tr class="separator:a6f49f58b84c55417848e6a0f3035beb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90fd5884143771b18a38ad9d9fc1a0cc"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a90fd5884143771b18a38ad9d9fc1a0cc.html#a90fd5884143771b18a38ad9d9fc1a0cc">stateNames</a> () const =0</td></tr>
+<tr class="memdesc:a90fd5884143771b18a38ad9d9fc1a0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a list of the state names, in order.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a90fd5884143771b18a38ad9d9fc1a0cc.html#a90fd5884143771b18a38ad9d9fc1a0cc">More...</a><br /></td></tr>
 <tr class="separator:a90fd5884143771b18a38ad9d9fc1a0cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -170,7 +186,12 @@ Friends</h2></td></tr>
 <tr class="memitem:ab2f44cbb59a08132f4c843e5225bba0e"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ab2f44cbb59a08132f4c843e5225bba0e.html#ab2f44cbb59a08132f4c843e5225bba0e">cereal::access</a></td></tr>
 <tr class="separator:ab2f44cbb59a08132f4c843e5225bba0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class lager::gncpy::dynamics::IDynamics&lt; T &gt;</h3>
+
+<p>Base interface for all dynamics. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/workspace/include/gncpy/dynamics/<a class="el" href="../../d6/da9/IDynamics_8h_source.html">IDynamics.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -179,7 +200,7 @@ Friends</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d7f/namespacelager.html">lager</a></li><li class="navelem"><a class="el" href="../../d7/d25/namespacelager_1_1gncpy.html">gncpy</a></li><li class="navelem"><a class="el" href="../../d8/d46/namespacelager_1_1gncpy_1_1dynamics.html">dynamics</a></li><li class="navelem"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">IDynamics</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

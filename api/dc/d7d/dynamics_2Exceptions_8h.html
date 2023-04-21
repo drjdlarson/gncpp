@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -120,17 +127,16 @@ $(document).ready(function(){initNavTree('dc/d7d/dynamics_2Exceptions_8h.html','
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d9/de6/dynamics_2Exceptions_8h__dep__incl.png" border="0" usemap="#a_2workspace_2include_2gncpy_2dynamics_2Exceptions_8hdep" alt=""/></div>
 <map name="a_2workspace_2include_2gncpy_2dynamics_2Exceptions_8hdep" id="a_2workspace_2include_2gncpy_2dynamics_2Exceptions_8hdep">
-<area shape="rect" title=" " alt="" coords="443,5,662,47"/>
-<area shape="rect" href="../../d6/da9/IDynamics_8h.html" title=" " alt="" coords="331,95,548,136"/>
-<area shape="rect" href="../../de/daf/dynamics_2Exceptions_8cpp.html" title=" " alt="" coords="573,95,759,136"/>
-<area shape="rect" href="../../d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="56,184,313,225"/>
-<area shape="rect" href="../../da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="245,363,457,419"/>
-<area shape="rect" href="../../d8/dee/NonLinearDynamics_8h.html" title=" " alt="" coords="389,184,668,225"/>
-<area shape="rect" href="../../df/d22/IBayesFilter_8h.html" title=" " alt="" coords="553,273,752,315"/>
-<area shape="rect" href="../../d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="5,273,263,315"/>
-<area shape="rect" href="../../d0/dec/DoubleIntegrator_8cpp.html" title=" " alt="" coords="34,370,221,411"/>
-<area shape="rect" href="../../dc/d03/Kalman_8h.html" title=" " alt="" coords="336,467,508,508"/>
-<area shape="rect" href="../../d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="342,556,502,597"/>
+<area shape="rect" title=" " alt="" coords="426,5,645,47"/>
+<area shape="rect" href="../../d6/da9/IDynamics_8h.html" title=" " alt="" coords="313,95,531,136"/>
+<area shape="rect" href="../../de/daf/dynamics_2Exceptions_8cpp.html" title=" " alt="" coords="555,95,742,136"/>
+<area shape="rect" href="../../d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="56,191,313,233"/>
+<area shape="rect" href="../../da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="220,392,432,448"/>
+<area shape="rect" href="../../d8/d32/INonLinearDynamics_8h.html" title=" " alt="" coords="389,184,596,240"/>
+<area shape="rect" href="../../df/d22/IBayesFilter_8h.html" title=" " alt="" coords="495,399,693,441"/>
+<area shape="rect" href="../../d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="5,295,263,337"/>
+<area shape="rect" href="../../dc/d03/Kalman_8h.html" title=" " alt="" coords="355,496,527,537"/>
+<area shape="rect" href="../../da/d62/CurvilinearMotion_8h.html" title=" " alt="" coords="389,288,596,344"/>
 </map>
 </div>
 </div>
@@ -139,8 +145,10 @@ $(document).ready(function(){initNavTree('dc/d7d/dynamics_2Exceptions_8h.html','
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html">lager::gncpy::dynamics::NoControlError</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">No control model is given.  <a href="../../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html">lager::gncpy::dynamics::NoStateConstraintError</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">No stat constraint is given.  <a href="../../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -161,7 +169,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../dir_9c86b5654810d41c464a5f110971a06c.html">dynamics</a></li><li class="navelem"><a class="el" href="../../dc/d7d/dynamics_2Exceptions_8h.html">Exceptions.h</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

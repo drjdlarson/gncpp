@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -141,14 +148,14 @@ $(document).ready(function(){initNavTree('db/d8a/Math_8h.html','../../'); initRe
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dd/d5a/Math_8h__dep__incl.png" border="0" usemap="#a_2workspace_2include_2gncpy_2math_2Math_8hdep" alt=""/></div>
 <map name="a_2workspace_2include_2gncpy_2math_2Math_8hdep" id="a_2workspace_2include_2gncpy_2math_2Math_8hdep">
-<area shape="rect" title=" " alt="" coords="85,5,237,47"/>
-<area shape="rect" href="../../dc/d03/Kalman_8h.html" title=" " alt="" coords="5,407,177,448"/>
-<area shape="rect" href="../../de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="69,95,252,151"/>
-<area shape="rect" href="../../d8/d2a/StateObservation_8h.html" title=" " alt="" coords="276,95,443,151"/>
-<area shape="rect" href="../../d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="11,496,171,537"/>
-<area shape="rect" href="../../dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="69,199,236,255"/>
-<area shape="rect" href="../../d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="129,303,296,359"/>
-<area shape="rect" href="../../de/dc5/StateObservation_8cpp.html" title=" " alt="" coords="362,206,583,247"/>
+<area shape="rect" title=" " alt="" coords="238,5,390,47"/>
+<area shape="rect" href="../../d8/d32/INonLinearDynamics_8h.html" title=" " alt="" coords="5,95,212,151"/>
+<area shape="rect" href="../../dc/d03/Kalman_8h.html" title=" " alt="" coords="224,407,396,448"/>
+<area shape="rect" href="../../de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="288,95,471,151"/>
+<area shape="rect" href="../../d8/d2a/StateObservation_8h.html" title=" " alt="" coords="531,199,697,255"/>
+<area shape="rect" href="../../da/d62/CurvilinearMotion_8h.html" title=" " alt="" coords="5,199,212,255"/>
+<area shape="rect" href="../../dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="288,199,455,255"/>
+<area shape="rect" href="../../d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="348,303,515,359"/>
 </map>
 </div>
 </div>
@@ -170,13 +177,24 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a21b553cbcf97e7917ac07b4a7d228aae"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a21b553cbcf97e7917ac07b4a7d228aae"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d59/namespacelager_1_1gncpy_1_1math_a21b553cbcf97e7917ac07b4a7d228aae.html#a21b553cbcf97e7917ac07b4a7d228aae">lager::gncpy::math::calcGaussianPDF</a> (const matrix::Vector&lt; T &gt; &amp;x, const matrix::Vector&lt; T &gt; &amp;m, const matrix::Matrix&lt; T &gt; &amp;cov)</td></tr>
+<tr class="memdesc:a21b553cbcf97e7917ac07b4a7d228aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the value of a multi-variate Gaussian PDF.  <a href="../../df/d59/namespacelager_1_1gncpy_1_1math_a21b553cbcf97e7917ac07b4a7d228aae.html#a21b553cbcf97e7917ac07b4a7d228aae">More...</a><br /></td></tr>
 <tr class="separator:a21b553cbcf97e7917ac07b4a7d228aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed753d538574c3e6d0a523e989b2ddec"><td class="memTemplParams" colspan="2">template&lt;typename T , typename F &gt; </td></tr>
-<tr class="memitem:aed753d538574c3e6d0a523e989b2ddec"><td class="memTemplItemLeft" align="right" valign="top">matrix::Vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d59/namespacelager_1_1gncpy_1_1math_aed753d538574c3e6d0a523e989b2ddec.html#aed753d538574c3e6d0a523e989b2ddec">lager::gncpy::math::getJacobian</a> (const matrix::Vector&lt; T &gt; &amp;x, const F &amp;fnc)</td></tr>
-<tr class="separator:aed753d538574c3e6d0a523e989b2ddec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed6c4a365791201862345ff777f46581"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aed6c4a365791201862345ff777f46581"><td class="memTemplItemLeft" align="right" valign="top">matrix::Matrix&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d59/namespacelager_1_1gncpy_1_1math_aed6c4a365791201862345ff777f46581.html#aed6c4a365791201862345ff777f46581">lager::gncpy::math::getJacobian</a> (const matrix::Vector&lt; T &gt; &amp;x, const std::vector&lt; std::function&lt; T(const <a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">lager::gncpy::matrix::Vector</a>&lt; T &gt; &amp;)&gt;&gt; &amp;fncLst)</td></tr>
-<tr class="separator:aed6c4a365791201862345ff777f46581"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2986cfc0a3537b82dd74592b3d14f9c6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2986cfc0a3537b82dd74592b3d14f9c6"><td class="memTemplItemLeft" align="right" valign="top">matrix::Vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d59/namespacelager_1_1gncpy_1_1math_a2986cfc0a3537b82dd74592b3d14f9c6.html#a2986cfc0a3537b82dd74592b3d14f9c6">lager::gncpy::math::getGradient</a> (const matrix::Vector&lt; T &gt; &amp;x, std::function&lt; T(const matrix::Vector&lt; T &gt; &amp;)&gt; const &amp;fnc)</td></tr>
+<tr class="memdesc:a2986cfc0a3537b82dd74592b3d14f9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the gradient vector of the function.  <a href="../../df/d59/namespacelager_1_1gncpy_1_1math_a2986cfc0a3537b82dd74592b3d14f9c6.html#a2986cfc0a3537b82dd74592b3d14f9c6">More...</a><br /></td></tr>
+<tr class="separator:a2986cfc0a3537b82dd74592b3d14f9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0346ca2f79d2291e0e0d49c80cf22b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:afd0346ca2f79d2291e0e0d49c80cf22b"><td class="memTemplItemLeft" align="right" valign="top">matrix::Matrix&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d59/namespacelager_1_1gncpy_1_1math_afd0346ca2f79d2291e0e0d49c80cf22b.html#afd0346ca2f79d2291e0e0d49c80cf22b">lager::gncpy::math::getJacobian</a> (const matrix::Vector&lt; T &gt; &amp;x, const std::vector&lt; std::function&lt; T(const matrix::Vector&lt; T &gt; &amp;)&gt;&gt; &amp;fncLst)</td></tr>
+<tr class="memdesc:afd0346ca2f79d2291e0e0d49c80cf22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the Jacobian matrix.  <a href="../../df/d59/namespacelager_1_1gncpy_1_1math_afd0346ca2f79d2291e0e0d49c80cf22b.html#afd0346ca2f79d2291e0e0d49c80cf22b">More...</a><br /></td></tr>
+<tr class="separator:afd0346ca2f79d2291e0e0d49c80cf22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63411c901839bde107d66b133fc81d06"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a63411c901839bde107d66b133fc81d06"><td class="memTemplItemLeft" align="right" valign="top">matrix::Matrix&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d59/namespacelager_1_1gncpy_1_1math_a63411c901839bde107d66b133fc81d06.html#a63411c901839bde107d66b133fc81d06">lager::gncpy::math::getJacobian</a> (const matrix::Vector&lt; T &gt; &amp;x, std::function&lt; matrix::Vector&lt; T &gt;(const matrix::Vector&lt; T &gt; &amp;)&gt; const &amp;fnc, size_t numFunOutputs)</td></tr>
+<tr class="memdesc:a63411c901839bde107d66b133fc81d06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the Jacobian matrix.  <a href="../../df/d59/namespacelager_1_1gncpy_1_1math_a63411c901839bde107d66b133fc81d06.html#a63411c901839bde107d66b133fc81d06">More...</a><br /></td></tr>
+<tr class="separator:a63411c901839bde107d66b133fc81d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc6ccb2154f7365eaebee7c2801417a"><td class="memTemplParams" colspan="2">template&lt;typename return_t , typename state_t , typename step_t &gt; </td></tr>
+<tr class="memitem:abdc6ccb2154f7365eaebee7c2801417a"><td class="memTemplItemLeft" align="right" valign="top">return_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../df/d59/namespacelager_1_1gncpy_1_1math_abdc6ccb2154f7365eaebee7c2801417a.html#abdc6ccb2154f7365eaebee7c2801417a">lager::gncpy::math::rungeKutta4</a> (step_t t0, const state_t &amp;x0, step_t dt, std::function&lt; return_t(step_t, const state_t &amp;)&gt; const &amp;fnc)</td></tr>
+<tr class="memdesc:abdc6ccb2154f7365eaebee7c2801417a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numerical integration using a basic Runge-Kutta method.  <a href="../../df/d59/namespacelager_1_1gncpy_1_1math_abdc6ccb2154f7365eaebee7c2801417a.html#abdc6ccb2154f7365eaebee7c2801417a">More...</a><br /></td></tr>
+<tr class="separator:abdc6ccb2154f7365eaebee7c2801417a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -184,7 +202,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../dir_0a5f4a6b286eced3100bfd9a1b0a7460.html">math</a></li><li class="navelem"><a class="el" href="../../db/d8a/Math_8h.html">Math.h</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

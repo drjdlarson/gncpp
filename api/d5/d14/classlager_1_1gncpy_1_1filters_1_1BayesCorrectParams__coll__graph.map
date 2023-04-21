@@ -1,4 +1,4 @@
 <map id="lager::gncpy::filters::BayesCorrectParams" name="lager::gncpy::filters::BayesCorrectParams">
-<area shape="rect" id="node1" title=" " alt="" coords="10,124,175,165"/>
+<area shape="rect" id="node1" title="Base polymorphic class for the correction step of bayes filters." alt="" coords="10,124,175,165"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,180,61"/>
 </map>

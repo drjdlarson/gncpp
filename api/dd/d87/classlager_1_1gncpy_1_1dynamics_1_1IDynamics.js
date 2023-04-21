@@ -11,7 +11,6 @@ var classlager_1_1gncpy_1_1dynamics_1_1IDynamics =
     [ "serialize", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a582158b83bedeef91a38840d2cba8b5d.html#a582158b83bedeef91a38840d2cba8b5d", null ],
     [ "setStateConstraints", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ae11781ddaef789730326ae08a6405dce.html#ae11781ddaef789730326ae08a6405dce", null ],
     [ "stateConstraint", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a4e8c8f45c3b83cb9e90e809b4ac0b0f9.html#a4e8c8f45c3b83cb9e90e809b4ac0b0f9", null ],
-    [ "stateConstraints", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a6f49f58b84c55417848e6a0f3035beb3.html#a6f49f58b84c55417848e6a0f3035beb3", null ],
     [ "stateNames", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a90fd5884143771b18a38ad9d9fc1a0cc.html#a90fd5884143771b18a38ad9d9fc1a0cc", null ],
     [ "cereal::access", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ab2f44cbb59a08132f4c843e5225bba0e.html#ab2f44cbb59a08132f4c843e5225bba0e", null ],
     [ "m_hasStateConstraint", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a739416f5892e5589975ed66f727f9557.html#a739416f5892e5589975ed66f727f9557", null ],

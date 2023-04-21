@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -100,10 +107,13 @@ $(document).ready(function(){initNavTree('da/d8f/dynamics_2SerializableTypes_8h_
 <div class="contents">
 <a href="../../da/d8f/dynamics_2SerializableTypes_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d89/DoubleIntegrator_8h.html">gncpy/dynamics/DoubleIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/da9/IDynamics_8h.html">gncpy/dynamics/IDynamics.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/df2/ILinearDynamics_8h.html">gncpy/dynamics/ILinearDynamics.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/dbc/dynamics_2Parameters_8h.html">gncpy/dynamics/Parameters.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Include all headers that contain things that can be serialized within the</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// dynamics folder</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d89/DoubleIntegrator_8h.html">gncpy/dynamics/DoubleIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/da9/IDynamics_8h.html">gncpy/dynamics/IDynamics.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/df2/ILinearDynamics_8h.html">gncpy/dynamics/ILinearDynamics.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/dbc/dynamics_2Parameters_8h.html">gncpy/dynamics/Parameters.h</a>&quot;</span></div>
 <div class="ttc" id="aDoubleIntegrator_8h_html"><div class="ttname"><a href="../../d3/d89/DoubleIntegrator_8h.html">DoubleIntegrator.h</a></div></div>
 <div class="ttc" id="aIDynamics_8h_html"><div class="ttname"><a href="../../d6/da9/IDynamics_8h.html">IDynamics.h</a></div></div>
 <div class="ttc" id="aILinearDynamics_8h_html"><div class="ttname"><a href="../../d9/df2/ILinearDynamics_8h.html">ILinearDynamics.h</a></div></div>
@@ -114,7 +124,7 @@ $(document).ready(function(){initNavTree('da/d8f/dynamics_2SerializableTypes_8h_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../dir_9c86b5654810d41c464a5f110971a06c.html">dynamics</a></li><li class="navelem"><a class="el" href="../../da/d8f/dynamics_2SerializableTypes_8h.html">SerializableTypes.h</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

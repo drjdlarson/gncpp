@@ -1,10 +1,10 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" title=" " alt="" coords="5,177,120,203"/>
 <area shape="rect" id="node2" title=" " alt="" coords="168,177,307,203"/>
-<area shape="rect" id="node3" href="$d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html" title=" " alt="" coords="359,5,531,47"/>
-<area shape="rect" id="node4" href="$d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html" title=" " alt="" coords="355,71,535,112"/>
-<area shape="rect" id="node5" href="$dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html" title=" " alt="" coords="355,136,535,177"/>
-<area shape="rect" id="node6" href="$de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html" title=" " alt="" coords="355,201,535,243"/>
+<area shape="rect" id="node3" href="$d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html" title="No control model is given." alt="" coords="359,5,531,47"/>
+<area shape="rect" id="node4" href="$d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html" title="No stat constraint is given." alt="" coords="355,71,535,112"/>
+<area shape="rect" id="node5" href="$dc/d8d/classlager_1_1gncpy_1_1exceptions_1_1BadParams.html" title="General exception for when incorrect parameters are supplied." alt="" coords="355,136,535,177"/>
+<area shape="rect" id="node6" href="$de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html" title="General exception for when an incorrect type is used." alt="" coords="355,201,535,243"/>
 <area shape="rect" id="node7" href="$dc/dae/classlager_1_1gncpy_1_1matrix_1_1BadDimension.html" title="Runtime error for inmproper dimensions." alt="" coords="369,267,521,308"/>
-<area shape="rect" id="node8" href="$d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html" title=" " alt="" coords="369,332,521,373"/>
+<area shape="rect" id="node8" href="$d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html" title="Runtime error for indexing out of range." alt="" coords="369,332,521,373"/>
 </map>

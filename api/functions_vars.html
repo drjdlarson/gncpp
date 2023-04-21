@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -101,21 +108,28 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>cov
 : <a class="el" href="d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a2333c04195e02fdbdbee87236ab0c27c.html#a2333c04195e02fdbdbee87236ab0c27c">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a>
 </li>
+<li>m_continuousControl
+: <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a806a57f24e7deea0b4e34337b4c8e272.html#a806a57f24e7deea0b4e34337b4c8e272">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
+</li>
 <li>m_controlModel
 : <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_adb212996ab38fa4bd5ecf1fd58b16c29.html#adb212996ab38fa4bd5ecf1fd58b16c29">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
-, <a class="el" href="dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics_ac4a55115090f030bd739eba94f0ac060.html#ac4a55115090f030bd739eba94f0ac060">lager::gncpy::dynamics::NonLinearDynamics&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a778615422b07a310b6464cd316cd5f1c.html#a778615422b07a310b6464cd316cd5f1c">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>m_data
 : <a class="el" href="da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a0fcbd4ff3a679047a0480eb90c69b170.html#a0fcbd4ff3a679047a0480eb90c69b170">lager::gncpy::matrix::Matrix&lt; T &gt;</a>
 </li>
 <li>m_dt
 : <a class="el" href="d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator_af84cdd013716b2d3fb5756529d4fd233.html#af84cdd013716b2d3fb5756529d4fd233">lager::gncpy::dynamics::DoubleIntegrator&lt; T &gt;</a>
+, <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a233717eba1e20cd0531ecab6aa19e017.html#a233717eba1e20cd0531ecab6aa19e017">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>m_dynObj
 : <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a3ddd4db0a9d98a457ffb866989a006a5.html#a3ddd4db0a9d98a457ffb866989a006a5">lager::gncpy::filters::Kalman&lt; T &gt;</a>
 </li>
 <li>m_hasContolModel
 : <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_a236ccd1985abb69730b330b7550bdea6.html#a236ccd1985abb69730b330b7550bdea6">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
+</li>
+<li>m_hasControlModel
+: <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a9f95acf400a9fd14d4a506579dc45ac5.html#a9f95acf400a9fd14d4a506579dc45ac5">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>m_hasStateConstraint
 : <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a739416f5892e5589975ed66f727f9557.html#a739416f5892e5589975ed66f727f9557">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
@@ -168,7 +182,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:25 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

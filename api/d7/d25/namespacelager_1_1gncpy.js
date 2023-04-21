@@ -5,13 +5,14 @@ var namespacelager_1_1gncpy =
     [ "filters", "d1/de2/namespacelager_1_1gncpy_1_1filters.html", "d1/de2/namespacelager_1_1gncpy_1_1filters" ],
     [ "math", "df/d59/namespacelager_1_1gncpy_1_1math.html", [
       [ "calcGaussianPDF", "df/d59/namespacelager_1_1gncpy_1_1math_a21b553cbcf97e7917ac07b4a7d228aae.html#a21b553cbcf97e7917ac07b4a7d228aae", null ],
-      [ "getJacobian", "df/d59/namespacelager_1_1gncpy_1_1math_aed753d538574c3e6d0a523e989b2ddec.html#aed753d538574c3e6d0a523e989b2ddec", null ],
-      [ "getJacobian", "df/d59/namespacelager_1_1gncpy_1_1math_aed6c4a365791201862345ff777f46581.html#aed6c4a365791201862345ff777f46581", null ]
+      [ "getGradient", "df/d59/namespacelager_1_1gncpy_1_1math_a2986cfc0a3537b82dd74592b3d14f9c6.html#a2986cfc0a3537b82dd74592b3d14f9c6", null ],
+      [ "getJacobian", "df/d59/namespacelager_1_1gncpy_1_1math_afd0346ca2f79d2291e0e0d49c80cf22b.html#afd0346ca2f79d2291e0e0d49c80cf22b", null ],
+      [ "getJacobian", "df/d59/namespacelager_1_1gncpy_1_1math_a63411c901839bde107d66b133fc81d06.html#a63411c901839bde107d66b133fc81d06", null ],
+      [ "rungeKutta4", "df/d59/namespacelager_1_1gncpy_1_1math_abdc6ccb2154f7365eaebee7c2801417a.html#abdc6ccb2154f7365eaebee7c2801417a", null ]
     ] ],
     [ "matrix", "d2/dce/namespacelager_1_1gncpy_1_1matrix.html", "d2/dce/namespacelager_1_1gncpy_1_1matrix" ],
     [ "measurements", "d3/d4d/namespacelager_1_1gncpy_1_1measurements.html", "d3/d4d/namespacelager_1_1gncpy_1_1measurements" ],
     [ "utilities", "d7/d5d/namespacelager_1_1gncpy_1_1utilities.html", [
       [ "instanceof", "d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2", null ]
-    ] ],
-    [ "utility", "d6/d32/namespacelager_1_1gncpy_1_1utility.html", null ]
+    ] ]
 ];

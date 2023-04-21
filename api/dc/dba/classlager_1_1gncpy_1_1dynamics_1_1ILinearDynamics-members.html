@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -122,16 +129,15 @@ $(document).ready(function(){initNavTree('d3/da1/classlager_1_1gncpy_1_1dynamics
   <tr class="even"><td class="entry"><a class="el" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_abde05e587b48f3b6991be52784459643.html#abde05e587b48f3b6991be52784459643">setControlModel</a>(F &amp;&amp;model)</td><td class="entry"><a class="el" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ae11781ddaef789730326ae08a6405dce.html#ae11781ddaef789730326ae08a6405dce">setStateConstraints</a>(F &amp;&amp;constrants)</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a4e8c8f45c3b83cb9e90e809b4ac0b0f9.html#a4e8c8f45c3b83cb9e90e809b4ac0b0f9">stateConstraint</a>(T timestep, matrix::Vector&lt; T &gt; &amp;state, const ConstraintParams *const constraintParams=nullptr) const</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a6f49f58b84c55417848e6a0f3035beb3.html#a6f49f58b84c55417848e6a0f3035beb3">stateConstraints</a>() const</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a90fd5884143771b18a38ad9d9fc1a0cc.html#a90fd5884143771b18a38ad9d9fc1a0cc">stateNames</a>() const =0</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a849d6c4e82b034474702332f9517324a.html#a849d6c4e82b034474702332f9517324a">~IDynamics</a>()=default</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_af37bc7a261155f1db37d6c476684effc.html#af37bc7a261155f1db37d6c476684effc">~ILinearDynamics</a>()=default</td><td class="entry"><a class="el" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a90fd5884143771b18a38ad9d9fc1a0cc.html#a90fd5884143771b18a38ad9d9fc1a0cc">stateNames</a>() const =0</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a849d6c4e82b034474702332f9517324a.html#a849d6c4e82b034474702332f9517324a">~IDynamics</a>()=default</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_af37bc7a261155f1db37d6c476684effc.html#af37bc7a261155f1db37d6c476684effc">~ILinearDynamics</a>()=default</td><td class="entry"><a class="el" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

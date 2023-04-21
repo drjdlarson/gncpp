@@ -8,7 +8,8 @@ var searchData=
   ['_7eidynamics_332',['~IDynamics',['../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a849d6c4e82b034474702332f9517324a.html#a849d6c4e82b034474702332f9517324a',1,'lager::gncpy::dynamics::IDynamics']]],
   ['_7eilineardynamics_333',['~ILinearDynamics',['../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_af37bc7a261155f1db37d6c476684effc.html#af37bc7a261155f1db37d6c476684effc',1,'lager::gncpy::dynamics::ILinearDynamics']]],
   ['_7eimeasmodel_334',['~IMeasModel',['../d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel_af781e55f082f91e66c923fa600163882.html#af781e55f082f91e66c923fa600163882',1,'lager::gncpy::measurements::IMeasModel']]],
-  ['_7ematrix_335',['~Matrix',['../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_ab26971df1bd2baa057189558b667758e.html#ab26971df1bd2baa057189558b667758e',1,'lager::gncpy::matrix::Matrix']]],
-  ['_7emeasparams_336',['~MeasParams',['../d2/d5f/classlager_1_1gncpy_1_1measurements_1_1MeasParams_ab0d3016599593a209b92525f4dcef1f1.html#ab0d3016599593a209b92525f4dcef1f1',1,'lager::gncpy::measurements::MeasParams']]],
-  ['_7estatetransparams_337',['~StateTransParams',['../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams_a326a2e2bd2a9d6a8ce52f37c3373f46e.html#a326a2e2bd2a9d6a8ce52f37c3373f46e',1,'lager::gncpy::dynamics::StateTransParams']]]
+  ['_7einonlineardynamics_335',['~INonLinearDynamics',['../d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a7925b61730157e54871e35d366ca68b2.html#a7925b61730157e54871e35d366ca68b2',1,'lager::gncpy::dynamics::INonLinearDynamics']]],
+  ['_7ematrix_336',['~Matrix',['../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_ab26971df1bd2baa057189558b667758e.html#ab26971df1bd2baa057189558b667758e',1,'lager::gncpy::matrix::Matrix']]],
+  ['_7emeasparams_337',['~MeasParams',['../d2/d5f/classlager_1_1gncpy_1_1measurements_1_1MeasParams_ab0d3016599593a209b92525f4dcef1f1.html#ab0d3016599593a209b92525f4dcef1f1',1,'lager::gncpy::measurements::MeasParams']]],
+  ['_7estatetransparams_338',['~StateTransParams',['../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams_a326a2e2bd2a9d6a8ce52f37c3373f46e.html#a326a2e2bd2a9d6a8ce52f37c3373f46e',1,'lager::gncpy::dynamics::StateTransParams']]]
 ];

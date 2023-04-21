@@ -21,7 +21,9 @@ var hierarchy =
       [ "lager::gncpy::dynamics::ILinearDynamics< T >", "d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html", [
         [ "lager::gncpy::dynamics::DoubleIntegrator< T >", "d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html", null ]
       ] ],
-      [ "lager::gncpy::dynamics::NonLinearDynamics< T >", "dd/da8/classlager_1_1gncpy_1_1dynamics_1_1NonLinearDynamics.html", null ]
+      [ "lager::gncpy::dynamics::INonLinearDynamics< T >", "d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html", [
+        [ "lager::gncpy::dynamics::CurvilinearMotion< T >", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html", null ]
+      ] ]
     ] ],
     [ "lager::gncpy::measurements::IMeasModel< T >", "d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel.html", [
       [ "lager::gncpy::measurements::ILinearMeasModel< T >", "d0/dd2/classlager_1_1gncpy_1_1measurements_1_1ILinearMeasModel.html", [

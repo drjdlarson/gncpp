@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -136,7 +143,7 @@ $(document).ready(function(){initNavTree('df/db9/classlager_1_1gncpy_1_1matrix_1
   <tr class="even"><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_aafd613230b65602d0f73ebbc9e4eb366.html#aafd613230b65602d0f73ebbc9e4eb366">numCols</a>() const</td><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html">lager::gncpy::matrix::Matrix&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a55eb914dcb5afe49fc343d51d2157742.html#a55eb914dcb5afe49fc343d51d2157742">numRows</a>() const</td><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html">lager::gncpy::matrix::Matrix&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_acf2e0c31b67d21349159953be815c621.html#acf2e0c31b67d21349159953be815c621">operator()</a>(size_t elem)</td><td class="entry"><a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">lager::gncpy::matrix::Vector&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_af8a8c6924a7f0a43316f7318a0cac317.html#af8a8c6924a7f0a43316f7318a0cac317">operator()</a>(size_t elem) const</td><td class="entry"><a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">lager::gncpy::matrix::Vector&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_aee7c1dcad7ac5df6754f68210d8f5332.html#aee7c1dcad7ac5df6754f68210d8f5332">operator()</a>(size_t elem) const</td><td class="entry"><a class="el" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">lager::gncpy::matrix::Vector&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_ae1f2c18f8eb1764dd302b66310b7bd92.html#ae1f2c18f8eb1764dd302b66310b7bd92">lager::gncpy::matrix::Matrix::operator()</a>(size_t row, size_t col)</td><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html">lager::gncpy::matrix::Matrix&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a8aeedfc97bc81360935f56796826dae2.html#a8aeedfc97bc81360935f56796826dae2">lager::gncpy::matrix::Matrix::operator()</a>(size_t row, size_t col) const</td><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html">lager::gncpy::matrix::Matrix&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_aed8782c5408d8253eca3d48057835ddd.html#aed8782c5408d8253eca3d48057835ddd">lager::gncpy::matrix::Matrix::operator()</a>(size_t start_row, size_t start_col, size_t row_span, size_t col_span) const</td><td class="entry"><a class="el" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html">lager::gncpy::matrix::Matrix&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -172,7 +179,7 @@ $(document).ready(function(){initNavTree('df/db9/classlager_1_1gncpy_1_1matrix_1
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:25 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

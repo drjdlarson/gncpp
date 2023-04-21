@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -132,17 +139,16 @@ $(document).ready(function(){initNavTree('d2/dbc/dynamics_2Parameters_8h.html','
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../db/d05/dynamics_2Parameters_8h__dep__incl.png" border="0" usemap="#a_2workspace_2include_2gncpy_2dynamics_2Parameters_8hdep" alt=""/></div>
 <map name="a_2workspace_2include_2gncpy_2dynamics_2Parameters_8hdep" id="a_2workspace_2include_2gncpy_2dynamics_2Parameters_8hdep">
-<area shape="rect" title=" " alt="" coords="425,5,647,47"/>
-<area shape="rect" href="../../d6/da9/IDynamics_8h.html" title=" " alt="" coords="427,95,645,136"/>
-<area shape="rect" href="../../d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="246,184,503,225"/>
-<area shape="rect" href="../../da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="410,363,622,419"/>
-<area shape="rect" href="../../d8/dee/NonLinearDynamics_8h.html" title=" " alt="" coords="579,184,858,225"/>
-<area shape="rect" href="../../d2/dcc/filters_2Parameters_8h.html" title=" " alt="" coords="25,95,221,136"/>
-<area shape="rect" href="../../df/d22/IBayesFilter_8h.html" title=" " alt="" coords="23,184,222,225"/>
-<area shape="rect" href="../../d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="195,273,453,315"/>
-<area shape="rect" href="../../d0/dec/DoubleIntegrator_8cpp.html" title=" " alt="" coords="199,370,385,411"/>
-<area shape="rect" href="../../dc/d03/Kalman_8h.html" title=" " alt="" coords="37,467,209,508"/>
-<area shape="rect" href="../../d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="43,556,203,597"/>
+<area shape="rect" title=" " alt="" coords="162,5,384,47"/>
+<area shape="rect" href="../../da/d62/CurvilinearMotion_8h.html" title=" " alt="" coords="51,288,258,344"/>
+<area shape="rect" href="../../d6/da9/IDynamics_8h.html" title=" " alt="" coords="352,95,570,136"/>
+<area shape="rect" href="../../d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="332,191,590,233"/>
+<area shape="rect" href="../../da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="471,392,683,448"/>
+<area shape="rect" href="../../d8/d32/INonLinearDynamics_8h.html" title=" " alt="" coords="102,184,308,240"/>
+<area shape="rect" href="../../d2/dcc/filters_2Parameters_8h.html" title=" " alt="" coords="666,95,862,136"/>
+<area shape="rect" href="../../df/d22/IBayesFilter_8h.html" title=" " alt="" coords="664,191,863,233"/>
+<area shape="rect" href="../../d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="282,295,539,337"/>
+<area shape="rect" href="../../dc/d03/Kalman_8h.html" title=" " alt="" coords="678,496,850,537"/>
 </map>
 </div>
 </div>
@@ -151,10 +157,13 @@ $(document).ready(function(){initNavTree('d2/dbc/dynamics_2Parameters_8h.html','
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html">lager::gncpy::dynamics::ConstraintParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all state constraint parameters.  <a href="../../d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html">lager::gncpy::dynamics::ControlParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all control parameters.  <a href="../../dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html">lager::gncpy::dynamics::StateTransParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all state transition parameters.  <a href="../../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -175,7 +184,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../dir_9c86b5654810d41c464a5f110971a06c.html">dynamics</a></li><li class="navelem"><a class="el" href="../../d2/dbc/dynamics_2Parameters_8h.html">Parameters.h</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

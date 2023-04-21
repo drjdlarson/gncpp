@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -107,13 +114,15 @@ $(document).ready(function(){initNavTree('dir_9c86b5654810d41c464a5f110971a06c.h
 <map name="adir__9c86b5654810d41c464a5f110971a06c__dep" id="adir__9c86b5654810d41c464a5f110971a06c__dep">
 <area shape="rect" href="dir_0a5f4a6b286eced3100bfd9a1b0a7460.html" title="math" alt="" coords="33,148,105,196"/>
 <area shape="rect" href="dir_9c86b5654810d41c464a5f110971a06c.html" title="dynamics" alt="" coords="27,52,112,100"/>
-<area shape="rect" href="dir_000003_000004.html" title="6" alt="" coords="73,122,82,137"/>
+<area shape="rect" href="dir_000003_000004.html" title="9" alt="" coords="73,122,82,137"/>
 <area shape="rect" href="dir_c605aaf880ac1f1d322d69eb8b0fcb25.html" title="gncpy" alt="" coords="16,16,123,207"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
+<tr class="memitem:da/d62/CurvilinearMotion_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="da/d62/CurvilinearMotion_8h.html">CurvilinearMotion.h</a> <a href="da/d62/CurvilinearMotion_8h_source.html">[code]</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d3/d89/DoubleIntegrator_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d3/d89/DoubleIntegrator_8h.html">DoubleIntegrator.h</a> <a href="d3/d89/DoubleIntegrator_8h_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:dc/d7d/dynamics_2Exceptions_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dc/d7d/dynamics_2Exceptions_8h.html">Exceptions.h</a> <a href="dc/d7d/dynamics_2Exceptions_8h_source.html">[code]</a></td></tr>
@@ -122,7 +131,7 @@ Files</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d9/df2/ILinearDynamics_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d9/df2/ILinearDynamics_8h.html">ILinearDynamics.h</a> <a href="d9/df2/ILinearDynamics_8h_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d8/dee/NonLinearDynamics_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d8/dee/NonLinearDynamics_8h.html">NonLinearDynamics.h</a> <a href="d8/dee/NonLinearDynamics_8h_source.html">[code]</a></td></tr>
+<tr class="memitem:d8/d32/INonLinearDynamics_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d8/d32/INonLinearDynamics_8h.html">INonLinearDynamics.h</a> <a href="d8/d32/INonLinearDynamics_8h_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d2/dbc/dynamics_2Parameters_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d2/dbc/dynamics_2Parameters_8h.html">Parameters.h</a> <a href="d2/dbc/dynamics_2Parameters_8h_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,7 +144,7 @@ Files</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="dir_9c86b5654810d41c464a5f110971a06c.html">dynamics</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Apr 21 2023 21:06:25 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
