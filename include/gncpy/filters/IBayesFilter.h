@@ -5,6 +5,7 @@
 #include <cereal/archives/portable_binary.hpp>
 #include <cereal/types/base_class.hpp>
 #include <cereal/types/polymorphic.hpp>
+#include <concepts>
 #include <memory>
 #include <optional>
 
@@ -19,6 +20,7 @@ namespace lager::gncpy::filters {
 
 /// @brief Interface for all Bayes filters
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 class IBayesFilter {
     friend class cereal::access;
 
@@ -81,10 +83,14 @@ class IBayesFilter {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
-        ar(CEREAL_NVP(cov));
-    }
+    void serialize(Archive& ar);
 };
+
+template <typename T>
+template <class Archive>
+void IBayesFilter<T>::serialize(Archive& ar) {
+    ar(CEREAL_NVP(cov));
+}
 
 }  // namespace lager::gncpy::filters
 

@@ -36,17 +36,7 @@ class CurvilinearMotion final : public INonLinearDynamics<T> {
     GNCPY_SERIALIZE_CLASS(CurvilinearMotion<T>)
 
    public:
-    CurvilinearMotion() {
-        INonLinearDynamics<T>::setControlModel(
-            []([[maybe_unused]] T timestep,
-               [[maybe_unused]] const matrix::Vector<T>& state,
-               const matrix::Vector<T>& control,
-               [[maybe_unused]] const ControlParams* controlParams = nullptr) {
-                return matrix::Vector<T>({static_cast<T>(0), static_cast<T>(0),
-                                          control(0), control(1)});
-            },
-            true);
-    }
+    CurvilinearMotion();
 
     std::vector<std::string> stateNames() const override {
         return std::vector<std::string>{"x pos", "y pos", "speed",
@@ -54,36 +44,69 @@ class CurvilinearMotion final : public INonLinearDynamics<T> {
     }
 
     matrix::Vector<T> continuousDynamics(
-        T timestep, const matrix::Vector<T>& state,
-        const StateTransParams* stateTransParams = nullptr) const override {
-        return matrix::Vector<T>({state(2) * static_cast<T>(cos(state(3))),
-                                  state(2) * static_cast<T>(sin(state(3))),
-                                  static_cast<T>(0), static_cast<T>(0)});
-    }
-
+        [[maybe_unused]] T timestep, const matrix::Vector<T>& state,
+        [[maybe_unused]] const StateTransParams* stateTransParams =
+            nullptr) const override;
     template <typename F>
     void setControlModel([[maybe_unused]] F&& model,
-                         [[maybe_unused]] bool continuousModel) {
-        std::cerr << "Can not set control model for curvilinear motion "
-                     "dynamics. It has a fixed control model!"
-                  << std::endl;
-    }
-
-    void clearControlModel() override {
-        std::cerr << "Warning, disabling control model and it can not be "
-                     "re-enabled for this curvilinear motion model!"
-                  << std::endl;
-        INonLinearDynamics<T>::clearControlModel();
-    }
+                         [[maybe_unused]] bool continuousModel);
+    void clearControlModel() override;
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
-        ar(cereal::make_nvp(
-            "INonLinearDynamics",
-            cereal::virtual_base_class<INonLinearDynamics<T>>(this)));
-    }
+    void serialize(Archive& ar);
 };
+
+template <typename T>
+CurvilinearMotion<T>::CurvilinearMotion() {
+    INonLinearDynamics<T>::setControlModel(
+        []([[maybe_unused]] T timestep,
+           [[maybe_unused]] const matrix::Vector<T>& state,
+           const matrix::Vector<T>& control,
+           [[maybe_unused]] const ControlParams* controlParams = nullptr) {
+            return matrix::Vector<T>(
+                {static_cast<T>(0), static_cast<T>(0), control(0), control(1)});
+        },
+        true);
+}
+
+template <typename T>
+matrix::Vector<T> CurvilinearMotion<T>::continuousDynamics(
+    [[maybe_unused]] T timestep, const matrix::Vector<T>& state,
+    [[maybe_unused]] const StateTransParams* stateTransParams) const {
+    return matrix::Vector<T>({state(2) * static_cast<T>(cos(state(3))),
+                              state(2) * static_cast<T>(sin(state(3))),
+                              static_cast<T>(0), static_cast<T>(0)});
+}
+
+template <typename T>
+template <typename F>
+void CurvilinearMotion<T>::setControlModel(
+    [[maybe_unused]] F&& model, [[maybe_unused]] bool continuousModel) {
+    std::cerr << "Can not set control model for curvilinear motion "
+                 "dynamics. It has a fixed control model!"
+              << std::endl;
+}
+
+template <typename T>
+void CurvilinearMotion<T>::clearControlModel() {
+    std::cerr << "Warning, disabling control model and it can not be "
+                 "re-enabled for this curvilinear motion model!"
+              << std::endl;
+    INonLinearDynamics<T>::clearControlModel();
+}
+
+template <typename T>
+template <class Archive>
+void CurvilinearMotion<T>::serialize(Archive& ar) {
+    ar(cereal::make_nvp(
+        "INonLinearDynamics",
+        cereal::virtual_base_class<INonLinearDynamics<T>>(this)));
+}
+
+extern template class CurvilinearMotion<float>;
+extern template class CurvilinearMotion<double>;
+
 }  // namespace lager::gncpy::dynamics
 
 GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::dynamics::CurvilinearMotion)

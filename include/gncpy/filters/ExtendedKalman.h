@@ -1,8 +1,8 @@
 #pragma once
-#include <cereal/access.h>
+#include <cereal/access.hpp>
 
 #include "gncpy/SerializeMacros.h"
-#include "gncpy/Utilites.h"
+#include "gncpy/Utilities.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/filters/IBayesFilter.h"
 #include "gncpy/filters/Parameters.h"
@@ -12,9 +12,12 @@
 
 namespace lager::gncpy::filters {
 
+// TODO: finish implementing this class
 template <typename T>
 class ExtendedKalman final : public IBayesFilter<T> {
     friend cereal::access;
+
+    GNCPY_SERIALIZE_CLASS(ExtendedKalman<T>)
 
    public:
     matrix::Vector<T> predict(
@@ -37,12 +40,7 @@ class ExtendedKalman final : public IBayesFilter<T> {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
-        ar(cereal::make_nvp("IBayesFilter",
-                            cereal::virtual_base_class<IBayesFilter<T>>(this)),
-           CEREAL_NVP(m_measNoise), CEREAL_NVP(m_procNoise),
-           CEREAL_NVP(m_dynObj), CEREAL_NVP(m_measObj));
-    }
+    void serialize(Archive& ar);
 
     matrix::Matrix<T> m_measNoise;
     matrix::Matrix<T> m_procNoise;
@@ -51,14 +49,31 @@ class ExtendedKalman final : public IBayesFilter<T> {
     std::shared_ptr<measurements::IMeasModel<T>> m_measObj;
 };
 
+// TODO: finish implementing this function
 template <typename T>
-matrix::Vector<T> ExtendedKalman<T> predict(
+matrix::Vector<T> ExtendedKalman<T>::predict(
     T timestep, const matrix::Vector<T>& curState,
     const std::optional<matrix::Vector<T>> controlInput,
-    const BayesPredictParams* params = nullptr) {
-    matrix::Vector<T> nextState = m_dynobj->propagateState(
+    const BayesPredictParams* params) {
+    matrix::Vector<T> nextState = m_dynObj->propagateState(
         timestep, curState, controlInput, params->stateTransParams,
         params->controlParams, nullptr);
+
+    return nextState;
 }
 
+template <typename T>
+template <class Archive>
+void ExtendedKalman<T>::serialize(Archive& ar) {
+    ar(cereal::make_nvp("IBayesFilter",
+                        cereal::virtual_base_class<IBayesFilter<T>>(this)),
+       CEREAL_NVP(m_measNoise), CEREAL_NVP(m_procNoise), CEREAL_NVP(m_dynObj),
+       CEREAL_NVP(m_measObj));
+}
+
+extern template class ExtendedKalman<float>;
+extern template class ExtendedKalman<double>;
+
 }  // namespace lager::gncpy::filters
+
+GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::filters::ExtendedKalman)

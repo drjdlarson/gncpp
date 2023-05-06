@@ -42,55 +42,16 @@ class ILinearDynamics : public IDynamics<T> {
 
     matrix::Vector<T> propagateState(
         T timestep, const matrix::Vector<T>& state,
-        const StateTransParams* stateTransParams = nullptr) const override {
-        matrix::Vector<T> nextState =
-            this->propagateState_(timestep, state, stateTransParams);
-
-        if (this->hasStateConstraint()) {
-            this->stateConstraint(timestep, nextState);
-        }
-
-        return nextState;
-    }
-
+        const StateTransParams* stateTransParams = nullptr) const override;
     matrix::Vector<T> propagateState(
         T timestep, const matrix::Vector<T>& state,
-        const matrix::Vector<T>& control) const override {
-        matrix::Vector<T> nextState = this->propagateState_(timestep, state);
-
-        if (this->hasControlModel()) {
-            nextState += this->getInputMat(timestep) * control;
-        } else {
-            throw exceptions::BadParams(
-                "Control input given but no control model set");
-        }
-
-        if (this->hasStateConstraint()) {
-            this->stateConstraint(timestep, nextState);
-        }
-
-        return nextState;
-    }
-
+        const matrix::Vector<T>& control) const override;
     matrix::Vector<T> propagateState(
         T timestep, const matrix::Vector<T>& state,
         const matrix::Vector<T>& control,
         const StateTransParams* stateTransParams,
         const ControlParams* controlParams,
-        const ConstraintParams* constraintParams) const final {
-        matrix::Vector<T> nextState =
-            this->propagateState_(timestep, state, stateTransParams);
-
-        if (this->hasControlModel()) {
-            nextState += this->getInputMat(timestep, controlParams) * control;
-        }
-
-        if (this->hasStateConstraint()) {
-            this->stateConstraint(timestep, nextState, constraintParams);
-        }
-
-        return nextState;
-    }
+        const ConstraintParams* constraintParams) const final;
 
     /**
      * @brief Get the Input/control matrix
@@ -108,17 +69,10 @@ class ILinearDynamics : public IDynamics<T> {
      * @return matrix::Matrix<T>
      */
     matrix::Matrix<T> getInputMat(
-        T timestep, const ControlParams* controlParams = nullptr) const {
-        return controlParams == nullptr
-                   ? this->controlModel(timestep)
-                   : this->controlModel(timestep, controlParams);
-    }
+        T timestep, const ControlParams* controlParams = nullptr) const;
 
     template <typename F>
-    inline void setControlModel(F&& model) {
-        m_hasContolModel = true;
-        m_controlModel = std::forward<F>(model);
-    }
+    void setControlModel(F&& model);
     inline void clearControlModel() override { m_hasContolModel = false; }
     inline bool hasControlModel() const override { return m_hasContolModel; }
 
@@ -133,30 +87,13 @@ class ILinearDynamics : public IDynamics<T> {
     // see
     // https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
     template <class Archive>
-    void serialize(Archive& ar) {
-        bool tmp = m_hasContolModel;
-        m_hasContolModel = false;
-        ar(cereal::make_nvp("IDynamics",
-                            cereal::virtual_base_class<IDynamics<T>>(this)),
-           CEREAL_NVP(m_hasContolModel));
-        m_hasContolModel = tmp;
-    }
+    void serialize(Archive& ar);
 
-    inline matrix::Matrix<T> controlModel(
-        T timestep, const ControlParams* controlParams = nullptr) const {
-        if (m_hasContolModel) {
-            return m_controlModel(timestep, controlParams);
-        }
-        throw NoControlError();
-    }
-
-    inline matrix::Vector<T> propagateState_(
+    matrix::Matrix<T> controlModel(
+        T timestep, const ControlParams* controlParams = nullptr) const;
+    matrix::Vector<T> propagateState_(
         T timestep, const matrix::Vector<T>& state,
-        const StateTransParams* stateTransParams = nullptr) const {
-        return stateTransParams == nullptr
-                   ? this->getStateMat(timestep) * state
-                   : this->getStateMat(timestep, stateTransParams) * state;
-    }
+        const StateTransParams* stateTransParams = nullptr) const;
 
    private:
     bool m_hasContolModel = false;
@@ -164,6 +101,104 @@ class ILinearDynamics : public IDynamics<T> {
                                     const ControlParams* controlParams)>
         m_controlModel;
 };
+
+template <typename T>
+matrix::Vector<T> ILinearDynamics<T>::propagateState(
+    T timestep, const matrix::Vector<T>& state,
+    const StateTransParams* stateTransParams) const {
+    matrix::Vector<T> nextState =
+        this->propagateState_(timestep, state, stateTransParams);
+
+    if (this->hasStateConstraint()) {
+        this->stateConstraint(timestep, nextState);
+    }
+
+    return nextState;
+}
+
+template <typename T>
+matrix::Vector<T> ILinearDynamics<T>::propagateState(
+    T timestep, const matrix::Vector<T>& state,
+    const matrix::Vector<T>& control) const {
+    matrix::Vector<T> nextState = this->propagateState_(timestep, state);
+
+    if (this->hasControlModel()) {
+        nextState += this->getInputMat(timestep) * control;
+    } else {
+        throw exceptions::BadParams(
+            "Control input given but no control model set");
+    }
+
+    if (this->hasStateConstraint()) {
+        this->stateConstraint(timestep, nextState);
+    }
+
+    return nextState;
+}
+
+template <typename T>
+matrix::Vector<T> ILinearDynamics<T>::propagateState(
+    T timestep, const matrix::Vector<T>& state,
+    const matrix::Vector<T>& control, const StateTransParams* stateTransParams,
+    const ControlParams* controlParams,
+    const ConstraintParams* constraintParams) const {
+    matrix::Vector<T> nextState =
+        this->propagateState_(timestep, state, stateTransParams);
+
+    if (this->hasControlModel()) {
+        nextState += this->getInputMat(timestep, controlParams) * control;
+    }
+
+    if (this->hasStateConstraint()) {
+        this->stateConstraint(timestep, nextState, constraintParams);
+    }
+
+    return nextState;
+}
+
+template <typename T>
+matrix::Matrix<T> ILinearDynamics<T>::getInputMat(
+    T timestep, const ControlParams* controlParams) const {
+    return controlParams == nullptr
+               ? this->controlModel(timestep)
+               : this->controlModel(timestep, controlParams);
+}
+
+template <typename T>
+template <typename F>
+inline void ILinearDynamics<T>::setControlModel(F&& model) {
+    m_hasContolModel = true;
+    m_controlModel = std::forward<F>(model);
+}
+
+template <typename T>
+template <class Archive>
+void ILinearDynamics<T>::serialize(Archive& ar) {
+    bool tmp = m_hasContolModel;
+    m_hasContolModel = false;
+    ar(cereal::make_nvp("IDynamics",
+                        cereal::virtual_base_class<IDynamics<T>>(this)),
+       CEREAL_NVP(m_hasContolModel));
+    m_hasContolModel = tmp;
+}
+
+template <typename T>
+inline matrix::Matrix<T> ILinearDynamics<T>::controlModel(
+    T timestep, const ControlParams* controlParams) const {
+    if (m_hasContolModel) {
+        return m_controlModel(timestep, controlParams);
+    }
+    throw NoControlError();
+}
+
+template <typename T>
+inline matrix::Vector<T> ILinearDynamics<T>::propagateState_(
+    T timestep, const matrix::Vector<T>& state,
+    const StateTransParams* stateTransParams) const {
+    return stateTransParams == nullptr
+               ? this->getStateMat(timestep) * state
+               : this->getStateMat(timestep, stateTransParams) * state;
+}
 
 }  // namespace lager::gncpy::dynamics
 

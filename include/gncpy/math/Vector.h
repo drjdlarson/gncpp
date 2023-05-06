@@ -56,8 +56,8 @@ class Vector final : public Matrix<T> {
 
     T magnitude() const {
         T sum = 0;
-        for (auto const& i : *this) {
-            sum += i * i;
+        for (size_t ii = 0; ii < this->size(); ii++) {
+            sum += this->operator()(ii) * this->operator()(ii);
         }
         return static_cast<T>(sqrt(sum));
     }
@@ -122,6 +122,9 @@ class Vector final : public Matrix<T> {
                             cereal::virtual_base_class<Matrix<T>>(this)));
     }
 };
+
+extern template class Vector<float>;
+extern template class Vector<double>;
 
 }  // namespace lager::gncpy::matrix
 

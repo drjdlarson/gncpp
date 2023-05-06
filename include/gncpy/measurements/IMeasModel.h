@@ -5,6 +5,7 @@
 #include <cereal/archives/portable_binary.hpp>
 #include <cereal/types/base_class.hpp>
 #include <cereal/types/polymorphic.hpp>
+#include <concepts>
 
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/math/Matrix.h"
@@ -14,6 +15,7 @@
 namespace lager::gncpy::measurements {
 
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 class IMeasModel {
     friend class cereal::access;
 
@@ -28,7 +30,9 @@ class IMeasModel {
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {}
+    void serialize([[maybe_unused]] Archive& ar) {
+        /* nothing to save*/
+    }
 };
 
 }  // namespace lager::gncpy::measurements

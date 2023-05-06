@@ -13,17 +13,25 @@ class ILinearMeasModel : public IMeasModel<T> {
    public:
     matrix::Vector<T> measure(
         const matrix::Vector<T>& state,
-        const MeasParams* params = nullptr) const override {
-        return this->getMeasMat(state, params) * state;
-    }
+        const MeasParams* params = nullptr) const override;
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
-        ar(cereal::make_nvp("IMeasModel",
-                            cereal::virtual_base_class<IMeasModel<T>>(this)));
-    }
+    void serialize([[maybe_unused]] Archive& ar);
 };
+
+template <typename T>
+matrix::Vector<T> ILinearMeasModel<T>::measure(const matrix::Vector<T>& state,
+                                               const MeasParams* params) const {
+    return this->getMeasMat(state, params) * state;
+}
+
+template <typename T>
+template <class Archive>
+void ILinearMeasModel<T>::serialize([[maybe_unused]] Archive& ar) {
+    ar(cereal::make_nvp("IMeasModel",
+                        cereal::virtual_base_class<IMeasModel<T>>(this)));
+}
 
 }  // namespace lager::gncpy::measurements
 
