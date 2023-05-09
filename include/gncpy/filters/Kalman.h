@@ -118,9 +118,7 @@ matrix::Vector<T> Kalman<T>::predict(
         throw exceptions::BadParams("Params must be BayesPredictParams");
     }
     matrix::Matrix<T> stateMat =
-        std::dynamic_pointer_cast<dynamics::ILinearDynamics<T>>(
-            this->dynamicsModel())
-            ->getStateMat(timestep, params->stateTransParams.get());
+        this->m_dynObj->getStateMat(timestep, params->stateTransParams.get());
     this->cov = stateMat * this->cov * stateMat.transpose() + this->m_procNoise;
 
     return this->m_dynObj->propagateState(timestep, curState,
@@ -160,7 +158,7 @@ template <typename T>
 void Kalman<T>::setStateModel(std::shared_ptr<dynamics::IDynamics<T>> dynObj,
                               matrix::Matrix<T> procNoise) {
     if (!dynObj || !utilities:: instanceof
-        <dynamics::ILinearDynamics<T>>(dynObj.get())) {
+        <dynamics::ILinearDynamics<T>>(dynObj)) {
         throw exceptions::TypeError(
             "dynObj must be a derived class of ILinearDynamics");
     }
@@ -183,7 +181,7 @@ void Kalman<T>::setMeasurementModel(
     std::shared_ptr<measurements::IMeasModel<T>> measObj,
     matrix::Matrix<T> measNoise) {
     if (!measObj || !utilities:: instanceof
-        <measurements::ILinearMeasModel<T>>(measObj.get())) {
+        <measurements::ILinearMeasModel<T>>(measObj)) {
         throw exceptions::TypeError(
             "measObj must be a derived class of ILinearMeasModel");
     }

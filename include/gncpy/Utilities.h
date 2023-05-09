@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 
 namespace lager::gncpy::utilities {
 
@@ -14,6 +15,11 @@ namespace lager::gncpy::utilities {
 template <typename Base, typename T>
 inline bool instanceof (const T *ptr) {
     return dynamic_cast<const Base *>(ptr) != nullptr;
+}
+
+template <typename Base, typename T>
+inline bool instanceof (const std::shared_ptr<T> ptr) {
+    return std::dynamic_pointer_cast<const Base>(ptr) != nullptr;
 }
 
 }  // namespace lager::gncpy::utilities
