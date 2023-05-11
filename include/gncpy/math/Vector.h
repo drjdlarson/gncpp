@@ -21,18 +21,18 @@ class Vector final : public Matrix<T> {
     GNCPY_SERIALIZE_CLASS(Vector<T>)
 
    public:
-    Vector<T>() : Matrix<T>() {}
+    Vector() : Matrix<T>() {}
 
-    Vector<T>(const std::vector<size_t>& shape, const T* data = nullptr)
+    Vector(const std::vector<size_t>& shape, const T* data = nullptr)
         : Matrix<T>(shape, data) {}
 
-    Vector<T>(size_t nElements, std::vector<T> data)
+    Vector(size_t nElements, std::vector<T> data)
         : Matrix<T>(nElements, 1, data) {}
 
-    explicit Vector<T>(std::initializer_list<T> list)
+    explicit Vector(std::initializer_list<T> list)
         : Matrix<T>(list.size(), 1, std::vector(list)) {}
 
-    explicit Vector<T>(size_t nElements) : Matrix<T>(nElements, 1) {}
+    explicit Vector(size_t nElements) : Matrix<T>(nElements, 1) {}
 
     T& operator()(size_t elem) {
         if (elem >= this->size()) {
