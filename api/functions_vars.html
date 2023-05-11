@@ -39,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.4</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -101,15 +101,24 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a id="index_c"></a>- c -</h3><ul>
 <li>controlParams
 : <a class="el" href="de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams_ad4d087e4cd228b2de1bdc2d64adf06f3.html#ad4d087e4cd228b2de1bdc2d64adf06f3">lager::gncpy::filters::BayesPredictParams</a>
 </li>
 <li>cov
 : <a class="el" href="d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a2333c04195e02fdbdbee87236ab0c27c.html#a2333c04195e02fdbdbee87236ab0c27c">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a>
 </li>
+</ul>
+
+
+<h3><a id="index_m"></a>- m -</h3><ul>
 <li>m_continuousControl
 : <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a806a57f24e7deea0b4e34337b4c8e272.html#a806a57f24e7deea0b4e34337b4c8e272">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
+</li>
+<li>m_continuousCov
+: <a class="el" href="d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman_a907268ccc5c0274cfba631caf41498c1.html#a907268ccc5c0274cfba631caf41498c1">lager::gncpy::filters::ExtendedKalman&lt; T &gt;</a>
 </li>
 <li>m_controlModel
 : <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_adb212996ab38fa4bd5ecf1fd58b16c29.html#adb212996ab38fa4bd5ecf1fd58b16c29">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
@@ -123,7 +132,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 , <a class="el" href="d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a233717eba1e20cd0531ecab6aa19e017.html#a233717eba1e20cd0531ecab6aa19e017">lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;</a>
 </li>
 <li>m_dynObj
-: <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a3ddd4db0a9d98a457ffb866989a006a5.html#a3ddd4db0a9d98a457ffb866989a006a5">lager::gncpy::filters::Kalman&lt; T &gt;</a>
+: <a class="el" href="d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman_a3fabd21f47cc1b1c2f713a96be422ea8.html#a3fabd21f47cc1b1c2f713a96be422ea8">lager::gncpy::filters::ExtendedKalman&lt; T &gt;</a>
+, <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a3ddd4db0a9d98a457ffb866989a006a5.html#a3ddd4db0a9d98a457ffb866989a006a5">lager::gncpy::filters::Kalman&lt; T &gt;</a>
 </li>
 <li>m_hasContolModel
 : <a class="el" href="d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_a236ccd1985abb69730b330b7550bdea6.html#a236ccd1985abb69730b330b7550bdea6">lager::gncpy::dynamics::ILinearDynamics&lt; T &gt;</a>
@@ -135,10 +145,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a739416f5892e5589975ed66f727f9557.html#a739416f5892e5589975ed66f727f9557">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a>
 </li>
 <li>m_measNoise
-: <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a9675f518ef253498386e18f7837aeb79.html#a9675f518ef253498386e18f7837aeb79">lager::gncpy::filters::Kalman&lt; T &gt;</a>
+: <a class="el" href="d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman_a85150bf92cb727303eeaa56d09435797.html#a85150bf92cb727303eeaa56d09435797">lager::gncpy::filters::ExtendedKalman&lt; T &gt;</a>
+, <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a9675f518ef253498386e18f7837aeb79.html#a9675f518ef253498386e18f7837aeb79">lager::gncpy::filters::Kalman&lt; T &gt;</a>
 </li>
 <li>m_measObj
-: <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a4f75932e5f0b5143722baec982324310.html#a4f75932e5f0b5143722baec982324310">lager::gncpy::filters::Kalman&lt; T &gt;</a>
+: <a class="el" href="d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman_a1bb4cdd01b956d80b5fc7d4b0eafd645.html#a1bb4cdd01b956d80b5fc7d4b0eafd645">lager::gncpy::filters::ExtendedKalman&lt; T &gt;</a>
+, <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a4f75932e5f0b5143722baec982324310.html#a4f75932e5f0b5143722baec982324310">lager::gncpy::filters::Kalman&lt; T &gt;</a>
 </li>
 <li>m_nCols
 : <a class="el" href="da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_aba23d3299f93b13aa001b96e01b3567e.html#aba23d3299f93b13aa001b96e01b3567e">lager::gncpy::matrix::Matrix&lt; T &gt;</a>
@@ -147,7 +159,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_aafb9aca53acd2de596145a29fa6f90fd.html#aafb9aca53acd2de596145a29fa6f90fd">lager::gncpy::matrix::Matrix&lt; T &gt;</a>
 </li>
 <li>m_procNoise
-: <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a8a75845723e9eb9c896b9ead78bdb8bf.html#a8a75845723e9eb9c896b9ead78bdb8bf">lager::gncpy::filters::Kalman&lt; T &gt;</a>
+: <a class="el" href="d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman_a85d2e219425a20df3406c5d3d313cb54.html#a85d2e219425a20df3406c5d3d313cb54">lager::gncpy::filters::ExtendedKalman&lt; T &gt;</a>
+, <a class="el" href="df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman_a8a75845723e9eb9c896b9ead78bdb8bf.html#a8a75845723e9eb9c896b9ead78bdb8bf">lager::gncpy::filters::Kalman&lt; T &gt;</a>
 </li>
 <li>m_shape
 : <a class="el" href="da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a86385c6f302b33c792784eea7a32fb6b.html#a86385c6f302b33c792784eea7a32fb6b">lager::gncpy::matrix::Matrix&lt; T &gt;</a>
@@ -164,15 +177,31 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>measParams
 : <a class="el" href="d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams_a39acbb6d3dab47c67f226bbeb3600fa5.html#a39acbb6d3dab47c67f226bbeb3600fa5">lager::gncpy::filters::BayesCorrectParams</a>
 </li>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
 <li>obsInds
 : <a class="el" href="dc/db3/classlager_1_1gncpy_1_1measurements_1_1StateObservationParams_a143c86636169af787ebba1a3b9d04cd9.html#a143c86636169af787ebba1a3b9d04cd9">lager::gncpy::measurements::StateObservationParams</a>
 </li>
+</ul>
+
+
+<h3><a id="index_s"></a>- s -</h3><ul>
 <li>stateTransParams
 : <a class="el" href="de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams_a30f8018f9e879cfc5f2129a3ed197241.html#a30f8018f9e879cfc5f2129a3ed197241">lager::gncpy::filters::BayesPredictParams</a>
 </li>
+</ul>
+
+
+<h3><a id="index_x"></a>- x -</h3><ul>
 <li>xInd
 : <a class="el" href="d5/da7/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearingParams_a7f972c977dc6d2b9d5b0e9785bc4fc77.html#a7f972c977dc6d2b9d5b0e9785bc4fc77">lager::gncpy::measurements::RangeAndBearingParams</a>
 </li>
+</ul>
+
+
+<h3><a id="index_y"></a>- y -</h3><ul>
 <li>yInd
 : <a class="el" href="d5/da7/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearingParams_ab9b8efcb7881c4d66da098212855bdaa.html#ab9b8efcb7881c4d66da098212855bdaa">lager::gncpy::measurements::RangeAndBearingParams</a>
 </li>
@@ -182,7 +211,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Apr 21 2023 21:06:25 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 11 2023 22:30:31 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

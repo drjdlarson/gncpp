@@ -15,6 +15,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "lager::gncpy::filters::IBayesFilter< T >", "d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html", [
+      [ "lager::gncpy::filters::ExtendedKalman< T >", "d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman.html", null ],
       [ "lager::gncpy::filters::Kalman< T >", "df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman.html", null ]
     ] ],
     [ "lager::gncpy::dynamics::IDynamics< T >", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html", [

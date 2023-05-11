@@ -1,5 +1,8 @@
 var dir_4312bfd2bac4bf58d7ceb8673fff3c77 =
 [
+    [ "ExtendedKalman.h", "d6/d61/ExtendedKalman_8h.html", [
+      [ "ExtendedKalman", "d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman.html", "d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman" ]
+    ] ],
     [ "IBayesFilter.h", "df/d22/IBayesFilter_8h.html", [
       [ "IBayesFilter", "d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html", "d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter" ]
     ] ],

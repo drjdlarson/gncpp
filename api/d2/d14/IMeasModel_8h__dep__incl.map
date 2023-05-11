@@ -1,10 +1,15 @@
 <map id="/workspace/include/gncpy/measurements/IMeasModel.h" name="/workspace/include/gncpy/measurements/IMeasModel.h">
-<area shape="rect" id="node1" title=" " alt="" coords="211,5,377,61"/>
-<area shape="rect" id="node2" href="$df/d22/IBayesFilter_8h.html" title=" " alt="" coords="5,325,204,366"/>
-<area shape="rect" id="node4" href="$d5/d1c/ILinearMeasModel_8h.html" title=" " alt="" coords="151,109,317,165"/>
-<area shape="rect" id="node5" href="$d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="249,317,416,373"/>
-<area shape="rect" id="node7" href="$de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="393,109,576,165"/>
-<area shape="rect" id="node3" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="121,421,293,463"/>
-<area shape="rect" id="node6" href="$d8/d2a/StateObservation_8h.html" title=" " alt="" coords="151,213,317,269"/>
-<area shape="rect" id="node8" href="$dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="444,213,611,269"/>
+<area shape="rect" id="node1" title=" " alt="" coords="289,5,456,61"/>
+<area shape="rect" id="node2" href="$d6/d61/ExtendedKalman_8h.html" title=" " alt="" coords="45,221,279,262"/>
+<area shape="rect" id="node4" href="$df/d22/IBayesFilter_8h.html" title=" " alt="" coords="8,117,207,158"/>
+<area shape="rect" id="node7" href="$d5/d1c/ILinearMeasModel_8h.html" title=" " alt="" coords="488,109,655,165"/>
+<area shape="rect" id="node8" href="$d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="480,317,647,373"/>
+<area shape="rect" id="node11" href="$de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="281,109,464,165"/>
+<area shape="rect" id="node3" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="45,325,209,366"/>
+<area shape="rect" id="node5" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="199,421,371,463"/>
+<area shape="rect" id="node6" href="$d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="205,511,365,552"/>
+<area shape="rect" id="node9" href="$d8/d2a/StateObservation_8h.html" title=" " alt="" coords="596,213,763,269"/>
+<area shape="rect" id="node10" href="$de/dc5/StateObservation_8cpp.html" title=" " alt="" coords="671,325,893,366"/>
+<area shape="rect" id="node12" href="$dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="303,213,469,269"/>
+<area shape="rect" id="node13" href="$df/df1/RangeAndBearing_8cpp.html" title=" " alt="" coords="234,325,455,366"/>
 </map>

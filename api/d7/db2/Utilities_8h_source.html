@@ -39,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.4</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -106,24 +106,30 @@ $(document).ready(function(){initNavTree('d7/db2/Utilities_8h_source.html','../.
 </div><!--header-->
 <div class="contents">
 <a href="../../d7/db2/Utilities_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities.html">    3</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities.html">lager::gncpy::utilities</a> {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Base, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2">   15</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2">instanceof</a> (<span class="keyword">const</span> T *ptr) {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span>Base *<span class="keyword">&gt;</span>(ptr) != <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}  <span class="comment">// namespace lager::gncpy::utilities</span></div>
-<div class="ttc" id="anamespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2_html_ad8b373cfd0cfb0d0a69f788beca1e3d2"><div class="ttname"><a href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2">lager::gncpy::utilities::instanceof</a></div><div class="ttdeci">bool instanceof(const T *ptr)</div><div class="ttdoc">Check if the pointer is an instance of a class type.</div><div class="ttdef"><b>Definition:</b> Utilities.h:15</div></div>
-<div class="ttc" id="anamespacelager_1_1gncpy_1_1utilities_html"><div class="ttname"><a href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities.html">lager::gncpy::utilities</a></div><div class="ttdoc">Contains utility functions for all GNCPy.</div><div class="ttdef"><b>Definition:</b> Utilities.h:3</div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities.html">    4</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities.html">lager::gncpy::utilities</a> {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Base, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2">   16</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2">instanceof</a> (<span class="keyword">const</span> T *ptr) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span>Base *<span class="keyword">&gt;</span>(ptr) != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Base, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ac0b200f5bf5821cb46a3082ddf77d94d.html#ac0b200f5bf5821cb46a3082ddf77d94d">   21</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2">instanceof</a> (<span class="keyword">const</span> std::shared_ptr&lt;T&gt; ptr) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> std::dynamic_pointer_cast&lt;const Base&gt;(ptr) != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}  <span class="comment">// namespace lager::gncpy::utilities</span></div>
+<div class="ttc" id="anamespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2_html_ad8b373cfd0cfb0d0a69f788beca1e3d2"><div class="ttname"><a href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2">lager::gncpy::utilities::instanceof</a></div><div class="ttdeci">bool instanceof(const T *ptr)</div><div class="ttdoc">Check if the pointer is an instance of a class type.</div><div class="ttdef"><b>Definition:</b> Utilities.h:16</div></div>
+<div class="ttc" id="anamespacelager_1_1gncpy_1_1utilities_html"><div class="ttname"><a href="../../d7/d5d/namespacelager_1_1gncpy_1_1utilities.html">lager::gncpy::utilities</a></div><div class="ttdoc">Contains utility functions for all GNCPy.</div><div class="ttdef"><b>Definition:</b> Utilities.h:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../d7/db2/Utilities_8h.html">Utilities.h</a></li>
-    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 11 2023 22:30:30 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

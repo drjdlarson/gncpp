@@ -1,5 +1,8 @@
 <map id="/workspace/include/gncpy/filters/Parameters.h" name="/workspace/include/gncpy/filters/Parameters.h">
-<area shape="rect" id="node1" title=" " alt="" coords="75,5,271,47"/>
-<area shape="rect" id="node2" href="$df/d22/IBayesFilter_8h.html" title=" " alt="" coords="5,95,204,136"/>
-<area shape="rect" id="node3" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="87,184,259,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="137,5,333,47"/>
+<area shape="rect" id="node2" href="$d6/d61/ExtendedKalman_8h.html" title=" " alt="" coords="5,184,239,225"/>
+<area shape="rect" id="node4" href="$df/d22/IBayesFilter_8h.html" title=" " alt="" coords="136,95,335,136"/>
+<area shape="rect" id="node5" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="273,184,445,225"/>
+<area shape="rect" id="node3" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="40,273,204,315"/>
+<area shape="rect" id="node6" href="$d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="279,273,439,315"/>
 </map>

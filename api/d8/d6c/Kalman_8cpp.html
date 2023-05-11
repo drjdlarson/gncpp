@@ -21,6 +21,13 @@
   $(document).ready(function() { init_search(); });
 /* @license-end */
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -32,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -94,6 +101,8 @@ $(document).ready(function(){initNavTree('d8/d6c/Kalman_8cpp.html','../../'); in
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">Kalman.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -106,58 +115,72 @@ $(document).ready(function(){initNavTree('d8/d6c/Kalman_8cpp.html','../../'); in
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/d76/Kalman_8cpp__incl.png" border="0" usemap="#a_2workspace_2src_2filters_2Kalman_8cpp" alt=""/></div>
 <map name="a_2workspace_2src_2filters_2Kalman_8cpp" id="a_2workspace_2src_2filters_2Kalman_8cpp">
-<area shape="rect" title=" " alt="" coords="2376,5,2536,47"/>
-<area shape="rect" href="../../dc/d03/Kalman_8h.html" title=" " alt="" coords="2372,95,2540,121"/>
-<area shape="rect" title=" " alt="" coords="93,609,171,635"/>
-<area shape="rect" title=" " alt="" coords="327,445,401,471"/>
-<area shape="rect" href="../../df/d7c/Exceptions_8h.html" title=" " alt="" coords="4031,355,4179,382"/>
-<area shape="rect" href="../../de/d08/SerializeMacros_8h.html" title=" " alt="" coords="2911,698,3091,725"/>
-<area shape="rect" href="../../d7/db2/Utilities_8h.html" title=" " alt="" coords="3625,355,3753,382"/>
-<area shape="rect" href="../../da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="1873,169,2081,211"/>
-<area shape="rect" href="../../d3/db1/Matrix_8h.html" title=" " alt="" coords="3059,609,3216,635"/>
-<area shape="rect" href="../../d6/dbe/Vector_8h.html" title=" " alt="" coords="2493,527,2648,553"/>
-<area shape="rect" href="../../df/d22/IBayesFilter_8h.html" title=" " alt="" coords="1261,355,1456,382"/>
-<area shape="rect" href="../../d2/dcc/filters_2Parameters_8h.html" title=" " alt="" coords="885,527,1077,553"/>
-<area shape="rect" href="../../db/d8a/Math_8h.html" title=" " alt="" coords="3574,445,3722,471"/>
-<area shape="rect" href="../../d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="2696,169,2859,211"/>
-<area shape="rect" title=" " alt="" coords="2750,780,2837,807"/>
-<area shape="rect" href="../../d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="3001,266,3255,293"/>
-<area shape="rect" href="../../d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="2305,355,2559,382"/>
-<area shape="rect" href="../../d6/da9/IDynamics_8h.html" title=" " alt="" coords="1581,445,1795,471"/>
-<area shape="rect" href="../../d2/dbc/dynamics_2Parameters_8h.html" title=" " alt="" coords="1304,609,1523,635"/>
-<area shape="rect" title=" " alt="" coords="2583,355,2657,382"/>
-<area shape="rect" title=" " alt="" coords="3830,698,3893,725"/>
-<area shape="rect" title=" " alt="" coords="2977,527,3063,553"/>
-<area shape="rect" title=" " alt="" coords="1344,698,1483,725"/>
-<area shape="rect" title=" " alt="" coords="867,698,1059,725"/>
-<area shape="rect" title=" " alt="" coords="1893,698,2073,725"/>
-<area shape="rect" title=" " alt="" coords="2265,691,2444,732"/>
-<area shape="rect" title=" " alt="" coords="295,698,500,725"/>
-<area shape="rect" title=" " alt="" coords="1605,698,1819,725"/>
-<area shape="rect" href="../../dc/d7d/dynamics_2Exceptions_8h.html" title=" " alt="" coords="195,527,410,553"/>
-<area shape="rect" title=" " alt="" coords="3221,698,3291,725"/>
-<area shape="rect" title=" " alt="" coords="3315,698,3490,725"/>
-<area shape="rect" title=" " alt="" coords="3597,698,3659,725"/>
-<area shape="rect" title=" " alt="" coords="3116,698,3196,725"/>
-<area shape="rect" href="../../d1/d5d/math_2Exceptions_8h.html" title=" " alt="" coords="2700,698,2887,725"/>
-<area shape="rect" title=" " alt="" coords="2696,609,2781,635"/>
-<area shape="rect" href="../../d9/d3b/IMeasModel_8h.html" title=" " alt="" coords="2088,437,2251,479"/>
-<area shape="rect" title=" " alt="" coords="688,609,875,635"/>
-<area shape="rect" href="../../da/dc8/measurements_2Parameters_8h.html" title=" " alt="" coords="1901,601,2064,643"/>
-<area shape="rect" href="../../d5/d1c/ILinearMeasModel_8h.html" title=" " alt="" coords="2732,348,2895,389"/>
-<area shape="rect" href="../../de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="3165,348,3347,389"/>
-<area shape="rect" href="../../dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="2815,259,2977,300"/>
-<area shape="rect" href="../../d8/d2a/StateObservation_8h.html" title=" " alt="" coords="3744,259,3907,300"/>
-<area shape="rect" title=" " alt="" coords="2970,355,3038,382"/>
+<area shape="rect" title=" " alt="" coords="2193,5,2353,47"/>
+<area shape="rect" href="../../dc/d03/Kalman_8h.html" title=" " alt="" coords="2189,95,2357,121"/>
+<area shape="rect" title=" " alt="" coords="245,609,323,635"/>
+<area shape="rect" title=" " alt="" coords="683,445,757,471"/>
+<area shape="rect" href="../../df/d7c/Exceptions_8h.html" title=" " alt="" coords="3899,445,4047,471"/>
+<area shape="rect" href="../../de/d08/SerializeMacros_8h.html" title=" " alt="" coords="3147,698,3327,725"/>
+<area shape="rect" href="../../d7/db2/Utilities_8h.html" title=" " alt="" coords="731,355,859,382"/>
+<area shape="rect" href="../../da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="2275,169,2483,211"/>
+<area shape="rect" href="../../d3/db1/Matrix_8h.html" title=" " alt="" coords="2768,609,2925,635"/>
+<area shape="rect" href="../../d6/dbe/Vector_8h.html" title=" " alt="" coords="2355,527,2509,553"/>
+<area shape="rect" href="../../df/d22/IBayesFilter_8h.html" title=" " alt="" coords="1381,355,1576,382"/>
+<area shape="rect" href="../../d2/dcc/filters_2Parameters_8h.html" title=" " alt="" coords="549,527,741,553"/>
+<area shape="rect" href="../../db/d8a/Math_8h.html" title=" " alt="" coords="3193,445,3341,471"/>
+<area shape="rect" href="../../d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="2088,169,2251,211"/>
+<area shape="rect" title=" " alt="" coords="3717,780,3803,807"/>
+<area shape="rect" href="../../d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="3896,266,4149,293"/>
+<area shape="rect" href="../../d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="3293,355,3547,382"/>
+<area shape="rect" href="../../d6/da9/IDynamics_8h.html" title=" " alt="" coords="2008,445,2221,471"/>
+<area shape="rect" href="../../d2/dbc/dynamics_2Parameters_8h.html" title=" " alt="" coords="1453,609,1672,635"/>
+<area shape="rect" title=" " alt="" coords="4101,355,4160,382"/>
+<area shape="rect" title=" " alt="" coords="3906,698,3969,725"/>
+<area shape="rect" title=" " alt="" coords="3041,527,3127,553"/>
+<area shape="rect" title=" " alt="" coords="1691,698,1829,725"/>
+<area shape="rect" title=" " alt="" coords="1049,698,1241,725"/>
+<area shape="rect" title=" " alt="" coords="1873,698,2053,725"/>
+<area shape="rect" title=" " alt="" coords="1327,691,1505,732"/>
+<area shape="rect" title=" " alt="" coords="2221,698,2427,725"/>
+<area shape="rect" title=" " alt="" coords="354,698,569,725"/>
+<area shape="rect" title=" " alt="" coords="1541,527,1621,553"/>
+<area shape="rect" href="../../dc/d7d/dynamics_2Exceptions_8h.html" title=" " alt="" coords="3305,527,3519,553"/>
+<area shape="rect" title=" " alt="" coords="2966,698,3037,725"/>
+<area shape="rect" title=" " alt="" coords="2662,698,2837,725"/>
+<area shape="rect" title=" " alt="" coords="3061,698,3123,725"/>
+<area shape="rect" title=" " alt="" coords="2861,698,2941,725"/>
+<area shape="rect" href="../../d1/d5d/math_2Exceptions_8h.html" title=" " alt="" coords="2451,698,2637,725"/>
+<area shape="rect" title=" " alt="" coords="2557,609,2643,635"/>
+<area shape="rect" href="../../d9/d3b/IMeasModel_8h.html" title=" " alt="" coords="1563,437,1725,479"/>
+<area shape="rect" title=" " alt="" coords="549,609,736,635"/>
+<area shape="rect" href="../../da/dc8/measurements_2Parameters_8h.html" title=" " alt="" coords="1064,601,1227,643"/>
+<area shape="rect" href="../../d5/d1c/ILinearMeasModel_8h.html" title=" " alt="" coords="2348,348,2511,389"/>
+<area shape="rect" href="../../de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="2883,348,3066,389"/>
+<area shape="rect" href="../../dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="2060,259,2223,300"/>
+<area shape="rect" href="../../d8/d2a/StateObservation_8h.html" title=" " alt="" coords="2940,259,3103,300"/>
+<area shape="rect" title=" " alt="" coords="1238,355,1306,382"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d9/d7f/namespacelager"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7f/namespacelager.html">lager</a></td></tr>
+<tr class="memdesc:d9/d7f/namespacelager"><td class="mdescLeft">&#160;</td><td class="mdescRight">Top level namespace for all LAGER code. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d7/d25/namespacelager_1_1gncpy"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d25/namespacelager_1_1gncpy.html">lager::gncpy</a></td></tr>
+<tr class="memdesc:d7/d25/namespacelager_1_1gncpy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains code for GNC routines. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d1/de2/namespacelager_1_1gncpy_1_1filters"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/de2/namespacelager_1_1gncpy_1_1filters.html">lager::gncpy::filters</a></td></tr>
+<tr class="memdesc:d1/de2/namespacelager_1_1gncpy_1_1filters"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the filter implementations. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_1bc13244e26df1e1f069a1fd18e36da3.html">filters</a></li><li class="navelem"><a class="el" href="../../d8/d6c/Kalman_8cpp.html">Kalman.cpp</a></li>
-    <li class="footer">Generated on Sun Apr 16 2023 22:54:05 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 11 2023 22:30:31 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

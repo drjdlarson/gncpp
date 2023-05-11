@@ -39,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.4</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('d8/d92/classlager_1_1gncpy_1_1filters_
   <tr><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_ac3e4055fbd82d750d5d3ccd4631dc332.html#ac3e4055fbd82d750d5d3ccd4631dc332">dynamicsModel</a>() const =0</td><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a8dc3a3f0b706957db04f3a45f3656a65.html#a8dc3a3f0b706957db04f3a45f3656a65">measurementModel</a>() const =0</td><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_aede6ce0dc1de176565bf99643c625d6d.html#aede6ce0dc1de176565bf99643c625d6d">predict</a>(T timestep, const matrix::Vector&lt; T &gt; &amp;curState, const std::optional&lt; matrix::Vector&lt; T &gt;&gt; controlInput, const BayesPredictParams *params=nullptr)=0</td><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_ae37f95dea6a0b9bedcdf5c02399700f1.html#ae37f95dea6a0b9bedcdf5c02399700f1">serialize</a>(Archive &amp;ar)</td><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_ae37f95dea6a0b9bedcdf5c02399700f1.html#ae37f95dea6a0b9bedcdf5c02399700f1">serialize</a>(Archive &amp;ar)</td><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a5642598f9752078a92ca063916bd54bc.html#a5642598f9752078a92ca063916bd54bc">setMeasurementModel</a>(std::shared_ptr&lt; measurements::IMeasModel&lt; T &gt;&gt; measObj, matrix::Matrix&lt; T &gt; measNoise)=0</td><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_aaa04d0b84655b8d352936f3a6aa105c4.html#aaa04d0b84655b8d352936f3a6aa105c4">setStateModel</a>(std::shared_ptr&lt; dynamics::IDynamics&lt; T &gt;&gt; dynObj, matrix::Matrix&lt; T &gt; procNoise)=0</td><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a630fc8b7eedf55eaedc50485d393aa3a.html#a630fc8b7eedf55eaedc50485d393aa3a">~IBayesFilter</a>()=default</td><td class="entry"><a class="el" href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('d8/d92/classlager_1_1gncpy_1_1filters_
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 11 2023 22:30:31 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,4 +1,7 @@
 <map id="/workspace/include/gncpy/filters/IBayesFilter.h" name="/workspace/include/gncpy/filters/IBayesFilter.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,204,47"/>
-<area shape="rect" id="node2" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="19,95,191,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="136,5,335,47"/>
+<area shape="rect" id="node2" href="$d6/d61/ExtendedKalman_8h.html" title=" " alt="" coords="5,95,239,136"/>
+<area shape="rect" id="node4" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="263,95,435,136"/>
+<area shape="rect" id="node3" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="40,184,204,225"/>
+<area shape="rect" id="node5" href="$d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="269,184,429,225"/>
 </map>

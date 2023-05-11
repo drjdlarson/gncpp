@@ -39,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.4</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('dd/d87/classlager_1_1gncpy_1_1dynamics
   <tr><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ace702d5fdfd750664cfbbb4484b1ef41.html#ace702d5fdfd750664cfbbb4484b1ef41">propagateState</a>(T timestep, const matrix::Vector&lt; T &gt; &amp;state, const StateTransParams *const stateTransParams=nullptr) const =0</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a2dfd7a8946b190103e8f7acd87f1beb3.html#a2dfd7a8946b190103e8f7acd87f1beb3">propagateState</a>(T timestep, const matrix::Vector&lt; T &gt; &amp;state, const matrix::Vector&lt; T &gt; &amp;control) const =0</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a1a3da6775a2ef041b06c625069bb0ec5.html#a1a3da6775a2ef041b06c625069bb0ec5">propagateState</a>(T timestep, const matrix::Vector&lt; T &gt; &amp;state, const matrix::Vector&lt; T &gt; &amp;control, const StateTransParams *const stateTransParams, const ControlParams *const controlParams, const ConstraintParams *const constraintParams) const =0</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a582158b83bedeef91a38840d2cba8b5d.html#a582158b83bedeef91a38840d2cba8b5d">serialize</a>(Archive &amp;ar)</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a582158b83bedeef91a38840d2cba8b5d.html#a582158b83bedeef91a38840d2cba8b5d">serialize</a>(Archive &amp;ar)</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ae11781ddaef789730326ae08a6405dce.html#ae11781ddaef789730326ae08a6405dce">setStateConstraints</a>(F &amp;&amp;constrants)</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a4e8c8f45c3b83cb9e90e809b4ac0b0f9.html#a4e8c8f45c3b83cb9e90e809b4ac0b0f9">stateConstraint</a>(T timestep, matrix::Vector&lt; T &gt; &amp;state, const ConstraintParams *const constraintParams=nullptr) const</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a90fd5884143771b18a38ad9d9fc1a0cc.html#a90fd5884143771b18a38ad9d9fc1a0cc">stateNames</a>() const =0</td><td class="entry"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">lager::gncpy::dynamics::IDynamics&lt; T &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('dd/d87/classlager_1_1gncpy_1_1dynamics
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 11 2023 22:30:31 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rangeandbearing_199',['RangeAndBearing',['../d4/de0/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearing.html',1,'lager::gncpy::measurements']]],
-  ['rangeandbearingparams_200',['RangeAndBearingParams',['../d5/da7/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearingParams.html',1,'lager::gncpy::measurements']]]
+  ['nocontrolerror_209',['NoControlError',['../d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html',1,'lager::gncpy::dynamics']]],
+  ['nostateconstrainterror_210',['NoStateConstraintError',['../d9/dc8/classlager_1_1gncpy_1_1dynamics_1_1NoStateConstraintError.html',1,'lager::gncpy::dynamics']]]
 ];

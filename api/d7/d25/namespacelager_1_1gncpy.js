@@ -13,6 +13,7 @@ var namespacelager_1_1gncpy =
     [ "matrix", "d2/dce/namespacelager_1_1gncpy_1_1matrix.html", "d2/dce/namespacelager_1_1gncpy_1_1matrix" ],
     [ "measurements", "d3/d4d/namespacelager_1_1gncpy_1_1measurements.html", "d3/d4d/namespacelager_1_1gncpy_1_1measurements" ],
     [ "utilities", "d7/d5d/namespacelager_1_1gncpy_1_1utilities.html", [
+      [ "instanceof", "d7/d5d/namespacelager_1_1gncpy_1_1utilities_ac0b200f5bf5821cb46a3082ddf77d94d.html#ac0b200f5bf5821cb46a3082ddf77d94d", null ],
       [ "instanceof", "d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2", null ]
     ] ]
 ];

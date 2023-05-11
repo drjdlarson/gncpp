@@ -1,12 +1,17 @@
 <map id="/workspace/include/gncpy/measurements/Parameters.h" name="/workspace/include/gncpy/measurements/Parameters.h">
-<area shape="rect" id="node1" title=" " alt="" coords="349,5,515,61"/>
-<area shape="rect" id="node2" href="$d2/dcc/filters_2Parameters_8h.html" title=" " alt="" coords="26,117,222,158"/>
-<area shape="rect" id="node5" href="$d5/d1c/ILinearMeasModel_8h.html" title=" " alt="" coords="298,213,465,269"/>
-<area shape="rect" id="node6" href="$d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="419,421,586,477"/>
-<area shape="rect" id="node7" href="$d8/d2a/StateObservation_8h.html" title=" " alt="" coords="247,317,414,373"/>
-<area shape="rect" id="node8" href="$d9/d3b/IMeasModel_8h.html" title=" " alt="" coords="349,109,515,165"/>
-<area shape="rect" id="node9" href="$de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="591,213,774,269"/>
-<area shape="rect" id="node10" href="$dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="541,317,707,373"/>
-<area shape="rect" id="node3" href="$df/d22/IBayesFilter_8h.html" title=" " alt="" coords="25,221,223,262"/>
-<area shape="rect" id="node4" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="38,525,210,567"/>
+<area shape="rect" id="node1" title=" " alt="" coords="472,5,639,61"/>
+<area shape="rect" id="node2" href="$d2/dcc/filters_2Parameters_8h.html" title=" " alt="" coords="79,117,275,158"/>
+<area shape="rect" id="node8" href="$d5/d1c/ILinearMeasModel_8h.html" title=" " alt="" coords="351,213,517,269"/>
+<area shape="rect" id="node9" href="$d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="563,421,729,477"/>
+<area shape="rect" id="node10" href="$d8/d2a/StateObservation_8h.html" title=" " alt="" coords="129,317,296,373"/>
+<area shape="rect" id="node12" href="$d9/d3b/IMeasModel_8h.html" title=" " alt="" coords="472,109,639,165"/>
+<area shape="rect" id="node13" href="$de/dd4/INonLinearMeasModel_8h.html" title=" " alt="" coords="644,213,827,269"/>
+<area shape="rect" id="node14" href="$dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="884,317,1051,373"/>
+<area shape="rect" id="node3" href="$d6/d61/ExtendedKalman_8h.html" title=" " alt="" coords="320,325,553,366"/>
+<area shape="rect" id="node5" href="$df/d22/IBayesFilter_8h.html" title=" " alt="" coords="128,221,327,262"/>
+<area shape="rect" id="node6" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="5,525,177,567"/>
+<area shape="rect" id="node4" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="375,429,539,470"/>
+<area shape="rect" id="node7" href="$d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="11,615,171,656"/>
+<area shape="rect" id="node11" href="$de/dc5/StateObservation_8cpp.html" title=" " alt="" coords="129,429,350,470"/>
+<area shape="rect" id="node15" href="$df/df1/RangeAndBearing_8cpp.html" title=" " alt="" coords="857,429,1078,470"/>
 </map>

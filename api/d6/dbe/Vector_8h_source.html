@@ -39,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.1.4</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -162,8 +162,8 @@ $(document).ready(function(){initNavTree('d6/dbe/Vector_8h_source.html','../../'
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_ad41794258ce896f8b1c70a05e361be03.html#ad41794258ce896f8b1c70a05e361be03">   57</a></span>&#160;    T <a class="code" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_ad41794258ce896f8b1c70a05e361be03.html#ad41794258ce896f8b1c70a05e361be03">magnitude</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        T sum = 0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; i : *<span class="keyword">this</span>) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            sum += i * i;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> ii = 0; ii &lt; this-&gt;<a class="code" href="../../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_adf8c6c74ce0e8990ddcaf61e0d008b0c.html#adf8c6c74ce0e8990ddcaf61e0d008b0c">size</a>(); ii++) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            sum += this-&gt;<a class="code" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_acf2e0c31b67d21349159953be815c621.html#acf2e0c31b67d21349159953be815c621">operator()</a>(ii) * this-&gt;<a class="code" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_acf2e0c31b67d21349159953be815c621.html#acf2e0c31b67d21349159953be815c621">operator()</a>(ii);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sqrt(sum));</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
@@ -229,9 +229,12 @@ $(document).ready(function(){initNavTree('d6/dbe/Vector_8h_source.html','../../'
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}  <span class="comment">// namespace lager::gncpy::matrix</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<a class="code" href="../../de/d08/SerializeMacros_8h_a3fff29f7f78ddedbd8d9e5c2f4023ec9.html#a3fff29f7f78ddedbd8d9e5c2f4023ec9">GNCPY_REGISTER_SERIALIZE_TYPES</a>(<a class="code" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">lager::gncpy::matrix::Vector</a>)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span>Vector&lt;float&gt;;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span>Vector&lt;double&gt;;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}  <span class="comment">// namespace lager::gncpy::matrix</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<a class="code" href="../../de/d08/SerializeMacros_8h_a3fff29f7f78ddedbd8d9e5c2f4023ec9.html#a3fff29f7f78ddedbd8d9e5c2f4023ec9">GNCPY_REGISTER_SERIALIZE_TYPES</a>(<a class="code" href="../../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html">lager::gncpy::matrix::Vector</a>)</div>
 <div class="ttc" id="aMatrix_8h_html"><div class="ttname"><a href="../../d3/db1/Matrix_8h.html">Matrix.h</a></div></div>
 <div class="ttc" id="aSerializeMacros_8h_a3fff29f7f78ddedbd8d9e5c2f4023ec9_html_a3fff29f7f78ddedbd8d9e5c2f4023ec9"><div class="ttname"><a href="../../de/d08/SerializeMacros_8h_a3fff29f7f78ddedbd8d9e5c2f4023ec9.html#a3fff29f7f78ddedbd8d9e5c2f4023ec9">GNCPY_REGISTER_SERIALIZE_TYPES</a></div><div class="ttdeci">#define GNCPY_REGISTER_SERIALIZE_TYPES(Class_t)</div><div class="ttdef"><b>Definition:</b> SerializeMacros.h:4</div></div>
 <div class="ttc" id="aSerializeMacros_8h_a93b089dd831b49bb032afa1e0ce8001d_html_a93b089dd831b49bb032afa1e0ce8001d"><div class="ttname"><a href="../../de/d08/SerializeMacros_8h_a93b089dd831b49bb032afa1e0ce8001d.html#a93b089dd831b49bb032afa1e0ce8001d">GNCPY_SERIALIZE_CLASS</a></div><div class="ttdeci">#define GNCPY_SERIALIZE_CLASS(Class_t)</div><div class="ttdef"><b>Definition:</b> SerializeMacros.h:12</div></div>
@@ -263,7 +266,7 @@ $(document).ready(function(){initNavTree('d6/dbe/Vector_8h_source.html','../../'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../dir_0a5f4a6b286eced3100bfd9a1b0a7460.html">math</a></li><li class="navelem"><a class="el" href="../../d6/dbe/Vector_8h.html">Vector.h</a></li>
-    <li class="footer">Generated on Fri Apr 21 2023 21:06:24 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu May 11 2023 22:30:30 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

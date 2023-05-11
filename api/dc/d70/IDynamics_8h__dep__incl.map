@@ -1,10 +1,15 @@
 <map id="/workspace/include/gncpy/dynamics/IDynamics.h" name="/workspace/include/gncpy/dynamics/IDynamics.h">
-<area shape="rect" id="node1" title=" " alt="" coords="313,5,531,47"/>
-<area shape="rect" id="node2" href="$d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="56,102,313,143"/>
-<area shape="rect" id="node4" href="$da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="220,303,432,359"/>
-<area shape="rect" id="node6" href="$d8/d32/INonLinearDynamics_8h.html" title=" " alt="" coords="389,95,596,151"/>
-<area shape="rect" id="node8" href="$df/d22/IBayesFilter_8h.html" title=" " alt="" coords="495,310,693,351"/>
-<area shape="rect" id="node3" href="$d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="5,206,263,247"/>
-<area shape="rect" id="node5" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="355,407,527,448"/>
-<area shape="rect" id="node7" href="$da/d62/CurvilinearMotion_8h.html" title=" " alt="" coords="389,199,596,255"/>
+<area shape="rect" id="node1" title=" " alt="" coords="384,5,601,47"/>
+<area shape="rect" id="node2" href="$d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="112,102,369,143"/>
+<area shape="rect" id="node4" href="$da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="5,303,217,359"/>
+<area shape="rect" id="node8" href="$d6/d61/ExtendedKalman_8h.html" title=" " alt="" coords="504,206,737,247"/>
+<area shape="rect" id="node10" href="$d8/d32/INonLinearDynamics_8h.html" title=" " alt="" coords="667,95,873,151"/>
+<area shape="rect" id="node13" href="$df/d22/IBayesFilter_8h.html" title=" " alt="" coords="393,102,592,143"/>
+<area shape="rect" id="node3" href="$d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="163,206,420,247"/>
+<area shape="rect" id="node7" href="$d0/dec/DoubleIntegrator_8cpp.html" title=" " alt="" coords="242,310,429,351"/>
+<area shape="rect" id="node5" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="203,407,375,448"/>
+<area shape="rect" id="node6" href="$d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="209,496,369,537"/>
+<area shape="rect" id="node9" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="539,310,703,351"/>
+<area shape="rect" id="node11" href="$da/d62/CurvilinearMotion_8h.html" title=" " alt="" coords="761,199,968,255"/>
+<area shape="rect" id="node12" href="$d4/d7d/CurvilinearMotion_8cpp.html" title=" " alt="" coords="771,310,958,351"/>
 </map>
