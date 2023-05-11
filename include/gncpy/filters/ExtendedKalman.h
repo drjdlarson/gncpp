@@ -1,47 +1,31 @@
 #pragma once
-#include <memory>
-#include <optional>
+#include <cereal/access.hpp>
 
-#include "gncpy/Exceptions.h"
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/Utilities.h"
-#include "gncpy/dynamics/SerializableTypes.h"
+#include "gncpy/dynamics/IDynamics.h"
+#include "gncpy/dynamics/ILinearDynamics.h"
+#include "gncpy/dynamics/INonLinearDynamics.h"
 #include "gncpy/filters/IBayesFilter.h"
 #include "gncpy/filters/Parameters.h"
-#include "gncpy/math/Math.h"
 #include "gncpy/math/Matrix.h"
 #include "gncpy/math/Vector.h"
-#include "gncpy/measurements/SerializableTypes.h"
+#include "gncpy/measurements/ILinearMeasModel.h"
+#include "gncpy/measurements/IMeasModel.h"
+#include "gncpy/measurements/INonLinearMeasModel.h"
 
 namespace lager::gncpy::filters {
 
-/**
- * @brief Implements a Kalman Filter
- *
- * This is a discrete time KF loosely based on
- * @cite Crassidis2011_OptimalEstimationofDynamicSystems
- *
- * @tparam T
- */
 template <typename T>
-class Kalman : public IBayesFilter<T> {
-    friend class cereal::access;
+class ExtendedKalman final : public IBayesFilter<T> {
+    friend cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(Kalman<T>)
+    GNCPY_SERIALIZE_CLASS(ExtendedKalman<T>)
 
    public:
-    /**
-     * @brief Implements a discrete time prediction step
-     *
-     * @param timestep current timestep
-     * @param curState current state estmiate
-     * @param controlInput optional control input
-     * @param params prediction parameters
-     * @return matrix::Vector<T> predicted state estimate
-     */
     matrix::Vector<T> predict(
         T timestep, const matrix::Vector<T>& curState,
-        [[maybe_unused]] const std::optional<matrix::Vector<T>> controlInput,
+        const std::optional<matrix::Vector<T>> controlInput,
         const BayesPredictParams* params = nullptr) override;
 
     /**
@@ -59,36 +43,8 @@ class Kalman : public IBayesFilter<T> {
         const matrix::Vector<T>& curState, T& measFitProb,
         const BayesCorrectParams* params = nullptr) override;
 
-    /**
-     * @brief Sets the state model equation for the filter.
-     *
-     * The dynamics must be linear and may be constant or time varying. This
-     * assumes a discrete model of the form
-     *
-     * \f[
-     *      x_{k+1} = F(t) x_k + G(t) u_k
-     * \f]
-     *
-     * @param dynObj Linear dynamics of type dynamics::ILinearDynamics
-     * @param procNoise Process noise matrix for the filter
-     */
     void setStateModel(std::shared_ptr<dynamics::IDynamics<T>> dynObj,
                        matrix::Matrix<T> procNoise) override;
-
-    /**
-     * @brief Sets the measurement model for the filter.
-     *
-     * This can either set the constant measurement matrix, or the matrix can be
-     * time varying. This assumes a measurement model of the form
-     *
-     * \f[
-     *      \tilde{y}_{k+1} = H(t) x_{k+1}^-
-     * \f]
-     *
-     * @param measObj linear measurement model of type
-     * measurements::ILinearMeasModel
-     * @param measNoise measurement nosie matrix for the filter
-     */
     void setMeasurementModel(
         std::shared_ptr<measurements::IMeasModel<T>> measObj,
         matrix::Matrix<T> measNoise) override;
@@ -101,15 +57,17 @@ class Kalman : public IBayesFilter<T> {
     template <class Archive>
     void serialize(Archive& ar);
 
+    bool m_continuousCov = false;
+
     matrix::Matrix<T> m_measNoise;
     matrix::Matrix<T> m_procNoise;
 
-    std::shared_ptr<dynamics::ILinearDynamics<T>> m_dynObj;
-    std::shared_ptr<measurements::ILinearMeasModel<T>> m_measObj;
+    std::shared_ptr<dynamics::IDynamics<T>> m_dynObj;
+    std::shared_ptr<measurements::IMeasModel<T>> m_measObj;
 };
 
 template <typename T>
-matrix::Vector<T> Kalman<T>::predict(
+matrix::Vector<T> ExtendedKalman<T>::predict(
     T timestep, const matrix::Vector<T>& curState,
     [[maybe_unused]] const std::optional<matrix::Vector<T>> controlInput,
     const BayesPredictParams* params) {
@@ -117,20 +75,43 @@ matrix::Vector<T> Kalman<T>::predict(
         <BayesPredictParams>(params)) {
         throw exceptions::BadParams("Params must be BayesPredictParams");
     }
-    matrix::Matrix<T> stateMat =
-        this->m_dynObj->getStateMat(timestep, params->stateTransParams.get());
-    this->cov = stateMat * this->cov * stateMat.transpose() + this->m_procNoise;
 
-    return this->m_dynObj->propagateState(timestep, curState,
-                                          params->stateTransParams.get());
+    matrix::Vector<T> nextState = this->m_dynObj->propagateState(
+        timestep, curState, params->stateTransParams.get());
+
+    matrix::Matrix<T> stateMat;
+    if (utilities:: instanceof
+        <dynamics::INonLinearDynamics<T>>(this->dynamicsModel())) {
+        stateMat = std::dynamic_pointer_cast<dynamics::INonLinearDynamics<T>>(
+                       this->dynamicsModel())
+                       ->getStateMat(timestep, curState,
+                                     params->stateTransParams.get());
+    } else if (utilities:: instanceof
+               <dynamics::ILinearDynamics<T>>(this->dynamicsModel())) {
+        stateMat = std::dynamic_pointer_cast<dynamics::ILinearDynamics<T>>(
+                       this->dynamicsModel())
+                       ->getStateMat(timestep, params->stateTransParams.get());
+    } else {
+        throw exceptions::TypeError("Unknown dynamics type");
+    }
+
+    if (m_continuousCov) {
+        throw std::runtime_error(
+            "Continuous covariance model not implemented yet for the EKF");
+    } else {
+        this->cov =
+            stateMat * this->cov * stateMat.transpose() + this->m_procNoise;
+    }
+
+    return nextState;
 }
 
 template <typename T>
-matrix::Vector<T> Kalman<T>::correct([[maybe_unused]] T timestep,
-                                     const matrix::Vector<T>& meas,
-                                     const matrix::Vector<T>& curState,
-                                     T& measFitProb,
-                                     const BayesCorrectParams* params) {
+matrix::Vector<T> ExtendedKalman<T>::correct([[maybe_unused]] T timestep,
+                                             const matrix::Vector<T>& meas,
+                                             const matrix::Vector<T>& curState,
+                                             T& measFitProb,
+                                             const BayesCorrectParams* params) {
     if (params != nullptr && !utilities:: instanceof
         <BayesCorrectParams>(params)) {
         throw exceptions::BadParams("Params must be BayesCorrectParams");
@@ -155,12 +136,11 @@ matrix::Vector<T> Kalman<T>::correct([[maybe_unused]] T timestep,
 }
 
 template <typename T>
-void Kalman<T>::setStateModel(std::shared_ptr<dynamics::IDynamics<T>> dynObj,
-                              matrix::Matrix<T> procNoise) {
-    if (!dynObj || !utilities:: instanceof
-        <dynamics::ILinearDynamics<T>>(dynObj)) {
-        throw exceptions::TypeError(
-            "dynObj must be a derived class of ILinearDynamics");
+void ExtendedKalman<T>::setStateModel(
+    std::shared_ptr<dynamics::IDynamics<T>> dynObj,
+    matrix::Matrix<T> procNoise) {
+    if (!dynObj) {
+        throw exceptions::TypeError("dynObj can not be nullptr");
     }
     if (procNoise.numRows() != procNoise.numCols()) {
         throw exceptions::BadParams("Process noise must be square");
@@ -171,33 +151,29 @@ void Kalman<T>::setStateModel(std::shared_ptr<dynamics::IDynamics<T>> dynObj,
             "dimension");
     }
 
-    this->m_dynObj =
-        std::dynamic_pointer_cast<dynamics::ILinearDynamics<T>>(dynObj);
+    this->m_dynObj = dynObj;
     this->m_procNoise = procNoise;
 }
 
 template <typename T>
-void Kalman<T>::setMeasurementModel(
+void ExtendedKalman<T>::setMeasurementModel(
     std::shared_ptr<measurements::IMeasModel<T>> measObj,
     matrix::Matrix<T> measNoise) {
-    if (!measObj || !utilities:: instanceof
-        <measurements::ILinearMeasModel<T>>(measObj)) {
-        throw exceptions::TypeError(
-            "measObj must be a derived class of ILinearMeasModel");
+    if (!measObj) {
+        throw exceptions::TypeError("measObj can not be nullptr");
     }
 
     if (measNoise.numRows() != measNoise.numCols()) {
         throw exceptions::BadParams("Measurement noise must be squqre");
     }
 
-    this->m_measObj =
-        std::dynamic_pointer_cast<measurements::ILinearMeasModel<T>>(measObj);
+    this->m_measObj = measObj;
     this->m_measNoise = measNoise;
 }
 
 template <typename T>
-inline std::shared_ptr<dynamics::IDynamics<T>> Kalman<T>::dynamicsModel()
-    const {
+inline std::shared_ptr<dynamics::IDynamics<T>>
+ExtendedKalman<T>::dynamicsModel() const {
     if (m_dynObj) {
         return m_dynObj;
     } else {
@@ -207,7 +183,7 @@ inline std::shared_ptr<dynamics::IDynamics<T>> Kalman<T>::dynamicsModel()
 
 template <typename T>
 inline std::shared_ptr<measurements::IMeasModel<T>>
-Kalman<T>::measurementModel() const {
+ExtendedKalman<T>::measurementModel() const {
     if (m_measObj) {
         return m_measObj;
     } else {
@@ -217,16 +193,16 @@ Kalman<T>::measurementModel() const {
 
 template <typename T>
 template <class Archive>
-void Kalman<T>::serialize(Archive& ar) {
-    ar(cereal::make_nvp("IBayesFilter",
+void ExtendedKalman<T>::serialize(Archive& ar) {
+    ar(cereal::make_nvp("Kalman",
                         cereal::virtual_base_class<IBayesFilter<T>>(this)),
        CEREAL_NVP(m_measNoise), CEREAL_NVP(m_procNoise), CEREAL_NVP(m_dynObj),
-       CEREAL_NVP(m_measObj));
+       CEREAL_NVP(m_measObj), CEREAL_NVP(m_continuousCov));
 }
 
-extern template class Kalman<float>;
-extern template class Kalman<double>;
+extern template class ExtendedKalman<float>;
+extern template class ExtendedKalman<double>;
 
 }  // namespace lager::gncpy::filters
 
-GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::filters::Kalman)
+GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::filters::ExtendedKalman)

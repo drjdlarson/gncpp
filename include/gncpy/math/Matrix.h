@@ -39,10 +39,10 @@ class Matrix {
     GNCPY_SERIALIZE_CLASS(Matrix<T>)
 
    public:
-    Matrix<T>() = default;
-    virtual ~Matrix<T>() = default;
+    Matrix() = default;
+    virtual ~Matrix() = default;
 
-    Matrix<T>(const std::vector<size_t>& shape, const T* data = nullptr) {
+    Matrix(const std::vector<size_t>& shape, const T* data = nullptr) {
         if (shape.size() < 1 || shape.size() > 2) {
             throw BadDimension("Only 2-D matrices are supported");
         }
@@ -84,7 +84,7 @@ class Matrix {
      * @param nCols
      * @param data
      */
-    Matrix<T>(size_t nRows, size_t nCols, std::vector<T> data)
+    Matrix(size_t nRows, size_t nCols, std::vector<T> data)
         : m_nRows(nRows), m_nCols(nCols), m_data(data) {
         if (m_nRows * m_nCols != m_data.size()) {
             throw BadDimension("Supplied data does not match the given size");
@@ -111,7 +111,7 @@ class Matrix {
      *
      * @param listlist
      */
-    explicit Matrix<T>(std::initializer_list<std::initializer_list<T>> listlist)
+    explicit Matrix(std::initializer_list<std::initializer_list<T>> listlist)
         : m_nRows(listlist.size()), m_nCols(listlist.begin()->size()) {
         if (m_nRows == 0 || m_nCols == 0) {
             throw BadDimension("Matrix constructor has size 0");
@@ -146,7 +146,7 @@ class Matrix {
      * @param nRows
      * @param nCols
      */
-    Matrix<T>(size_t nRows, size_t nCols) : m_nRows(nRows), m_nCols(nCols) {
+    Matrix(size_t nRows, size_t nCols) : m_nRows(nRows), m_nCols(nCols) {
         if (m_nRows == 0 || m_nCols == 0) {
             throw BadDimension("Matrix constructor has size 0");
         }
@@ -347,7 +347,7 @@ class Matrix {
         std::vector<T> out;
         for (size_t r = start_row; r < start_row + row_span; r++) {
             for (size_t c = start_col; c < start_col + col_span; c++) {
-                out.emplace_back(m_data[(this->rowColToLin(r, c))]);
+                out.emplace_back(m_data[this->rowColToLin(r, c)]);
             }
         }
         return Matrix(row_span, col_span, out);
@@ -729,6 +729,9 @@ lager::gncpy::matrix::Matrix<T> LU_solve(
     out = back_sub(U, out);
     return out;
 }
+
+extern template class Matrix<float>;
+extern template class Matrix<double>;
 
 }  // namespace lager::gncpy::matrix
 

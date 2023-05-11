@@ -5,6 +5,7 @@
 #include <cereal/archives/portable_binary.hpp>
 #include <cereal/types/base_class.hpp>
 #include <cereal/types/polymorphic.hpp>
+#include <concepts>
 #include <functional>
 
 #include "gncpy/SerializeMacros.h"
@@ -17,6 +18,7 @@ namespace lager::gncpy::dynamics {
 
 /// @brief Base interface for all dynamics
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 class IDynamics {
     friend class cereal::access;
 
@@ -81,37 +83,50 @@ class IDynamics {
      * @param constrants
      */
     template <typename F>
-    inline void setStateConstraints(F&& constrants) {
-        m_hasStateConstraint = false;
-        m_stateConstraints = std::forward<F>(constrants);
-    }
+    void setStateConstraints(F&& constrants);
     inline void clearStateConstraints() { m_hasStateConstraint = false; }
     inline bool hasStateConstraint() const { return m_hasStateConstraint; }
 
    protected:
-    inline void stateConstraint(
+    void stateConstraint(
         T timestep, matrix::Vector<T>& state,
-        const ConstraintParams* const constraintParams = nullptr) const {
-        if (m_hasStateConstraint) {
-            m_stateConstraints(timestep, state, constraintParams);
-        }
-        throw NoStateConstraintError();
-    }
+        const ConstraintParams* const constraintParams = nullptr) const;
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
-        bool tmp = m_hasStateConstraint;
-        m_hasStateConstraint = false;
-        ar(CEREAL_NVP(m_hasStateConstraint));
-        m_hasStateConstraint = tmp;
-    }
+    void serialize(Archive& ar);
 
     bool m_hasStateConstraint = false;
     std::function<void(T timestep, matrix::Vector<T>& state,
                        const ConstraintParams* const constraintParams)>
         m_stateConstraints;
 };
+
+template <typename T>
+template <typename F>
+inline void IDynamics<T>::setStateConstraints(F&& constrants) {
+    m_hasStateConstraint = false;
+    m_stateConstraints = std::forward<F>(constrants);
+}
+
+template <typename T>
+inline void IDynamics<T>::stateConstraint(
+    T timestep, matrix::Vector<T>& state,
+    const ConstraintParams* const constraintParams) const {
+    if (m_hasStateConstraint) {
+        m_stateConstraints(timestep, state, constraintParams);
+    }
+    throw NoStateConstraintError();
+}
+
+template <typename T>
+template <class Archive>
+void IDynamics<T>::serialize(Archive& ar) {
+    bool tmp = m_hasStateConstraint;
+    m_hasStateConstraint = false;
+    ar(CEREAL_NVP(m_hasStateConstraint));
+    m_hasStateConstraint = tmp;
+}
 
 }  // namespace lager::gncpy::dynamics
 

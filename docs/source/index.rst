@@ -28,6 +28,20 @@ GNCPY C++ Documentation
 
 A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by the Laboratory for Autonomy, GNC, and Estimation Research (LAGER) at the University of Alabama (UA). Its primary goal is to serve as the backend for the similarily named python package `GNCPy <https://github.com/drjdlarson/gncpy>`_ however, it can be used as a library in other C++ projects. See the `library api <./api/index.html>`_  page for information on the tool chain used when developing for the library and an example of how to build the library from source.
 
+Cite
+====
+Please cite this with the following
+
+.. code-block:: bibtex
+
+    @Misc{gncpyCpp,
+      author       = {Jordan D. Larson, et al.},
+      howpublished = {Web page},
+      title        = {{GNCPy} {C}++: A {C}++ library for {G}uidance, {N}avigation, and {C}ontrol algorithms},
+      year         = {2023},
+      url          = {https://github.com/drjdlarson/gncpy_cpp},
+    }
+
 
 Indices and tables
 ==================

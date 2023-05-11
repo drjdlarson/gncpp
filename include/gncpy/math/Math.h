@@ -122,7 +122,7 @@ matrix::Matrix<T> getJacobian(
         auto fi = [&fnc, row](const matrix::Vector<T>& x_) {
             return fnc(x_)(row);
         };
-        for (auto& val : getGradient<double>(x, fi)) {
+        for (auto& val : getGradient<T>(x, fi)) {
             data[ind] = val;
             ind++;
         }

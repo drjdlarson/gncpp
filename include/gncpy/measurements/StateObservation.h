@@ -26,7 +26,7 @@ class StateObservationParams final : public MeasParams {
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
+    void serialize(Archive& ar) {
         ar(cereal::make_nvp("MeasParams",
                             cereal::virtual_base_class<MeasParams>(this)),
            CEREAL_NVP(obsInds));
@@ -44,36 +44,46 @@ class StateObservation final : public ILinearMeasModel<T> {
 
     matrix::Matrix<T> getMeasMat(
         const matrix::Vector<T>& state,
-        const MeasParams* params = nullptr) const override {
-        if (!params) {
-            throw exceptions::BadParams(
-                "State Observation requires parameters");
-        }
-        if (!utilities:: instanceof <StateObservationParams>(params)) {
-            throw exceptions::BadParams(
-                "params type must be StateObservationParams.");
-        }
-        auto ptr = dynamic_cast<const StateObservationParams*>(params);
-        matrix::Matrix<T> data(ptr->obsInds.size(), state.size());
-
-        for (uint8_t ii = 0; ii < ptr->obsInds.size(); ii++) {
-            for (uint8_t jj = 0; jj < state.size(); jj++) {
-                if (ptr->obsInds[ii] == jj) {
-                    data(ii, jj) = static_cast<T>(1.0);
-                }
-            }
-        }
-        return data;
-    }
+        const MeasParams* params = nullptr) const override;
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
-        ar(cereal::make_nvp(
-            "ILinearMeasModel",
-            cereal::virtual_base_class<ILinearMeasModel<T>>(this)));
-    }
+    void serialize(Archive& ar);
 };
+
+template <typename T>
+matrix::Matrix<T> StateObservation<T>::getMeasMat(
+    const matrix::Vector<T>& state, const MeasParams* params) const {
+    if (!params) {
+        throw exceptions::BadParams("State Observation requires parameters");
+    }
+    if (!utilities:: instanceof <StateObservationParams>(params)) {
+        throw exceptions::BadParams(
+            "params type must be StateObservationParams.");
+    }
+    auto ptr = dynamic_cast<const StateObservationParams*>(params);
+    matrix::Matrix<T> data(ptr->obsInds.size(), state.size());
+
+    for (uint8_t ii = 0; ii < ptr->obsInds.size(); ii++) {
+        for (uint8_t jj = 0; jj < state.size(); jj++) {
+            if (ptr->obsInds[ii] == jj) {
+                data(ii, jj) = static_cast<T>(1.0);
+            }
+        }
+    }
+    return data;
+}
+
+template <typename T>
+template <class Archive>
+void StateObservation<T>::serialize(Archive& ar) {
+    ar(cereal::make_nvp("ILinearMeasModel",
+                        cereal::virtual_base_class<ILinearMeasModel<T>>(this)));
+}
+
+extern template class StateObservation<float>;
+extern template class StateObservation<double>;
+
 }  // namespace lager::gncpy::measurements
 
 GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::measurements::StateObservation)

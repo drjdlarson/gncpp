@@ -38,3 +38,15 @@ cmake -L .. | grep GNCPY
 ```
 
 to see all possible cmake options use `cmake -LAH ..` or just see the non-advanced options and their help message run `cmake -LH ..` (both should be run from your build directory).
+
+Cite
+----
+```
+@Misc{gncpyCpp,
+      author       = {Jordan D. Larson, et al.},
+      howpublished = {Web page},
+      title        = {{GNCPy} {C}++: A {C}++ library for {G}uidance, {N}avigation, and {C}ontrol algorithms},
+      year         = {2023},
+      url          = {https://github.com/drjdlarson/gncpy_cpp},
+}
+```
