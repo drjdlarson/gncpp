@@ -15,6 +15,7 @@ namespace lager::gncpy::matrix {
 
 /// @brief Wrapper for vector operations
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 class Vector final : public Matrix<T> {
     friend class cereal::access;
 

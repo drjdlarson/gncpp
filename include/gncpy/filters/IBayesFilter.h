@@ -87,6 +87,7 @@ class IBayesFilter {
 };
 
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 template <class Archive>
 void IBayesFilter<T>::serialize(Archive& ar) {
     ar(CEREAL_NVP(cov));
