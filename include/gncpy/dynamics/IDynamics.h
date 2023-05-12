@@ -103,6 +103,7 @@ class IDynamics {
 };
 
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 template <typename F>
 inline void IDynamics<T>::setStateConstraints(F&& constrants) {
     m_hasStateConstraint = false;
@@ -110,6 +111,7 @@ inline void IDynamics<T>::setStateConstraints(F&& constrants) {
 }
 
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 inline void IDynamics<T>::stateConstraint(
     T timestep, matrix::Vector<T>& state,
     const ConstraintParams* const constraintParams) const {
@@ -120,6 +122,7 @@ inline void IDynamics<T>::stateConstraint(
 }
 
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 template <class Archive>
 void IDynamics<T>::serialize(Archive& ar) {
     bool tmp = m_hasStateConstraint;
