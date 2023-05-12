@@ -384,9 +384,13 @@ class Matrix {
     template <typename R>
     friend Matrix<R> operator*(const R& scalar, const Matrix<R>& m);
 
-    inline std::vector<T>::iterator begin() noexcept { return m_data.begin(); }
-    inline std::vector<T>::iterator end() noexcept { return m_data.end(); }
-    inline std::vector<T>::const_iterator cbegin() const noexcept {
+    inline typename std::vector<T>::iterator begin() noexcept {
+        return m_data.begin();
+    }
+    inline typename std::vector<T>::iterator end() noexcept {
+        return m_data.end();
+    }
+    inline typename std::vector<T>::const_iterator cbegin() const noexcept {
         return m_data.cbegin();
     }
     inline std::vector<T>::const_iterator cend() const noexcept {
