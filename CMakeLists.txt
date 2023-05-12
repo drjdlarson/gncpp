@@ -222,20 +222,33 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
         EXCLUDE build/* test/*
     )
 elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
-    target_compile_options(gncpy PRIVATE
+    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+        message(STATUS "Using GNU compiler, adding full set of compiler flags")
+        target_compile_options(gncpy PRIVATE
+            "-fPIC"
+            "-Wall"
+            "-Wextra"
+            "-Wpedantic"
+            "-gdwarf-4"
+            "-gstatement-frontiers"
+            "-gvariable-location-views"
+            "-ginline-points"
+            "-fno-eliminate-unused-debug-symbols"
+            "-fvar-tracking"
+            "-fvar-tracking-assignments"
+        )
+    else()
+    message(STATUS "Not using GNU compiler, adding reduced set of compiler flags")
+        target_compile_options(gncpy PRIVATE
         "-fPIC"
         "-Wall"
         "-Wextra"
         "-Wpedantic"
         "-gdwarf-4"
-        "-gstatement-frontiers"
-        "-gvariable-location-views"
-        "-ginline-points"
         "-fno-eliminate-unused-debug-symbols"
-        "-fvar-tracking"
-        "-fvar-tracking-assignments"
         "-Og"
     )
+    endif()
 else()
     target_compile_options(gncpy PRIVATE
         "-fPIC"

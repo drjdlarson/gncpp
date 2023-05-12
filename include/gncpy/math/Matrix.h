@@ -9,6 +9,7 @@
 #include <cereal/types/polymorphic.hpp>
 #include <cereal/types/vector.hpp>
 #include <cmath>
+#include <concepts>
 #include <iostream>
 #include <vector>
 
@@ -23,7 +24,110 @@ TODO
 namespace lager::gncpy::matrix {
 
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 class Vector;
+
+template <typename T>
+    requires std::integral<T> || std::floating_point<T>
+class Matrix;
+
+/**
+ * @brief Construct identity matrix
+ *
+ * @tparam T
+ * @param n
+ * @return Matrix<T>
+ */
+template <typename T>
+    requires std::integral<T> || std::floating_point<T>
+Matrix<T> identity(size_t n) {
+    Matrix<T> out(n, n);
+    for (size_t i = 0; i < n; i++) {
+        out(i, i) = T(1);
+    }
+    return out;
+}
+
+/**
+ * @brief Perform forward substitution to solve linear system of equation given
+ * unity lower triangle matrix
+ *
+ * @tparam T
+ * @param L
+ * @param b
+ * @return Matrix<T>
+ */
+template <typename T>
+    requires std::integral<T> || std::floating_point<T>
+Matrix<T> forward_sub(const Matrix<T>& L, const Matrix<T>& b) {
+    if (!L.numCols() == b.numRows()) {
+        throw BadDimension("Invalid matrix dimension");
+    }
+    Matrix<T> x(b.numRows(), b.numCols());
+    for (size_t k = 0; k < b.numCols(); k++) {
+        for (size_t i = 0; i < b.numRows(); i++) {
+            T sum = b(i, k);
+            for (size_t j = 0; j < i; j++) {
+                sum -= (L(i, j) * x(j, k));
+            }
+            /*
+            Division is skipped here assuming that the Doolittle is called
+            which yield a unitary Lower matrix. Should save some time on
+            division
+            */
+            x(i, k) = sum;
+        }
+    }
+    return x;
+}
+
+/**
+ * @brief Perform back substitution to solve linear system of equation given
+ * upper triangle matrix
+ *
+ * @tparam T
+ * @param U
+ * @param b
+ * @return Matrix<T>
+ */
+template <typename T>
+    requires std::integral<T> || std::floating_point<T>
+Matrix<T> back_sub(const Matrix<T>& U, const Matrix<T>& b) {
+    if (!U.numCols() == b.numRows()) {
+        throw BadDimension("Invalid matrix dimension");
+    }
+    Matrix<T> x(b.numRows(), b.numCols());
+    for (size_t k = 0; k < b.numCols(); k++) {
+        for (int8_t i = b.numRows() - 1; i > -1; i--) {
+            T sum = b(i, k);
+            for (int8_t j = b.numRows() - 1; j > i; j--) {
+                sum -= (U(i, j) * x(j, k));
+            }
+            x(i, k) = sum / U(i, i);
+        }
+    }
+    return x;
+}
+
+/**
+ * @brief Sovlve system of linear equation from LU matrices
+ *
+ * @tparam T
+ * @param L
+ * @param U
+ * @param b
+ * @return Matrix<T>
+ */
+template <typename T>
+    requires std::integral<T> || std::floating_point<T>
+Matrix<T> LU_solve(const Matrix<T>& L, const Matrix<T> U, const Matrix<T>& b) {
+    if (!L.numCols() == b.numRows() || !U.numCols() == b.numRows()) {
+        throw BadDimension("Invalid vector dimension");
+    }
+    Matrix<T> out = forward_sub(L, b);
+    out = back_sub(U, out);
+    return out;
+}
 
 /**
  * @brief Wrapper for handling matrix operations.
@@ -33,6 +137,7 @@ class Vector;
  * @tparam T underlying type of the numbers in the matrix
  */
 template <typename T>
+    requires std::integral<T> || std::floating_point<T>
 class Matrix {
     friend class cereal::access;
 
@@ -384,12 +489,16 @@ class Matrix {
     template <typename R>
     friend Matrix<R> operator*(const R& scalar, const Matrix<R>& m);
 
-    inline std::vector<T>::iterator begin() noexcept { return m_data.begin(); }
-    inline std::vector<T>::iterator end() noexcept { return m_data.end(); }
-    inline std::vector<T>::const_iterator cbegin() const noexcept {
+    inline typename std::vector<T>::iterator begin() noexcept {
+        return m_data.begin();
+    }
+    inline typename std::vector<T>::iterator end() noexcept {
+        return m_data.end();
+    }
+    inline typename std::vector<T>::const_iterator cbegin() const noexcept {
         return m_data.cbegin();
     }
-    inline std::vector<T>::const_iterator cend() const noexcept {
+    inline typename std::vector<T>::const_iterator cend() const noexcept {
         return m_data.cend();
     }
 
@@ -604,9 +713,8 @@ class Matrix {
 };
 
 template <typename T>
-lager::gncpy::matrix::Matrix<T> operator*(
-    const T& scalar, const lager::gncpy::matrix::Matrix<T>& m) {
-    lager::gncpy::matrix::Matrix<T> out = m * scalar;
+Matrix<T> operator*(const T& scalar, const Matrix<T>& m) {
+    Matrix<T> out = m * scalar;
     return out;
 }
 
@@ -627,107 +735,6 @@ std::ostream& operator<<(std::ostream& os, const Matrix<T>& m) {
         os << "\n";
     }
     return os;
-}
-
-/**
- * @brief Construct identity matrix
- *
- * @tparam T
- * @param n
- * @return lager::gncpy::matrix::Matrix<T>
- */
-template <typename T>
-lager::gncpy::matrix::Matrix<T> identity(size_t n) {
-    lager::gncpy::matrix::Matrix<T> out(n, n);
-    for (size_t i = 0; i < n; i++) {
-        out(i, i) = T(1);
-    }
-    return out;
-}
-
-/**
- * @brief Perform forward substitution to solve linear system of equation given
- * unity lower triangle matrix
- *
- * @tparam T
- * @param L
- * @param b
- * @return lager::gncpy::matrix::Matrix<T>
- */
-template <typename T>
-lager::gncpy::matrix::Matrix<T> forward_sub(
-    const lager::gncpy::matrix::Matrix<T>& L,
-    const lager::gncpy::matrix::Matrix<T>& b) {
-    if (!L.numCols() == b.numRows()) {
-        throw BadDimension("Invalid matrix dimension");
-    }
-    lager::gncpy::matrix::Matrix<T> x(b.numRows(), b.numCols());
-    for (size_t k = 0; k < b.numCols(); k++) {
-        for (size_t i = 0; i < b.numRows(); i++) {
-            T sum = b(i, k);
-            for (size_t j = 0; j < i; j++) {
-                sum -= (L(i, j) * x(j, k));
-            }
-            /*
-            Division is skipped here assuming that the Doolittle is called
-            which yield a unitary Lower matrix. Should save some time on
-            division
-            */
-            x(i, k) = sum;
-        }
-    }
-    return x;
-}
-
-/**
- * @brief Perform back substitution to solve linear system of equation given
- * upper triangle matrix
- *
- * @tparam T
- * @param U
- * @param b
- * @return lager::gncpy::matrix::Matrix<T>
- */
-template <typename T>
-lager::gncpy::matrix::Matrix<T> back_sub(
-    const lager::gncpy::matrix::Matrix<T>& U,
-    const lager::gncpy::matrix::Matrix<T>& b) {
-    if (!U.numCols() == b.numRows()) {
-        throw BadDimension("Invalid matrix dimension");
-    }
-    lager::gncpy::matrix::Matrix<T> x(b.numRows(), b.numCols());
-    for (size_t k = 0; k < b.numCols(); k++) {
-        for (int8_t i = b.numRows() - 1; i > -1; i--) {
-            T sum = b(i, k);
-            for (int8_t j = b.numRows() - 1; j > i; j--) {
-                sum -= (U(i, j) * x(j, k));
-            }
-            x(i, k) = sum / U(i, i);
-        }
-    }
-    return x;
-}
-
-/**
- * @brief Sovlve system of linear equation from LU matrices
- *
- * @tparam T
- * @param L
- * @param U
- * @param b
- * @return lager::gncpy::matrix::Matrix<T>
- */
-template <typename T>
-lager::gncpy::matrix::Matrix<T> LU_solve(
-    const lager::gncpy::matrix::Matrix<T>& L,
-    const lager::gncpy::matrix::Matrix<T> U,
-    const lager::gncpy::matrix::Matrix<T>& b) {
-    if (!L.numCols() == b.numRows() || !U.numCols() == b.numRows()) {
-        throw BadDimension("Invalid vector dimension");
-    }
-    lager::gncpy::matrix::Matrix<T> out = forward_sub(L, b);
-    out = back_sub(U, out);
-    return out;
 }
 
 extern template class Matrix<float>;

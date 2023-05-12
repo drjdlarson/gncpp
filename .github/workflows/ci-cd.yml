@@ -9,8 +9,8 @@ env:
   IMAGE_BASE_NAME: ${{ github.repository }}
 
 jobs:
-  unit-test-dbg:
-    name: unit-test-dbg
+  unit-test-container:
+    name: Unit test in container (Release mode)
     runs-on: ubuntu-latest
     container:
       credentials:
@@ -18,6 +18,30 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
       image: ghcr.io/${{ github.repository }}-dev:latest
       options: --cpus 2
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build in Debug
+        run: |
+          mkdir build
+          cd build
+          cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Release ..
+          make -j2
+
+      - name: Unit test in Debug
+        run: |
+          cd build
+          ctest --output-on-failure -j2
+
+  unit-test-dbg:
+    name: Run unit tests on ${{ matrix.os }} (Debug mode)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest]
 
     steps:
       - name: Checkout
@@ -36,14 +60,11 @@ jobs:
           ctest --output-on-failure -j2
 
   unit-test-rel:
-    name: unit-test-rel
-    runs-on: ubuntu-latest
-    container:
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-      image: ghcr.io/${{ github.repository }}-dev:latest
-      options: --cpus 2
+    name: Run unit tests on ${{ matrix.os }} (Release mode)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
 
     steps:
       - name: Checkout
