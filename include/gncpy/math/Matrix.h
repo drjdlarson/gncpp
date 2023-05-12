@@ -393,7 +393,7 @@ class Matrix {
     inline typename std::vector<T>::const_iterator cbegin() const noexcept {
         return m_data.cbegin();
     }
-    inline std::vector<T>::const_iterator cend() const noexcept {
+    inline typename std::vector<T>::const_iterator cend() const noexcept {
         return m_data.cend();
     }
 

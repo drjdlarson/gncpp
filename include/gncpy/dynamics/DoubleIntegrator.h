@@ -23,7 +23,7 @@ class DoubleIntegrator final : public ILinearDynamics<T> {
     DoubleIntegrator() = default;
     explicit DoubleIntegrator(T dt) : m_dt(dt) {}
 
-    inline std::vector<std::string> stateNames() const {
+    inline std::vector<std::string> stateNames() const override {
         return std::vector<std::string>{"x pos", "y pos", "x vel", "y vel"};
     };
 
