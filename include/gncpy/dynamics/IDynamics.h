@@ -6,7 +6,6 @@
 #include <cereal/archives/portable_binary.hpp>
 #include <cereal/types/base_class.hpp>
 #include <cereal/types/polymorphic.hpp>
-#include <concepts>
 #include <functional>
 
 #include "gncpy/SerializeMacros.h"
