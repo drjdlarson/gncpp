@@ -9,6 +9,10 @@
 
 namespace cereal {
 
+// see
+// https://stackoverflow.com/questions/22884216/serializing-eigenmatrix-using-cereal-library
+// for details
+
 // ---------------------------------------------------------
 // For binary archive
 // ---------------------------------------------------------
