@@ -248,6 +248,7 @@ elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
         message(STATUS "Using MSVC compiler, adding reduced set of compiler flags")
             target_compile_options(gncpy PRIVATE
             "-Wall"
+            "-bigobj"
             "-Od"
         )
     else()
@@ -266,6 +267,7 @@ else()
         message(STATUS "Using MSVC compiler, adding reduced set of compiler flags")
             target_compile_options(gncpy PRIVATE
             "-Wall"
+            "-bigobj"
             "-O3"
         )
     else()
