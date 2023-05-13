@@ -252,7 +252,6 @@ elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
         "-Wextra"
         "-Wpedantic"
         "-gdwarf-4"
-        "-fno-eliminate-unused-debug-symbols"
         "-Og"
     )
     endif()
