@@ -4,6 +4,6 @@ target_sources(gncpy
 )
 
 add_subdirectory(dynamics)
-# add_subdirectory(filters)
+add_subdirectory(filters)
 add_subdirectory(math)
 add_subdirectory(measurements)
