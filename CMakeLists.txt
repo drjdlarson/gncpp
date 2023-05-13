@@ -251,24 +251,33 @@ elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
             "-Od"
         )
     else()
-    message(STATUS "Not using GNU or MSVC compiler, adding reduced set of compiler flags")
-        target_compile_options(gncpy PRIVATE
-        "-fPIC"
-        "-Wall"
-        "-Wextra"
-        "-Wpedantic"
-        "-gdwarf-4"
-        "-Og"
-    )
+        message(STATUS "Not using GNU or MSVC compiler, adding reduced set of compiler flags")
+            target_compile_options(gncpy PRIVATE
+            "-fPIC"
+            "-Wall"
+            "-Wextra"
+            "-Wpedantic"
+            "-gdwarf-4"
+            "-Og"
+        )
     endif()
 else()
-    target_compile_options(gncpy PRIVATE
-        "-fPIC"
-        "-Wall"
-        "-Wextra"
-        "-Wpedantic"
-        "-O3"
-    )
+    if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+        message(STATUS "Using MSVC compiler, adding reduced set of compiler flags")
+            target_compile_options(gncpy PRIVATE
+            "-Wall"
+            "-O3"
+        )
+    else()
+        messaage(STATUS "Not using MSVC compiler, adding full set of compiler flags")
+        target_compile_options(gncpy PRIVATE
+            "-fPIC"
+            "-Wall"
+            "-Wextra"
+            "-Wpedantic"
+            "-O3"
+        )
+    endif()
 endif()
 
 set_target_properties(gncpy 
