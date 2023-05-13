@@ -1,12 +1,9 @@
 #pragma once
+#include <Eigen/Dense>
+#include <cereal/types/vector.hpp>
 #include <vector>
 
-#include "gncpy/Exceptions.h"
 #include "gncpy/SerializeMacros.h"
-#include "gncpy/Utilities.h"
-#include "gncpy/math/Math.h"
-#include "gncpy/math/Matrix.h"
-#include "gncpy/math/Vector.h"
 #include "gncpy/measurements/ILinearMeasModel.h"
 #include "gncpy/measurements/Parameters.h"
 
@@ -33,17 +30,16 @@ class StateObservationParams final : public MeasParams {
     }
 };
 
-template <typename T>
-class StateObservation final : public ILinearMeasModel<T> {
+class StateObservation final : public ILinearMeasModel {
     friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(StateObservation<T>)
+    GNCPY_SERIALIZE_CLASS(StateObservation)
 
    public:
     StateObservation() = default;
 
-    matrix::Matrix<T> getMeasMat(
-        const matrix::Vector<T>& state,
+    Eigen::MatrixXd getMeasMat(
+        const Eigen::VectorXd& state,
         const MeasParams* params = nullptr) const override;
 
    private:
@@ -51,40 +47,13 @@ class StateObservation final : public ILinearMeasModel<T> {
     void serialize(Archive& ar);
 };
 
-template <typename T>
-matrix::Matrix<T> StateObservation<T>::getMeasMat(
-    const matrix::Vector<T>& state, const MeasParams* params) const {
-    if (!params) {
-        throw exceptions::BadParams("State Observation requires parameters");
-    }
-    if (!utilities:: instanceof <StateObservationParams>(params)) {
-        throw exceptions::BadParams(
-            "params type must be StateObservationParams.");
-    }
-    auto ptr = dynamic_cast<const StateObservationParams*>(params);
-    matrix::Matrix<T> data(ptr->obsInds.size(), state.size());
-
-    for (uint8_t ii = 0; ii < ptr->obsInds.size(); ii++) {
-        for (uint8_t jj = 0; jj < state.size(); jj++) {
-            if (ptr->obsInds[ii] == jj) {
-                data(ii, jj) = static_cast<T>(1.0);
-            }
-        }
-    }
-    return data;
-}
-
-template <typename T>
 template <class Archive>
-void StateObservation<T>::serialize(Archive& ar) {
+void StateObservation::serialize(Archive& ar) {
     ar(cereal::make_nvp("ILinearMeasModel",
-                        cereal::virtual_base_class<ILinearMeasModel<T>>(this)));
+                        cereal::virtual_base_class<ILinearMeasModel>(this)));
 }
-
-extern template class StateObservation<float>;
-extern template class StateObservation<double>;
 
 }  // namespace lager::gncpy::measurements
 
-GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::measurements::StateObservation)
+CEREAL_REGISTER_TYPE(lager::gncpy::measurements::StateObservation)
 CEREAL_REGISTER_TYPE(lager::gncpy::measurements::StateObservationParams)
