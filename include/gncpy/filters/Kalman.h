@@ -96,12 +96,14 @@ class Kalman : public IBayesFilter {
     std::shared_ptr<dynamics::IDynamics> dynamicsModel() const override;
     std::shared_ptr<measurements::IMeasModel> measurementModel() const override;
 
+   protected:
+    Eigen::MatrixXd m_procNoise;
+
    private:
     template <class Archive>
     void serialize(Archive& ar);
 
     Eigen::MatrixXd m_measNoise;
-    Eigen::MatrixXd m_procNoise;
 
     std::shared_ptr<dynamics::ILinearDynamics> m_dynObj;
     std::shared_ptr<measurements::ILinearMeasModel> m_measObj;

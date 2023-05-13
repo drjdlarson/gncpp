@@ -16,7 +16,7 @@ Eigen::VectorXd ExtendedKalman::predict(
         throw exceptions::BadParams("Params must be BayesPredictParams");
     }
 
-    Eigen::VectorXd nextState = m_dynObj->propagateState(
+    Eigen::VectorXd nextState = dynamicsModel()->propagateState(
         timestep, curState, params->stateTransParams.get());
 
     Eigen::MatrixXd stateMat;
@@ -45,33 +45,6 @@ Eigen::VectorXd ExtendedKalman::predict(
     return nextState;
 }
 
-Eigen::VectorXd ExtendedKalman::correct([[maybe_unused]] double timestep,
-                                        const Eigen::VectorXd& meas,
-                                        const Eigen::VectorXd& curState,
-                                        double& measFitProb,
-                                        const BayesCorrectParams* params) {
-    if (params != nullptr && !utilities:: instanceof
-        <BayesCorrectParams>(params)) {
-        throw exceptions::BadParams("Params must be BayesCorrectParams");
-    }
-
-    Eigen::VectorXd estMeas =
-        measurementModel()->measure(curState, params->measParams.get());
-    Eigen::MatrixXd measMat =
-        measurementModel()->getMeasMat(curState, params->measParams.get());
-
-    Eigen::MatrixXd inovCov = measMat * cov * measMat.transpose();
-
-    Eigen::MatrixXd kalmanGain = cov * measMat.transpose() * inovCov.inverse();
-
-    Eigen::VectorXd inov = meas - estMeas;
-    cov -= kalmanGain * measMat * cov;
-
-    measFitProb = math::calcGaussianPDF(meas, estMeas, inovCov);
-
-    return curState + kalmanGain * inov;
-}
-
 void ExtendedKalman::setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
                                    Eigen::MatrixXd procNoise) {
     if (!dynObj) {
@@ -91,36 +64,12 @@ void ExtendedKalman::setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
     m_procNoise = procNoise;
 }
 
-void ExtendedKalman::setMeasurementModel(
-    std::shared_ptr<measurements::IMeasModel> measObj,
-    Eigen::MatrixXd measNoise) {
-    if (!measObj) {
-        throw exceptions::TypeError("measObj can not be nullptr");
-    }
-
-    if (measNoise.rows() != measNoise.cols()) {
-        throw exceptions::BadParams("Measurement noise must be squqre");
-    }
-
-    m_measObj = measObj;
-    m_measNoise = measNoise;
-}
-
 inline std::shared_ptr<dynamics::IDynamics> ExtendedKalman::dynamicsModel()
     const {
     if (m_dynObj) {
         return m_dynObj;
     } else {
         throw exceptions::TypeError("Dynamics model is unset");
-    }
-}
-
-inline std::shared_ptr<measurements::IMeasModel>
-ExtendedKalman::measurementModel() const {
-    if (m_measObj) {
-        return m_measObj;
-    } else {
-        throw exceptions::TypeError("Measurement model is unset");
     }
 }
 
