@@ -1,9 +1,6 @@
 #pragma once
-
-// register a template class for all supported types
-#define GNCPY_REGISTER_SERIALIZE_TYPES(Class_t) \
-    CEREAL_REGISTER_TYPE(Class_t<float>)        \
-    CEREAL_REGISTER_TYPE(Class_t<double>)
+#include <cereal/archives/portable_binary.hpp>
+#include <sstream>
 
 // Add save/load, toJSON, and create input/output archive functions to a class
 // see
