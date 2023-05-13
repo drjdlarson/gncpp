@@ -1,4 +1,5 @@
 #pragma once
+#include <Eigen/Dense>
 #include <cereal/access.hpp>
 #include <cereal/archives/binary.hpp>
 #include <cereal/archives/json.hpp>
@@ -11,14 +12,10 @@
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/Exceptions.h"
 #include "gncpy/dynamics/Parameters.h"
-#include "gncpy/math/Matrix.h"
-#include "gncpy/math/Vector.h"
 
 namespace lager::gncpy::dynamics {
 
 /// @brief Base interface for all dynamics
-template <typename T>
-    requires std::integral<T> || std::floating_point<T>
 class IDynamics {
     friend class cereal::access;
 
@@ -31,10 +28,10 @@ class IDynamics {
      * @param timestep current time
      * @param state current state
      * @param stateTransParams Parameters needed by the transition model
-     * @return matrix::Vector<T> Next state
+     * @return Eigen::VectorXd Next state
      */
-    virtual matrix::Vector<T> propagateState(
-        T timestep, const matrix::Vector<T>& state,
+    virtual Eigen::VectorXd propagateState(
+        double timestep, const Eigen::VectorXd& state,
         const StateTransParams* const stateTransParams = nullptr) const = 0;
 
     /**
@@ -43,11 +40,11 @@ class IDynamics {
      * @param timestep current time step
      * @param state current state
      * @param control control input vector
-     * @return matrix::Vector<T> Next state
+     * @return Eigen::VectorXd Next state
      */
-    virtual matrix::Vector<T> propagateState(
-        T timestep, const matrix::Vector<T>& state,
-        const matrix::Vector<T>& control) const = 0;
+    virtual Eigen::VectorXd propagateState(
+        double timestep, const Eigen::VectorXd& state,
+        const Eigen::VectorXd& control) const = 0;
 
     /**
      * @brief Propagate the state forward one timestep
@@ -58,11 +55,11 @@ class IDynamics {
      * @param stateTransParams Parameters needed by the transition model
      * @param controlParams Parameters needed by the control model
      * @param constraintParams Parameters needed by the constraint model
-     * @return matrix::Vector<T> Next state
+     * @return Eigen::VectorXd Next state
      */
-    virtual matrix::Vector<T> propagateState(
-        T timestep, const matrix::Vector<T>& state,
-        const matrix::Vector<T>& control,
+    virtual Eigen::VectorXd propagateState(
+        double timestep, const Eigen::VectorXd& state,
+        const Eigen::VectorXd& control,
         const StateTransParams* const stateTransParams,
         const ControlParams* const controlParams,
         const ConstraintParams* const constraintParams) const = 0;
@@ -89,7 +86,7 @@ class IDynamics {
 
    protected:
     void stateConstraint(
-        T timestep, matrix::Vector<T>& state,
+        double timestep, Eigen::VectorXd& state,
         const ConstraintParams* const constraintParams = nullptr) const;
 
    private:
@@ -97,34 +94,19 @@ class IDynamics {
     void serialize(Archive& ar);
 
     bool m_hasStateConstraint = false;
-    std::function<void(T timestep, matrix::Vector<T>& state,
+    std::function<void(double timestep, Eigen::VectorXd& state,
                        const ConstraintParams* const constraintParams)>
         m_stateConstraints;
 };
 
-template <typename T>
-    requires std::integral<T> || std::floating_point<T>
 template <typename F>
-inline void IDynamics<T>::setStateConstraints(F&& constrants) {
+void IDynamics::setStateConstraints(F&& constrants) {
     m_hasStateConstraint = false;
     m_stateConstraints = std::forward<F>(constrants);
 }
 
-template <typename T>
-    requires std::integral<T> || std::floating_point<T>
-inline void IDynamics<T>::stateConstraint(
-    T timestep, matrix::Vector<T>& state,
-    const ConstraintParams* const constraintParams) const {
-    if (m_hasStateConstraint) {
-        m_stateConstraints(timestep, state, constraintParams);
-    }
-    throw NoStateConstraintError();
-}
-
-template <typename T>
-    requires std::integral<T> || std::floating_point<T>
 template <class Archive>
-void IDynamics<T>::serialize(Archive& ar) {
+void IDynamics::serialize(Archive& ar) {
     bool tmp = m_hasStateConstraint;
     m_hasStateConstraint = false;
     ar(CEREAL_NVP(m_hasStateConstraint));
@@ -133,4 +115,4 @@ void IDynamics<T>::serialize(Archive& ar) {
 
 }  // namespace lager::gncpy::dynamics
 
-GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::dynamics::IDynamics)
+CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::IDynamics)

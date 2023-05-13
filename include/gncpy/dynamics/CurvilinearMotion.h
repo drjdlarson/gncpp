@@ -1,4 +1,5 @@
 #pragma once
+#include <Eigen/Dense>
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -7,8 +8,6 @@
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/INonLinearDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
-#include "gncpy/math/Matrix.h"
-#include "gncpy/math/Vector.h"
 
 namespace lager::gncpy::dynamics {
 
@@ -29,11 +28,10 @@ namespace lager::gncpy::dynamics {
  * See \cite Li2000_SurveyofManeuveringTargetTrackingDynamicModels for details.
  *
  */
-template <typename T>
-class CurvilinearMotion final : public INonLinearDynamics<T> {
+class CurvilinearMotion final : public INonLinearDynamics {
     friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(CurvilinearMotion<T>)
+    GNCPY_SERIALIZE_CLASS(CurvilinearMotion)
 
    public:
     CurvilinearMotion();
@@ -43,8 +41,8 @@ class CurvilinearMotion final : public INonLinearDynamics<T> {
                                         "turn angle"};
     }
 
-    matrix::Vector<T> continuousDynamics(
-        [[maybe_unused]] T timestep, const matrix::Vector<T>& state,
+    Eigen::VectorXd continuousDynamics(
+        [[maybe_unused]] double timestep, const Eigen::VectorXd& state,
         [[maybe_unused]] const StateTransParams* stateTransParams =
             nullptr) const override;
     template <typename F>
@@ -57,56 +55,20 @@ class CurvilinearMotion final : public INonLinearDynamics<T> {
     void serialize(Archive& ar);
 };
 
-template <typename T>
-CurvilinearMotion<T>::CurvilinearMotion() {
-    INonLinearDynamics<T>::setControlModel(
-        []([[maybe_unused]] T timestep,
-           [[maybe_unused]] const matrix::Vector<T>& state,
-           const matrix::Vector<T>& control,
-           [[maybe_unused]] const ControlParams* controlParams = nullptr) {
-            return matrix::Vector<T>(
-                {static_cast<T>(0), static_cast<T>(0), control(0), control(1)});
-        },
-        true);
-}
-
-template <typename T>
-matrix::Vector<T> CurvilinearMotion<T>::continuousDynamics(
-    [[maybe_unused]] T timestep, const matrix::Vector<T>& state,
-    [[maybe_unused]] const StateTransParams* stateTransParams) const {
-    return matrix::Vector<T>({state(2) * static_cast<T>(cos(state(3))),
-                              state(2) * static_cast<T>(sin(state(3))),
-                              static_cast<T>(0), static_cast<T>(0)});
-}
-
-template <typename T>
 template <typename F>
-void CurvilinearMotion<T>::setControlModel(
-    [[maybe_unused]] F&& model, [[maybe_unused]] bool continuousModel) {
+void CurvilinearMotion::setControlModel([[maybe_unused]] F&& model,
+                                        [[maybe_unused]] bool continuousModel) {
     std::cerr << "Can not set control model for curvilinear motion "
                  "dynamics. It has a fixed control model!"
               << std::endl;
 }
 
-template <typename T>
-void CurvilinearMotion<T>::clearControlModel() {
-    std::cerr << "Warning, disabling control model and it can not be "
-                 "re-enabled for this curvilinear motion model!"
-              << std::endl;
-    INonLinearDynamics<T>::clearControlModel();
-}
-
-template <typename T>
 template <class Archive>
-void CurvilinearMotion<T>::serialize(Archive& ar) {
-    ar(cereal::make_nvp(
-        "INonLinearDynamics",
-        cereal::virtual_base_class<INonLinearDynamics<T>>(this)));
+void CurvilinearMotion::serialize(Archive& ar) {
+    ar(cereal::make_nvp("INonLinearDynamics",
+                        cereal::virtual_base_class<INonLinearDynamics>(this)));
 }
-
-extern template class CurvilinearMotion<float>;
-extern template class CurvilinearMotion<double>;
 
 }  // namespace lager::gncpy::dynamics
 
-GNCPY_REGISTER_SERIALIZE_TYPES(lager::gncpy::dynamics::CurvilinearMotion)
+CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::CurvilinearMotion)

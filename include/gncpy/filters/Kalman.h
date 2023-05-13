@@ -72,7 +72,7 @@ class Kalman : public IBayesFilter<T> {
      * @param dynObj Linear dynamics of type dynamics::ILinearDynamics
      * @param procNoise Process noise matrix for the filter
      */
-    void setStateModel(std::shared_ptr<dynamics::IDynamics<T>> dynObj,
+    void setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
                        matrix::Matrix<T> procNoise) override;
 
     /**
@@ -93,7 +93,7 @@ class Kalman : public IBayesFilter<T> {
         std::shared_ptr<measurements::IMeasModel<T>> measObj,
         matrix::Matrix<T> measNoise) override;
 
-    std::shared_ptr<dynamics::IDynamics<T>> dynamicsModel() const override;
+    std::shared_ptr<dynamics::IDynamics> dynamicsModel() const override;
     std::shared_ptr<measurements::IMeasModel<T>> measurementModel()
         const override;
 
@@ -104,7 +104,7 @@ class Kalman : public IBayesFilter<T> {
     matrix::Matrix<T> m_measNoise;
     matrix::Matrix<T> m_procNoise;
 
-    std::shared_ptr<dynamics::ILinearDynamics<T>> m_dynObj;
+    std::shared_ptr<dynamics::ILinearDynamics> m_dynObj;
     std::shared_ptr<measurements::ILinearMeasModel<T>> m_measObj;
 };
 

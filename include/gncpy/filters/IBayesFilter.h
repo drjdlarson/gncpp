@@ -62,7 +62,7 @@ class IBayesFilter {
      * @param dynObj Dynamics object that implements the model
      * @param procNoise Process noise matrix for the filter
      */
-    virtual void setStateModel(std::shared_ptr<dynamics::IDynamics<T>> dynObj,
+    virtual void setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
                                matrix::Matrix<T> procNoise) = 0;
 
     /**
@@ -75,7 +75,7 @@ class IBayesFilter {
         std::shared_ptr<measurements::IMeasModel<T>> measObj,
         matrix::Matrix<T> measNoise) = 0;
 
-    virtual std::shared_ptr<dynamics::IDynamics<T>> dynamicsModel() const = 0;
+    virtual std::shared_ptr<dynamics::IDynamics> dynamicsModel() const = 0;
     virtual std::shared_ptr<measurements::IMeasModel<T>> measurementModel()
         const = 0;
 
