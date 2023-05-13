@@ -244,8 +244,17 @@ elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
             "-fvar-tracking"
             "-fvar-tracking-assignments"
         )
+    elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+        message(STATUS "Using MSVC compiler, adding reduced set of compiler flags")
+            target_compile_options(gncpy PRIVATE
+            "-fPIC"
+            "-Wall"
+            "-Wpedantic"
+            "-gdwarf-4"
+            "-Og"
+        )
     else()
-    message(STATUS "Not using GNU compiler, adding reduced set of compiler flags")
+    message(STATUS "Not using GNU or MSVC compiler, adding reduced set of compiler flags")
         target_compile_options(gncpy PRIVATE
         "-fPIC"
         "-Wall"
