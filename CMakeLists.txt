@@ -269,7 +269,7 @@ else()
             "-O3"
         )
     else()
-        messaage(STATUS "Not using MSVC compiler, adding full set of compiler flags")
+        message(STATUS "Not using MSVC compiler, adding full set of compiler flags")
         target_compile_options(gncpy PRIVATE
             "-fPIC"
             "-Wall"
