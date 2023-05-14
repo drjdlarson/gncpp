@@ -66,6 +66,7 @@ set_verbose(GNCPY_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE STRING
 option(GNCPY_DOC "Generate the doc target." ${GNCPY_MASTER_PROJECT})
 option(GNCPY_INSTALL "Generate the install target." ON)
 option(GNCPY_TEST "Generate the test target." ${GNCPY_MASTER_PROJECT})
+set(GNCPY_EIGEN_VERSION "3.4.0" CACHE STRING "Version of Eigen to use when compiling the interface and backend")
 
 if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
     set(GNCPY_TEST ON)
@@ -127,11 +128,11 @@ set(CEREAL_INSTALL ON CACHE INTERNAL "install cereal")
 set(THREAD_SAFE ON CACHE INTERNAL "allow multiple cereal archives to be accessed in parallel")
 FetchContent_MakeAvailable(cereal)
 
-message(STATUS "Fetching Eigen3 dependency...")
+message(STATUS "Fetching Eigen3 dependency (version: ${GNCPY_EIGEN_VERSION})...")
 FetchContent_Declare(
     eigen
     GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
-    GIT_TAG 3.4.0
+    GIT_TAG ${GNCPY_EIGEN_VERSION}
 )
 set(BUILD_TESTING OFF CACHE INTERNAL "Disable Eigen tests")
 FetchContent_MakeAvailable(eigen)
