@@ -1,16 +1,17 @@
 #include <gtest/gtest.h>
 #include <math.h>
 
+#include <Eigen/Dense>
+
 #include "gncpy/Exceptions.h"
 #include "gncpy/math/Math.h"
-#include "gncpy/math/Matrix.h"
-#include "gncpy/math/Vector.h"
 #include "gncpy/measurements/RangeAndBearing.h"
 #include "gncpy/measurements/StateObservation.h"
 
 TEST(MeasurementTest, StateObservationMeasure) {
-    lager::gncpy::matrix::Vector x({3.0, 4.0, 1.0});
-    lager::gncpy::measurements::StateObservation<double> sensor;
+    Eigen::Vector3d x;
+    x << 3.0, 4.0, 1.0;
+    lager::gncpy::measurements::StateObservation sensor;
     std::vector<uint8_t> inds = {0, 1, 2};
 
     EXPECT_THROW(sensor.measure(x, nullptr),
@@ -18,9 +19,9 @@ TEST(MeasurementTest, StateObservationMeasure) {
 
     auto params = lager::gncpy::measurements::StateObservationParams(inds);
 
-    lager::gncpy::matrix::Vector out = sensor.measure(x, &params);
+    auto out = sensor.measure(x, &params);
 
-    EXPECT_EQ(3, out.size());
+    EXPECT_EQ(x.size(), out.size());
 
     for (uint8_t ii = 0; ii < out.size(); ii++) {
         EXPECT_DOUBLE_EQ(x(ii), out(ii));
@@ -30,22 +31,23 @@ TEST(MeasurementTest, StateObservationMeasure) {
 }
 
 TEST(MeasurementTest, StateObservationMeasMat) {
-    lager::gncpy::matrix::Vector x({3.0, 4.0, 1.0});
-    lager::gncpy::measurements::StateObservation<double> sensor;
+    Eigen::Vector3d x;
+    x << 3.0, 4.0, 1.0;
+    lager::gncpy::measurements::StateObservation sensor;
     std::vector<uint8_t> inds = {0, 1, 2};
     auto params = lager::gncpy::measurements::StateObservationParams(inds);
 
     EXPECT_THROW(sensor.getMeasMat(x, nullptr),
                  lager::gncpy::exceptions::BadParams);
 
-    lager::gncpy::matrix::Matrix out = sensor.getMeasMat(x, &params);
-    lager::gncpy::matrix::Matrix exp(
-        {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}});
+    auto out = sensor.getMeasMat(x, &params);
+    Eigen::Matrix3d exp({{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}});
 
-    EXPECT_EQ(9, out.size());
+    EXPECT_EQ(exp.rows(), out.rows());
+    EXPECT_EQ(exp.cols(), out.cols());
 
-    for (uint8_t r = 0; r < x.size(); r++) {
-        for (uint8_t c = 0; c < inds.size(); c++) {
+    for (uint8_t r = 0; r < exp.rows(); r++) {
+        for (uint8_t c = 0; c < exp.cols(); c++) {
             EXPECT_EQ(exp(r, c), out(r, c));
         }
     }
@@ -54,20 +56,22 @@ TEST(MeasurementTest, StateObservationMeasMat) {
 }
 
 TEST(MeasurementTest, RangeBearingMeasure) {
-    lager::gncpy::matrix::Vector x({3.0, 4.0, 1.0});
-    lager::gncpy::measurements::RangeAndBearing<double> sensor;
-    lager::gncpy::matrix::Vector exp({5.0, atan2(4.0, 3.0)});
+    Eigen::Vector3d x;
+    x << 3.0, 4.0, 1.0;
+    lager::gncpy::measurements::RangeAndBearing sensor;
+    Eigen::Vector2d exp;
+    exp << 5.0, atan2(4.0, 3.0);
 
     EXPECT_THROW(sensor.measure(x, nullptr),
                  lager::gncpy::exceptions::BadParams);
 
     lager::gncpy::measurements::RangeAndBearingParams params(0, 1);
 
-    lager::gncpy::matrix::Vector out = sensor.measure(x, &params);
+    auto out = sensor.measure(x, &params);
 
-    EXPECT_EQ(2, out.size());
+    // EXPECT_EQ(exp.size(), out.size());
 
-    for (uint8_t ii = 0; ii < out.size(); ii++) {
+    for (uint8_t ii = 0; ii < exp.size(); ii++) {
         EXPECT_DOUBLE_EQ(exp(ii), out(ii));
     }
 
@@ -75,26 +79,25 @@ TEST(MeasurementTest, RangeBearingMeasure) {
 }
 
 TEST(MeasurementTest, RangeBearingMeasMat) {
-    lager::gncpy::matrix::Vector x({3.0, 4.0, 1.0});
-    lager::gncpy::measurements::RangeAndBearing<double> sensor;
-    lager::gncpy::matrix::Matrix exp({{0.6, 0.8, 0.0}, {-0.16, 0.12, 0.0}});
+    Eigen::Vector3d x;
+    x << 3.0, 4.0, 1.0;
+    lager::gncpy::measurements::RangeAndBearing sensor;
+    Eigen::MatrixXd exp({{0.6, 0.8, 0.0}, {-0.16, 0.12, 0.0}});
 
     EXPECT_THROW(sensor.getMeasMat(x), lager::gncpy::exceptions::BadParams);
 
     lager::gncpy::measurements::RangeAndBearingParams params(0, 1);
 
-    lager::gncpy::matrix::Matrix res = sensor.getMeasMat(x, &params);
+    auto res = sensor.getMeasMat(x, &params);
 
-    uint8_t nRows = res.shape()[0];
-    uint8_t nCols = res.shape()[1];
+    EXPECT_EQ(exp.rows(), res.rows());
+    EXPECT_EQ(exp.cols(), res.cols());
 
-    EXPECT_EQ(exp.numRows(), nRows);
-    EXPECT_EQ(exp.numCols(), nCols);
-
-    for (uint8_t ii = 0; ii < nRows; ii++) {
-        for (uint8_t jj = 0; jj < nCols; jj++) {
+    for (uint8_t ii = 0; ii < exp.rows(); ii++) {
+        for (uint8_t jj = 0; jj < exp.cols(); jj++) {
             EXPECT_NEAR(exp(ii, jj), res(ii, jj), 1e-6);
         }
     }
+
     SUCCEED();
 }

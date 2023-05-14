@@ -127,6 +127,15 @@ set(CEREAL_INSTALL ON CACHE INTERNAL "install cereal")
 set(THREAD_SAFE ON CACHE INTERNAL "allow multiple cereal archives to be accessed in parallel")
 FetchContent_MakeAvailable(cereal)
 
+message(STATUS "Fetching Eigen3 dependency...")
+FetchContent_Declare(
+    eigen
+    GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+    GIT_TAG 3.4.0
+)
+set(BUILD_TESTING OFF CACHE INTERNAL "Disable Eigen tests")
+FetchContent_MakeAvailable(eigen)
+
 
 # ------------------------------------------------------------------
 # --------------------- Check status of options --------------------
@@ -168,14 +177,12 @@ endif ()
 # ------------------------------------------------------------------
 # ----------------------- Add GNCPy Library ------------------------
 # ------------------------------------------------------------------
-file(GLOB_RECURSE SRCS src/*.cpp)
-file(GLOB_RECURSE HDRS include/*.h) 
-
-# add_library(gncpy ${GNCPY_SOURCES} ${GNCPY_HEADERS} README.md ChangeLog.rst)
-add_library(gncpy ${HDRS} ${SRCS} README.md)
+add_library(gncpy ${GNCPY_SOURCES})
 add_library(lager::gncpy ALIAS gncpy)
+add_subdirectory(src)
 
-target_link_libraries(gncpy cereal::cereal)
+
+target_link_libraries(gncpy cereal::cereal Eigen3::Eigen)
 target_include_directories(gncpy PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${GNCPY_INC_DIR}>
@@ -237,26 +244,42 @@ elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
             "-fvar-tracking"
             "-fvar-tracking-assignments"
         )
+    elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+        message(STATUS "Using MSVC compiler, adding reduced set of compiler flags")
+            target_compile_options(gncpy PRIVATE
+            "-Wall"
+            "-bigobj"
+            "-Od"
+        )
     else()
-    message(STATUS "Not using GNU compiler, adding reduced set of compiler flags")
-        target_compile_options(gncpy PRIVATE
-        "-fPIC"
-        "-Wall"
-        "-Wextra"
-        "-Wpedantic"
-        "-gdwarf-4"
-        "-fno-eliminate-unused-debug-symbols"
-        "-Og"
-    )
+        message(STATUS "Not using GNU or MSVC compiler, adding reduced set of compiler flags")
+            target_compile_options(gncpy PRIVATE
+            "-fPIC"
+            "-Wall"
+            "-Wextra"
+            "-Wpedantic"
+            "-gdwarf-4"
+            "-Og"
+        )
     endif()
 else()
-    target_compile_options(gncpy PRIVATE
-        "-fPIC"
-        "-Wall"
-        "-Wextra"
-        "-Wpedantic"
-        "-O3"
-    )
+    if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+        message(STATUS "Using MSVC compiler, adding reduced set of compiler flags")
+            target_compile_options(gncpy PRIVATE
+            "-Wall"
+            "-bigobj"
+            "-O3"
+        )
+    else()
+        message(STATUS "Not using MSVC compiler, adding full set of compiler flags")
+        target_compile_options(gncpy PRIVATE
+            "-fPIC"
+            "-Wall"
+            "-Wextra"
+            "-Wpedantic"
+            "-O3"
+        )
+    endif()
 endif()
 
 set_target_properties(gncpy 
@@ -308,7 +331,7 @@ if (GNCPY_INSTALL)
 
     # see https://stackoverflow.com/questions/5378528/install-export-problem-for-library-with-dependencies
     # for why cereal is included here
-    set(INSTALL_TARGETS gncpy cereal)
+    set(INSTALL_TARGETS gncpy cereal eigen)
 
     # Install the library and headers.
     install(TARGETS ${INSTALL_TARGETS} EXPORT ${targets_export_name}

@@ -8,6 +8,7 @@ add_executable(
 target_link_libraries(
   kalman_test
   GTest::gtest_main
+  Eigen3::Eigen
   lager::gncpy
 )
 gtest_discover_tests(kalman_test)
@@ -22,6 +23,7 @@ add_executable(
 target_link_libraries(
   extended_kalman_test
   GTest::gtest_main
+  Eigen3::Eigen
   lager::gncpy
 )
 gtest_discover_tests(extended_kalman_test)

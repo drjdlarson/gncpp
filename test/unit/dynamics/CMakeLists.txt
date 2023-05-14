@@ -8,6 +8,7 @@ add_executable(
 target_link_libraries(
   double_int_dyn_test
   GTest::gtest_main
+  Eigen3::Eigen
   lager::gncpy
 )
 gtest_discover_tests(double_int_dyn_test)
@@ -22,6 +23,7 @@ add_executable(
 target_link_libraries(
   curvilinear_dyn_test
   GTest::gtest_main
+  Eigen3::Eigen
   lager::gncpy
 )
 gtest_discover_tests(curvilinear_dyn_test)

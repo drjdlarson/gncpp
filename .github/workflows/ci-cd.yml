@@ -28,7 +28,7 @@ jobs:
           mkdir build
           cd build
           cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Release ..
-          make -j2
+          cmake --build .
 
       - name: Unit test in Debug
         run: |
@@ -52,7 +52,7 @@ jobs:
           mkdir build
           cd build
           cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Debug ..
-          make -j2
+          cmake --build .
 
       - name: Unit test in Debug
         run: |
@@ -64,6 +64,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        # os: [ubuntu-latest, windows-latest, macos-latest]
         os: [ubuntu-latest, macos-latest]
 
     steps:
@@ -75,7 +76,7 @@ jobs:
           mkdir build
           cd build
           cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Release ..
-          make -j2
+          cmake --build .
 
       - name: Unit test in Release
         run: |

@@ -1,16 +1,16 @@
 #include <gncpy/dynamics/DoubleIntegrator.h>
 #include <gncpy/dynamics/Parameters.h>
-#include <gncpy/math/Matrix.h>
-#include <gncpy/math/Vector.h>
 #include <gtest/gtest.h>
 
+#include <Eigen/Dense>
 #include <iostream>
 #include <sstream>
 
 TEST(DoubleInt, Propagate) {
     double dt = 0.1;
     lager::gncpy::dynamics::DoubleIntegrator dyn(dt);
-    lager::gncpy::matrix::Vector xk({0., 0., 1., 0.});
+    Eigen::Vector4d xk;
+    xk << 0., 0., 1., 0.;
 
     for (uint16_t kk = 0; kk < 10; kk++) {
         double timestep = kk * dt;
@@ -34,13 +34,12 @@ TEST(DoubleInt, serialize) {
     dyn.setControlModel(
         []([[maybe_unused]] double t,
            [[maybe_unused]] const lager::gncpy::dynamics::ControlParams*
-               params) { return lager::gncpy::matrix::identity<double>(4); });
+               params) { return Eigen::Matrix4d::Identity(); });
 
     std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
 
     std::stringstream filtState = dyn.saveClassState();
-    auto dyn2 =
-        lager::gncpy::dynamics::DoubleIntegrator<double>::loadClass(filtState);
+    auto dyn2 = lager::gncpy::dynamics::DoubleIntegrator::loadClass(filtState);
 
     std::cout << "Loaded class:\n" << dyn2.toJSON() << std::endl;
 

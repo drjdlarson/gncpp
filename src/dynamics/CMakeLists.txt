@@ -1,0 +1,9 @@
+target_sources(gncpy 
+    PRIVATE 
+        IDynamics.cpp
+        ILinearDynamics.cpp
+        INonLinearDynamics.cpp
+        Exceptions.cpp
+        CurvilinearMotion.cpp
+        DoubleIntegrator.cpp
+)
