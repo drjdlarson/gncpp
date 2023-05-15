@@ -38,7 +38,7 @@ TEST(EKFTest, serialize) {
     auto dynObj = std::make_shared<lager::gncpy::dynamics::CurvilinearMotion>();
     dynObj->setDt(dt);
     lager::gncpy::filters::ExtendedKalman filt;
-    filt.cov = cov;
+    filt.getCov() = cov;
     filt.setStateModel(dynObj, pNoise);
 
     std::cout << "Original class:\n" << filt.toJSON() << std::endl;
@@ -47,12 +47,12 @@ TEST(EKFTest, serialize) {
     auto filt2 = lager::gncpy::filters::ExtendedKalman::loadClass(classState);
     std::cout << "Loaded class:\n" << filt2.toJSON() << std::endl;
 
-    EXPECT_EQ(filt.cov.rows(), filt2.cov.rows());
-    EXPECT_EQ(filt.cov.cols(), filt2.cov.cols());
+    EXPECT_EQ(filt.viewCov().rows(), filt2.viewCov().rows());
+    EXPECT_EQ(filt.viewCov().cols(), filt2.viewCov().cols());
 
-    for (size_t r = 0; r < filt.cov.rows(); r++) {
-        for (size_t c = 0; c < filt.cov.cols(); c++) {
-            EXPECT_DOUBLE_EQ(filt.cov(r, c), filt2.cov(r, c));
+    for (size_t r = 0; r < filt.viewCov().rows(); r++) {
+        for (size_t c = 0; c < filt.viewCov().cols(); c++) {
+            EXPECT_DOUBLE_EQ(filt.viewCov()(r, c), filt2.viewCov()(r, c));
         }
     }
 

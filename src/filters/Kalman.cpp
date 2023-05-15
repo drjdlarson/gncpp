@@ -15,7 +15,7 @@ Eigen::VectorXd Kalman::predict(
     }
     Eigen::MatrixXd stateMat =
         m_dynObj->getStateMat(timestep, params->stateTransParams.get());
-    cov = stateMat * cov * stateMat.transpose() + m_procNoise;
+    getCov() = stateMat * viewCov() * stateMat.transpose() + m_procNoise;
 
     return m_dynObj->propagateState(timestep, curState,
                                     params->stateTransParams.get());
@@ -36,12 +36,13 @@ Eigen::VectorXd Kalman::correct([[maybe_unused]] double timestep,
     Eigen::MatrixXd measMat =
         measurementModel()->getMeasMat(curState, params->measParams.get());
 
-    Eigen::MatrixXd inovCov = measMat * cov * measMat.transpose();
+    Eigen::MatrixXd inovCov = measMat * viewCov() * measMat.transpose();
 
-    Eigen::MatrixXd kalmanGain = cov * measMat.transpose() * inovCov.inverse();
+    Eigen::MatrixXd kalmanGain =
+        viewCov() * measMat.transpose() * inovCov.inverse();
 
     Eigen::VectorXd inov = meas - estMeas;
-    cov -= kalmanGain * measMat * cov;
+    getCov() -= kalmanGain * measMat * viewCov();
 
     measFitProb = math::calcGaussianPDF(meas, estMeas, inovCov);
 

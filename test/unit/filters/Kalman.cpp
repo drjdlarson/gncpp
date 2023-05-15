@@ -43,8 +43,8 @@ TEST(KFTest, GetSetCovariance) {
                                 {0.0, 0.0, 0.0, 0.01}});
     lager::gncpy::filters::Kalman filt;
 
-    filt.cov = covariance;
-    auto newCov = filt.cov;
+    filt.getCov() = covariance;
+    auto newCov = filt.viewCov();
 
     for (uint8_t ii = 0; ii < covariance.rows(); ii++) {
         for (uint8_t jj = 0; jj < covariance.cols(); jj++) {
@@ -75,7 +75,7 @@ TEST(KFTest, FilterPredict) {
                                {0.0, 1.0, 0.0, 0.0},
                                {0.0, 0.0, 1.0, 0.0},
                                {0.0, 0.0, 0.0, 1.0}});
-    filt.cov = cov;
+    filt.getCov() = cov;
 
     filt.setStateModel(dynObj, noise);
 
@@ -111,7 +111,7 @@ TEST(KFTest, FilterCorrect) {
                                {0.0, 1.0, 0.0, 0.0},
                                {0.0, 0.0, 1.0, 0.0},
                                {0.0, 0.0, 0.0, 1.0}});
-    filt.cov = cov;
+    filt.getCov() = cov;
 
     filt.setMeasurementModel(measObj, noise);
 
@@ -148,7 +148,7 @@ TEST(KFTest, serialize) {
     auto measObj =
         std::make_shared<lager::gncpy::measurements::StateObservation>();
     lager::gncpy::filters::Kalman filt;
-    filt.cov = cov;
+    filt.getCov() = cov;
     filt.setStateModel(dynObj, pNoise);
     filt.setMeasurementModel(measObj, mNoise);
 
@@ -158,12 +158,12 @@ TEST(KFTest, serialize) {
     auto filt2 = lager::gncpy::filters::Kalman::loadClass(classState);
     std::cout << "Loaded class:\n" << filt2.toJSON() << std::endl;
 
-    EXPECT_EQ(filt.cov.rows(), filt2.cov.rows());
-    EXPECT_EQ(filt.cov.cols(), filt2.cov.cols());
+    EXPECT_EQ(filt.viewCov().rows(), filt2.viewCov().rows());
+    EXPECT_EQ(filt.viewCov().cols(), filt2.viewCov().cols());
 
-    for (size_t r = 0; r < filt.cov.rows(); r++) {
-        for (size_t c = 0; c < filt.cov.cols(); c++) {
-            EXPECT_DOUBLE_EQ(filt.cov(r, c), filt2.cov(r, c));
+    for (size_t r = 0; r < filt.viewCov().rows(); r++) {
+        for (size_t c = 0; c < filt.viewCov().cols(); c++) {
+            EXPECT_DOUBLE_EQ(filt.viewCov()(r, c), filt2.viewCov()(r, c));
         }
     }
 

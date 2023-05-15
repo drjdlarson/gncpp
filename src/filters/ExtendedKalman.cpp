@@ -39,7 +39,7 @@ Eigen::VectorXd ExtendedKalman::predict(
         throw std::runtime_error(
             "Continuous covariance model not implemented yet for the EKF");
     } else {
-        cov = stateMat * cov * stateMat.transpose() + m_procNoise;
+        getCov() = stateMat * viewCov() * stateMat.transpose() + m_procNoise;
     }
 
     return nextState;
