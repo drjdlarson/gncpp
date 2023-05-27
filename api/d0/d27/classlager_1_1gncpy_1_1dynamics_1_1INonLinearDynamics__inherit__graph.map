@@ -1,5 +1,5 @@
-<map id="lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;" name="lager::gncpy::dynamics::INonLinearDynamics&lt; T &gt;">
-<area shape="rect" id="node1" title="Interface for all non&#45;linear dynamics models." alt="" coords="5,95,208,136"/>
-<area shape="rect" id="node3" href="$d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html" title="Implements a Curvilinear motion model." alt="" coords="15,184,199,225"/>
-<area shape="rect" id="node2" href="$dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html" title="Base interface for all dynamics." alt="" coords="21,5,193,47"/>
+<map id="lager::gncpy::dynamics::INonLinearDynamics" name="lager::gncpy::dynamics::INonLinearDynamics">
+<area shape="rect" id="node1" title="Interface for all non&#45;linear dynamics models." alt="" coords="5,95,177,136"/>
+<area shape="rect" id="node3" href="$d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html" title="Implements a Curvilinear motion model." alt="" coords="5,184,177,225"/>
+<area shape="rect" id="node2" href="$dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html" title="Base interface for all dynamics." alt="" coords="5,5,177,47"/>
 </map>

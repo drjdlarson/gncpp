@@ -27,9 +27,7 @@ var annotated_dup =
         ] ],
         [ "matrix", "d2/dce/namespacelager_1_1gncpy_1_1matrix.html", [
           [ "BadDimension", "dc/dae/classlager_1_1gncpy_1_1matrix_1_1BadDimension.html", "dc/dae/classlager_1_1gncpy_1_1matrix_1_1BadDimension" ],
-          [ "BadIndex", "d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html", "d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex" ],
-          [ "Matrix", "da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html", "da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix" ],
-          [ "Vector", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector" ]
+          [ "BadIndex", "d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html", "d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex" ]
         ] ],
         [ "measurements", "d3/d4d/namespacelager_1_1gncpy_1_1measurements.html", [
           [ "ILinearMeasModel", "d0/dd2/classlager_1_1gncpy_1_1measurements_1_1ILinearMeasModel.html", "d0/dd2/classlager_1_1gncpy_1_1measurements_1_1ILinearMeasModel" ],

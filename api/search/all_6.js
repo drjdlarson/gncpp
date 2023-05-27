@@ -1,13 +1,23 @@
 var searchData=
 [
-  ['getgradient_45',['getGradient',['../df/d59/namespacelager_1_1gncpy_1_1math_a2986cfc0a3537b82dd74592b3d14f9c6.html#a2986cfc0a3537b82dd74592b3d14f9c6',1,'lager::gncpy::math']]],
-  ['getinputmat_46',['getInputMat',['../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_aa9ead02e9c305275983c2825e714d82d.html#aa9ead02e9c305275983c2825e714d82d',1,'lager::gncpy::dynamics::ILinearDynamics']]],
-  ['getjacobian_47',['getJacobian',['../df/d59/namespacelager_1_1gncpy_1_1math_afd0346ca2f79d2291e0e0d49c80cf22b.html#afd0346ca2f79d2291e0e0d49c80cf22b',1,'lager::gncpy::math::getJacobian(const matrix::Vector&lt; T &gt; &amp;x, const std::vector&lt; std::function&lt; T(const matrix::Vector&lt; T &gt; &amp;)&gt;&gt; &amp;fncLst)'],['../df/d59/namespacelager_1_1gncpy_1_1math_a63411c901839bde107d66b133fc81d06.html#a63411c901839bde107d66b133fc81d06',1,'lager::gncpy::math::getJacobian(const matrix::Vector&lt; T &gt; &amp;x, std::function&lt; matrix::Vector&lt; T &gt;(const matrix::Vector&lt; T &gt; &amp;)&gt; const &amp;fnc, size_t numFunOutputs)']]],
-  ['getmeasfunclst_48',['getMeasFuncLst',['../d1/d09/classlager_1_1gncpy_1_1measurements_1_1INonLinearMeasModel_acfe968f406cb665cc69b0089275ca883.html#acfe968f406cb665cc69b0089275ca883',1,'lager::gncpy::measurements::INonLinearMeasModel::getMeasFuncLst()'],['../d4/de0/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearing_a0db09e01c1c136ba90b4c862c381ec60.html#a0db09e01c1c136ba90b4c862c381ec60',1,'lager::gncpy::measurements::RangeAndBearing::getMeasFuncLst()']]],
-  ['getmeasmat_49',['getMeasMat',['../d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel_a9fdf892c19e450cbf08378ec795d4439.html#a9fdf892c19e450cbf08378ec795d4439',1,'lager::gncpy::measurements::IMeasModel::getMeasMat()'],['../d1/d09/classlager_1_1gncpy_1_1measurements_1_1INonLinearMeasModel_abf03673940a9401c3607b0b040b6c4e7.html#abf03673940a9401c3607b0b040b6c4e7',1,'lager::gncpy::measurements::INonLinearMeasModel::getMeasMat()'],['../db/d79/classlager_1_1gncpy_1_1measurements_1_1StateObservation_a75ffa078411100540e50c6c12d6eaaf8.html#a75ffa078411100540e50c6c12d6eaaf8',1,'lager::gncpy::measurements::StateObservation::getMeasMat()']]],
-  ['getstatemat_50',['getStateMat',['../d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator_a0f9d00b659978a1cacccbed0828451fb.html#a0f9d00b659978a1cacccbed0828451fb',1,'lager::gncpy::dynamics::DoubleIntegrator::getStateMat()'],['../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics_a7a2bb7389ee9fcb4b50e5f14ee0d84e4.html#a7a2bb7389ee9fcb4b50e5f14ee0d84e4',1,'lager::gncpy::dynamics::ILinearDynamics::getStateMat()'],['../d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics_a1f18ec7290560f03cdf16a22c024cb3c.html#a1f18ec7290560f03cdf16a22c024cb3c',1,'lager::gncpy::dynamics::INonLinearDynamics::getStateMat()']]],
-  ['gncpy_20c_2b_2b_51',['GNCPY C++',['../index.html',1,'']]],
-  ['gncpy_5fregister_5fserialize_5ftypes_52',['GNCPY_REGISTER_SERIALIZE_TYPES',['../de/d08/SerializeMacros_8h_a3fff29f7f78ddedbd8d9e5c2f4023ec9.html#a3fff29f7f78ddedbd8d9e5c2f4023ec9',1,'SerializeMacros.h']]],
-  ['gncpy_5fserialize_5fclass_53',['GNCPY_SERIALIZE_CLASS',['../de/d08/SerializeMacros_8h_a93b089dd831b49bb032afa1e0ce8001d.html#a93b089dd831b49bb032afa1e0ce8001d',1,'SerializeMacros.h']]],
-  ['gncpy_5fversion_54',['GNCPY_VERSION',['../d5/dc4/core_8h_ab1acbe4f344c782d3f9b772972b0279d.html#ab1acbe4f344c782d3f9b772972b0279d',1,'core.h']]]
+  ['ibayesfilter_44',['IBayesFilter',['../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html',1,'lager::gncpy::filters']]],
+  ['ibayesfilter_2eh_45',['IBayesFilter.h',['../df/d22/IBayesFilter_8h.html',1,'']]],
+  ['idynamics_46',['IDynamics',['../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html',1,'lager::gncpy::dynamics']]],
+  ['idynamics_2ecpp_47',['IDynamics.cpp',['../dc/d41/IDynamics_8cpp.html',1,'']]],
+  ['idynamics_2eh_48',['IDynamics.h',['../d6/da9/IDynamics_8h.html',1,'']]],
+  ['ilineardynamics_49',['ILinearDynamics',['../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html',1,'lager::gncpy::dynamics']]],
+  ['ilineardynamics_2ecpp_50',['ILinearDynamics.cpp',['../d3/d7d/ILinearDynamics_8cpp.html',1,'']]],
+  ['ilineardynamics_2eh_51',['ILinearDynamics.h',['../d9/df2/ILinearDynamics_8h.html',1,'']]],
+  ['ilinearmeasmodel_52',['ILinearMeasModel',['../d0/dd2/classlager_1_1gncpy_1_1measurements_1_1ILinearMeasModel.html',1,'lager::gncpy::measurements']]],
+  ['ilinearmeasmodel_2ecpp_53',['ILinearMeasModel.cpp',['../d8/d03/ILinearMeasModel_8cpp.html',1,'']]],
+  ['ilinearmeasmodel_2eh_54',['ILinearMeasModel.h',['../d5/d1c/ILinearMeasModel_8h.html',1,'']]],
+  ['imeasmodel_55',['IMeasModel',['../d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel.html',1,'lager::gncpy::measurements']]],
+  ['imeasmodel_2eh_56',['IMeasModel.h',['../d9/d3b/IMeasModel_8h.html',1,'']]],
+  ['inonlineardynamics_57',['INonLinearDynamics',['../d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html',1,'lager::gncpy::dynamics']]],
+  ['inonlineardynamics_2ecpp_58',['INonLinearDynamics.cpp',['../d0/d00/INonLinearDynamics_8cpp.html',1,'']]],
+  ['inonlineardynamics_2eh_59',['INonLinearDynamics.h',['../d8/d32/INonLinearDynamics_8h.html',1,'']]],
+  ['inonlinearmeasmodel_60',['INonLinearMeasModel',['../d1/d09/classlager_1_1gncpy_1_1measurements_1_1INonLinearMeasModel.html',1,'lager::gncpy::measurements']]],
+  ['inonlinearmeasmodel_2ecpp_61',['INonLinearMeasModel.cpp',['../d9/d10/INonLinearMeasModel_8cpp.html',1,'']]],
+  ['inonlinearmeasmodel_2eh_62',['INonLinearMeasModel.h',['../de/dd4/INonLinearMeasModel_8h.html',1,'']]],
+  ['instanceof_63',['instanceof',['../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ad8b373cfd0cfb0d0a69f788beca1e3d2.html#ad8b373cfd0cfb0d0a69f788beca1e3d2',1,'lager::gncpy::utilities::instanceof(const T *ptr)'],['../d7/d5d/namespacelager_1_1gncpy_1_1utilities_ac0b200f5bf5821cb46a3082ddf77d94d.html#ac0b200f5bf5821cb46a3082ddf77d94d',1,'lager::gncpy::utilities::instanceof(const std::shared_ptr&lt; T &gt; ptr)']]]
 ];

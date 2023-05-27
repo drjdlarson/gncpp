@@ -25,7 +25,6 @@
 var NAVTREE =
 [
   [ "GNCPy C++", "index.html", [
-    [ "Todo List", "dd/da0/todo.html", null ],
     [ "Bibliography", "d0/de3/citelist.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -39,7 +38,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
+        [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
@@ -58,7 +57,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_ae1f2c18f8eb1764dd302b66310b7bd92.html#ae1f2c18f8eb1764dd302b66310b7bd92"
+"dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ab91bb3c212602d6ba2e8eed086a0d2d5.html#ab91bb3c212602d6ba2e8eed086a0d2d5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

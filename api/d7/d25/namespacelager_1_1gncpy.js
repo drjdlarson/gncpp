@@ -4,10 +4,10 @@ var namespacelager_1_1gncpy =
     [ "exceptions", "d7/d01/namespacelager_1_1gncpy_1_1exceptions.html", "d7/d01/namespacelager_1_1gncpy_1_1exceptions" ],
     [ "filters", "d1/de2/namespacelager_1_1gncpy_1_1filters.html", "d1/de2/namespacelager_1_1gncpy_1_1filters" ],
     [ "math", "df/d59/namespacelager_1_1gncpy_1_1math.html", [
-      [ "calcGaussianPDF", "df/d59/namespacelager_1_1gncpy_1_1math_a21b553cbcf97e7917ac07b4a7d228aae.html#a21b553cbcf97e7917ac07b4a7d228aae", null ],
-      [ "getGradient", "df/d59/namespacelager_1_1gncpy_1_1math_a2986cfc0a3537b82dd74592b3d14f9c6.html#a2986cfc0a3537b82dd74592b3d14f9c6", null ],
-      [ "getJacobian", "df/d59/namespacelager_1_1gncpy_1_1math_afd0346ca2f79d2291e0e0d49c80cf22b.html#afd0346ca2f79d2291e0e0d49c80cf22b", null ],
-      [ "getJacobian", "df/d59/namespacelager_1_1gncpy_1_1math_a63411c901839bde107d66b133fc81d06.html#a63411c901839bde107d66b133fc81d06", null ],
+      [ "calcGaussianPDF", "df/d59/namespacelager_1_1gncpy_1_1math_ace031e4ade4ebcd780582ed22b6c5d5a.html#ace031e4ade4ebcd780582ed22b6c5d5a", null ],
+      [ "getGradient", "df/d59/namespacelager_1_1gncpy_1_1math_a6b11f2a3b9a154a9064bad968b86e0d9.html#a6b11f2a3b9a154a9064bad968b86e0d9", null ],
+      [ "getJacobian", "df/d59/namespacelager_1_1gncpy_1_1math_aa6467959babdf177ca4b14dc64e2a9c9.html#aa6467959babdf177ca4b14dc64e2a9c9", null ],
+      [ "getJacobian", "df/d59/namespacelager_1_1gncpy_1_1math_a213d22ee6e13a9035846a19f67e0c5f4.html#a213d22ee6e13a9035846a19f67e0c5f4", null ],
       [ "rungeKutta4", "df/d59/namespacelager_1_1gncpy_1_1math_abdc6ccb2154f7365eaebee7c2801417a.html#abdc6ccb2154f7365eaebee7c2801417a", null ]
     ] ],
     [ "matrix", "d2/dce/namespacelager_1_1gncpy_1_1matrix.html", "d2/dce/namespacelager_1_1gncpy_1_1matrix" ],

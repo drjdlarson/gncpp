@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Development Tips and Tricks &mdash; GNCPy C++ 0.2.0 documentation</title>
+  <title>Development Tips and Tricks &mdash; GNCPy C++ 0.2.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -41,7 +41,7 @@
               <img src="_static/logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                0.2.0
+                0.2.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -159,8 +159,7 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p>For template classes a helper macro, <code class="code docutils literal notranslate"><span class="pre">GNCPY_REGISTER_SERIALIZE_TYPES</span></code>, can be used to automaically register different variations of the template class with cereal. It should be used outside any namespace and the full class name (i.e. all the namespaces and class name but without the template parameter) should be supplied.</p></li>
-<li><p>For non-template classes, the class should be directly registered with cereal following similar guidelines as the helper macro (i.e. outside any namespace, pass the class name with all preceeding namespaces, etc.)</p></li>
+<li><p>The class should be directly registered with cereal outside any namespace by passing the class name with all preceeding namespaces to <code class="code docutils literal notranslate"><span class="pre">CEREAL_REGISTER_TYPE</span></code></p></li>
 <li><p>Note that anonymous functions and <code class="code docutils literal notranslate"><span class="pre">std::function</span></code> can <strong>not</strong> be serialized.</p></li>
 <li><p>A template specialization for the class should be provided in the private section of the class. <code class="code docutils literal notranslate"><span class="pre">template</span> <span class="pre">&lt;class</span> <span class="pre">Archive&gt;</span> <span class="pre">void</span> <span class="pre">serialize(Archive&amp;</span> <span class="pre">ar)</span></code>. This should use <code class="code docutils literal notranslate"><span class="pre">CEREAL_NVP</span></code> around any class values and <code class="code docutils literal notranslate"><span class="pre">cereal::make_nvp</span></code> around any base classes to give appropriate names in the JSON form. Additionally, if it is a child class the base class should be passed to the archive using <code class="code docutils literal notranslate"><span class="pre">cereal::virtual_base_class&lt;baseClass_t&gt;(this)</span></code> where <code class="code docutils literal notranslate"><span class="pre">baseClass_t</span></code> is replaced by the appropriate base class.</p></li>
 </ol>

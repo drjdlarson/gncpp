@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['vector_172',['Vector',['../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html',1,'lager::gncpy::matrix::Vector&lt; T &gt;'],['../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_a234ae5c9b7637f0f4b1ce3bac1873805.html#a234ae5c9b7637f0f4b1ce3bac1873805',1,'lager::gncpy::matrix::Vector::Vector()'],['../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_a5c9218f30ac4ac17549dfbfe7b447bee.html#a5c9218f30ac4ac17549dfbfe7b447bee',1,'lager::gncpy::matrix::Vector::Vector(const std::vector&lt; size_t &gt; &amp;shape, const T *data=nullptr)'],['../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_a98d286a8ba0217865884c55abd9785b8.html#a98d286a8ba0217865884c55abd9785b8',1,'lager::gncpy::matrix::Vector::Vector(size_t nElements, std::vector&lt; T &gt; data)'],['../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_aa5a794c5712b4f64d2e37752c8549cee.html#aa5a794c5712b4f64d2e37752c8549cee',1,'lager::gncpy::matrix::Vector::Vector(std::initializer_list&lt; T &gt; list)'],['../df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector_aff21838bca26cbadcdc74872f2b04adf.html#aff21838bca26cbadcdc74872f2b04adf',1,'lager::gncpy::matrix::Vector::Vector(size_t nElements)']]],
-  ['vector_2ecpp_173',['Vector.cpp',['../dd/d4e/Vector_8cpp.html',1,'']]],
-  ['vector_2eh_174',['Vector.h',['../d6/dbe/Vector_8h.html',1,'']]]
+  ['yind_135',['yInd',['../d5/da7/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearingParams_ab9b8efcb7881c4d66da098212855bdaa.html#ab9b8efcb7881c4d66da098212855bdaa',1,'lager::gncpy::measurements::RangeAndBearingParams']]]
 ];

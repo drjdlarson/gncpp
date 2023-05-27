@@ -1,10 +1,11 @@
 <map id="/workspace/include/gncpy/dynamics/ILinearDynamics.h" name="/workspace/include/gncpy/dynamics/ILinearDynamics.h">
-<area shape="rect" id="node1" title=" " alt="" coords="149,5,407,47"/>
-<area shape="rect" id="node2" href="$d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="149,95,407,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="551,5,808,47"/>
+<area shape="rect" id="node2" href="$d3/d89/DoubleIntegrator_8h.html" title=" " alt="" coords="207,95,464,136"/>
 <area shape="rect" id="node3" href="$da/d8f/dynamics_2SerializableTypes_8h.html" title=" " alt="" coords="5,184,217,240"/>
-<area shape="rect" id="node7" href="$d6/d61/ExtendedKalman_8h.html" title=" " alt="" coords="431,95,664,136"/>
-<area shape="rect" id="node6" href="$d0/dec/DoubleIntegrator_8cpp.html" title=" " alt="" coords="242,191,429,233"/>
-<area shape="rect" id="node4" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="25,288,197,329"/>
-<area shape="rect" id="node5" href="$d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="31,377,191,419"/>
-<area shape="rect" id="node8" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="465,191,629,233"/>
+<area shape="rect" id="node5" href="$dc/d03/Kalman_8h.html" title=" " alt="" coords="593,95,765,136"/>
+<area shape="rect" id="node7" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="657,288,821,329"/>
+<area shape="rect" id="node9" href="$d3/d7d/ILinearDynamics_8cpp.html" title=" " alt="" coords="946,95,1133,136"/>
+<area shape="rect" id="node4" href="$d0/dec/DoubleIntegrator_8cpp.html" title=" " alt="" coords="242,191,429,233"/>
+<area shape="rect" id="node6" href="$d6/d61/ExtendedKalman_8h.html" title=" " alt="" coords="453,191,687,233"/>
+<area shape="rect" id="node8" href="$d8/d6c/Kalman_8cpp.html" title=" " alt="" coords="711,191,871,233"/>
 </map>

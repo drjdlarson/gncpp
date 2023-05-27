@@ -1,8 +1,8 @@
 var Math_8h =
 [
-    [ "calcGaussianPDF", "db/d8a/Math_8h.html#a21b553cbcf97e7917ac07b4a7d228aae", null ],
-    [ "getGradient", "db/d8a/Math_8h.html#a2986cfc0a3537b82dd74592b3d14f9c6", null ],
-    [ "getJacobian", "db/d8a/Math_8h.html#afd0346ca2f79d2291e0e0d49c80cf22b", null ],
-    [ "getJacobian", "db/d8a/Math_8h.html#a63411c901839bde107d66b133fc81d06", null ],
+    [ "calcGaussianPDF", "db/d8a/Math_8h.html#ace031e4ade4ebcd780582ed22b6c5d5a", null ],
+    [ "getGradient", "db/d8a/Math_8h.html#a6b11f2a3b9a154a9064bad968b86e0d9", null ],
+    [ "getJacobian", "db/d8a/Math_8h.html#aa6467959babdf177ca4b14dc64e2a9c9", null ],
+    [ "getJacobian", "db/d8a/Math_8h.html#a213d22ee6e13a9035846a19f67e0c5f4", null ],
     [ "rungeKutta4", "db/d8a/Math_8h.html#abdc6ccb2154f7365eaebee7c2801417a", null ]
 ];

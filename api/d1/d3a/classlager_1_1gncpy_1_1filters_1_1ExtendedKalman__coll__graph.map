@@ -1,6 +1,8 @@
-<map id="lager::gncpy::filters::ExtendedKalman&lt; T &gt;" name="lager::gncpy::filters::ExtendedKalman&lt; T &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="352,79,531,120"/>
-<area shape="rect" id="node2" href="$d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html" title="Interface for all Bayes filters." alt="" coords="40,5,187,47"/>
-<area shape="rect" id="node3" title=" " alt="" coords="26,71,201,127"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,151,221,207"/>
+<map id="lager::gncpy::filters::ExtendedKalman" name="lager::gncpy::filters::ExtendedKalman">
+<area shape="rect" id="node1" title=" " alt="" coords="756,127,903,168"/>
+<area shape="rect" id="node2" href="$df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman.html" title="Implements a Kalman Filter." alt="" coords="449,79,595,120"/>
+<area shape="rect" id="node3" href="$d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html" title="Interface for all Bayes filters." alt="" coords="67,5,214,47"/>
+<area shape="rect" id="node4" title=" " alt="" coords="53,71,228,127"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,152,276,193"/>
+<area shape="rect" id="node6" title=" " alt="" coords="407,144,637,185"/>
 </map>

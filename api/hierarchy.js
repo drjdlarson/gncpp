@@ -14,28 +14,26 @@ var hierarchy =
         [ "lager::gncpy::matrix::BadIndex", "d7/d93/classlager_1_1gncpy_1_1matrix_1_1BadIndex.html", null ]
       ] ]
     ] ],
-    [ "lager::gncpy::filters::IBayesFilter< T >", "d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html", [
-      [ "lager::gncpy::filters::ExtendedKalman< T >", "d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman.html", null ],
-      [ "lager::gncpy::filters::Kalman< T >", "df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman.html", null ]
-    ] ],
-    [ "lager::gncpy::dynamics::IDynamics< T >", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html", [
-      [ "lager::gncpy::dynamics::ILinearDynamics< T >", "d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html", [
-        [ "lager::gncpy::dynamics::DoubleIntegrator< T >", "d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html", null ]
-      ] ],
-      [ "lager::gncpy::dynamics::INonLinearDynamics< T >", "d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html", [
-        [ "lager::gncpy::dynamics::CurvilinearMotion< T >", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html", null ]
+    [ "lager::gncpy::filters::IBayesFilter", "d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html", [
+      [ "lager::gncpy::filters::Kalman", "df/dfd/classlager_1_1gncpy_1_1filters_1_1Kalman.html", [
+        [ "lager::gncpy::filters::ExtendedKalman", "d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman.html", null ]
       ] ]
     ] ],
-    [ "lager::gncpy::measurements::IMeasModel< T >", "d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel.html", [
-      [ "lager::gncpy::measurements::ILinearMeasModel< T >", "d0/dd2/classlager_1_1gncpy_1_1measurements_1_1ILinearMeasModel.html", [
-        [ "lager::gncpy::measurements::StateObservation< T >", "db/d79/classlager_1_1gncpy_1_1measurements_1_1StateObservation.html", null ]
+    [ "lager::gncpy::dynamics::IDynamics", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html", [
+      [ "lager::gncpy::dynamics::ILinearDynamics", "d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html", [
+        [ "lager::gncpy::dynamics::DoubleIntegrator", "d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html", null ]
       ] ],
-      [ "lager::gncpy::measurements::INonLinearMeasModel< T >", "d1/d09/classlager_1_1gncpy_1_1measurements_1_1INonLinearMeasModel.html", [
-        [ "lager::gncpy::measurements::RangeAndBearing< T >", "d4/de0/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearing.html", null ]
+      [ "lager::gncpy::dynamics::INonLinearDynamics", "d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html", [
+        [ "lager::gncpy::dynamics::CurvilinearMotion", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html", null ]
       ] ]
     ] ],
-    [ "lager::gncpy::matrix::Matrix< T >", "da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix.html", [
-      [ "lager::gncpy::matrix::Vector< T >", "df/db9/classlager_1_1gncpy_1_1matrix_1_1Vector.html", null ]
+    [ "lager::gncpy::measurements::IMeasModel", "d9/d46/classlager_1_1gncpy_1_1measurements_1_1IMeasModel.html", [
+      [ "lager::gncpy::measurements::ILinearMeasModel", "d0/dd2/classlager_1_1gncpy_1_1measurements_1_1ILinearMeasModel.html", [
+        [ "lager::gncpy::measurements::StateObservation", "db/d79/classlager_1_1gncpy_1_1measurements_1_1StateObservation.html", null ]
+      ] ],
+      [ "lager::gncpy::measurements::INonLinearMeasModel", "d1/d09/classlager_1_1gncpy_1_1measurements_1_1INonLinearMeasModel.html", [
+        [ "lager::gncpy::measurements::RangeAndBearing", "d4/de0/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearing.html", null ]
+      ] ]
     ] ],
     [ "lager::gncpy::measurements::MeasParams", "d2/d5f/classlager_1_1gncpy_1_1measurements_1_1MeasParams.html", [
       [ "lager::gncpy::measurements::RangeAndBearingParams", "d5/da7/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearingParams.html", null ],

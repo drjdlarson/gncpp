@@ -46,7 +46,6 @@ To add serialization to a typical class keep the following in mind.
     * :code:`createOutputArchive`
     * :code:`static createInputArchive` This needs to be static because it is called when loading the class
 
-#) For template classes a helper macro, :code:`GNCPY_REGISTER_SERIALIZE_TYPES`, can be used to automaically register different variations of the template class with cereal. It should be used outside any namespace and the full class name (i.e. all the namespaces and class name but without the template parameter) should be supplied.
-#) For non-template classes, the class should be directly registered with cereal following similar guidelines as the helper macro (i.e. outside any namespace, pass the class name with all preceeding namespaces, etc.)
+#) The class should be directly registered with cereal outside any namespace by passing the class name with all preceeding namespaces to :code:`CEREAL_REGISTER_TYPE`
 #) Note that anonymous functions and :code:`std::function` can **not** be serialized.
 #) A template specialization for the class should be provided in the private section of the class. :code:`template <class Archive> void serialize(Archive& ar)`. This should use :code:`CEREAL_NVP` around any class values and :code:`cereal::make_nvp` around any base classes to give appropriate names in the JSON form. Additionally, if it is a child class the base class should be passed to the archive using :code:`cereal::virtual_base_class<baseClass_t>(this)` where :code:`baseClass_t` is replaced by the appropriate base class.

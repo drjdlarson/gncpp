@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['todo_20list_167',['Todo List',['../dd/da0/todo.html',1,'']]],
-  ['toscalar_168',['toScalar',['../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a6b84e8baa7026a6c7174a8dcc393cd26.html#a6b84e8baa7026a6c7174a8dcc393cd26',1,'lager::gncpy::matrix::Matrix']]],
-  ['transpose_169',['transpose',['../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a38d2808bf110b5dc9d3e696ac03d141d.html#a38d2808bf110b5dc9d3e696ac03d141d',1,'lager::gncpy::matrix::Matrix::transpose(bool in_place)'],['../da/dc6/classlager_1_1gncpy_1_1matrix_1_1Matrix_a3d180765888dcdb7e932645c4a55c7dd.html#a3d180765888dcdb7e932645c4a55c7dd',1,'lager::gncpy::matrix::Matrix::transpose() const']]],
-  ['typeerror_170',['TypeError',['../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError.html',1,'lager::gncpy::exceptions::TypeError'],['../de/df8/classlager_1_1gncpy_1_1exceptions_1_1TypeError_a1ab6f4bb96a1d84bba2aaeabe368bfb3.html#a1ab6f4bb96a1d84bba2aaeabe368bfb3',1,'lager::gncpy::exceptions::TypeError::TypeError()']]]
+  ['vector_2ecpp_132',['Vector.cpp',['../dd/d4e/Vector_8cpp.html',1,'']]],
+  ['viewcov_133',['viewCov',['../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a5b7cd63b3bd42e9f63afe902beff758a.html#a5b7cd63b3bd42e9f63afe902beff758a',1,'lager::gncpy::filters::IBayesFilter']]]
 ];

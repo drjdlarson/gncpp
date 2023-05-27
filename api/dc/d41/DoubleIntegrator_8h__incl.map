@@ -1,28 +1,21 @@
 <map id="/workspace/include/gncpy/dynamics/DoubleIntegrator.h" name="/workspace/include/gncpy/dynamics/DoubleIntegrator.h">
-<area shape="rect" id="node1" title=" " alt="" coords="632,5,889,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="563,95,622,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,401,68,427"/>
-<area shape="rect" id="node4" href="$de/d08/SerializeMacros_8h.html" title=" " alt="" coords="2044,401,2224,427"/>
-<area shape="rect" id="node5" href="$d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="1103,95,1357,121"/>
-<area shape="rect" id="node19" href="$d3/db1/Matrix_8h.html" title=" " alt="" coords="747,319,905,345"/>
-<area shape="rect" id="node6" title=" " alt="" coords="849,244,936,271"/>
-<area shape="rect" id="node7" href="$df/d7c/Exceptions_8h.html" title=" " alt="" coords="2209,169,2357,196"/>
-<area shape="rect" id="node9" href="$d6/da9/IDynamics_8h.html" title=" " alt="" coords="1231,169,1445,196"/>
-<area shape="rect" id="node18" href="$d2/dbc/dynamics_2Parameters_8h.html" title=" " alt="" coords="1443,319,1662,345"/>
-<area shape="rect" id="node25" href="$d6/dbe/Vector_8h.html" title=" " alt="" coords="1062,244,1217,271"/>
-<area shape="rect" id="node8" title=" " alt="" coords="2219,483,2305,509"/>
-<area shape="rect" id="node10" title=" " alt="" coords="1461,401,1599,427"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1623,401,1815,427"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1840,401,2020,427"/>
-<area shape="rect" id="node13" title=" " alt="" coords="789,393,967,435"/>
-<area shape="rect" id="node14" title=" " alt="" coords="991,401,1197,427"/>
-<area shape="rect" id="node15" title=" " alt="" coords="1221,401,1436,427"/>
-<area shape="rect" id="node16" title=" " alt="" coords="1393,244,1473,271"/>
-<area shape="rect" id="node17" href="$dc/d7d/dynamics_2Exceptions_8h.html" title=" " alt="" coords="1991,319,2205,345"/>
-<area shape="rect" id="node20" title=" " alt="" coords="408,401,479,427"/>
-<area shape="rect" id="node21" title=" " alt="" coords="503,401,677,427"/>
-<area shape="rect" id="node22" title=" " alt="" coords="701,401,764,427"/>
-<area shape="rect" id="node23" title=" " alt="" coords="303,401,383,427"/>
-<area shape="rect" id="node24" href="$d1/d5d/math_2Exceptions_8h.html" title=" " alt="" coords="93,401,279,427"/>
-<area shape="rect" id="node26" title=" " alt="" coords="1081,319,1166,345"/>
+<area shape="rect" id="node1" title=" " alt="" coords="988,5,1245,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="1324,244,1427,271"/>
+<area shape="rect" id="node3" title=" " alt="" coords="1291,95,1350,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="1375,95,1437,121"/>
+<area shape="rect" id="node5" href="$de/d08/SerializeMacros_8h.html" title=" " alt="" coords="5,319,185,345"/>
+<area shape="rect" id="node8" href="$d9/df2/ILinearDynamics_8h.html" title=" " alt="" coords="853,95,1106,121"/>
+<area shape="rect" id="node19" href="$d2/dbc/dynamics_2Parameters_8h.html" title=" " alt="" coords="478,244,697,271"/>
+<area shape="rect" id="node6" title=" " alt="" coords="350,393,529,435"/>
+<area shape="rect" id="node7" title=" " alt="" coords="58,401,133,427"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1213,244,1300,271"/>
+<area shape="rect" id="node10" href="$df/d7c/Exceptions_8h.html" title=" " alt="" coords="1068,169,1216,196"/>
+<area shape="rect" id="node12" href="$d6/da9/IDynamics_8h.html" title=" " alt="" coords="729,169,942,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1393,319,1480,345"/>
+<area shape="rect" id="node13" title=" " alt="" coords="1151,319,1290,345"/>
+<area shape="rect" id="node14" title=" " alt="" coords="210,319,402,345"/>
+<area shape="rect" id="node15" title=" " alt="" coords="477,319,657,345"/>
+<area shape="rect" id="node16" title=" " alt="" coords="682,319,887,345"/>
+<area shape="rect" id="node17" title=" " alt="" coords="912,319,1127,345"/>
+<area shape="rect" id="node18" href="$dc/d7d/dynamics_2Exceptions_8h.html" title=" " alt="" coords="975,244,1189,271"/>
 </map>
