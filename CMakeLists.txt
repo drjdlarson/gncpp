@@ -198,14 +198,12 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
         EXECUTABLE ctest -j3
         DEPENDENCIES
         # dynamics dependencies
-            double_int_dyn_test
             curvilinear_dyn_test
+            double_int_dyn_test
         # filter dependencies
+            extended_kalman_test
             kalman_test
         # math dependencies
-            matrix_test
-            matrix_test
-            vector_test
             math_test
         # measurement dependencies
             measurement_test
@@ -216,14 +214,12 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
         EXECUTABLE ctest -j3
         DEPENDENCIES 
         # dynamics dependencies
-            double_int_dyn_test
             curvilinear_dyn_test
+            double_int_dyn_test
         # filter dependencies
+            extended_kalman_test
             kalman_test
         # math dependencies
-            matrix_test
-            matrix_test
-            vector_test
             math_test
         # measurement dependencies
             measurement_test
