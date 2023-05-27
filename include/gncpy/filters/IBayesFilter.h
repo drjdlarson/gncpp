@@ -75,16 +75,19 @@ class IBayesFilter {
     virtual std::shared_ptr<measurements::IMeasModel> measurementModel()
         const = 0;
 
-    Eigen::MatrixXd cov;
+    inline virtual Eigen::MatrixXd& getCov() { return m_cov; }
+    inline virtual const Eigen::MatrixXd& viewCov() { return m_cov; }
 
    private:
     template <class Archive>
     void serialize(Archive& ar);
+
+    Eigen::MatrixXd m_cov;
 };
 
 template <class Archive>
 void IBayesFilter::serialize([[maybe_unused]] Archive& ar) {
-    ar(CEREAL_NVP(cov));
+    ar(CEREAL_NVP(m_cov));
 }
 
 }  // namespace lager::gncpy::filters

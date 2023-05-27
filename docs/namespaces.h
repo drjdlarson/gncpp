@@ -37,13 +37,6 @@ namespace dynamics {}
 namespace filters {}
 
 /**
- * @namespace lager::gncpy::matrix
- * @brief Contains matrix and vector related code
- *
- */
-namespace matrix {}
-
-/**
  * @namespace lager::gncpy::exceptions
  * @brief Contains general exceptions applicable to all GNCPy
  *
