@@ -64,6 +64,34 @@ void ExtendedKalman::setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
     m_procNoise = procNoise;
 }
 
+void ExtendedKalman::setMeasurementModel(
+    std::shared_ptr<measurements::IMeasModel> measObj,
+    Eigen::MatrixXd measNoise) {
+    if (!measObj || !utilities:: instanceof
+        <measurements::ILinearMeasModel>(measObj) || !utilities:: instanceof
+        <measurements::INonLinearMeasModel>(measObj)) {
+        throw exceptions::TypeError(
+            "measObj must be a derived class of ILinearMeasModel or "
+            "INonLinearMeasModel");
+    }
+
+    if (measNoise.rows() != measNoise.cols()) {
+        throw exceptions::BadParams("Measurement noise must be square");
+    }
+
+    if (utilities :: instanceof <measurements::ILinearMeasModel>(measObj)) {
+        measObj =
+            std::dynamic_pointer_cast<measurements::ILinearMeasModel>(measObj);
+        measNoise = measNoise;
+    }
+
+    if (utilities :: instanceof <measurements::INonLinearMeasModel>(measObj)) {
+        measObj = std::dynamic_pointer_cast<measurements::INonLinearMeasModel>(
+            measObj);
+        measNoise = measNoise;
+    }
+}
+
 inline std::shared_ptr<dynamics::IDynamics> ExtendedKalman::dynamicsModel()
     const {
     if (m_dynObj) {
