@@ -6,7 +6,8 @@
 #include <math.h>
 
 #include "gncpy/dynamics/CurvilinearMotion.h"
-#include "gncpy/measurements/RAngeAndBearing.h"
+
+#include "gncpy/measurements/RangeAndBearing.h"
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/filters/Parameters.h"
 #include "gncpy/measurements/Parameters.h"
