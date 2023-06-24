@@ -35,6 +35,7 @@ class CurvilinearMotion final : public INonLinearDynamics {
 
    public:
     CurvilinearMotion();
+    explicit CurvilinearMotion(double dt) {setDt(dt);};
 
     std::vector<std::string> stateNames() const override {
         return std::vector<std::string>{"x pos", "y pos", "speed",
@@ -53,6 +54,7 @@ class CurvilinearMotion final : public INonLinearDynamics {
    private:
     template <class Archive>
     void serialize(Archive& ar);
+    double m_dt;
 };
 
 template <typename F>

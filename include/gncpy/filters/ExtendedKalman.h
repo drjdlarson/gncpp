@@ -37,6 +37,7 @@ class ExtendedKalman final : public Kalman {
 
     bool m_continuousCov = false;
 
+    Eigen::MatrixXd m_measNoise;
     std::shared_ptr<dynamics::IDynamics> m_dynObj;
     std::shared_ptr<measurements::IMeasModel> m_measObj;
 };
