@@ -30,6 +30,7 @@ class ExtendedKalman final : public Kalman {
                              Eigen::MatrixXd measNoise) override;
 
     std::shared_ptr<dynamics::IDynamics> dynamicsModel() const override;
+    std::shared_ptr<measurements::IMeasModel> measurementModel() const override;
 
    private:
     template <class Archive>
