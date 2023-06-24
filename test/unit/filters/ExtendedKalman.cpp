@@ -3,8 +3,10 @@
 #include <gtest/gtest.h>
 
 #include <Eigen/Dense>
+#include <math.h>
 
 #include "gncpy/dynamics/CurvilinearMotion.h"
+#include "gncpy/measurements/RangeAndBearing.h"
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/filters/Parameters.h"
 #include "gncpy/measurements/Parameters.h"
@@ -20,6 +22,55 @@ TEST(EKFTest, SetStateModel) {
 
     SUCCEED();
 }
+
+TEST(EKFTest, SetMeasModel) {
+    Eigen::Matrix2d noise({{1.0, 0.0}, {0.0, 1.0 * M_PI/180}});
+    auto measObj =
+        std::make_shared<lager::gncpy::measurements::RangeAndBearing>();
+
+    lager::gncpy::filters::ExtendedKalman filt;
+
+    filt.setMeasurementModel(measObj, noise);
+
+    SUCCEED();
+}
+
+TEST(EKFTest, FilterPredict) {
+    double dt = 1.0;
+    Eigen::Matrix4d noise({{0.1, 0.0, 0.0, 0.0},
+                           {0.0, 0.1, 0.0, 0.0},
+                           {0.0, 0.0, 0.01, 0.0},
+                           {0.0, 0.0, 0.0, 0.01}});
+
+    lager::gncpy::dynamics::CurvilinearMotion dyn;
+
+    auto dynObj =
+        std::make_shared<lager::gncpy::dynamics::CurvilinearMotion>(dt);
+    Eigen::Vector4d state({1.0, 2.0, 1.0, M_PI / 2});
+
+    Eigen::Vector2d control({0.0, 0.0});
+    
+    const Eigen::Vector4d exp({1.0, 3.0, 1.0, M_PI / 2});//({1.0, 2.0, 1.0, M_PI / 2});
+
+    auto predParams = lager::gncpy::filters::BayesPredictParams();
+    lager::gncpy::filters::ExtendedKalman filt;
+    const Eigen::Matrix4d cov({{1.0, 0.0, 0.0, 0.0},
+                               {0.0, 1.0, 0.0, 0.0},
+                               {0.0, 0.0, 1.0, 0.0},
+                               {0.0, 0.0, 0.0, 1.0 * M_PI / 180}});
+    filt.getCov() = cov;
+
+    filt.setStateModel(dynObj, noise);
+
+    auto out = filt.predict(0.0, state, control, &predParams);
+
+    for (uint8_t ii = 0; ii < exp.size(); ii++) {
+        EXPECT_EQ(exp(ii), out(ii));        
+    }
+
+    SUCCEED();
+}
+
 
 TEST(EKFTest, serialize) {
     double dt = 0.2;
