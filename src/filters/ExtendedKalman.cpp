@@ -99,4 +99,13 @@ inline std::shared_ptr<dynamics::IDynamics> ExtendedKalman::dynamicsModel()
     }
 }
 
+inline std::shared_ptr<measurements::IMeasModel> ExtendedKalman::measurementModel()
+    const {
+    if (m_measObj) {
+        return m_measObj;
+    } else {
+        throw exceptions::TypeError("Measurement model is unset");
+    }
+}
+
 }  // namespace lager::gncpy::filters

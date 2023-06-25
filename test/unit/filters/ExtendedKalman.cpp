@@ -6,6 +6,7 @@
 #include <math.h>
 
 #include "gncpy/dynamics/CurvilinearMotion.h"
+
 #include "gncpy/measurements/RangeAndBearing.h"
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/filters/Parameters.h"
@@ -66,6 +67,47 @@ TEST(EKFTest, FilterPredict) {
 
     for (uint8_t ii = 0; ii < exp.size(); ii++) {
         EXPECT_EQ(exp(ii), out(ii));        
+    }
+
+    SUCCEED();
+}
+
+TEST(EKFTest, FilterCorrect) {
+    Eigen::Matrix4d noise({{0.01, 0.0, 0.0, 0.0},
+                           {0.0, 0.01, 0.0, 0.0},
+                           {0.0, 0.0, 0.01, 0.0},
+                           {0.0, 0.0, 0.0, 0.01}});
+
+    auto measObj =
+        std::make_shared<lager::gncpy::measurements::RangeAndBearing>();
+    // Eigen::Vector4d state({1.0, 2.0, 1.0, 1.0});
+    Eigen::Vector4d state({2.0, 3.0, 1.0, 1.0});
+
+    const Eigen::Vector4d exp({2.0, 3.0, 1.0, 1.0});
+
+    auto corrParams = lager::gncpy::filters::BayesCorrectParams();
+    corrParams.measParams =
+        std::make_shared<lager::gncpy::measurements::RangeAndBearingParams>(
+            0, 1);
+    lager::gncpy::filters::ExtendedKalman filt;
+
+    const Eigen::Matrix4d cov({{1.0, 0.0, 0.0, 0.0},
+                               {0.0, 1.0, 0.0, 0.0},
+                               {0.0, 0.0, 1.0, 0.0},
+                               {0.0, 0.0, 0.0, 1.0}});
+    filt.getCov() = cov;
+
+    filt.setMeasurementModel(measObj, noise);
+
+    auto meas = measObj->measure(exp, corrParams.measParams.get());
+
+    double measFitProb;
+    auto out = filt.correct(0.0, meas, state, measFitProb, &corrParams);
+
+    std::cout << "corrected state estimate: \n" << out << std::endl;
+
+    for (uint8_t ii = 0; ii < exp.size(); ii++) {
+        EXPECT_NEAR(exp(ii), out(ii), 1e-6);
     }
 
     SUCCEED();

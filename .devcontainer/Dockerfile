@@ -37,6 +37,7 @@ RUN cd ~ \
     && tar -xf cmake-3.26.3.tar.gz \
     && cd cmake-3.26.3 \
     && ./bootstrap -- -DCMAKE_BUILD_TYPE:STRING=Release \
+    && export LC_ALL=C
     && make -j4 \
     && make install
 
