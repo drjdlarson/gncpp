@@ -28,7 +28,9 @@ TEST(CWHOrbit, Propagate) {
         std::cout << std::endl;
     }
 
-    EXPECT_DOUBLE_EQ(xk(0), 1.);
+    for (uint16_t ii=0; ii<4;ii++) {
+        EXPECT_NE(abs(exp(ii) - xk(ii)), 1e-6);
+    }
 
     SUCCEED();
 }

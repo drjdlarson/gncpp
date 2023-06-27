@@ -11,7 +11,7 @@
 
 namespace lager::gncpy::dynamics {
 
-/// @ brief Interface for Clohessy Wiltshire relative orbital dynamics model
+/// @ brief Clohessy Wiltshire relative orbital dynamics model
 class ClohessyWiltshire : public ILinearDynamics {
     friend class cereal::access;
 
