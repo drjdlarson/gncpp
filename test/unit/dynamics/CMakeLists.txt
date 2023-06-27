@@ -14,7 +14,7 @@ target_link_libraries(
 gtest_discover_tests(double_int_dyn_test)
 
 #---------------------------------------------------------------------------
-# setup Double Integrator dynamics tests
+# setup Curvilinear Motion dynamics tests
 #---------------------------------------------------------------------------
 add_executable(
   curvilinear_dyn_test
@@ -27,3 +27,18 @@ target_link_libraries(
   lager::gncpy
 )
 gtest_discover_tests(curvilinear_dyn_test)
+
+#---------------------------------------------------------------------------
+# setup Clohessy Wiltshire dynamics tests
+#---------------------------------------------------------------------------
+add_executable(
+  cwhorbit_dyn_test
+  ClohessyWiltshire.cpp
+)
+target_link_libraries(
+  cwhorbit_dyn_test
+  GTest::gtest_main
+  Eigen3::Eigen
+  lager::gncpy
+)
+gtest_discover_tests(cwhorbit_dyn_test)
