@@ -41,5 +41,12 @@ RUN cd ~ \
     && make -j4 \
     && make install
 
+# to fix locale errors
+RUN sed -i 's/# \(en_US\.UTF-8 .*\)/\1/' /etc/locale.gen && \
+    locale-gen
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 # install additional tools for generating test status and coverage badges, and generating documentation
 RUN pip install genbadge[tests,coverage] gcovr junit2html sphinx sphinx_rtd_theme sphinxcontrib-bibtex sphinx-copybutton sphinx_sitemap
