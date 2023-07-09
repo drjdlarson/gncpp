@@ -6,5 +6,6 @@ target_sources(gncpy
         Exceptions.cpp
         CurvilinearMotion.cpp
         DoubleIntegrator.cpp
+        ClohessyWiltshire2D.cpp
         ClohessyWiltshire.cpp
 )

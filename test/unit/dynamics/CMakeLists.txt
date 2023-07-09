@@ -31,6 +31,19 @@ gtest_discover_tests(curvilinear_dyn_test)
 #---------------------------------------------------------------------------
 # setup Clohessy Wiltshire dynamics tests
 #---------------------------------------------------------------------------
+
+add_executable(
+  cwhorbit2d_dyn_test
+  ClohessyWiltshire2D.cpp
+)
+target_link_libraries(
+  cwhorbit2d_dyn_test
+  GTest::gtest_main
+  Eigen3::Eigen
+  lager::gncpy
+)
+gtest_discover_tests(cwhorbit2d_dyn_test)
+
 add_executable(
   cwhorbit_dyn_test
   ClohessyWiltshire.cpp

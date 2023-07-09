@@ -15,7 +15,6 @@
 				// sphinx/rst documentation stuff
 				"lextudio.restructuredtext",
 				"trond-snekvik.simple-rst",
-				"swyddfa.esbonio",
 				"ms-python.python"
 			]
 		}

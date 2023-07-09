@@ -16,6 +16,7 @@ RUN apt-get update \
         python3-pip \
         python-is-python3 \
         g++ \
+        gdb \
         make \
         git \
         curl \
@@ -47,6 +48,7 @@ RUN sed -i 's/# \(en_US\.UTF-8 .*\)/\1/' /etc/locale.gen && \
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+RUN export LC_ALL=C
 
 # install additional tools for generating test status and coverage badges, and generating documentation
-RUN pip install genbadge[tests,coverage] gcovr junit2html sphinx sphinx_rtd_theme sphinxcontrib-bibtex sphinx-copybutton sphinx_sitemap
+RUN pip install genbadge[tests,coverage] gcovr junit2html sphinx sphinx_rtd_theme sphinxcontrib-bibtex sphinx-copybutton sphinx_sitemap 
