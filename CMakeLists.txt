@@ -200,6 +200,8 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
         # dynamics dependencies
             curvilinear_dyn_test
             double_int_dyn_test
+            cwhorbit2d_dyn_test
+            cwhorbit_dyn_test
         # filter dependencies
             extended_kalman_test
             kalman_test
@@ -216,6 +218,8 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
         # dynamics dependencies
             curvilinear_dyn_test
             double_int_dyn_test
+            cwhorbit2d_dyn_test
+            cwhorbit_dyn_test
         # filter dependencies
             extended_kalman_test
             kalman_test
