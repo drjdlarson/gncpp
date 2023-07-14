@@ -209,6 +209,8 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
             math_test
         # measurement dependencies
             measurement_test
+        # control dependencies
+            control_test
         EXCLUDE build/* test/*
     )
     setup_target_for_coverage_gcovr_html(
@@ -227,6 +229,8 @@ if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
             math_test
         # measurement dependencies
             measurement_test
+        #control dependencies
+            control_test
         EXCLUDE build/* test/*
     )
 elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")

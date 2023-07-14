@@ -34,29 +34,6 @@ class StateTransParams {
 };
 
 /**
- * @brief Base class for all control parameters
- *
- * Polymorphic base class such that any child class can be passed into filters,
- * dynamics, etc. and the object using the child can dynamic cast to the
- * appropriate polymorphic type.
- *
- */
-class ControlParams {
-    friend class cereal::access;
-
-    GNCPY_SERIALIZE_CLASS(ControlParams)
-
-   public:
-    virtual ~ControlParams() = default;
-
-   private:
-    template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
-        /* nothing to serialize */
-    }
-};
-
-/**
  * @brief Base class for all state constraint parameters
  *
  * Polymorphic base class such that any child class can be passed into filters,

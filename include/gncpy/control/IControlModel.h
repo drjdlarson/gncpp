@@ -10,14 +10,19 @@
 #include "gncpy/control/Parameters.h"
 
 namespace lager::gncpy::control {
+    
 class IControlModel {
     friend class cereal::access;
 
     public:
         virtual ~IControlModel() = default;
+        virtual Eigen::VectorXd getControlInput(
+            const Eigen::VectorXd& state,
+            const Eigen::VectorXd& input,
+            const ControlParams* params = nullptr) const = 0;
         virtual Eigen::MatrixXd getInputMat(
-            const ControlParams* params = nullptr
-        ) const = 0;
+            const Eigen::VectorXd& state,
+            const ControlParams* params = nullptr) const = 0;
 
     private:
         template <class Archive>
@@ -29,6 +34,6 @@ void IControlModel::serialize([[maybe_unused]] Archive& ar) {
     /* nothing to save*/
 }
 
-}  //  namespace lager::gncpy::measurements
+}  //  namespace lager::gncpy::control
 
 CEREAL_REGISTER_TYPE(lager::gncpy::control::IControlModel)
