@@ -59,3 +59,31 @@ TEST(ControlTest, StateControlGetInputMat) {
 
     SUCCEED();
 }
+
+TEST(ControlTest, StateControlGetInputMat2) {
+    Eigen::VectorXd x(6);
+    x << 3.0, 4.0, 1.0, 0., 0., 0.;
+
+    lager::gncpy::control::StateControl controller;
+    // std::vector<uint8_t> inds = {0, 1, 2};
+    std::vector<uint8_t> inds = {3, 4, 5};
+
+    auto params = lager::gncpy::control::StateControlParams(inds);
+
+    EXPECT_THROW(controller.getInputMat(x, nullptr),
+                 lager::gncpy::exceptions::BadParams);
+
+    auto out = controller.getInputMat(x, &params);
+    Eigen::MatrixXd exp({{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}});
+
+    EXPECT_EQ(exp.rows(), out.rows());
+    EXPECT_EQ(exp.cols(), out.cols());
+
+    for (uint8_t r = 0; r < exp.rows(); r++) {
+        for (uint8_t c = 0; c < exp.cols(); c++) {
+            EXPECT_EQ(exp(r, c), out(r, c));
+        }
+    }
+
+    SUCCEED();
+}

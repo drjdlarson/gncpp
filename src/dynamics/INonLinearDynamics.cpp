@@ -5,6 +5,16 @@
 
 namespace lager::gncpy::dynamics {
 
+void INonLinearDynamics::setControlModel
+(
+    std::shared_ptr<control::IControlModel> model,
+    bool continuousModel
+) {
+    m_hasControlModel = true;
+    m_continuousControl = continuousModel;
+    m_controlModel = model;
+}
+
 Eigen::VectorXd INonLinearDynamics::propagateState(
     double timestep, const Eigen::VectorXd& state,
     const StateTransParams* stateTransParams) const {
@@ -24,14 +34,16 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
 
 Eigen::VectorXd INonLinearDynamics::propagateState(
     double timestep, const Eigen::VectorXd& state,
-    const Eigen::VectorXd& control) const {
+    const Eigen::VectorXd& control,
+    const lager::gncpy::control::ControlParams* controlParams) const {
     Eigen::VectorXd nextState;
     if (m_hasControlModel && m_continuousControl) {
         nextState = math::rungeKutta4<Eigen::VectorXd, Eigen::VectorXd, double>(
             timestep, state, dt(),
-            [this, &control](double t, const Eigen::VectorXd& x) {
+            [this, &control, &controlParams](double t, const Eigen::VectorXd& x) {
                 return continuousDynamics(t, x) +
-                       m_controlModel(t, x, control, nullptr);
+                         m_controlModel->getControlInput(x, control, controlParams);
+                        //  m_controlModel->getControlInput(t, x, control, controlParams);
             });
     } else if (m_hasControlModel) {
         nextState = math::rungeKutta4<Eigen::VectorXd, Eigen::VectorXd, double>(
@@ -39,7 +51,8 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
                 return continuousDynamics(t, x);
             });
 
-        nextState += m_controlModel(timestep, state, control, nullptr);
+            nextState += m_controlModel->getControlInput(state, control, controlParams);
+        // nextState += m_controlModel->getControlInput(timestep, state, control, controlParams);
     } else {
         throw exceptions::BadParams(
             "Control input given but no control model set");
@@ -56,7 +69,7 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
     double timestep, const Eigen::VectorXd& state,
     const Eigen::VectorXd& control,
     const StateTransParams* const stateTransParams,
-    const ControlParams* const controlParams,
+    const lager::gncpy::control::ControlParams* const controlParams,
     const ConstraintParams* const constraintParams) const {
     Eigen::VectorXd nextState;
     if (m_hasControlModel && m_continuousControl) {
@@ -65,7 +78,7 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
             [this, &control, stateTransParams, controlParams](
                 double t, const Eigen::VectorXd& x) {
                 return continuousDynamics(t, x, stateTransParams) +
-                       m_controlModel(t, x, control, controlParams);
+                       m_controlModel->getControlInput(x, control, controlParams);
             });
     } else if (m_hasControlModel) {
         nextState = math::rungeKutta4<Eigen::VectorXd, Eigen::VectorXd, double>(
@@ -73,7 +86,7 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
                 return continuousDynamics(t, x);
             });
 
-        nextState += m_controlModel(timestep, state, control, controlParams);
+        nextState += m_controlModel->getControlInput(state, control, controlParams);
     } else {
         nextState = math::rungeKutta4<Eigen::VectorXd, Eigen::VectorXd, double>(
             timestep, state, dt(),

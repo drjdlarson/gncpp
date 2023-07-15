@@ -1,6 +1,7 @@
 #include <gncpy/dynamics/ClohessyWiltshire.h>
 #include <gncpy/dynamics/Parameters.h>
 #include <gtest/gtest.h>
+#include <gncpy/control/StateControl.h>
 
 #include <math.h>
 #include <Eigen/Dense>
@@ -37,14 +38,59 @@ TEST(CWHOrbit, Propagate) {
     SUCCEED();
 }
 
+TEST(CWHOrbit, Control) {
+    double dt = 0.1;
+    double mean_motion = M_PI/2.0;
+    lager::gncpy::dynamics::ClohessyWiltshire dyn(dt, mean_motion);
+    Eigen::VectorXd xk(6);
+    xk << 0., 0., 0., 1., 0., 1.;
+
+    auto contObj = std::make_shared<lager::gncpy::control::StateControl>();
+    
+    std::vector<uint8_t> inds = {3, 4, 5};
+    auto contParams = lager::gncpy::control::StateControlParams(inds);
+
+    Eigen::VectorXd contInput(3);
+    contInput << 1., 1., 1.;
+
+    dyn.setControlModel(contObj);
+
+    Eigen::VectorXd expected(6);
+    expected << 8.36957, -3.87519, 4.36282, 18.5593, -16.2938, 6.8531;
+
+
+    for (uint16_t kk = 0; kk < 10; kk++) {
+        double timestep = kk * dt;
+        std::cout << "t = " << timestep << ": ";
+
+        xk = dyn.propagateState(timestep, xk, contInput, &contParams);
+        for (auto const& x : xk) {
+            std::cout << x << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // for (uint16_t ii=0; ii<6;ii++) {
+    //     EXPECT_EQ(expected(ii), xk(ii));
+    // }
+
+    for (uint16_t ii=0; ii<expected.size();ii++) {
+        EXPECT_NEAR(expected(ii), xk(ii), 1e-5);
+    }
+
+    SUCCEED();
+}
+
 TEST(CWHOrbit, serialize) {
     double dt = 0.1;
     double mean_motion = 2 * M_PI;
     lager::gncpy::dynamics::ClohessyWiltshire dyn(dt, mean_motion);
+    auto controller = std::make_shared<lager::gncpy::control::StateControl>();
+    //Define control model variable
+
     dyn.setControlModel(
-        []([[maybe_unused]] double t,
-           [[maybe_unused]] const lager::gncpy::dynamics::ControlParams*
-               params) { return Eigen::Matrix4d::Identity(); });
+        controller
+       );
 
     std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
 

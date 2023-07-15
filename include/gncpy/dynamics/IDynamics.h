@@ -12,6 +12,9 @@
 #include "gncpy/dynamics/Exceptions.h"
 #include "gncpy/dynamics/Parameters.h"
 
+#include "gncpy/control/Parameters.h"
+#include "gncpy/control/IControlModel.h"
+
 namespace lager::gncpy::dynamics {
 
 /// @brief Base interface for all dynamics
@@ -39,11 +42,13 @@ class IDynamics {
      * @param timestep current time step
      * @param state current state
      * @param control control input vector
+     * @param controlParams Parameters needed by the control model
      * @return Eigen::VectorXd Next state
      */
     virtual Eigen::VectorXd propagateState(
         double timestep, const Eigen::VectorXd& state,
-        const Eigen::VectorXd& control) const = 0;
+        const Eigen::VectorXd& control,
+        const lager::gncpy::control::ControlParams* controlParams) const = 0;
 
     /**
      * @brief Propagate the state forward one timestep
@@ -60,7 +65,7 @@ class IDynamics {
         double timestep, const Eigen::VectorXd& state,
         const Eigen::VectorXd& control,
         const StateTransParams* const stateTransParams,
-        const ControlParams* const controlParams,
+        const lager::gncpy::control::ControlParams* const controlParams,
         const ConstraintParams* const constraintParams) const = 0;
 
     /// @brief Remove the control model

@@ -16,7 +16,7 @@ Eigen::MatrixXd StateControl::getInputMat(const Eigen::VectorXd& state,
             "params type must be StateControlParams.");
     }
     auto ptr = dynamic_cast<const StateControlParams*>(params);
-    Eigen::MatrixXd data(ptr->contInds.size(), state.size());
+    Eigen::MatrixXd data(state.size(), ptr->contInds.size());
 
     for (uint8_t ii=0; ii < state.size(); ii++){
         for (uint8_t jj=0; jj < ptr->contInds.size(); jj++)

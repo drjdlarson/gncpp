@@ -2,6 +2,11 @@
 
 namespace lager::gncpy::dynamics {
 
+void ILinearDynamics::setControlModel(std::shared_ptr<control::IControlModel> model) {
+    m_hasContolModel = true;
+    m_controlModel = model;
+}
+
 Eigen::VectorXd ILinearDynamics::propagateState(
     double timestep, const Eigen::VectorXd& state,
     const StateTransParams* stateTransParams) const {
@@ -17,11 +22,12 @@ Eigen::VectorXd ILinearDynamics::propagateState(
 
 Eigen::VectorXd ILinearDynamics::propagateState(
     double timestep, const Eigen::VectorXd& state,
-    const Eigen::VectorXd& control) const {
+    const Eigen::VectorXd& control,
+    const lager::gncpy::control::ControlParams* controlParams) const {
     Eigen::VectorXd nextState = propagateState_(timestep, state);
 
     if (hasControlModel()) {
-        nextState += getInputMat(timestep) * control;
+        nextState += m_controlModel->getControlInput(state, control, controlParams);
     } else {
         throw exceptions::BadParams(
             "Control input given but no control model set");
@@ -37,13 +43,13 @@ Eigen::VectorXd ILinearDynamics::propagateState(
 Eigen::VectorXd ILinearDynamics::propagateState(
     double timestep, const Eigen::VectorXd& state,
     const Eigen::VectorXd& control, const StateTransParams* stateTransParams,
-    const ControlParams* controlParams,
+    const control::ControlParams* controlParams,
     const ConstraintParams* constraintParams) const {
     Eigen::VectorXd nextState =
         propagateState_(timestep, state, stateTransParams);
 
     if (hasControlModel()) {
-        nextState += getInputMat(timestep, controlParams) * control;
+        nextState += m_controlModel->getControlInput(state, control, controlParams);
     }
 
     if (hasStateConstraint()) {
@@ -53,19 +59,16 @@ Eigen::VectorXd ILinearDynamics::propagateState(
     return nextState;
 }
 
-Eigen::MatrixXd ILinearDynamics::getInputMat(
-    double timestep, const ControlParams* controlParams) const {
-    return controlParams == nullptr ? controlModel(timestep)
-                                    : controlModel(timestep, controlParams);
-}
+// Need to change below
 
-Eigen::MatrixXd ILinearDynamics::controlModel(
-    double timestep, const ControlParams* controlParams) const {
-    if (m_hasContolModel) {
-        return m_controlModel(timestep, controlParams);
-    }
-    throw NoControlError();
-}
+// std::shared_ptr<lager::gncpy::control::IControlModel> ILinearDynamics::controlModel() const {
+//     if (m_hasContolModel) {
+//         // change m_controlModel to be shared pointer(std::shared_ptr) to IControlModel class
+//         return m_controlModel;
+//         // return m_controlModel(timestep, controlParams);
+//     }
+//     throw NoControlError();
+// }
 
 Eigen::VectorXd ILinearDynamics::propagateState_(
     double timestep, const Eigen::VectorXd& state,
