@@ -15,12 +15,13 @@ TEST(ControlTest, StateControlGetControlInputs) {
     u << 1.0, 1.0, 1.0;
 
     lager::gncpy::control::StateControl controller(x.size());
-    std::vector<uint8_t> inds = {0, 1, 2};
+    std::vector<uint8_t> rows = {0, 1, 2};
+    std::vector<uint8_t> cols = {0, 1, 2};
 
     EXPECT_THROW(controller.getControlInput(0, u, nullptr),
                  lager::gncpy::exceptions::BadParams);
 
-    auto params = lager::gncpy::control::StateControlParams(inds);
+    auto params = lager::gncpy::control::StateControlParams(rows);
 
     auto out = controller.getControlInput(0, u, &params);
 
@@ -38,9 +39,10 @@ TEST(ControlTest, StateControlGetInputMat) {
     x << 3.0, 4.0, 1.0;
 
     lager::gncpy::control::StateControl controller(x.size());
-    std::vector<uint8_t> inds = {0, 1, 2};
+    std::vector<uint8_t> rows = {0, 1, 2};
+    std::vector<uint8_t> cols = {0, 1, 2};
 
-    auto params = lager::gncpy::control::StateControlParams(inds);
+    auto params = lager::gncpy::control::StateControlParams(rows, cols);
 
     EXPECT_THROW(controller.getInputMat(0, nullptr),
                  lager::gncpy::exceptions::BadParams);
@@ -65,15 +67,17 @@ TEST(ControlTest, StateControlGetInputMat2) {
     x << 3.0, 4.0, 1.0, 0., 0., 0.;
 
     lager::gncpy::control::StateControl controller(x.size());
-    std::vector<uint8_t> inds = {3, 4, 5};
+    std::vector<uint8_t> rows = {3, 3, 4, 5};
+    std::vector<uint8_t> cols = {0, 1, 1, 2};
+    std::vector<double> vals = {2, 4, 6, 7};
 
-    auto params = lager::gncpy::control::StateControlParams(inds);
+    auto params = lager::gncpy::control::StateControlParams(rows, cols);
 
     EXPECT_THROW(controller.getInputMat(0, nullptr),
                  lager::gncpy::exceptions::BadParams);
 
     auto out = controller.getInputMat(0, &params);
-    Eigen::MatrixXd exp({{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}});
+    Eigen::MatrixXd exp({{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {2.0, 4.0, 0.0}, {0.0, 6.0, 0.0}, {0.0, 0.0, 7.0}});
 
     EXPECT_EQ(exp.rows(), out.rows());
     EXPECT_EQ(exp.cols(), out.cols());
@@ -86,3 +90,4 @@ TEST(ControlTest, StateControlGetInputMat2) {
 
     SUCCEED();
 }
+

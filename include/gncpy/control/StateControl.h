@@ -16,16 +16,17 @@ class StateControlParams final : public ControlParams {
 
     public:
         StateControlParams() = default;
-        explicit StateControlParams (const std::vector<uint8_t>& contInds) 
-            : contInds(contInds){
-                for (const auto& ii : contInds) {
+        explicit StateControlParams (const std::vector<uint8_t>& contRows, const std::vector<uint8_t>& contColumns) 
+            : contRows(contRows), contColumns(contColumns){
+                for (const auto& ii : contRows) {
                     vals.push_back(1.0);
                 }
             }
         StateControlParams(const std::vector<uint8_t>& contInds, const std::vector<double>& vals)
-            : contInds(contInds), vals(vals){}
+            : contRows(contRows), contColumns(contColumns), vals(vals){}
 
-        std::vector<uint8_t> contInds;
+        std::vector<uint8_t> contRows;
+        std::vector<uint8_t> contColumns;
         std::vector<double> vals;
 
     private:
