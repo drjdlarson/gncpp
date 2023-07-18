@@ -22,7 +22,7 @@ class StateControlParams final : public ControlParams {
                     vals.push_back(1.0);
                 }
             }
-        StateControlParams(const std::vector<uint8_t>& contInds, const std::vector<double>& vals)
+        StateControlParams(const std::vector<uint8_t>& contRows, const std::vector<uint8_t>& contColumns, const std::vector<double>& vals)
             : contRows(contRows), contColumns(contColumns), vals(vals){}
 
         std::vector<uint8_t> contRows;
