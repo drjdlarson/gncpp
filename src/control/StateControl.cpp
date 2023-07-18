@@ -5,7 +5,7 @@
 
 namespace lager::gncpy::control {
 
-Eigen::MatrixXd StateControl::getInputMat(const Eigen::VectorXd& state,
+Eigen::MatrixXd StateControl::getInputMat([[maybe_unused]] double timestep,
                                           const ControlParams* params) const {
 
     if (!params) {
@@ -16,9 +16,9 @@ Eigen::MatrixXd StateControl::getInputMat(const Eigen::VectorXd& state,
             "params type must be StateControlParams.");
     }
     auto ptr = dynamic_cast<const StateControlParams*>(params);
-    Eigen::MatrixXd data(state.size(), ptr->contInds.size());
+    Eigen::MatrixXd data(m_stateDim, ptr->contInds.size());
 
-    for (uint8_t ii=0; ii < state.size(); ii++){
+    for (uint8_t ii=0; ii < m_stateDim; ii++){
         for (uint8_t jj=0; jj < ptr->contInds.size(); jj++)
         {
             if (ptr->contInds[jj] == ii) {

@@ -43,7 +43,7 @@ TEST(CWHOrbit2D, Control) {
     Eigen::Vector4d xk;
     xk << 0., 0., 1., 0.;
 
-    auto contObj = std::make_shared<lager::gncpy::control::StateControl>();
+    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(xk.size());
     
     std::vector<uint8_t> inds = {2, 3};
     auto contParams = lager::gncpy::control::StateControlParams(inds);
@@ -88,7 +88,7 @@ TEST(CWHOrbit2D, serialize) {
     double dt = 0.1;
     double mean_motion = 2 * M_PI;
     lager::gncpy::dynamics::ClohessyWiltshire2D dyn(dt, mean_motion);
-    auto controller = std::make_shared<lager::gncpy::control::StateControl>();
+    auto controller = std::make_shared<lager::gncpy::control::StateControl>(1);
     //Define control model variable
 
     dyn.setControlModel(
@@ -106,7 +106,7 @@ TEST(CWHOrbit2D, serialize) {
     EXPECT_DOUBLE_EQ(dyn.mean_motion(), dyn2.mean_motion());
 
     // can not save control model or state constraint function
-    EXPECT_NE(dyn.hasControlModel(), dyn2.hasControlModel());
+    EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
 
     EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
 

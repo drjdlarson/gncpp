@@ -8,7 +8,7 @@
 #include "gncpy/dynamics/Parameters.h"
 
 #include "gncpy/control/Parameters.h"
-#include "gncpy/control/IControlModel.h"
+#include "gncpy/control/ILinearControlModel.h"
 
 namespace lager::gncpy::dynamics {
 
@@ -69,55 +69,32 @@ class ILinearDynamics : public IDynamics {
      * @return Eigen::MatrixXd
      */
 
-    // template <typename F>
-    // void setControlModel(F&& model);
-    void setControlModel(std::shared_ptr<control::IControlModel> model); // comparable to set dynamics model, use that as a template
-    inline void clearControlModel() override { m_hasContolModel = false; }
-    inline bool hasControlModel() const override { return m_hasContolModel; }
+    void setControlModel(std::shared_ptr<control::ILinearControlModel> model); // comparable to set dynamics model, use that as a template
+    inline void clearControlModel() override { m_controlModel.reset(); }
+    inline bool hasControlModel() const override { return static_cast<bool>(m_controlModel); }
 
-    inline std::shared_ptr<lager::gncpy::control::IControlModel> controlModel() const {return m_controlModel; }
-    // inline std::function<Eigen::MatrixXd(double timestep,
-    //                                      const lager::gncpy::control::ControlParams* controlParams)>
-    // controlModel() const {
-    //     return m_controlModel;
-    // }
+    inline std::shared_ptr<lager::gncpy::control::ILinearControlModel> controlModel() const {return m_controlModel; }
 
    protected:
     // NOTE: can not serialize std::function or lambda function
     // see
     // https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
-    std::shared_ptr<control::IControlModel> m_controlModel;
+    std::shared_ptr<control::ILinearControlModel> m_controlModel;
     template <class Archive>
     void serialize(Archive& ar);
-
-    // Eigen::MatrixXd controlModel(
-    //     double timestep, const ControlParams* controlParams = nullptr) const;
-
 
     Eigen::VectorXd propagateState_(
         double timestep, const Eigen::VectorXd& state,
         const StateTransParams* stateTransParams = nullptr) const;
 
-   private:
-    bool m_hasContolModel = false;
-
     
 };
 
-// template <typename F>
-// void ILinearDynamics::setControlModel(std::shared_ptr<control::IControlModel> model) {
-//     m_hasContolModel = true;
-//     m_controlModel = model;
-// }
-
 template <class Archive>
 void ILinearDynamics::serialize(Archive& ar) {
-    bool tmp = m_hasContolModel;
-    m_hasContolModel = false;
     ar(cereal::make_nvp("IDynamics",
                         cereal::virtual_base_class<IDynamics>(this)),
-       CEREAL_NVP(m_hasContolModel));
-    m_hasContolModel = tmp;
+       CEREAL_NVP(m_controlModel));
 }
 
 }  // namespace lager::gncpy::dynamics

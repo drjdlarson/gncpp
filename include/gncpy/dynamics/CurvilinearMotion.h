@@ -37,7 +37,7 @@ class CurvilinearMotion final : public INonLinearDynamics {
     GNCPY_SERIALIZE_CLASS(CurvilinearMotion)
 
    public:
-    CurvilinearMotion() = default;
+    CurvilinearMotion();
     explicit CurvilinearMotion(double dt) {setDt(dt);};
 
     std::vector<std::string> stateNames() const override {

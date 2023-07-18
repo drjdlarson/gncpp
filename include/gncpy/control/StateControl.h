@@ -17,7 +17,7 @@ class StateControlParams final : public ControlParams {
     public:
         StateControlParams() = default;
         explicit StateControlParams (const std::vector<uint8_t>& contInds) 
-            : contInds(contInds) {}
+            : contInds(contInds){}
 
         std::vector<uint8_t> contInds;
 
@@ -37,12 +37,13 @@ class StateControl final : public ILinearControlModel {
 
     public:
         StateControl() = default;
+        explicit StateControl(size_t stateDim) : m_stateDim(stateDim) {}
 
-    Eigen::MatrixXd getInputMat(
-        const Eigen::VectorXd& state,
+    Eigen::MatrixXd getInputMat(double timestep,
         const ControlParams* params=nullptr) const override;
 
     private:
+        size_t m_stateDim;
         template <class Archive>
         void serialize(Archive& ar);
 };

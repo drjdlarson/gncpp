@@ -16,13 +16,6 @@ class IControlModel {
 
     public:
         virtual ~IControlModel() = default;
-        virtual Eigen::VectorXd getControlInput(
-            const Eigen::VectorXd& state,
-            const Eigen::VectorXd& input,
-            const ControlParams* params = nullptr) const = 0;
-        virtual Eigen::MatrixXd getInputMat(
-            const Eigen::VectorXd& state,
-            const ControlParams* params = nullptr) const = 0;
 
     private:
         template <class Archive>

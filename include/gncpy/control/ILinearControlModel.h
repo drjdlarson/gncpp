@@ -11,9 +11,11 @@ class ILinearControlModel : public IControlModel {
     friend class cereal::access;
 
     public:
-      Eigen::VectorXd getControlInput(const Eigen::VectorXd& state,
-                                       const Eigen::VectorXd& input,
-                                       const ControlParams* params=nullptr) const override;
+      Eigen::VectorXd getControlInput(double timestep,
+                                      const Eigen::VectorXd& input,
+                                      const ControlParams* params=nullptr) const;
+      virtual Eigen::MatrixXd getInputMat(double timestep,
+            const ControlParams* params = nullptr) const = 0;
     private:
       template <class Archive>
       void serialize([[maybe_unused]] Archive& ar);

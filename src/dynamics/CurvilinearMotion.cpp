@@ -2,18 +2,18 @@
 
 namespace lager::gncpy::dynamics {
 
-// CurvilinearMotion::CurvilinearMotion() {
-//     INonLinearDynamics::setControlModel(
-//         []([[maybe_unused]] double timestep,
-//            [[maybe_unused]] const Eigen::VectorXd& state,
-//            const Eigen::VectorXd& control,
-//            [[maybe_unused]] const lager::gncpy::control::ControlParams* controlParams = nullptr) {
-//             Eigen::Vector4d out;
-//             out << 0.0, 0.0, control(0), control(1);
-//             return out;
-//         },
-//         true);
-// }
+CurvilinearMotion::CurvilinearMotion() {
+    // INonLinearDynamics::setControlModel(
+        // []([[maybe_unused]] double timestep,
+        //    [[maybe_unused]] const Eigen::VectorXd& state,
+        //    const Eigen::VectorXd& control,
+        //    [[maybe_unused]] const lager::gncpy::control::ControlParams* controlParams = nullptr) {
+        //     Eigen::Vector4d out;
+        //     out << 0.0, 0.0, control(0), control(1);
+        //     return out;
+        // },
+        // true);
+}
 
 Eigen::VectorXd CurvilinearMotion::continuousDynamics(
     [[maybe_unused]] double timestep, const Eigen::VectorXd& state,
@@ -24,9 +24,9 @@ Eigen::VectorXd CurvilinearMotion::continuousDynamics(
 }
 
 void CurvilinearMotion::clearControlModel() {
-    // std::cerr << "Warning, disabling control model and it can not be "
-    //              "re-enabled for this curvilinear motion model!"
-    //           << std::endl;
+    std::cerr << "Warning, disabling control model and it can not be "
+                 "re-enabled for this curvilinear motion model!"
+              << std::endl;
     INonLinearDynamics::clearControlModel();
 }
 

@@ -41,8 +41,8 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
         nextState = math::rungeKutta4<Eigen::VectorXd, Eigen::VectorXd, double>(
             timestep, state, dt(),
             [this, &control, &controlParams](double t, const Eigen::VectorXd& x) {
-                return continuousDynamics(t, x) +
-                         m_controlModel->getControlInput(x, control, controlParams);
+                return continuousDynamics(t, x);
+                        //  m_controlModel->getControlInput(x, control, controlParams);
                         //  m_controlModel->getControlInput(t, x, control, controlParams);
             });
     } else if (m_hasControlModel) {
@@ -51,7 +51,7 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
                 return continuousDynamics(t, x);
             });
 
-            nextState += m_controlModel->getControlInput(state, control, controlParams);
+            // nextState += m_controlModel->getControlInput(state, control, controlParams);
         // nextState += m_controlModel->getControlInput(timestep, state, control, controlParams);
     } else {
         throw exceptions::BadParams(
@@ -77,8 +77,8 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
             timestep, state, dt(),
             [this, &control, stateTransParams, controlParams](
                 double t, const Eigen::VectorXd& x) {
-                return continuousDynamics(t, x, stateTransParams) +
-                       m_controlModel->getControlInput(x, control, controlParams);
+                return continuousDynamics(t, x, stateTransParams);
+                    //    m_controlModel->getControlInput(x, control, controlParams);
             });
     } else if (m_hasControlModel) {
         nextState = math::rungeKutta4<Eigen::VectorXd, Eigen::VectorXd, double>(
@@ -86,7 +86,7 @@ Eigen::VectorXd INonLinearDynamics::propagateState(
                 return continuousDynamics(t, x);
             });
 
-        nextState += m_controlModel->getControlInput(state, control, controlParams);
+        // nextState += m_controlModel->getControlInput(state, control, controlParams);
     } else {
         nextState = math::rungeKutta4<Eigen::VectorXd, Eigen::VectorXd, double>(
             timestep, state, dt(),

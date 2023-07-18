@@ -1,9 +1,9 @@
 #include "gncpy/control/ILinearControlModel.h"
 
 namespace lager::gncpy::control {
-Eigen::VectorXd ILinearControlModel::getControlInput(const Eigen::VectorXd& state,
+Eigen::VectorXd ILinearControlModel::getControlInput(double timestep,
                                                      const Eigen::VectorXd& input,
                                                      const ControlParams* params) const {
-    return getInputMat(state, params) * input;
+    return getInputMat(timestep, params) * input;
 }
 }  //  namespace lager::gncpy::measurements
