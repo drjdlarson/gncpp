@@ -16,14 +16,14 @@ Eigen::MatrixXd StateControl::getInputMat([[maybe_unused]] double timestep,
             "params type must be StateControlParams.");
     }
     auto ptr = dynamic_cast<const StateControlParams*>(params);
-    Eigen::MatrixXd data(m_stateDim, ptr->contRows.size());
+    Eigen::MatrixXd data(m_stateDim, m_contDim);
 
     data.fill(0.0);
 
     uint8_t listInd = 0;
 
     for (uint8_t ii=0; ii < m_stateDim; ii++){
-        for (uint8_t jj=0; jj < ptr->contRows.size(); jj++)
+        for (uint8_t jj=0; jj < m_contDim; jj++)
         {
             if (ptr->contRows[listInd] == ii && ptr->contColumns[listInd]==jj) {
                 data(ptr->contRows[listInd], ptr->contColumns[listInd]) = ptr->vals[listInd];

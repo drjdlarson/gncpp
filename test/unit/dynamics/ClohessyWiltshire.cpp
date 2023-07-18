@@ -45,10 +45,11 @@ TEST(CWHOrbit, Control) {
     Eigen::VectorXd xk(6);
     xk << 0., 0., 0., 1., 0., 1.;
 
-    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(xk.size());
+    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(xk.size(), xk.size()/2);
     
-    std::vector<uint8_t> inds = {3, 4, 5};
-    auto contParams = lager::gncpy::control::StateControlParams(inds);
+    std::vector<uint8_t> cRows = {3, 4, 5};
+    std::vector<uint8_t> cCols = {0, 1, 2};
+    auto contParams = lager::gncpy::control::StateControlParams(cRows, cCols);
 
     Eigen::VectorXd contInput(3);
     contInput << 1., 1., 1.;
@@ -70,9 +71,6 @@ TEST(CWHOrbit, Control) {
         std::cout << std::endl;
     }
 
-    // for (uint16_t ii=0; ii<6;ii++) {
-    //     EXPECT_EQ(expected(ii), xk(ii));
-    // }
 
     for (uint16_t ii=0; ii<expected.size();ii++) {
         EXPECT_NEAR(expected(ii), xk(ii), 1e-5);
@@ -85,7 +83,7 @@ TEST(CWHOrbit, serialize) {
     double dt = 0.1;
     double mean_motion = 2 * M_PI;
     lager::gncpy::dynamics::ClohessyWiltshire dyn(dt, mean_motion);
-    auto controller = std::make_shared<lager::gncpy::control::StateControl>(1);
+    auto controller = std::make_shared<lager::gncpy::control::StateControl>(1, 1);
     //Define control model variable
 
     dyn.setControlModel(

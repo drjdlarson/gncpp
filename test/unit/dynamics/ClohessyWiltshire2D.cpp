@@ -43,10 +43,11 @@ TEST(CWHOrbit2D, Control) {
     Eigen::Vector4d xk;
     xk << 0., 0., 1., 0.;
 
-    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(xk.size());
+    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(xk.size(), xk.size()/2);
     
-    std::vector<uint8_t> inds = {2, 3};
-    auto contParams = lager::gncpy::control::StateControlParams(inds);
+    std::vector<uint8_t> cRows = {2, 3};
+    std::vector<uint8_t> cCols = {0, 1};
+    auto contParams = lager::gncpy::control::StateControlParams(cRows, cCols);
 
     dyn.setControlModel(contObj);
 
@@ -88,7 +89,7 @@ TEST(CWHOrbit2D, serialize) {
     double dt = 0.1;
     double mean_motion = 2 * M_PI;
     lager::gncpy::dynamics::ClohessyWiltshire2D dyn(dt, mean_motion);
-    auto controller = std::make_shared<lager::gncpy::control::StateControl>(1);
+    auto controller = std::make_shared<lager::gncpy::control::StateControl>(1, 1);
     //Define control model variable
 
     dyn.setControlModel(

@@ -34,7 +34,7 @@ class StateControlParams final : public ControlParams {
         void serialize(Archive& ar) {
             ar(cereal::make_nvp("ControlParams",
                                 cereal::virtual_base_class<ControlParams>(this)),
-                CEREAL_NVP(contInds));
+                CEREAL_NVP(contRows), CEREAL_NVP(contColumns), CEREAL_NVP(vals));
         }
 };
 
@@ -45,13 +45,14 @@ class StateControl final : public ILinearControlModel {
 
     public:
         StateControl() = default;
-        explicit StateControl(size_t stateDim) : m_stateDim(stateDim) {}
+        explicit StateControl(size_t stateDim, size_t contDim) : m_stateDim(stateDim), m_contDim(contDim) {}
 
     Eigen::MatrixXd getInputMat(double timestep,
         const ControlParams* params=nullptr) const override;
 
     private:
         size_t m_stateDim;
+        size_t m_contDim;
         template <class Archive>
         void serialize(Archive& ar);
 };

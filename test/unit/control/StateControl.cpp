@@ -14,14 +14,14 @@ TEST(ControlTest, StateControlGetControlInputs) {
     Eigen::Vector3d u;
     u << 1.0, 1.0, 1.0;
 
-    lager::gncpy::control::StateControl controller(x.size());
+    lager::gncpy::control::StateControl controller(x.size(), 3);
     std::vector<uint8_t> rows = {0, 1, 2};
     std::vector<uint8_t> cols = {0, 1, 2};
 
     EXPECT_THROW(controller.getControlInput(0, u, nullptr),
                  lager::gncpy::exceptions::BadParams);
 
-    auto params = lager::gncpy::control::StateControlParams(rows);
+    auto params = lager::gncpy::control::StateControlParams(rows, cols);
 
     auto out = controller.getControlInput(0, u, &params);
 
@@ -38,7 +38,7 @@ TEST(ControlTest, StateControlGetInputMat) {
     Eigen::Vector3d x;
     x << 3.0, 4.0, 1.0;
 
-    lager::gncpy::control::StateControl controller(x.size());
+    lager::gncpy::control::StateControl controller(x.size(), 3);
     std::vector<uint8_t> rows = {0, 1, 2};
     std::vector<uint8_t> cols = {0, 1, 2};
 
@@ -66,12 +66,12 @@ TEST(ControlTest, StateControlGetInputMat2) {
     Eigen::VectorXd x(6);
     x << 3.0, 4.0, 1.0, 0., 0., 0.;
 
-    lager::gncpy::control::StateControl controller(x.size());
+    lager::gncpy::control::StateControl controller(x.size(), 3);
     std::vector<uint8_t> rows = {3, 3, 4, 5};
     std::vector<uint8_t> cols = {0, 1, 1, 2};
     std::vector<double> vals = {2, 4, 6, 7};
 
-    auto params = lager::gncpy::control::StateControlParams(rows, cols);
+    auto params = lager::gncpy::control::StateControlParams(rows, cols, vals);
 
     EXPECT_THROW(controller.getInputMat(0, nullptr),
                  lager::gncpy::exceptions::BadParams);
