@@ -17,9 +17,16 @@ class StateControlParams final : public ControlParams {
     public:
         StateControlParams() = default;
         explicit StateControlParams (const std::vector<uint8_t>& contInds) 
-            : contInds(contInds){}
+            : contInds(contInds){
+                for (const auto& ii : contInds) {
+                    vals.push_back(1.0);
+                }
+            }
+        StateControlParams(const std::vector<uint8_t>& contInds, const std::vector<double>& vals)
+            : contInds(contInds), vals(vals){}
 
         std::vector<uint8_t> contInds;
+        std::vector<double> vals;
 
     private:
         template <class Archive>

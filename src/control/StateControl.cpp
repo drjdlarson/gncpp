@@ -22,7 +22,7 @@ Eigen::MatrixXd StateControl::getInputMat([[maybe_unused]] double timestep,
         for (uint8_t jj=0; jj < ptr->contInds.size(); jj++)
         {
             if (ptr->contInds[jj] == ii) {
-                data(ii, jj) = 1.0;
+                data(ii, jj) = ptr->vals[jj];
             }
             else {
                 data(ii, jj) = 0.0;
