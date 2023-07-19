@@ -38,7 +38,7 @@ RUN cd ~ \
     && tar -xf cmake-3.26.3.tar.gz \
     && cd cmake-3.26.3 \
     && ./bootstrap -- -DCMAKE_BUILD_TYPE:STRING=Release \
-    && export LC_ALL=C
+    && export LC_ALL=C \
     && make -j4 \
     && make install
 
@@ -48,7 +48,6 @@ RUN sed -i 's/# \(en_US\.UTF-8 .*\)/\1/' /etc/locale.gen && \
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-RUN export LC_ALL=C
 
 # install additional tools for generating test status and coverage badges, and generating documentation
 RUN pip install genbadge[tests,coverage] gcovr junit2html sphinx sphinx_rtd_theme sphinxcontrib-bibtex sphinx-copybutton sphinx_sitemap 
