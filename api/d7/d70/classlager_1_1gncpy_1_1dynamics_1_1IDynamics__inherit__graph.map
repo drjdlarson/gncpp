@@ -1,7 +1,9 @@
 <map id="lager::gncpy::dynamics::IDynamics" name="lager::gncpy::dynamics::IDynamics">
-<area shape="rect" id="node1" title="Base interface for all dynamics." alt="" coords="5,39,177,80"/>
-<area shape="rect" id="node2" href="$d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html" title="Interface for all linear dynamics models." alt="" coords="225,5,397,47"/>
-<area shape="rect" id="node4" href="$d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html" title="Interface for all non&#45;linear dynamics models." alt="" coords="225,71,397,112"/>
-<area shape="rect" id="node3" href="$d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title="Double integrator dynamics." alt="" coords="445,5,617,47"/>
-<area shape="rect" id="node5" href="$d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html" title="Implements a Curvilinear motion model." alt="" coords="445,71,617,112"/>
+<area shape="rect" id="node1" title="Base interface for all dynamics." alt="" coords="5,104,177,145"/>
+<area shape="rect" id="node2" href="$d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html" title="Interface for all linear dynamics models." alt="" coords="225,71,397,112"/>
+<area shape="rect" id="node6" href="$d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html" title="Interface for all non&#45;linear dynamics models." alt="" coords="225,136,397,177"/>
+<area shape="rect" id="node3" href="$d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D.html" title="@ brief Clohessy Wiltshire relative orbital dynamics model" alt="" coords="445,5,617,47"/>
+<area shape="rect" id="node5" href="$d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title="Double integrator dynamics." alt="" coords="445,71,617,112"/>
+<area shape="rect" id="node4" href="$d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire.html" title="@ brief Clohessy Wiltshire relative orbital dynamics model" alt="" coords="665,5,837,47"/>
+<area shape="rect" id="node7" href="$d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html" title="Implements a Curvilinear motion model." alt="" coords="445,136,617,177"/>
 </map>

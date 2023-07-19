@@ -1,5 +1,11 @@
 var dir_9c86b5654810d41c464a5f110971a06c =
 [
+    [ "ClohessyWiltshire.h", "d9/d63/ClohessyWiltshire_8h.html", [
+      [ "ClohessyWiltshire", "d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire.html", "d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire" ]
+    ] ],
+    [ "ClohessyWiltshire2D.h", "dc/d76/ClohessyWiltshire2D_8h.html", [
+      [ "ClohessyWiltshire2D", "d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D.html", "d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D" ]
+    ] ],
     [ "CurvilinearMotion.h", "da/d62/CurvilinearMotion_8h.html", [
       [ "CurvilinearMotion", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion" ]
     ] ],
@@ -21,7 +27,6 @@ var dir_9c86b5654810d41c464a5f110971a06c =
     ] ],
     [ "Parameters.h", "d2/dbc/dynamics_2Parameters_8h.html", [
       [ "ConstraintParams", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams" ],
-      [ "ControlParams", "dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html", "dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams" ],
       [ "StateTransParams", "d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html", "d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams" ]
     ] ],
     [ "SerializableTypes.h", "da/d8f/dynamics_2SerializableTypes_8h.html", null ]

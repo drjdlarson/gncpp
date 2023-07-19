@@ -3,7 +3,9 @@ var hierarchy =
     [ "lager::gncpy::filters::BayesCorrectParams", "d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams.html", null ],
     [ "lager::gncpy::filters::BayesPredictParams", "de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams.html", null ],
     [ "lager::gncpy::dynamics::ConstraintParams", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html", null ],
-    [ "lager::gncpy::dynamics::ControlParams", "dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html", null ],
+    [ "lager::gncpy::control::ControlParams", "d0/d29/classlager_1_1gncpy_1_1control_1_1ControlParams.html", [
+      [ "lager::gncpy::control::StateControlParams", "d6/de5/classlager_1_1gncpy_1_1control_1_1StateControlParams.html", null ]
+    ] ],
     [ "std::exception", null, [
       [ "std::runtime_error", null, [
         [ "lager::gncpy::dynamics::NoControlError", "d0/dbd/classlager_1_1gncpy_1_1dynamics_1_1NoControlError.html", null ],
@@ -19,8 +21,16 @@ var hierarchy =
         [ "lager::gncpy::filters::ExtendedKalman", "d3/d54/classlager_1_1gncpy_1_1filters_1_1ExtendedKalman.html", null ]
       ] ]
     ] ],
+    [ "lager::gncpy::control::IControlModel", "df/d7d/classlager_1_1gncpy_1_1control_1_1IControlModel.html", [
+      [ "lager::gncpy::control::ILinearControlModel", "dd/d0e/classlager_1_1gncpy_1_1control_1_1ILinearControlModel.html", [
+        [ "lager::gncpy::control::StateControl", "d8/d09/classlager_1_1gncpy_1_1control_1_1StateControl.html", null ]
+      ] ]
+    ] ],
     [ "lager::gncpy::dynamics::IDynamics", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html", [
       [ "lager::gncpy::dynamics::ILinearDynamics", "d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html", [
+        [ "lager::gncpy::dynamics::ClohessyWiltshire2D", "d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D.html", [
+          [ "lager::gncpy::dynamics::ClohessyWiltshire", "d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire.html", null ]
+        ] ],
         [ "lager::gncpy::dynamics::DoubleIntegrator", "d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html", null ]
       ] ],
       [ "lager::gncpy::dynamics::INonLinearDynamics", "d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html", [

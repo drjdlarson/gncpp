@@ -39,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.2.1</span>
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -124,11 +124,13 @@ $(document).ready(function(){initNavTree('dd/d87/classlager_1_1gncpy_1_1dynamics
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d7/d70/classlager_1_1gncpy_1_1dynamics_1_1IDynamics__inherit__graph.png" border="0" usemap="#alager_1_1gncpy_1_1dynamics_1_1IDynamics_inherit__map" alt="Inheritance graph"/></div>
 <map name="alager_1_1gncpy_1_1dynamics_1_1IDynamics_inherit__map" id="alager_1_1gncpy_1_1dynamics_1_1IDynamics_inherit__map">
-<area shape="rect" title="Base interface for all dynamics." alt="" coords="5,39,177,80"/>
-<area shape="rect" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html" title="Interface for all linear dynamics models." alt="" coords="225,5,397,47"/>
-<area shape="rect" href="../../d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html" title="Interface for all non&#45;linear dynamics models." alt="" coords="225,71,397,112"/>
-<area shape="rect" href="../../d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title="Double integrator dynamics." alt="" coords="445,5,617,47"/>
-<area shape="rect" href="../../d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html" title="Implements a Curvilinear motion model." alt="" coords="445,71,617,112"/>
+<area shape="rect" title="Base interface for all dynamics." alt="" coords="5,104,177,145"/>
+<area shape="rect" href="../../d3/da1/classlager_1_1gncpy_1_1dynamics_1_1ILinearDynamics.html" title="Interface for all linear dynamics models." alt="" coords="225,71,397,112"/>
+<area shape="rect" href="../../d6/d2a/classlager_1_1gncpy_1_1dynamics_1_1INonLinearDynamics.html" title="Interface for all non&#45;linear dynamics models." alt="" coords="225,136,397,177"/>
+<area shape="rect" href="../../d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D.html" title="@ brief Clohessy Wiltshire relative orbital dynamics model" alt="" coords="445,5,617,47"/>
+<area shape="rect" href="../../d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title="Double integrator dynamics." alt="" coords="445,71,617,112"/>
+<area shape="rect" href="../../d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire.html" title="@ brief Clohessy Wiltshire relative orbital dynamics model" alt="" coords="665,5,837,47"/>
+<area shape="rect" href="../../d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html" title="Implements a Curvilinear motion model." alt="" coords="445,136,617,177"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -146,12 +148,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab36695372e7367434df8cd5405a27156"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81cbb7f8c27e1c0758a9db1592243d47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a81cbb7f8c27e1c0758a9db1592243d47.html#a81cbb7f8c27e1c0758a9db1592243d47">hasStateConstraint</a> () const</td></tr>
 <tr class="separator:a81cbb7f8c27e1c0758a9db1592243d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab58cd36b4a4d4fe83f7ac41f9972f883"><td class="memItemLeft" align="right" valign="top">virtual Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ab58cd36b4a4d4fe83f7ac41f9972f883.html#ab58cd36b4a4d4fe83f7ac41f9972f883">propagateState</a> (double timestep, const Eigen::VectorXd &amp;state, const Eigen::VectorXd &amp;control) const =0</td></tr>
-<tr class="memdesc:ab58cd36b4a4d4fe83f7ac41f9972f883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the state forward one timestep.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ab58cd36b4a4d4fe83f7ac41f9972f883.html#ab58cd36b4a4d4fe83f7ac41f9972f883">More...</a><br /></td></tr>
-<tr class="separator:ab58cd36b4a4d4fe83f7ac41f9972f883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab70005d6b908917d3d2f91695f1b85d3"><td class="memItemLeft" align="right" valign="top">virtual Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ab70005d6b908917d3d2f91695f1b85d3.html#ab70005d6b908917d3d2f91695f1b85d3">propagateState</a> (double timestep, const Eigen::VectorXd &amp;state, const Eigen::VectorXd &amp;control, const <a class="el" href="../../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html">StateTransParams</a> *const stateTransParams, const <a class="el" href="../../dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html">ControlParams</a> *const controlParams, const <a class="el" href="../../d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html">ConstraintParams</a> *const constraintParams) const =0</td></tr>
-<tr class="memdesc:ab70005d6b908917d3d2f91695f1b85d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the state forward one timestep.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ab70005d6b908917d3d2f91695f1b85d3.html#ab70005d6b908917d3d2f91695f1b85d3">More...</a><br /></td></tr>
-<tr class="separator:ab70005d6b908917d3d2f91695f1b85d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73d7846526d509a4cfd334f724156f7"><td class="memItemLeft" align="right" valign="top">virtual Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ae73d7846526d509a4cfd334f724156f7.html#ae73d7846526d509a4cfd334f724156f7">propagateState</a> (double timestep, const Eigen::VectorXd &amp;state, const Eigen::VectorXd &amp;control, const <a class="el" href="../../d0/d29/classlager_1_1gncpy_1_1control_1_1ControlParams.html">lager::gncpy::control::ControlParams</a> *controlParams) const =0</td></tr>
+<tr class="memdesc:ae73d7846526d509a4cfd334f724156f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the state forward one timestep.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_ae73d7846526d509a4cfd334f724156f7.html#ae73d7846526d509a4cfd334f724156f7">More...</a><br /></td></tr>
+<tr class="separator:ae73d7846526d509a4cfd334f724156f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f90e44263c4c7a7c00e59ce8da96e08"><td class="memItemLeft" align="right" valign="top">virtual Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a2f90e44263c4c7a7c00e59ce8da96e08.html#a2f90e44263c4c7a7c00e59ce8da96e08">propagateState</a> (double timestep, const Eigen::VectorXd &amp;state, const Eigen::VectorXd &amp;control, const <a class="el" href="../../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html">StateTransParams</a> *const stateTransParams, const <a class="el" href="../../d0/d29/classlager_1_1gncpy_1_1control_1_1ControlParams.html">lager::gncpy::control::ControlParams</a> *const controlParams, const <a class="el" href="../../d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html">ConstraintParams</a> *const constraintParams) const =0</td></tr>
+<tr class="memdesc:a2f90e44263c4c7a7c00e59ce8da96e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the state forward one timestep.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a2f90e44263c4c7a7c00e59ce8da96e08.html#a2f90e44263c4c7a7c00e59ce8da96e08">More...</a><br /></td></tr>
+<tr class="separator:a2f90e44263c4c7a7c00e59ce8da96e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42e2e053ed91389b94598adcb4361506"><td class="memItemLeft" align="right" valign="top">virtual Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a42e2e053ed91389b94598adcb4361506.html#a42e2e053ed91389b94598adcb4361506">propagateState</a> (double timestep, const Eigen::VectorXd &amp;state, const <a class="el" href="../../d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html">StateTransParams</a> *const stateTransParams=nullptr) const =0</td></tr>
 <tr class="memdesc:a42e2e053ed91389b94598adcb4361506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagate the state forward one timestep.  <a href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_a42e2e053ed91389b94598adcb4361506.html#a42e2e053ed91389b94598adcb4361506">More...</a><br /></td></tr>
 <tr class="separator:a42e2e053ed91389b94598adcb4361506"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,7 +200,7 @@ Friends</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d7f/namespacelager.html">lager</a></li><li class="navelem"><a class="el" href="../../d7/d25/namespacelager_1_1gncpy.html">gncpy</a></li><li class="navelem"><a class="el" href="../../d8/d46/namespacelager_1_1gncpy_1_1dynamics.html">dynamics</a></li><li class="navelem"><a class="el" href="../../dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html">IDynamics</a></li>
-    <li class="footer">Generated on Sat May 27 2023 13:00:50 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Jul 19 2023 03:14:17 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

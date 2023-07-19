@@ -1,5 +1,6 @@
 var namespacelager_1_1gncpy =
 [
+    [ "control", "d0/d8f/namespacelager_1_1gncpy_1_1control.html", "d0/d8f/namespacelager_1_1gncpy_1_1control" ],
     [ "dynamics", "d8/d46/namespacelager_1_1gncpy_1_1dynamics.html", "d8/d46/namespacelager_1_1gncpy_1_1dynamics" ],
     [ "exceptions", "d7/d01/namespacelager_1_1gncpy_1_1exceptions.html", "d7/d01/namespacelager_1_1gncpy_1_1exceptions" ],
     [ "filters", "d1/de2/namespacelager_1_1gncpy_1_1filters.html", "d1/de2/namespacelager_1_1gncpy_1_1filters" ],

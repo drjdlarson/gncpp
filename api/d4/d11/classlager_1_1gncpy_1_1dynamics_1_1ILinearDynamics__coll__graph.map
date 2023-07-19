@@ -1,4 +1,5 @@
 <map id="lager::gncpy::dynamics::ILinearDynamics" name="lager::gncpy::dynamics::ILinearDynamics">
-<area shape="rect" id="node1" title="Interface for all linear dynamics models." alt="" coords="5,95,177,136"/>
-<area shape="rect" id="node2" href="$dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html" title="Base interface for all dynamics." alt="" coords="5,5,177,47"/>
+<area shape="rect" id="node1" title="Interface for all linear dynamics models." alt="" coords="383,43,555,84"/>
+<area shape="rect" id="node2" href="$dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html" title="Base interface for all dynamics." alt="" coords="29,5,201,47"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,71,225,127"/>
 </map>

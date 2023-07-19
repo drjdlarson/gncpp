@@ -1,5 +1,7 @@
 <map id="lager::gncpy::dynamics::ILinearDynamics" name="lager::gncpy::dynamics::ILinearDynamics">
-<area shape="rect" id="node1" title="Interface for all linear dynamics models." alt="" coords="5,95,177,136"/>
-<area shape="rect" id="node3" href="$d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title="Double integrator dynamics." alt="" coords="5,184,177,225"/>
-<area shape="rect" id="node2" href="$dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html" title="Base interface for all dynamics." alt="" coords="5,5,177,47"/>
+<area shape="rect" id="node1" title="Interface for all linear dynamics models." alt="" coords="225,39,397,80"/>
+<area shape="rect" id="node3" href="$d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D.html" title="@ brief Clohessy Wiltshire relative orbital dynamics model" alt="" coords="445,5,617,47"/>
+<area shape="rect" id="node5" href="$d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html" title="Double integrator dynamics." alt="" coords="445,71,617,112"/>
+<area shape="rect" id="node2" href="$dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html" title="Base interface for all dynamics." alt="" coords="5,39,177,80"/>
+<area shape="rect" id="node4" href="$d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire.html" title="@ brief Clohessy Wiltshire relative orbital dynamics model" alt="" coords="665,5,837,47"/>
 </map>

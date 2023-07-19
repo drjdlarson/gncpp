@@ -1,5 +1,6 @@
 var dir_c605aaf880ac1f1d322d69eb8b0fcb25 =
 [
+    [ "control", "dir_3befcf981144f9c0d7bdcdd0dffd4252.html", "dir_3befcf981144f9c0d7bdcdd0dffd4252" ],
     [ "dynamics", "dir_9c86b5654810d41c464a5f110971a06c.html", "dir_9c86b5654810d41c464a5f110971a06c" ],
     [ "filters", "dir_4312bfd2bac4bf58d7ceb8673fff3c77.html", "dir_4312bfd2bac4bf58d7ceb8673fff3c77" ],
     [ "math", "dir_0a5f4a6b286eced3100bfd9a1b0a7460.html", "dir_0a5f4a6b286eced3100bfd9a1b0a7460" ],

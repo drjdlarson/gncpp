@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="(empty)"
-	tests="24"
+	tests="37"
 	failures="0"
 	disabled="0"
 	skipped="0"
 	hostname=""
 	time="0"
-	timestamp="2023-05-27T12:57:29"
+	timestamp="2023-07-19T03:10:54"
 	>
-	<testcase name="DoubleInt.Propagate" classname="DoubleInt.Propagate" time="0.00382993" status="run">
+	<testcase name="DoubleInt.Propagate" classname="DoubleInt.Propagate" time="0.003193" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = DoubleInt.Propagate
 [==========] Running 1 test from 1 test suite.
@@ -33,7 +33,32 @@ t = 0.9: 1 0 1 0
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="DoubleInt.serialize" classname="DoubleInt.serialize" time="0.00539994" status="run">
+	<testcase name="DoubleInt.Control" classname="DoubleInt.Control" time="0.00511279" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DoubleInt.Control
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DoubleInt
+[ RUN      ] DoubleInt.Control
+t = 0: 0.1 0 2 1 
+t = 0.1: 0.3 0.1 3 2 
+t = 0.2: 0.6 0.3 4 3 
+t = 0.3: 1 0.6 5 4 
+t = 0.4: 1.5 1 6 5 
+t = 0.5: 2.1 1.5 7 6 
+t = 0.6: 2.8 2.1 8 7 
+t = 0.7: 3.6 2.8 9 8 
+t = 0.8: 4.5 3.6 10 9 
+t = 0.9: 5.5 4.5 11 10 
+[       OK ] DoubleInt.Control (0 ms)
+[----------] 1 test from DoubleInt (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="DoubleInt.serialize" classname="DoubleInt.serialize" time="0.0034857" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = DoubleInt.serialize
 [==========] Running 1 test from 1 test suite.
@@ -47,7 +72,18 @@ Original class:
             "IDynamics": {
                 "m_hasStateConstraint": false
             },
-            "m_hasContolModel": false
+            "m_controlModel": {
+                "polymorphic_id": 2147483649,
+                "polymorphic_name": "lager::gncpy::control::StateControl",
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "ILinearControlModel": {
+                            "IControlModel": {}
+                        }
+                    }
+                }
+            }
         },
         "m_dt": 0.1
     }
@@ -57,22 +93,11 @@ Loaded class:
     "value0": {
         "ILinearDynamics": {
             "IDynamics": {
-                "m_hasStateConstraint": false
-            },
-            "m_hasContolModel": false
-        },
-        "m_dt": 0.1
-    }
-}
-[       OK ] DoubleInt.serialize (0 ms)
-[----------] 1 test from DoubleInt (0 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
+                "m_ha...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
 </system-out>
 	</testcase>
-	<testcase name="Curvilinear.GetStateMat" classname="Curvilinear.GetStateMat" time="0.00319022" status="run">
+	<testcase name="Curvilinear.GetStateMat" classname="Curvilinear.GetStateMat" time="0.00597459" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = Curvilinear.GetStateMat
 [==========] Running 1 test from 1 test suite.
@@ -103,7 +128,7 @@ Checking row = 3, col = 3
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="Curvilinear.Propagate" classname="Curvilinear.Propagate" time="0.00357793" status="run">
+	<testcase name="Curvilinear.Propagate" classname="Curvilinear.Propagate" time="0.0022929" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = Curvilinear.Propagate
 [==========] Running 1 test from 1 test suite.
@@ -128,7 +153,7 @@ t = 0.9: 0.707107 0.707107 1 0.785398
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="Curvilinear.serialize" classname="Curvilinear.serialize" time="0.00616215" status="run">
+	<testcase name="Curvilinear.serialize" classname="Curvilinear.serialize" time="0.0026398" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = Curvilinear.serialize
 [==========] Running 1 test from 1 test suite.
@@ -144,7 +169,7 @@ Original class:
             },
             "m_dt": 0.1,
             "m_hasControlModel": false,
-            "m_continuousControl": true
+            "m_continuousControl": false
         }
     }
 }
@@ -157,7 +182,7 @@ Loaded class:
             },
             "m_dt": 0.1,
             "m_hasControlModel": false,
-            "m_continuousControl": true
+            "m_continuousControl": false
         }
     }
 }
@@ -165,11 +190,179 @@ Loaded class:
 [----------] 1 test from Curvilinear (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test ...
+[==========] 1 test from 1 tes...
 [This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
 </system-out>
 	</testcase>
-	<testcase name="MathTest.GradientVec" classname="MathTest.GradientVec" time="0.00573454" status="run">
+	<testcase name="CWHOrbit2D.Propagate" classname="CWHOrbit2D.Propagate" time="0.0055127" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CWHOrbit2D.Propagate
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CWHOrbit2D
+[ RUN      ] CWHOrbit2D.Propagate
+t = 0: 0.0995893 -0.0156757 0.987688 -0.312869 
+t = 0.1: 0.196726 -0.0623168 0.951057 -0.618034 
+t = 0.2: 0.289019 -0.138775 0.891007 -0.907981 
+t = 0.3: 0.374196 -0.243167 0.809017 -1.17557 
+t = 0.4: 0.450158 -0.372923 0.707107 -1.41421 
+t = 0.5: 0.515036 -0.524848 0.587785 -1.61803 
+t = 0.6: 0.567232 -0.695201 0.45399 -1.78201 
+t = 0.7: 0.605461 -0.879787 0.309017 -1.90211 
+t = 0.8: 0.628782 -1.07406 0.156434 -1.97538 
+t = 0.9: 0.63662 -1.27324 2.22045e-16 -2 
+[       OK ] CWHOrbit2D.Propagate (0 ms)
+[----------] 1 test from CWHOrbit2D (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="CWHOrbit2D.Control" classname="CWHOrbit2D.Control" time="0.0024256" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CWHOrbit2D.Control
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CWHOrbit2D
+[ RUN      ] CWHOrbit2D.Control
+t = 0: 0.0995893 -0.0156757 1.98769 0.687131 
+t = 0.1: 0.311991 0.0203646 3.25161 1.01985 
+t = 0.2: 0.663327 0.0684951 4.76065 0.916096 
+t = 0.3: 1.1763 0.0814053 6.47765 0.304551 
+t = 0.4: 1.86962 0.00526496 8.36033 -0.873594 
+t = 0.5: 2.75758 -0.218951 10.3623 -2.6632 
+t = 0.6: 3.84966 -0.654007 12.4344 -5.09407 
+t = 0.7: 5.15033 -1.36486 14.5254 -8.18022 
+t = 0.8: 6.65889 -2.41708 16.5839 -11.9195 
+t = 0.9: 8.36957 -3.87519 18.5593 -16.2938 
+[       OK ] CWHOrbit2D.Control (0 ms)
+[----------] 1 test from CWHOrbit2D (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="CWHOrbit2D.serialize" classname="CWHOrbit2D.serialize" time="0.0024247" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CWHOrbit2D.serialize
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CWHOrbit2D
+[ RUN      ] CWHOrbit2D.serialize
+Original class:
+{
+    "value0": {
+        "ILinearDynamics": {
+            "IDynamics": {
+                "m_hasStateConstraint": false
+            },
+            "m_controlModel": {
+                "polymorphic_id": 2147483649,
+                "polymorphic_name": "lager::gncpy::control::StateControl",
+                "ptr_wrapper": {
+                    "id": 2147483649,
+                    "data": {
+                        "ILinearControlModel": {
+                            "IControlModel": {}
+                        }
+                    }
+                }
+            }
+        },
+        "m_dt": 0.1,
+        "m_mean_motion": 6.283185307179586
+    }
+}
+Loaded class:
+{
+    "value0": {
+        "ILinearDynamics": {
+ ...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="CWHOrbit.Propagate" classname="CWHOrbit.Propagate" time="0.0056942" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CWHOrbit.Propagate
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CWHOrbit
+[ RUN      ] CWHOrbit.Propagate
+t = 0: 0.0995893 -0.0156757 0.0995893 0.987688 -0.312869 0.987688 
+t = 0.1: 0.196726 -0.0623168 0.196726 0.951057 -0.618034 0.951057 
+t = 0.2: 0.289019 -0.138775 0.289019 0.891007 -0.907981 0.891007 
+t = 0.3: 0.374196 -0.243167 0.374196 0.809017 -1.17557 0.809017 
+t = 0.4: 0.450158 -0.372923 0.450158 0.707107 -1.41421 0.707107 
+t = 0.5: 0.515036 -0.524848 0.515036 0.587785 -1.61803 0.587785 
+t = 0.6: 0.567232 -0.695201 0.567232 0.45399 -1.78201 0.45399 
+t = 0.7: 0.605461 -0.879787 0.605461 0.309017 -1.90211 0.309017 
+t = 0.8: 0.628782 -1.07406 0.628782 0.156434 -1.97538 0.156434 
+t = 0.9: 0.63662 -1.27324 0.63662 2.22045e-16 -2 1.38778e-16 
+[       OK ] CWHOrbit.Propagate (0 ms)
+[----------] 1 test from CWHOrbit (0 ms total...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="CWHOrbit.Control" classname="CWHOrbit.Control" time="0.0022799" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CWHOrbit.Control
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CWHOrbit
+[ RUN      ] CWHOrbit.Control
+t = 0: 0.0995893 -0.0156757 0.0995893 1.98769 0.687131 1.98769 
+t = 0.1: 0.311991 0.0203646 0.296316 3.25161 1.01985 2.93874 
+t = 0.2: 0.663327 0.0684951 0.585335 4.76065 0.916096 3.82975 
+t = 0.3: 1.1763 0.0814053 0.959531 6.47765 0.304551 4.63877 
+t = 0.4: 1.86962 0.00526496 1.40969 8.36033 -0.873594 5.34588 
+t = 0.5: 2.75758 -0.218951 1.92473 10.3623 -2.6632 5.93366 
+t = 0.6: 3.84966 -0.654007 2.49196 12.4344 -5.09407 6.38765 
+t = 0.7: 5.15033 -1.36486 3.09742 14.5254 -8.18022 6.69667 
+t = 0.8: 6.65889 -2.41708 3.7262 16.5839 -11.9195 6.8531 
+t = 0.9: 8.36957 -3.87519 4.36282 18.5593 -16.2938 6.8531 
+[       OK ] CWHOrbit.Control (0 ms)
+[----------] 1 test from CWHOrbit (0 ms total)
+
+[----------] Global test environment tear...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="CWHOrbit.serialize" classname="CWHOrbit.serialize" time="0.002375" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CWHOrbit.serialize
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CWHOrbit
+[ RUN      ] CWHOrbit.serialize
+Original class:
+{
+    "value0": {
+        "ClohessyWiltshire2D": {
+            "ILinearDynamics": {
+                "IDynamics": {
+                    "m_hasStateConstraint": false
+                },
+                "m_controlModel": {
+                    "polymorphic_id": 2147483649,
+                    "polymorphic_name": "lager::gncpy::control::StateControl",
+                    "ptr_wrapper": {
+                        "id": 2147483649,
+                        "data": {
+                            "ILinearControlModel": {
+                                "IControlModel": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "m_dt": 0.1,
+            "m...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="MathTest.GradientVec" classname="MathTest.GradientVec" time="0.0049579" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.GradientVec
 [==========] Running 1 test from 1 test suite.
@@ -184,7 +377,7 @@ Note: Google Test filter = MathTest.GradientVec
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.JacobianSquareMat" classname="MathTest.JacobianSquareMat" time="0.00520904" status="run">
+	<testcase name="MathTest.JacobianSquareMat" classname="MathTest.JacobianSquareMat" time="0.0019717" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.JacobianSquareMat
 [==========] Running 1 test from 1 test suite.
@@ -199,7 +392,7 @@ Note: Google Test filter = MathTest.JacobianSquareMat
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.JacobianMat" classname="MathTest.JacobianMat" time="0.00538454" status="run">
+	<testcase name="MathTest.JacobianMat" classname="MathTest.JacobianMat" time="0.0019954" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.JacobianMat
 [==========] Running 1 test from 1 test suite.
@@ -214,7 +407,7 @@ Note: Google Test filter = MathTest.JacobianMat
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.JacobianFunction" classname="MathTest.JacobianFunction" time="0.00509044" status="run">
+	<testcase name="MathTest.JacobianFunction" classname="MathTest.JacobianFunction" time="0.0047287" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.JacobianFunction
 [==========] Running 1 test from 1 test suite.
@@ -229,7 +422,7 @@ Note: Google Test filter = MathTest.JacobianFunction
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.GaussianPDF" classname="MathTest.GaussianPDF" time="0.00314252" status="run">
+	<testcase name="MathTest.GaussianPDF" classname="MathTest.GaussianPDF" time="0.0018588" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.GaussianPDF
 [==========] Running 1 test from 1 test suite.
@@ -244,7 +437,7 @@ Note: Google Test filter = MathTest.GaussianPDF
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.GaussianPDFVec" classname="MathTest.GaussianPDFVec" time="0.00320772" status="run">
+	<testcase name="MathTest.GaussianPDFVec" classname="MathTest.GaussianPDFVec" time="0.0020321" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.GaussianPDFVec
 [==========] Running 1 test from 1 test suite.
@@ -259,7 +452,7 @@ Note: Google Test filter = MathTest.GaussianPDFVec
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MathTest.RungeKutta4" classname="MathTest.RungeKutta4" time="0.00320052" status="run">
+	<testcase name="MathTest.RungeKutta4" classname="MathTest.RungeKutta4" time="0.0033342" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MathTest.RungeKutta4
 [==========] Running 1 test from 1 test suite.
@@ -274,7 +467,7 @@ Note: Google Test filter = MathTest.RungeKutta4
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MeasurementTest.StateObservationMeasure" classname="MeasurementTest.StateObservationMeasure" time="0.00534704" status="run">
+	<testcase name="MeasurementTest.StateObservationMeasure" classname="MeasurementTest.StateObservationMeasure" time="0.0033654" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MeasurementTest.StateObservationMeasure
 [==========] Running 1 test from 1 test suite.
@@ -289,7 +482,7 @@ Note: Google Test filter = MeasurementTest.StateObservationMeasure
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MeasurementTest.StateObservationMeasMat" classname="MeasurementTest.StateObservationMeasMat" time="0.00609885" status="run">
+	<testcase name="MeasurementTest.StateObservationMeasMat" classname="MeasurementTest.StateObservationMeasMat" time="0.0024156" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MeasurementTest.StateObservationMeasMat
 [==========] Running 1 test from 1 test suite.
@@ -304,7 +497,7 @@ Note: Google Test filter = MeasurementTest.StateObservationMeasMat
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MeasurementTest.RangeBearingMeasure" classname="MeasurementTest.RangeBearingMeasure" time="0.00333483" status="run">
+	<testcase name="MeasurementTest.RangeBearingMeasure" classname="MeasurementTest.RangeBearingMeasure" time="0.0054776" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MeasurementTest.RangeBearingMeasure
 [==========] Running 1 test from 1 test suite.
@@ -319,7 +512,7 @@ Note: Google Test filter = MeasurementTest.RangeBearingMeasure
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="MeasurementTest.RangeBearingMeasMat" classname="MeasurementTest.RangeBearingMeasMat" time="0.00324132" status="run">
+	<testcase name="MeasurementTest.RangeBearingMeasMat" classname="MeasurementTest.RangeBearingMeasMat" time="0.0020923" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = MeasurementTest.RangeBearingMeasMat
 [==========] Running 1 test from 1 test suite.
@@ -334,7 +527,52 @@ Note: Google Test filter = MeasurementTest.RangeBearingMeasMat
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.SetStateModel" classname="KFTest.SetStateModel" time="0.00366353" status="run">
+	<testcase name="ControlTest.StateControlGetControlInputs" classname="ControlTest.StateControlGetControlInputs" time="0.0026984" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ControlTest.StateControlGetControlInputs
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ControlTest
+[ RUN      ] ControlTest.StateControlGetControlInputs
+[       OK ] ControlTest.StateControlGetControlInputs (0 ms)
+[----------] 1 test from ControlTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="ControlTest.StateControlGetInputMat" classname="ControlTest.StateControlGetInputMat" time="0.0032995" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ControlTest.StateControlGetInputMat
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ControlTest
+[ RUN      ] ControlTest.StateControlGetInputMat
+[       OK ] ControlTest.StateControlGetInputMat (0 ms)
+[----------] 1 test from ControlTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="ControlTest.StateControlGetInputMat2" classname="ControlTest.StateControlGetInputMat2" time="0.0031943" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ControlTest.StateControlGetInputMat2
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ControlTest
+[ RUN      ] ControlTest.StateControlGetInputMat2
+[       OK ] ControlTest.StateControlGetInputMat2 (0 ms)
+[----------] 1 test from ControlTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="KFTest.SetStateModel" classname="KFTest.SetStateModel" time="0.0033805" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.SetStateModel
 [==========] Running 1 test from 1 test suite.
@@ -349,7 +587,7 @@ Note: Google Test filter = KFTest.SetStateModel
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.SetMeasModel" classname="KFTest.SetMeasModel" time="0.00403843" status="run">
+	<testcase name="KFTest.SetMeasModel" classname="KFTest.SetMeasModel" time="0.0034741" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.SetMeasModel
 [==========] Running 1 test from 1 test suite.
@@ -364,7 +602,7 @@ Note: Google Test filter = KFTest.SetMeasModel
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.GetSetCovariance" classname="KFTest.GetSetCovariance" time="0.00321662" status="run">
+	<testcase name="KFTest.GetSetCovariance" classname="KFTest.GetSetCovariance" time="0.0034902" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.GetSetCovariance
 [==========] Running 1 test from 1 test suite.
@@ -379,7 +617,7 @@ Note: Google Test filter = KFTest.GetSetCovariance
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.FilterPredict" classname="KFTest.FilterPredict" time="0.00373993" status="run">
+	<testcase name="KFTest.FilterPredict" classname="KFTest.FilterPredict" time="0.0034578" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.FilterPredict
 [==========] Running 1 test from 1 test suite.
@@ -394,7 +632,7 @@ Note: Google Test filter = KFTest.FilterPredict
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.FilterCorrect" classname="KFTest.FilterCorrect" time="0.00389803" status="run">
+	<testcase name="KFTest.FilterCorrect" classname="KFTest.FilterCorrect" time="0.0036461" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.FilterCorrect
 [==========] Running 1 test from 1 test suite.
@@ -414,7 +652,7 @@ corrected state estimate:
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="KFTest.serialize" classname="KFTest.serialize" time="0.00498934" status="run">
+	<testcase name="KFTest.serialize" classname="KFTest.serialize" time="0.0035367" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = KFTest.serialize
 [==========] Running 1 test from 1 test suite.
@@ -455,7 +693,7 @@ Original class:
 [This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
 </system-out>
 	</testcase>
-	<testcase name="EKFTest.SetStateModel" classname="EKFTest.SetStateModel" time="0.00657585" status="run">
+	<testcase name="EKFTest.SetStateModel" classname="EKFTest.SetStateModel" time="0.0040466" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = EKFTest.SetStateModel
 [==========] Running 1 test from 1 test suite.
@@ -470,7 +708,57 @@ Note: Google Test filter = EKFTest.SetStateModel
 [  PASSED  ] 1 test.
 </system-out>
 	</testcase>
-	<testcase name="EKFTest.serialize" classname="EKFTest.serialize" time="0.00543124" status="run">
+	<testcase name="EKFTest.SetMeasModel" classname="EKFTest.SetMeasModel" time="0.0034486" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = EKFTest.SetMeasModel
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from EKFTest
+[ RUN      ] EKFTest.SetMeasModel
+[       OK ] EKFTest.SetMeasModel (0 ms)
+[----------] 1 test from EKFTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="EKFTest.FilterPredict" classname="EKFTest.FilterPredict" time="0.0024678" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = EKFTest.FilterPredict
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from EKFTest
+[ RUN      ] EKFTest.FilterPredict
+[       OK ] EKFTest.FilterPredict (0 ms)
+[----------] 1 test from EKFTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="EKFTest.FilterCorrect" classname="EKFTest.FilterCorrect" time="0.0037642" status="run">
+		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = EKFTest.FilterCorrect
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from EKFTest
+[ RUN      ] EKFTest.FilterCorrect
+corrected state estimate: 
+2
+3
+1
+1
+[       OK ] EKFTest.FilterCorrect (0 ms)
+[----------] 1 test from EKFTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="EKFTest.serialize" classname="EKFTest.serialize" time="0.002863" status="run">
 		<system-out>Running main() from /workspace/build/_deps/googletest-src/googletest/src/gtest_main.cc
 Note: Google Test filter = EKFTest.serialize
 [==========] Running 1 test from 1 test suite.

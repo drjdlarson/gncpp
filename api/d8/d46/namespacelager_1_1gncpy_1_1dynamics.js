@@ -1,7 +1,8 @@
 var namespacelager_1_1gncpy_1_1dynamics =
 [
+    [ "ClohessyWiltshire", "d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire.html", "d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire" ],
+    [ "ClohessyWiltshire2D", "d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D.html", "d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D" ],
     [ "ConstraintParams", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams" ],
-    [ "ControlParams", "dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html", "dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams" ],
     [ "CurvilinearMotion", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion" ],
     [ "DoubleIntegrator", "d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html", "d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator" ],
     [ "IDynamics", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics" ],

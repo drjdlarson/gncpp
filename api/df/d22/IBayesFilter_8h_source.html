@@ -39,7 +39,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">GNCPy C++
-   &#160;<span id="projectnumber">0.2.1</span>
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
    <div id="projectbrief">A C++ library for Guidance, Navigation, and Control (GNC) algorithms developed by LAGER.</div>
   </td>
@@ -171,8 +171,8 @@ $(document).ready(function(){initNavTree('df/d22/IBayesFilter_8h_source.html','.
 <div class="ttc" id="aIDynamics_8h_html"><div class="ttname"><a href="../../d6/da9/IDynamics_8h.html">IDynamics.h</a></div></div>
 <div class="ttc" id="aIMeasModel_8h_html"><div class="ttname"><a href="../../d9/d3b/IMeasModel_8h.html">IMeasModel.h</a></div></div>
 <div class="ttc" id="aSerializeEigen_8h_html"><div class="ttname"><a href="../../d9/d42/SerializeEigen_8h.html">SerializeEigen.h</a></div></div>
-<div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1BayesCorrectParams_html"><div class="ttname"><a href="../../d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams.html">lager::gncpy::filters::BayesCorrectParams</a></div><div class="ttdoc">Base polymorphic class for the correction step of bayes filters.</div><div class="ttdef"><b>Definition:</b> Parameters.h:51</div></div>
-<div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1BayesPredictParams_html"><div class="ttname"><a href="../../de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams.html">lager::gncpy::filters::BayesPredictParams</a></div><div class="ttdoc">Base polymorphic class for the prediction step of bayes filters.</div><div class="ttdef"><b>Definition:</b> Parameters.h:25</div></div>
+<div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1BayesCorrectParams_html"><div class="ttname"><a href="../../d4/d63/classlager_1_1gncpy_1_1filters_1_1BayesCorrectParams.html">lager::gncpy::filters::BayesCorrectParams</a></div><div class="ttdoc">Base polymorphic class for the correction step of bayes filters.</div><div class="ttdef"><b>Definition:</b> Parameters.h:52</div></div>
+<div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1BayesPredictParams_html"><div class="ttname"><a href="../../de/dee/classlager_1_1gncpy_1_1filters_1_1BayesPredictParams.html">lager::gncpy::filters::BayesPredictParams</a></div><div class="ttdoc">Base polymorphic class for the prediction step of bayes filters.</div><div class="ttdef"><b>Definition:</b> Parameters.h:26</div></div>
 <div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1IBayesFilter_a28faf36bc5f3f77a766daba3b6c8e43a_html_a28faf36bc5f3f77a766daba3b6c8e43a"><div class="ttname"><a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a28faf36bc5f3f77a766daba3b6c8e43a.html#a28faf36bc5f3f77a766daba3b6c8e43a">lager::gncpy::filters::IBayesFilter::~IBayesFilter</a></div><div class="ttdeci">virtual ~IBayesFilter()=default</div></div>
 <div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1IBayesFilter_a4289d5508cc6b670da7cf4563ca8bdba_html_a4289d5508cc6b670da7cf4563ca8bdba"><div class="ttname"><a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a4289d5508cc6b670da7cf4563ca8bdba.html#a4289d5508cc6b670da7cf4563ca8bdba">lager::gncpy::filters::IBayesFilter::dynamicsModel</a></div><div class="ttdeci">virtual std::shared_ptr&lt; dynamics::IDynamics &gt; dynamicsModel() const =0</div></div>
 <div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1IBayesFilter_a44111e876caa2d720d21e118d07f7734_html_a44111e876caa2d720d21e118d07f7734"><div class="ttname"><a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_a44111e876caa2d720d21e118d07f7734.html#a44111e876caa2d720d21e118d07f7734">lager::gncpy::filters::IBayesFilter::m_cov</a></div><div class="ttdeci">Eigen::MatrixXd m_cov</div><div class="ttdef"><b>Definition:</b> IBayesFilter.h:85</div></div>
@@ -187,14 +187,14 @@ $(document).ready(function(){initNavTree('df/d22/IBayesFilter_8h_source.html','.
 <div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1IBayesFilter_abc85797b18b29203cb67738f0e34a3a6_html_abc85797b18b29203cb67738f0e34a3a6"><div class="ttname"><a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter_abc85797b18b29203cb67738f0e34a3a6.html#abc85797b18b29203cb67738f0e34a3a6">lager::gncpy::filters::IBayesFilter::measurementModel</a></div><div class="ttdeci">virtual std::shared_ptr&lt; measurements::IMeasModel &gt; measurementModel() const =0</div></div>
 <div class="ttc" id="aclasslager_1_1gncpy_1_1filters_1_1IBayesFilter_html"><div class="ttname"><a href="../../d8/d92/classlager_1_1gncpy_1_1filters_1_1IBayesFilter.html">lager::gncpy::filters::IBayesFilter</a></div><div class="ttdoc">Interface for all Bayes filters.</div><div class="ttdef"><b>Definition:</b> IBayesFilter.h:20</div></div>
 <div class="ttc" id="afilters_2Parameters_8h_html"><div class="ttname"><a href="../../d2/dcc/filters_2Parameters_8h.html">Parameters.h</a></div></div>
-<div class="ttc" id="anamespacelager_1_1gncpy_1_1filters_html"><div class="ttname"><a href="../../d1/de2/namespacelager_1_1gncpy_1_1filters.html">lager::gncpy::filters</a></div><div class="ttdoc">Contains the filter implementations.</div><div class="ttdef"><b>Definition:</b> ExtendedKalman.h:11</div></div>
+<div class="ttc" id="anamespacelager_1_1gncpy_1_1filters_html"><div class="ttname"><a href="../../d1/de2/namespacelager_1_1gncpy_1_1filters.html">lager::gncpy::filters</a></div><div class="ttdoc">Contains the filter implementations.</div><div class="ttdef"><b>Definition:</b> ExtendedKalman.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_c605aaf880ac1f1d322d69eb8b0fcb25.html">gncpy</a></li><li class="navelem"><a class="el" href="../../dir_4312bfd2bac4bf58d7ceb8673fff3c77.html">filters</a></li><li class="navelem"><a class="el" href="../../df/d22/IBayesFilter_8h.html">IBayesFilter.h</a></li>
-    <li class="footer">Generated on Sat May 27 2023 13:00:50 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Jul 19 2023 03:14:17 for GNCPy C++ by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

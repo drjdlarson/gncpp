@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html" title="Base class for all control parameters." alt="" coords="5,5,177,47"/>
+<area shape="rect" id="node1" href="$df/d7d/classlager_1_1gncpy_1_1control_1_1IControlModel.html" title=" " alt="" coords="5,5,160,47"/>
+<area shape="rect" id="node2" href="$dd/d0e/classlager_1_1gncpy_1_1control_1_1ILinearControlModel.html" title=" " alt="" coords="208,5,369,47"/>
+<area shape="rect" id="node3" href="$d8/d09/classlager_1_1gncpy_1_1control_1_1StateControl.html" title=" " alt="" coords="417,5,572,47"/>
 </map>

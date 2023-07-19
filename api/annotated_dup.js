@@ -2,9 +2,17 @@ var annotated_dup =
 [
     [ "lager", "d9/d7f/namespacelager.html", [
       [ "gncpy", "d7/d25/namespacelager_1_1gncpy.html", [
+        [ "control", "d0/d8f/namespacelager_1_1gncpy_1_1control.html", [
+          [ "ControlParams", "d0/d29/classlager_1_1gncpy_1_1control_1_1ControlParams.html", "d0/d29/classlager_1_1gncpy_1_1control_1_1ControlParams" ],
+          [ "IControlModel", "df/d7d/classlager_1_1gncpy_1_1control_1_1IControlModel.html", "df/d7d/classlager_1_1gncpy_1_1control_1_1IControlModel" ],
+          [ "ILinearControlModel", "dd/d0e/classlager_1_1gncpy_1_1control_1_1ILinearControlModel.html", "dd/d0e/classlager_1_1gncpy_1_1control_1_1ILinearControlModel" ],
+          [ "StateControl", "d8/d09/classlager_1_1gncpy_1_1control_1_1StateControl.html", "d8/d09/classlager_1_1gncpy_1_1control_1_1StateControl" ],
+          [ "StateControlParams", "d6/de5/classlager_1_1gncpy_1_1control_1_1StateControlParams.html", "d6/de5/classlager_1_1gncpy_1_1control_1_1StateControlParams" ]
+        ] ],
         [ "dynamics", "d8/d46/namespacelager_1_1gncpy_1_1dynamics.html", [
+          [ "ClohessyWiltshire", "d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire.html", "d7/dd6/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire" ],
+          [ "ClohessyWiltshire2D", "d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D.html", "d2/dd4/classlager_1_1gncpy_1_1dynamics_1_1ClohessyWiltshire2D" ],
           [ "ConstraintParams", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams" ],
-          [ "ControlParams", "dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams.html", "dd/ddd/classlager_1_1gncpy_1_1dynamics_1_1ControlParams" ],
           [ "CurvilinearMotion", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion.html", "d2/dca/classlager_1_1gncpy_1_1dynamics_1_1CurvilinearMotion" ],
           [ "DoubleIntegrator", "d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator.html", "d8/d68/classlager_1_1gncpy_1_1dynamics_1_1DoubleIntegrator" ],
           [ "IDynamics", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics.html", "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics" ],
