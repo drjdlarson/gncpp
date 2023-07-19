@@ -35,6 +35,7 @@ class DoubleIntegrator final : public ILinearDynamics {
     void serialize(Archive& ar);
 
     double m_dt;
+    // std::shared_ptr<lager::gncpy::control::IControlModel> m_controlModel;
 };
 
 template <class Archive>

@@ -2,8 +2,13 @@
 #include <Eigen/Dense>
 #include <functional>
 
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
+
+#include "gncpy/control/Parameters.h"
+#include "gncpy/control/IControlModel.h"
+
 
 namespace lager::gncpy::dynamics {
 
@@ -22,16 +27,17 @@ class INonLinearDynamics : public IDynamics {
         const StateTransParams* stateTransParams = nullptr) const override;
     Eigen::VectorXd propagateState(
         double timestep, const Eigen::VectorXd& state,
-        const Eigen::VectorXd& control) const override;
+        const Eigen::VectorXd& control,
+        const control::ControlParams* controlParams) const override;
     Eigen::VectorXd propagateState(
         double timestep, const Eigen::VectorXd& state,
         const Eigen::VectorXd& control,
         const StateTransParams* const stateTransParams,
-        const ControlParams* const controlParams,
+        const control::ControlParams* const controlParams,
         const ConstraintParams* const constraintParams) const final;
 
-    template <typename F>
-    void setControlModel(F&& model, bool continuousModel);
+    // template <typename F>
+    void setControlModel(std::shared_ptr<control::IControlModel> model, bool continuousModel);
     void clearControlModel() override { m_hasControlModel = false; }
     bool hasControlModel() const override { return m_hasControlModel; }
 
@@ -42,28 +48,28 @@ class INonLinearDynamics : public IDynamics {
     double dt() const { return m_dt; }
     void setDt(double dt) { m_dt = dt; }
 
+   protected:
+    std::shared_ptr<control::IControlModel> m_controlModel;
+
    private:
     // NOTE: can not serialize std::function or lambda function
     // see
     // https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
     template <class Archive>
+    
     void serialize(Archive& ar);
-
+    
     double m_dt = 0;
     bool m_hasControlModel = false;
     bool m_continuousControl = false;
-    std::function<Eigen::VectorXd(double timestep, const Eigen::VectorXd& state,
-                                  const Eigen::VectorXd& control,
-                                  const ControlParams* controlParams)>
-        m_controlModel;
+    
+    // std::function<Eigen::VectorXd(double timestep, const Eigen::VectorXd& state,
+    //                               const Eigen::VectorXd& control,
+    //                               const lager::gncpy::control::ControlParams* controlParams)>
+    //     m_controlModel;
 };
 
-template <typename F>
-void INonLinearDynamics::setControlModel(F&& model, bool continuousModel) {
-    m_hasControlModel = true;
-    m_continuousControl = continuousModel;
-    m_controlModel = std::forward<F>(model);
-}
+// template <typename F>
 
 template <class Archive>
 inline void INonLinearDynamics::serialize(Archive& ar) {

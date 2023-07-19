@@ -47,6 +47,7 @@ class ClohessyWiltshire2D : public ILinearDynamics {
     private:
         template <class Archive>
         void serialize(Archive& ar);
+        // std::shared_ptr<lager::gncpy::control::IControlModel> m_controlModel;
 
         
 };

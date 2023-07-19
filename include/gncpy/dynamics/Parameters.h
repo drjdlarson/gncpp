@@ -41,20 +41,20 @@ class StateTransParams {
  * appropriate polymorphic type.
  *
  */
-class ControlParams {
-    friend class cereal::access;
+// class ControlParams {
+//     friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(ControlParams)
+//     GNCPY_SERIALIZE_CLASS(ControlParams)
 
-   public:
-    virtual ~ControlParams() = default;
+//    public:
+//     virtual ~ControlParams() = default;
 
-   private:
-    template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
-        /* nothing to serialize */
-    }
-};
+//    private:
+//     template <class Archive>
+//     void serialize([[maybe_unused]] Archive& ar) {
+//         /* nothing to serialize */
+//     }
+// };
 
 /**
  * @brief Base class for all state constraint parameters
@@ -82,5 +82,5 @@ class ConstraintParams {
 }  // namespace lager::gncpy::dynamics
 
 CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::StateTransParams)
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ControlParams)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ControlParams)
 CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ConstraintParams)

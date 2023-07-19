@@ -10,6 +10,7 @@
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/measurements/Parameters.h"
+#include "gncpy/control/Parameters.h"
 
 namespace lager::gncpy::filters {
 
@@ -31,7 +32,7 @@ class BayesPredictParams {
     virtual ~BayesPredictParams() = default;
 
     std::shared_ptr<lager::gncpy::dynamics::StateTransParams> stateTransParams;
-    std::shared_ptr<lager::gncpy::dynamics::ControlParams> controlParams;
+    std::shared_ptr<lager::gncpy::control::ControlParams> controlParams;
 
    private:
     template <class Archive>

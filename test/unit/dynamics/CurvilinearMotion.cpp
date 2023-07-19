@@ -1,9 +1,9 @@
-#include <gncpy/dynamics/CurvilinearMotion.h>
-#include <gtest/gtest.h>
-
 #include <Eigen/Dense>
 #include <cmath>
 #include <iostream>
+
+#include <gncpy/dynamics/CurvilinearMotion.h>
+#include <gtest/gtest.h>
 
 TEST(Curvilinear, GetStateMat) {
     double dt = 0.1;

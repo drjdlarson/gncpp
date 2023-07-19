@@ -3,16 +3,16 @@
 namespace lager::gncpy::dynamics {
 
 CurvilinearMotion::CurvilinearMotion() {
-    INonLinearDynamics::setControlModel(
-        []([[maybe_unused]] double timestep,
-           [[maybe_unused]] const Eigen::VectorXd& state,
-           const Eigen::VectorXd& control,
-           [[maybe_unused]] const ControlParams* controlParams = nullptr) {
-            Eigen::Vector4d out;
-            out << 0.0, 0.0, control(0), control(1);
-            return out;
-        },
-        true);
+    // INonLinearDynamics::setControlModel(
+        // []([[maybe_unused]] double timestep,
+        //    [[maybe_unused]] const Eigen::VectorXd& state,
+        //    const Eigen::VectorXd& control,
+        //    [[maybe_unused]] const lager::gncpy::control::ControlParams* controlParams = nullptr) {
+        //     Eigen::Vector4d out;
+        //     out << 0.0, 0.0, control(0), control(1);
+        //     return out;
+        // },
+        // true);
 }
 
 Eigen::VectorXd CurvilinearMotion::continuousDynamics(

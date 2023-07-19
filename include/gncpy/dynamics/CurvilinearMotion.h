@@ -9,6 +9,9 @@
 #include "gncpy/dynamics/INonLinearDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
 
+#include "gncpy/control/Parameters.h"
+#include "gncpy/control/IControlModel.h"
+
 namespace lager::gncpy::dynamics {
 
 /**
@@ -46,24 +49,27 @@ class CurvilinearMotion final : public INonLinearDynamics {
         [[maybe_unused]] double timestep, const Eigen::VectorXd& state,
         [[maybe_unused]] const StateTransParams* stateTransParams =
             nullptr) const override;
-    template <typename F>
-    void setControlModel([[maybe_unused]] F&& model,
-                         [[maybe_unused]] bool continuousModel);
+    // template <typename F>
+    // void setControlModel(std::shared_ptr<lager::gncpy::control::IControlModel> model,
+    //                      bool continuousModel) override ;
     void clearControlModel() override;
 
    private:
     template <class Archive>
     void serialize(Archive& ar);
     double m_dt;
+    // std::shared_ptr<lager::gncpy::control::IControlModel> m_controlModel;
 };
 
-template <typename F>
-void CurvilinearMotion::setControlModel([[maybe_unused]] F&& model,
-                                        [[maybe_unused]] bool continuousModel) {
-    std::cerr << "Can not set control model for curvilinear motion "
-                 "dynamics. It has a fixed control model!"
-              << std::endl;
-}
+// template <typename F>
+// void CurvilinearMotion::setControlModel(
+//     std::shared_ptr<lager::gncpy::control::IControlModel> model,
+//     bool continuousModel
+//     ) {
+//     std::cerr << "Can not set control model for curvilinear motion "
+//                  "dynamics. It has a fixed control model!"
+//               << std::endl;
+// }
 
 template <class Archive>
 void CurvilinearMotion::serialize(Archive& ar) {

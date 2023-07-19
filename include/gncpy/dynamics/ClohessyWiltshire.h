@@ -33,6 +33,7 @@ class ClohessyWiltshire : public ClohessyWiltshire2D {
     private:
         template <class Archive>
         void serialize(Archive& ar);
+        
 };
 
 template <class Archive>
