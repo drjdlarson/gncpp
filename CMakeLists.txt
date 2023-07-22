@@ -116,27 +116,31 @@ endif ()
 # ------------------------------------------------------------------
 # ---------------------- Find dependencies -------------------------
 # ------------------------------------------------------------------
-message(STATUS "Fetching cereal dependency...")
+set(BOOST_ENABLE_CMAKE ON)
+message(STATUS "Fetching boost dependency...")
 include(FetchContent)
 FetchContent_Declare(
-    cereal
-    GIT_REPOSITORY https://github.com/USCiLab/cereal
-    GIT_TAG v1.3.2
+    Boost
+    GIT_REPOSITORY https://github.com/boostorg/boost.git
+    GIT_TAG boost-1.82.0
 )
-set(JUST_INSTALL_CEREAL ON CACHE INTERNAL "only install cereal")
-set(CEREAL_INSTALL ON CACHE INTERNAL "install cereal")
-set(THREAD_SAFE ON CACHE INTERNAL "allow multiple cereal archives to be accessed in parallel")
-FetchContent_MakeAvailable(cereal)
+set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+FetchContent_MakeAvailable(Boost)
 
 message(STATUS "Fetching Eigen3 dependency (version: ${GNCPY_EIGEN_VERSION})...")
 FetchContent_Declare(
-    eigen
+    Eigen3
     GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
     GIT_TAG ${GNCPY_EIGEN_VERSION}
 )
 set(BUILD_TESTING OFF CACHE INTERNAL "Disable Eigen tests")
-FetchContent_MakeAvailable(eigen)
+FetchContent_MakeAvailable(Eigen3)
 
+
+# find_package(Eigen3 ${GNCPY_EIGEN_VERSION} REQUIRED)
+# find_package(Boost 1.82.0 REQUIRED)
 
 # ------------------------------------------------------------------
 # --------------------- Check status of options --------------------
@@ -183,7 +187,7 @@ add_library(lager::gncpy ALIAS gncpy)
 add_subdirectory(src)
 
 
-target_link_libraries(gncpy cereal::cereal Eigen3::Eigen)
+target_link_libraries(gncpy Eigen3::Eigen)
 target_include_directories(gncpy PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${GNCPY_INC_DIR}>
@@ -336,7 +340,7 @@ if (GNCPY_INSTALL)
 
     # see https://stackoverflow.com/questions/5378528/install-export-problem-for-library-with-dependencies
     # for why cereal is included here
-    set(INSTALL_TARGETS gncpy cereal eigen)
+    set(INSTALL_TARGETS gncpy eigen)
 
     # Install the library and headers.
     install(TARGETS ${INSTALL_TARGETS} EXPORT ${targets_export_name}
