@@ -7,14 +7,12 @@
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
-// #include "gncpy/dynamics/SerializableTypes.h"
 #include "gncpy/filters/IBayesFilter.h"
 #include "gncpy/filters/Parameters.h"
 #include "gncpy/math/Math.h"
 #include "gncpy/math/SerializeEigen.h"
 #include "gncpy/measurements/ILinearMeasModel.h"
 #include "gncpy/measurements/IMeasModel.h"
-// #include "gncpy/measurements/SerializableTypes.h"
 
 namespace lager::gncpy::filters {
 
