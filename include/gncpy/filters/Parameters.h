@@ -1,12 +1,7 @@
 #pragma once
-// #include <cereal/access.hpp>
-// #include <cereal/archives/binary.hpp>
-// #include <cereal/archives/json.hpp>
-// #include <cereal/archives/portable_binary.hpp>
-// #include <cereal/types/memory.hpp>
-// #include <cereal/types/polymorphic.hpp>
+#include <boost/serialization/shared_ptr.hpp>
+#include <boost/serialization/vector.hpp>
 #include <memory>
-
 // #include "gncpy/SerializeMacros.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/Parameters.h"
@@ -24,7 +19,7 @@ namespace lager::gncpy::filters {
  *
  */
 class BayesPredictParams {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(BayesPredictParams)
 
@@ -35,10 +30,11 @@ class BayesPredictParams {
     std::shared_ptr<lager::gncpy::control::ControlParams> controlParams;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar) {
-    //     ar(CEREAL_NVP(stateTransParams), CEREAL_NVP(controlParams));
-    // }
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& stateTransParams;
+        ar& controlParams;
+    }
 };
 
 /**
@@ -50,7 +46,7 @@ class BayesPredictParams {
  *
  */
 class BayesCorrectParams {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(BayesCorrectParams)
 
@@ -59,13 +55,10 @@ class BayesCorrectParams {
     std::shared_ptr<lager::gncpy::measurements::MeasParams> measParams;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar) {
-    //     ar(CEREAL_NVP(measParams));
-    // }
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& measParams;
+    }
 };
 
 }  // namespace lager::gncpy::filters
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::filters::BayesPredictParams)
-// CEREAL_REGISTER_TYPE(lager::gncpy::filters::BayesCorrectParams)

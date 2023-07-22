@@ -1,9 +1,10 @@
 #pragma once
 #include <Eigen/Dense>
-// #include <cereal/types/memory.hpp>
+#include <boost/serialization/base_object.hpp>
+#include <boost/serialization/shared_ptr.hpp>
+#include <boost/serialization/vector.hpp>
 #include <memory>
 #include <optional>
-
 // #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
@@ -24,7 +25,7 @@ namespace lager::gncpy::filters {
  *
  */
 class Kalman : public IBayesFilter {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(Kalman)
 
@@ -98,8 +99,14 @@ class Kalman : public IBayesFilter {
     Eigen::MatrixXd m_procNoise;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar);
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_object(*this);
+        ar& m_measNoise;
+        ar& m_procNoise;
+        ar& m_dynObj;
+        ar& m_measObj;
+    }
 
     Eigen::MatrixXd m_measNoise;
 
@@ -107,14 +114,4 @@ class Kalman : public IBayesFilter {
     std::shared_ptr<measurements::ILinearMeasModel> m_measObj;
 };
 
-// template <class Archive>
-// void Kalman::serialize(Archive& ar) {
-//     ar(cereal::make_nvp("IBayesFilter",
-//                         cereal::virtual_base_class<IBayesFilter>(this)),
-//        CEREAL_NVP(m_measNoise), CEREAL_NVP(m_procNoise), CEREAL_NVP(m_dynObj),
-//        CEREAL_NVP(m_measObj));
-// }
-
 }  // namespace lager::gncpy::filters
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::filters::Kalman)

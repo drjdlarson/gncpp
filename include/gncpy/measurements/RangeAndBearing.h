@@ -2,6 +2,7 @@
 #include <math.h>
 
 #include <Eigen/Dense>
+#include <boost/serialization/base_object.hpp>
 #include <functional>
 #include <vector>
 
@@ -12,7 +13,7 @@
 namespace lager::gncpy::measurements {
 
 class RangeAndBearingParams final : public MeasParams {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(RangeAndBearingParams)
 
@@ -25,16 +26,16 @@ class RangeAndBearingParams final : public MeasParams {
     uint8_t yInd;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar) {
-    //     ar(cereal::make_nvp("MeasParams",
-    //                         cereal::virtual_base_class<MeasParams>(this)),
-    //        CEREAL_NVP(xInd), CEREAL_NVP(yInd));
-    // }
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_object<MeasParams>(*this);
+        ar& xInd;
+        ar& yInd;
+    }
 };
 
 class RangeAndBearing final : public INonLinearMeasModel {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(RangeAndBearing)
 
@@ -46,8 +47,10 @@ class RangeAndBearing final : public INonLinearMeasModel {
         const MeasParams* params) const override;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar);
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_object<INonLinearMeasModel>(*this);
+    }
 
     double range(const Eigen::VectorXd& state,
                  const MeasParams* params = nullptr) const;
@@ -55,13 +58,4 @@ class RangeAndBearing final : public INonLinearMeasModel {
                    const MeasParams* params = nullptr) const;
 };
 
-// template <class Archive>
-// void RangeAndBearing::serialize(Archive& ar) {
-//     ar(cereal::make_nvp("INonLinearMeasModel",
-//                         cereal::virtual_base_class<INonLinearMeasModel>(this)));
-// }
-
 }  // namespace lager::gncpy::measurements
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::measurements::RangeAndBearing)
-// CEREAL_REGISTER_TYPE(lager::gncpy::measurements::RangeAndBearingParams)

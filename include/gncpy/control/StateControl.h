@@ -1,6 +1,7 @@
 #pragma once
 #include <Eigen/Dense>
-// #include <cereal/types/vector.hpp>
+#include <boost/serialization/base_object.hpp>
+#include <boost/serialization/vector.hpp>
 #include <vector>
 
 // #include "gncpy/SerializeMacros.h"
@@ -10,7 +11,7 @@
 namespace lager::gncpy::control {
 
 class StateControlParams final : public ControlParams {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(StateControlParams)
 
@@ -33,16 +34,17 @@ class StateControlParams final : public ControlParams {
     std::vector<double> vals;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar) {
-    //     ar(cereal::make_nvp("ControlParams",
-    //                         cereal::virtual_base_class<ControlParams>(this)),
-    //        CEREAL_NVP(contRows), CEREAL_NVP(contColumns), CEREAL_NVP(vals));
-    // }
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_object<ControlParams>(*this);
+        ar& contRows;
+        ar& contColumns;
+        ar& vals;
+    }
 };
 
 class StateControl final : public ILinearControlModel {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(StateControl)
 
@@ -57,17 +59,12 @@ class StateControl final : public ILinearControlModel {
    private:
     size_t m_stateDim;
     size_t m_contDim;
-    // template <class Archive>
-    // void serialize(Archive& ar);
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_obect<ILinearControlModel>(*this);
+        ar& m_stateDim;
+        ar& m_contDim;
+    }
 };
 
-// template <class Archive>
-// void StateControl::serialize(Archive& ar) {
-//     ar(cereal::make_nvp("ILinearControlModel",
-//                         cereal::virtual_base_class<ILinearControlModel>(this)),
-//        CEREAL_NVP(m_stateDim), CEREAL_NVP(m_contDim));
-// }
 }  //  namespace lager::gncpy::control
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::control::StateControl)
-// CEREAL_REGISTER_TYPE(lager::gncpy::control::StateControlParams)

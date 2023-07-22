@@ -12,21 +12,16 @@
 namespace lager::gncpy::control {
     
 class IControlModel {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     public:
         virtual ~IControlModel() = default;
 
     private:
-        // template <class Archive>
-        // void serialize(Archive& ar);
+        template <class Archive>
+        void serialize([[maybe_unused]]Archive& ar){
+            /* nothing to serialize*/
+        }
 };
 
-// template <class Archive>
-// void IControlModel::serialize([[maybe_unused]] Archive& ar) {
-//     /* nothing to save*/
-// }
-
 }  //  namespace lager::gncpy::control
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::control::IControlModel)

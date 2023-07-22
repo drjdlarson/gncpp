@@ -5,6 +5,9 @@
 
 #include "gncpy/Exceptions.h"
 // #include "gncpy/SerializeMacros.h"
+#include <boost/serialization/base_object.hpp>
+#include <boost/serialization/shared_ptr.hpp>
+
 #include "gncpy/control/ILinearControlModel.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/IDynamics.h"
@@ -14,7 +17,7 @@ namespace lager::gncpy::dynamics {
 
 /// @brief  Interface for all linear dynamics models
 class ILinearDynamics : public IDynamics {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
    public:
     /**
@@ -88,21 +91,15 @@ class ILinearDynamics : public IDynamics {
     // see
     // https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
     std::shared_ptr<control::ILinearControlModel> m_controlModel;
-    // template <class Archive>
-    // void serialize(Archive& ar);
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_object<IDynamics>(*this);
+        ar& m_controlModel;
+    }
 
     Eigen::VectorXd propagateState_(
         double timestep, const Eigen::VectorXd& state,
         const StateTransParams* stateTransParams = nullptr) const;
 };
 
-// template <class Archive>
-// void ILinearDynamics::serialize(Archive& ar) {
-//     ar(cereal::make_nvp("IDynamics",
-//                         cereal::virtual_base_class<IDynamics>(this)),
-//        CEREAL_NVP(m_controlModel));
-// }
-
 }  // namespace lager::gncpy::dynamics
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ILinearDynamics)

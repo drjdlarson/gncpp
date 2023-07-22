@@ -1,16 +1,15 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/base_object.hpp>
 #include <cmath>
 #include <iostream>
 #include <string>
 #include <vector>
-
 // #include "gncpy/SerializeMacros.h"
+#include "gncpy/control/IControlModel.h"
+#include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/INonLinearDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
-
-#include "gncpy/control/Parameters.h"
-#include "gncpy/control/IControlModel.h"
 
 namespace lager::gncpy::dynamics {
 
@@ -32,13 +31,13 @@ namespace lager::gncpy::dynamics {
  *
  */
 class CurvilinearMotion final : public INonLinearDynamics {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(CurvilinearMotion)
 
    public:
     CurvilinearMotion();
-    explicit CurvilinearMotion(double dt) {setDt(dt);};
+    explicit CurvilinearMotion(double dt) { setDt(dt); };
 
     std::vector<std::string> stateNames() const override {
         return std::vector<std::string>{"x pos", "y pos", "speed",
@@ -50,13 +49,18 @@ class CurvilinearMotion final : public INonLinearDynamics {
         [[maybe_unused]] const StateTransParams* stateTransParams =
             nullptr) const override;
     // template <typename F>
-    // void setControlModel(std::shared_ptr<lager::gncpy::control::IControlModel> model,
+    // void
+    // setControlModel(std::shared_ptr<lager::gncpy::control::IControlModel>
+    // model,
     //                      bool continuousModel) override ;
     void clearControlModel() override;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar);
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_object<INonLinearDynamics>(*this);
+        ar& m_dt;
+    }
     double m_dt;
     // std::shared_ptr<lager::gncpy::control::IControlModel> m_controlModel;
 };
