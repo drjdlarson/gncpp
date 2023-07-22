@@ -31,7 +31,7 @@ class StateObservationParams final : public MeasParams {
 };
 
 class StateObservation final : public ILinearMeasModel {
-    // friend class cereal::access;
+    friend class boos::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(StateObservation)
 
@@ -43,17 +43,10 @@ class StateObservation final : public ILinearMeasModel {
         const MeasParams* params = nullptr) const override;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar);
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_object<ILinearMeasModel>(*this);
+    };
 };
 
-// template <class Archive>
-// void StateObservation::serialize(Archive& ar) {
-//     ar(cereal::make_nvp("ILinearMeasModel",
-//                         cereal::virtual_base_class<ILinearMeasModel>(this)));
-// }
-
 }  // namespace lager::gncpy::measurements
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::measurements::StateObservation)
-// CEREAL_REGISTER_TYPE(lager::gncpy::measurements::StateObservationParams)

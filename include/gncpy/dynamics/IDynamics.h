@@ -1,25 +1,18 @@
 #pragma once
 #include <Eigen/Dense>
-// #include <cereal/access.hpp>
-// #include <cereal/archives/binary.hpp>
-// #include <cereal/archives/json.hpp>
-// #include <cereal/archives/portable_binary.hpp>
-// #include <cereal/types/base_class.hpp>
-// #include <cereal/types/polymorphic.hpp>
 #include <functional>
 
 // #include "gncpy/SerializeMacros.h"
+#include "gncpy/control/IControlModel.h"
+#include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/Exceptions.h"
 #include "gncpy/dynamics/Parameters.h"
-
-#include "gncpy/control/Parameters.h"
-#include "gncpy/control/IControlModel.h"
 
 namespace lager::gncpy::dynamics {
 
 /// @brief Base interface for all dynamics
 class IDynamics {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
    public:
     virtual ~IDynamics() = default;
@@ -94,8 +87,10 @@ class IDynamics {
         const ConstraintParams* const constraintParams = nullptr) const;
 
    private:
-    // template <class Archive>
-    // void serialize(Archive& ar);
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& hasStateConstraint;
+    }
 
     bool m_hasStateConstraint = false;
     std::function<void(double timestep, Eigen::VectorXd& state,
@@ -118,5 +113,3 @@ void IDynamics::setStateConstraints(F&& constrants) {
 // }
 
 }  // namespace lager::gncpy::dynamics
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::IDynamics)

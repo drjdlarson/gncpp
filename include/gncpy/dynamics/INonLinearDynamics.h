@@ -4,6 +4,8 @@
 #include <memory>
 
 // #include "gncpy/SerializeMacros.h"
+#include <boost/serialization/shared_ptr.hpp>
+#include <boost/serialization/base_object.hpp>
 #include "gncpy/control/IControlModel.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/IDynamics.h"
@@ -13,7 +15,7 @@ namespace lager::gncpy::dynamics {
 
 /// @brief Interface for all non-linear dynamics models
 class INonLinearDynamics : public IDynamics {
-    // friend class cereal::access;
+    friend class boost::serialization::access;
 
    public:
     virtual ~INonLinearDynamics() = default;
@@ -55,9 +57,12 @@ class INonLinearDynamics : public IDynamics {
     // NOTE: can not serialize std::function or lambda function
     // see
     // https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
-    // template <class Archive>
-
-    // void serialize(Archive& ar);
+    template <class Archive>
+    void serialize(Archive& ar) {
+        ar& boost::serialization::base_object<IDynamics>(*this);
+        ar& m_dt;
+        ar& m_controlModel;
+    };
 
     double m_dt = 0;
     bool m_hasControlModel = false;
@@ -85,5 +90,3 @@ class INonLinearDynamics : public IDynamics {
 // }
 
 }  // namespace lager::gncpy::dynamics
-
-// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::INonLinearDynamics)
