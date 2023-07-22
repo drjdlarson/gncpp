@@ -18,8 +18,10 @@ class MeasParams {
     virtual ~MeasParams() = default;
 
    private:
-    // template <class Archive>
-    // void serialize([[maybe_unused]] Archive& ar) {}
+    template <class Archive>
+    void serialize([[maybe_unused]] Archive& ar) {
+        /* nothing to serialize */
+    }
 };
 
 }  // namespace lager::gncpy::measurements

@@ -2,11 +2,18 @@
 #include <math.h>
 
 #include <Eigen/Dense>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
 
 #include "gncpy/Exceptions.h"
 #include "gncpy/math/Math.h"
 #include "gncpy/measurements/RangeAndBearing.h"
 #include "gncpy/measurements/StateObservation.h"
+
+TEST(MeasurementTest, StateObservationParamsSerialize) {
+    std::vector<uint8_t> inds{0, 1};
+    lager::gncpy::measurements::StateObservationParams params(inds);
+}
 
 TEST(MeasurementTest, StateObservationMeasure) {
     Eigen::Vector3d x;

@@ -1,3 +1,5 @@
+#include "gncpy/control/StateControl.h"
+
 #include <gtest/gtest.h>
 #include <math.h>
 
@@ -5,7 +7,6 @@
 
 #include "gncpy/Exceptions.h"
 #include "gncpy/math/Math.h"
-#include "gncpy/control/StateControl.h"
 
 TEST(ControlTest, StateControlGetControlInputs) {
     Eigen::Vector3d x;
@@ -27,7 +28,7 @@ TEST(ControlTest, StateControlGetControlInputs) {
 
     EXPECT_EQ(x.size(), out.size());
 
-    for (uint8_t ii=0; ii<out.size();ii++) {
+    for (uint8_t ii = 0; ii < out.size(); ii++) {
         EXPECT_DOUBLE_EQ(out(ii), u(ii));
     }
 
@@ -77,7 +78,12 @@ TEST(ControlTest, StateControlGetInputMat2) {
                  lager::gncpy::exceptions::BadParams);
 
     auto out = controller.getInputMat(0, &params);
-    Eigen::MatrixXd exp({{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {2.0, 4.0, 0.0}, {0.0, 6.0, 0.0}, {0.0, 0.0, 7.0}});
+    Eigen::MatrixXd exp({{0.0, 0.0, 0.0},
+                         {0.0, 0.0, 0.0},
+                         {0.0, 0.0, 0.0},
+                         {2.0, 4.0, 0.0},
+                         {0.0, 6.0, 0.0},
+                         {0.0, 0.0, 7.0}});
 
     EXPECT_EQ(exp.rows(), out.rows());
     EXPECT_EQ(exp.cols(), out.cols());
@@ -90,4 +96,3 @@ TEST(ControlTest, StateControlGetInputMat2) {
 
     SUCCEED();
 }
-
