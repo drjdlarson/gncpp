@@ -8,7 +8,7 @@
 namespace lager::gncpy::measurements {
 
 class ILinearMeasModel : public IMeasModel {
-    friend class cereal::access;
+    // friend class cereal::access;
 
    public:
     Eigen::VectorXd measure(const Eigen::VectorXd& state,

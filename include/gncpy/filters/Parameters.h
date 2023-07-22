@@ -8,9 +8,9 @@
 #include <memory>
 
 // #include "gncpy/SerializeMacros.h"
+#include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/measurements/Parameters.h"
-#include "gncpy/control/Parameters.h"
 
 namespace lager::gncpy::filters {
 
@@ -59,10 +59,10 @@ class BayesCorrectParams {
     std::shared_ptr<lager::gncpy::measurements::MeasParams> measParams;
 
    private:
-    template <class Archive>
-    void serialize(Archive& ar) {
-        ar(CEREAL_NVP(measParams));
-    }
+    // template <class Archive>
+    // void serialize(Archive& ar) {
+    //     ar(CEREAL_NVP(measParams));
+    // }
 };
 
 }  // namespace lager::gncpy::filters

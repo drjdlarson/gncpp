@@ -1,14 +1,14 @@
 #pragma once
 #include <Eigen/Dense>
 #include <functional>
+#include <memory>
 
 #include "gncpy/Exceptions.h"
 // #include "gncpy/SerializeMacros.h"
+#include "gncpy/control/ILinearControlModel.h"
+#include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
-
-#include "gncpy/control/Parameters.h"
-#include "gncpy/control/ILinearControlModel.h"
 
 namespace lager::gncpy::dynamics {
 
@@ -42,10 +42,11 @@ class ILinearDynamics : public IDynamics {
     Eigen::VectorXd propagateState(
         double timestep, const Eigen::VectorXd& state,
         const StateTransParams* stateTransParams = nullptr) const override;
-    Eigen::VectorXd propagateState(
-        double timestep, const Eigen::VectorXd& state,
-        const Eigen::VectorXd& control,
-        const lager::gncpy::control::ControlParams* controlParams) const override;
+    Eigen::VectorXd propagateState(double timestep,
+                                   const Eigen::VectorXd& state,
+                                   const Eigen::VectorXd& control,
+                                   const lager::gncpy::control::ControlParams*
+                                       controlParams) const override;
     Eigen::VectorXd propagateState(
         double timestep, const Eigen::VectorXd& state,
         const Eigen::VectorXd& control,
@@ -69,11 +70,18 @@ class ILinearDynamics : public IDynamics {
      * @return Eigen::MatrixXd
      */
 
-    void setControlModel(std::shared_ptr<control::ILinearControlModel> model); // comparable to set dynamics model, use that as a template
-    inline void clearControlModel() override { m_controlModel.reset(); }
-    inline bool hasControlModel() const override { return static_cast<bool>(m_controlModel); }
+    void setControlModel(
+        std::shared_ptr<control::ILinearControlModel>
+            model);  // comparable to set dynamics model, use that as a template
+    void clearControlModel() override { m_controlModel.reset(); }
+    bool hasControlModel() const override {
+        return static_cast<bool>(m_controlModel);
+    }
 
-    inline std::shared_ptr<lager::gncpy::control::ILinearControlModel> controlModel() const {return m_controlModel; }
+    std::shared_ptr<lager::gncpy::control::ILinearControlModel> controlModel()
+        const {
+        return m_controlModel;
+    }
 
    protected:
     // NOTE: can not serialize std::function or lambda function
@@ -86,8 +94,6 @@ class ILinearDynamics : public IDynamics {
     Eigen::VectorXd propagateState_(
         double timestep, const Eigen::VectorXd& state,
         const StateTransParams* stateTransParams = nullptr) const;
-
-    
 };
 
 // template <class Archive>
