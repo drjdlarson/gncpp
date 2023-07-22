@@ -1,10 +1,14 @@
 {
     "cmake.configureOnOpen": true,
+    "cmake.configureOnEdit": false,
     "C_Cpp.default.cppStandard": "c++20",
     "editor.formatOnSave": true,
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
     "esbonio.sphinx.confDir": "",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
     "files.associations": {
         "any": "cpp",
         "array": "cpp",

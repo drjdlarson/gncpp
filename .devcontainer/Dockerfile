@@ -43,4 +43,7 @@ RUN cd ~ \
     && make install
 
 # install additional tools for generating test status and coverage badges, and generating documentation
-RUN pip install genbadge[tests,coverage] gcovr junit2html sphinx sphinx_rtd_theme sphinxcontrib-bibtex sphinx-copybutton sphinx_sitemap 
+RUN pip install genbadge[tests,coverage] gcovr junit2html sphinx sphinx_rtd_theme sphinxcontrib-bibtex sphinx-copybutton sphinx_sitemap conan
+
+# set the correct version of c++ to use with conan after configuring the default profile
+RUN conan profile detect && sed -i 's/gnu14/gnu20/' ~/.conan2/profiles/default

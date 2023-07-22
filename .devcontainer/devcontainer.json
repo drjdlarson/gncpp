@@ -15,7 +15,8 @@
 				// sphinx/rst documentation stuff
 				"lextudio.restructuredtext",
 				"trond-snekvik.simple-rst",
-				"ms-python.python"
+				"ms-python.python",
+				"ms-python.black-formatter"
 			]
 		}
 	}

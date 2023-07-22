@@ -1,7 +1,7 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/base_object.hpp>
 #include <boost/serialization/vector.hpp>
-#include <boost/serialization/base_object.hpp
 #include <vector>
 
 // #include "gncpy/SerializeMacros.h"

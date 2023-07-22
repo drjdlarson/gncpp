@@ -66,7 +66,6 @@ set_verbose(GNCPY_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE STRING
 option(GNCPY_DOC "Generate the doc target." ${GNCPY_MASTER_PROJECT})
 option(GNCPY_INSTALL "Generate the install target." ON)
 option(GNCPY_TEST "Generate the test target." ${GNCPY_MASTER_PROJECT})
-set(GNCPY_EIGEN_VERSION "3.4.0" CACHE STRING "Version of Eigen to use when compiling the interface and backend")
 
 if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
     set(GNCPY_TEST ON)
@@ -116,31 +115,8 @@ endif ()
 # ------------------------------------------------------------------
 # ---------------------- Find dependencies -------------------------
 # ------------------------------------------------------------------
-set(BOOST_ENABLE_CMAKE ON)
-message(STATUS "Fetching boost dependency...")
-include(FetchContent)
-FetchContent_Declare(
-    Boost
-    GIT_REPOSITORY https://github.com/boostorg/boost.git
-    GIT_TAG boost-1.82.0
-)
-set(Boost_USE_STATIC_LIBS OFF)
-set(Boost_USE_MULTITHREADED ON)
-set(Boost_USE_STATIC_RUNTIME OFF)
-FetchContent_MakeAvailable(Boost)
-
-message(STATUS "Fetching Eigen3 dependency (version: ${GNCPY_EIGEN_VERSION})...")
-FetchContent_Declare(
-    Eigen3
-    GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
-    GIT_TAG ${GNCPY_EIGEN_VERSION}
-)
-set(BUILD_TESTING OFF CACHE INTERNAL "Disable Eigen tests")
-FetchContent_MakeAvailable(Eigen3)
-
-
-# find_package(Eigen3 ${GNCPY_EIGEN_VERSION} REQUIRED)
-# find_package(Boost 1.82.0 REQUIRED)
+find_package(Eigen3 3.4.0 REQUIRED)
+find_package(Boost 1.82.0 REQUIRED)
 
 # ------------------------------------------------------------------
 # --------------------- Check status of options --------------------
@@ -187,7 +163,7 @@ add_library(lager::gncpy ALIAS gncpy)
 add_subdirectory(src)
 
 
-target_link_libraries(gncpy Eigen3::Eigen)
+target_link_libraries(gncpy PRIVATE Eigen3::Eigen Boost::boost)
 target_include_directories(gncpy PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${GNCPY_INC_DIR}>
@@ -338,9 +314,7 @@ if (GNCPY_INSTALL)
         INSTALL_DESTINATION ${GNCPY_CMAKE_DIR}
     )
 
-    # see https://stackoverflow.com/questions/5378528/install-export-problem-for-library-with-dependencies
-    # for why cereal is included here
-    set(INSTALL_TARGETS gncpy eigen)
+    set(INSTALL_TARGETS gncpy)
 
     # Install the library and headers.
     install(TARGETS ${INSTALL_TARGETS} EXPORT ${targets_export_name}
