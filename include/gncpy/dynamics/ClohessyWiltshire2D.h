@@ -13,9 +13,9 @@ namespace lager::gncpy::dynamics {
 
 /// @ brief Clohessy Wiltshire relative orbital dynamics model
 class ClohessyWiltshire2D : public ILinearDynamics {
-    friend class cereal::access;
+    // friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(ClohessyWiltshire2D)
+    // GNCPY_SERIALIZE_CLASS(ClohessyWiltshire2D)
 
     public:
         ClohessyWiltshire2D() = default;
@@ -45,20 +45,20 @@ class ClohessyWiltshire2D : public ILinearDynamics {
         double m_mean_motion;
 
     private:
-        template <class Archive>
-        void serialize(Archive& ar);
+        // template <class Archive>
+        // void serialize(Archive& ar);
         // std::shared_ptr<lager::gncpy::control::IControlModel> m_controlModel;
 
         
 };
 
-template <class Archive>
-void ClohessyWiltshire2D::serialize(Archive& ar) {
-ar(cereal::make_nvp("ILinearDynamics",
-                    cereal::virtual_base_class<ILinearDynamics>(this)),
-    CEREAL_NVP(m_dt), CEREAL_NVP(m_mean_motion));
-}
+// template <class Archive>
+// void ClohessyWiltshire2D::serialize(Archive& ar) {
+// ar(cereal::make_nvp("ILinearDynamics",
+//                     cereal::virtual_base_class<ILinearDynamics>(this)),
+//     CEREAL_NVP(m_dt), CEREAL_NVP(m_mean_motion));
+// }
 
 } // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ClohessyWiltshire2D)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ClohessyWiltshire2D)

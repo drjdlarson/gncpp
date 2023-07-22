@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "gncpy/SerializeMacros.h"
+// #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
 #include "gncpy/dynamics/ClohessyWiltshire2D.h"
 #include "gncpy/dynamics/Parameters.h"
@@ -14,9 +14,9 @@ namespace lager::gncpy::dynamics {
 
 /// @ brief Clohessy Wiltshire relative orbital dynamics model
 class ClohessyWiltshire : public ClohessyWiltshire2D {
-    friend class cereal::access;
+    // friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(ClohessyWiltshire)
+    // GNCPY_SERIALIZE_CLASS(ClohessyWiltshire)
 
     public:
         ClohessyWiltshire() = default;
@@ -31,17 +31,17 @@ class ClohessyWiltshire : public ClohessyWiltshire2D {
                                     stateTransParams=nullptr) const override;
 
     private:
-        template <class Archive>
-        void serialize(Archive& ar);
+        // template <class Archive>
+        // void serialize(Archive& ar);
         
 };
 
-template <class Archive>
-void ClohessyWiltshire::serialize(Archive& ar) {
-    ar(cereal::make_nvp("ClohessyWiltshire2D",
-                        cereal::virtual_base_class<ClohessyWiltshire2D>(this)));
-    }
+// template <class Archive>
+// void ClohessyWiltshire::serialize(Archive& ar) {
+//     ar(cereal::make_nvp("ClohessyWiltshire2D",
+//                         cereal::virtual_base_class<ClohessyWiltshire2D>(this)));
+//     }
 
 } // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ClohessyWiltshire)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ClohessyWiltshire)

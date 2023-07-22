@@ -2,7 +2,7 @@
 #include <Eigen/Dense>
 #include <functional>
 
-#include "gncpy/SerializeMacros.h"
+// #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
 
@@ -14,7 +14,7 @@ namespace lager::gncpy::dynamics {
 
 /// @brief Interface for all non-linear dynamics models
 class INonLinearDynamics : public IDynamics {
-    friend class cereal::access;
+    // friend class cereal::access;
 
    public:
     virtual ~INonLinearDynamics() = default;
@@ -55,9 +55,9 @@ class INonLinearDynamics : public IDynamics {
     // NOTE: can not serialize std::function or lambda function
     // see
     // https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
-    template <class Archive>
+    // template <class Archive>
     
-    void serialize(Archive& ar);
+    // void serialize(Archive& ar);
     
     double m_dt = 0;
     bool m_hasControlModel = false;
@@ -71,17 +71,17 @@ class INonLinearDynamics : public IDynamics {
 
 // template <typename F>
 
-template <class Archive>
-inline void INonLinearDynamics::serialize(Archive& ar) {
-    bool tmp = m_hasControlModel;
-    m_hasControlModel = false;
-    ar(cereal::make_nvp("IDynamics",
-                        cereal::virtual_base_class<IDynamics>(this)),
-       CEREAL_NVP(m_dt), CEREAL_NVP(m_hasControlModel),
-       CEREAL_NVP(m_continuousControl));
-    m_hasControlModel = tmp;
-}
+// template <class Archive>
+// inline void INonLinearDynamics::serialize(Archive& ar) {
+//     bool tmp = m_hasControlModel;
+//     m_hasControlModel = false;
+//     ar(cereal::make_nvp("IDynamics",
+//                         cereal::virtual_base_class<IDynamics>(this)),
+//        CEREAL_NVP(m_dt), CEREAL_NVP(m_hasControlModel),
+//        CEREAL_NVP(m_continuousControl));
+//     m_hasControlModel = tmp;
+// }
 
 }  // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::INonLinearDynamics)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::INonLinearDynamics)

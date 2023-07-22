@@ -65,24 +65,24 @@ TEST(Curvilinear, Propagate) {
     SUCCEED();
 }
 
-TEST(Curvilinear, serialize) {
-    double dt = 0.1;
-    lager::gncpy::dynamics::CurvilinearMotion dyn;
-    dyn.setDt(dt);
+// TEST(Curvilinear, serialize) {
+//     double dt = 0.1;
+//     lager::gncpy::dynamics::CurvilinearMotion dyn;
+//     dyn.setDt(dt);
 
-    std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
+//     std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
 
-    std::stringstream filtState = dyn.saveClassState();
-    auto dyn2 = lager::gncpy::dynamics::CurvilinearMotion::loadClass(filtState);
+//     std::stringstream filtState = dyn.saveClassState();
+//     auto dyn2 = lager::gncpy::dynamics::CurvilinearMotion::loadClass(filtState);
 
-    std::cout << "Loaded class:\n" << dyn2.toJSON() << std::endl;
+//     std::cout << "Loaded class:\n" << dyn2.toJSON() << std::endl;
 
-    EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
+//     EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
 
-    // curvilinear motion has control hardcoded so these should still be equal
-    EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
+//     // curvilinear motion has control hardcoded so these should still be equal
+//     EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
 
-    EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
+//     EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
 
-    SUCCEED();
-}
+//     SUCCEED();
+// }

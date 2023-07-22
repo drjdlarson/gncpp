@@ -1,24 +1,24 @@
 #pragma once
 #include <Eigen/Dense>
-#include <cereal/access.hpp>
-#include <cereal/archives/binary.hpp>
-#include <cereal/archives/json.hpp>
-#include <cereal/archives/portable_binary.hpp>
-#include <cereal/types/base_class.hpp>
-#include <cereal/types/polymorphic.hpp>
+// #include <cereal/access.hpp>
+// #include <cereal/archives/binary.hpp>
+// #include <cereal/archives/json.hpp>
+// #include <cereal/archives/portable_binary.hpp>
+// #include <cereal/types/base_class.hpp>
+// #include <cereal/types/polymorphic.hpp>
 #include <memory>
 #include <optional>
 
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/filters/Parameters.h"
-#include "gncpy/math/SerializeEigen.h"
+// #include "gncpy/math/SerializeEigen.h"
 #include "gncpy/measurements/IMeasModel.h"
 
 namespace lager::gncpy::filters {
 
 /// @brief Interface for all Bayes filters
 class IBayesFilter {
-    friend class cereal::access;
+    // friend class cereal::access;
 
    public:
     virtual ~IBayesFilter() = default;
@@ -79,17 +79,17 @@ class IBayesFilter {
     inline virtual const Eigen::MatrixXd& viewCov() { return m_cov; }
 
    private:
-    template <class Archive>
-    void serialize(Archive& ar);
+    // template <class Archive>
+    // void serialize(Archive& ar);
 
     Eigen::MatrixXd m_cov;
 };
 
-template <class Archive>
-void IBayesFilter::serialize([[maybe_unused]] Archive& ar) {
-    ar(CEREAL_NVP(m_cov));
-}
+// template <class Archive>
+// void IBayesFilter::serialize([[maybe_unused]] Archive& ar) {
+//     ar(CEREAL_NVP(m_cov));
+// }
 
 }  // namespace lager::gncpy::filters
 
-CEREAL_REGISTER_TYPE(lager::gncpy::filters::IBayesFilter)
+// CEREAL_REGISTER_TYPE(lager::gncpy::filters::IBayesFilter)

@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "gncpy/SerializeMacros.h"
+// #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/INonLinearDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
 
@@ -32,9 +32,9 @@ namespace lager::gncpy::dynamics {
  *
  */
 class CurvilinearMotion final : public INonLinearDynamics {
-    friend class cereal::access;
+    // friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(CurvilinearMotion)
+    // GNCPY_SERIALIZE_CLASS(CurvilinearMotion)
 
    public:
     CurvilinearMotion();
@@ -55,8 +55,8 @@ class CurvilinearMotion final : public INonLinearDynamics {
     void clearControlModel() override;
 
    private:
-    template <class Archive>
-    void serialize(Archive& ar);
+    // template <class Archive>
+    // void serialize(Archive& ar);
     double m_dt;
     // std::shared_ptr<lager::gncpy::control::IControlModel> m_controlModel;
 };
@@ -71,12 +71,12 @@ class CurvilinearMotion final : public INonLinearDynamics {
 //               << std::endl;
 // }
 
-template <class Archive>
-void CurvilinearMotion::serialize(Archive& ar) {
-    ar(cereal::make_nvp("INonLinearDynamics",
-                        cereal::virtual_base_class<INonLinearDynamics>(this)));
-}
+// template <class Archive>
+// void CurvilinearMotion::serialize(Archive& ar) {
+//     ar(cereal::make_nvp("INonLinearDynamics",
+//                         cereal::virtual_base_class<INonLinearDynamics>(this)));
+// }
 
 }  // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::CurvilinearMotion)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::CurvilinearMotion)

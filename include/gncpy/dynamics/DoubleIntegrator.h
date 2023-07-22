@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "gncpy/SerializeMacros.h"
+// #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
 
@@ -11,9 +11,9 @@ namespace lager::gncpy::dynamics {
 
 /// @brief Double integrator dynamics
 class DoubleIntegrator final : public ILinearDynamics {
-    friend class cereal::access;
+    // friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(DoubleIntegrator)
+    // GNCPY_SERIALIZE_CLASS(DoubleIntegrator)
 
    public:
     DoubleIntegrator() = default;
@@ -31,20 +31,20 @@ class DoubleIntegrator final : public ILinearDynamics {
     inline void setDt(double dt) { m_dt = dt; }
 
    private:
-    template <class Archive>
-    void serialize(Archive& ar);
+    // template <class Archive>
+    // void serialize(Archive& ar);
 
     double m_dt;
     // std::shared_ptr<lager::gncpy::control::IControlModel> m_controlModel;
 };
 
-template <class Archive>
-void DoubleIntegrator::serialize(Archive& ar) {
-    ar(cereal::make_nvp("ILinearDynamics",
-                        cereal::virtual_base_class<ILinearDynamics>(this)),
-       CEREAL_NVP(m_dt));
-}
+// template <class Archive>
+// void DoubleIntegrator::serialize(Archive& ar) {
+//     ar(cereal::make_nvp("ILinearDynamics",
+//                         cereal::virtual_base_class<ILinearDynamics>(this)),
+//        CEREAL_NVP(m_dt));
+// }
 
 }  // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::DoubleIntegrator)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::DoubleIntegrator)

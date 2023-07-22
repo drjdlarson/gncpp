@@ -1,12 +1,12 @@
 #pragma once
-#include <cereal/access.hpp>
-#include <cereal/archives/binary.hpp>
-#include <cereal/archives/json.hpp>
-#include <cereal/archives/portable_binary.hpp>
-#include <cereal/types/base_class.hpp>
-#include <cereal/types/polymorphic.hpp>
+// #include <cereal/access.hpp>
+// #include <cereal/archives/binary.hpp>
+// #include <cereal/archives/json.hpp>
+// #include <cereal/archives/portable_binary.hpp>
+// #include <cereal/types/base_class.hpp>
+// #include <cereal/types/polymorphic.hpp>
 
-#include "gncpy/SerializeMacros.h"
+// #include "gncpy/SerializeMacros.h"
 
 namespace lager::gncpy::dynamics {
 
@@ -19,18 +19,18 @@ namespace lager::gncpy::dynamics {
  *
  */
 class StateTransParams {
-    friend class cereal::access;
+    // friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(StateTransParams)
+    // GNCPY_SERIALIZE_CLASS(StateTransParams)
 
    public:
     virtual ~StateTransParams() = default;
 
    private:
-    template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
+    // template <class Archive>
+    // void serialize([[maybe_unused]] Archive& ar) {
         /* nothing to serialize */
-    }
+    // }
 };
 
 /**
@@ -65,22 +65,22 @@ class StateTransParams {
  *
  */
 class ConstraintParams {
-    friend class cereal::access;
+    // friend class cereal::access;
 
-    GNCPY_SERIALIZE_CLASS(ConstraintParams)
+    // GNCPY_SERIALIZE_CLASS(ConstraintParams)
 
    public:
     virtual ~ConstraintParams() = default;
 
    private:
-    template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
-        /* nothing to serialize */
-    }
+    // template <class Archive>
+    // void serialize([[maybe_unused]] Archive& ar) {
+    //     /* nothing to serialize */
+    // }
 };
 
 }  // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::StateTransParams)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::StateTransParams)
 // CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ControlParams)
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ConstraintParams)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::ConstraintParams)

@@ -1,14 +1,14 @@
 #pragma once
 #include <Eigen/Dense>
-#include <cereal/access.hpp>
-#include <cereal/archives/binary.hpp>
-#include <cereal/archives/json.hpp>
-#include <cereal/archives/portable_binary.hpp>
-#include <cereal/types/base_class.hpp>
-#include <cereal/types/polymorphic.hpp>
+// #include <cereal/access.hpp>
+// #include <cereal/archives/binary.hpp>
+// #include <cereal/archives/json.hpp>
+// #include <cereal/archives/portable_binary.hpp>
+// #include <cereal/types/base_class.hpp>
+// #include <cereal/types/polymorphic.hpp>
 #include <functional>
 
-#include "gncpy/SerializeMacros.h"
+// #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/Exceptions.h"
 #include "gncpy/dynamics/Parameters.h"
 
@@ -19,7 +19,7 @@ namespace lager::gncpy::dynamics {
 
 /// @brief Base interface for all dynamics
 class IDynamics {
-    friend class cereal::access;
+    // friend class cereal::access;
 
    public:
     virtual ~IDynamics() = default;
@@ -94,8 +94,8 @@ class IDynamics {
         const ConstraintParams* const constraintParams = nullptr) const;
 
    private:
-    template <class Archive>
-    void serialize(Archive& ar);
+    // template <class Archive>
+    // void serialize(Archive& ar);
 
     bool m_hasStateConstraint = false;
     std::function<void(double timestep, Eigen::VectorXd& state,
@@ -109,14 +109,14 @@ void IDynamics::setStateConstraints(F&& constrants) {
     m_stateConstraints = std::forward<F>(constrants);
 }
 
-template <class Archive>
-void IDynamics::serialize(Archive& ar) {
-    bool tmp = m_hasStateConstraint;
-    m_hasStateConstraint = false;
-    ar(CEREAL_NVP(m_hasStateConstraint));
-    m_hasStateConstraint = tmp;
-}
+// template <class Archive>
+// void IDynamics::serialize(Archive& ar) {
+//     bool tmp = m_hasStateConstraint;
+//     m_hasStateConstraint = false;
+//     ar(CEREAL_NVP(m_hasStateConstraint));
+//     m_hasStateConstraint = tmp;
+// }
 
 }  // namespace lager::gncpy::dynamics
 
-CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::IDynamics)
+// CEREAL_REGISTER_TYPE(lager::gncpy::dynamics::IDynamics)

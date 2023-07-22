@@ -85,31 +85,31 @@ TEST(CWHOrbit2D, Control) {
 
 // Change
 
-TEST(CWHOrbit2D, serialize) {
-    double dt = 0.1;
-    double mean_motion = 2 * M_PI;
-    lager::gncpy::dynamics::ClohessyWiltshire2D dyn(dt, mean_motion);
-    auto controller = std::make_shared<lager::gncpy::control::StateControl>(1, 1);
-    //Define control model variable
+// TEST(CWHOrbit2D, serialize) {
+//     double dt = 0.1;
+//     double mean_motion = 2 * M_PI;
+//     lager::gncpy::dynamics::ClohessyWiltshire2D dyn(dt, mean_motion);
+//     auto controller = std::make_shared<lager::gncpy::control::StateControl>(1, 1);
+//     //Define control model variable
 
-    dyn.setControlModel(
-        controller
-       );
+//     dyn.setControlModel(
+//         controller
+//        );
 
-    std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
+//     std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
 
-    std::stringstream filtState = dyn.saveClassState();
-    auto dyn2 = lager::gncpy::dynamics::ClohessyWiltshire2D::loadClass(filtState);
+//     std::stringstream filtState = dyn.saveClassState();
+//     auto dyn2 = lager::gncpy::dynamics::ClohessyWiltshire2D::loadClass(filtState);
 
-    std::cout << "Loaded class:\n" << dyn2.toJSON() << std::endl;
+//     std::cout << "Loaded class:\n" << dyn2.toJSON() << std::endl;
 
-    EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
-    EXPECT_DOUBLE_EQ(dyn.mean_motion(), dyn2.mean_motion());
+//     EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
+//     EXPECT_DOUBLE_EQ(dyn.mean_motion(), dyn2.mean_motion());
 
-    // can not save control model or state constraint function
-    EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
+//     // can not save control model or state constraint function
+//     EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
 
-    EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
+//     EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
 
-    SUCCEED();
-}
+//     SUCCEED();
+// }

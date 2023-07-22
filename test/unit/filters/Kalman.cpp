@@ -129,43 +129,43 @@ TEST(KFTest, FilterCorrect) {
     SUCCEED();
 }
 
-TEST(KFTest, serialize) {
-    double dt = 0.2;
-    const Eigen::Matrix4d cov({{1.0, 0.0, 0.3, 0.0},
-                               {0.0, 1.0, 0.0, 4.0},
-                               {0.0, 3.0, 1.0, 0.0},
-                               {4.5, 0.0, 0.0, 1.0}});
-    const Eigen::Matrix4d pNoise({{0.1, 0.0, 0.0, 0.0},
-                                  {0.0, 0.1, 0.0, 0.3},
-                                  {0.2, 0.0, 0.01, 0.0},
-                                  {0.0, 0.0, 0.0, 0.01}});
-    const Eigen::Matrix4d mNoise({{0.2, 0.0, 0.0, 0.0},
-                                  {2.0, 0.4, 0.0, 0.0},
-                                  {0.0, 0.0, 0.45, 2.4},
-                                  {0.0, 0.0, 0.0, 0.31}});
-    auto dynObj =
-        std::make_shared<lager::gncpy::dynamics::DoubleIntegrator>(dt);
-    auto measObj =
-        std::make_shared<lager::gncpy::measurements::StateObservation>();
-    lager::gncpy::filters::Kalman filt;
-    filt.getCov() = cov;
-    filt.setStateModel(dynObj, pNoise);
-    filt.setMeasurementModel(measObj, mNoise);
+// TEST(KFTest, serialize) {
+//     double dt = 0.2;
+//     const Eigen::Matrix4d cov({{1.0, 0.0, 0.3, 0.0},
+//                                {0.0, 1.0, 0.0, 4.0},
+//                                {0.0, 3.0, 1.0, 0.0},
+//                                {4.5, 0.0, 0.0, 1.0}});
+//     const Eigen::Matrix4d pNoise({{0.1, 0.0, 0.0, 0.0},
+//                                   {0.0, 0.1, 0.0, 0.3},
+//                                   {0.2, 0.0, 0.01, 0.0},
+//                                   {0.0, 0.0, 0.0, 0.01}});
+//     const Eigen::Matrix4d mNoise({{0.2, 0.0, 0.0, 0.0},
+//                                   {2.0, 0.4, 0.0, 0.0},
+//                                   {0.0, 0.0, 0.45, 2.4},
+//                                   {0.0, 0.0, 0.0, 0.31}});
+//     auto dynObj =
+//         std::make_shared<lager::gncpy::dynamics::DoubleIntegrator>(dt);
+//     auto measObj =
+//         std::make_shared<lager::gncpy::measurements::StateObservation>();
+//     lager::gncpy::filters::Kalman filt;
+//     filt.getCov() = cov;
+//     filt.setStateModel(dynObj, pNoise);
+//     filt.setMeasurementModel(measObj, mNoise);
 
-    std::cout << "Original class:\n" << filt.toJSON() << std::endl;
-    std::stringstream classState = filt.saveClassState();
+//     std::cout << "Original class:\n" << filt.toJSON() << std::endl;
+//     std::stringstream classState = filt.saveClassState();
 
-    auto filt2 = lager::gncpy::filters::Kalman::loadClass(classState);
-    std::cout << "Loaded class:\n" << filt2.toJSON() << std::endl;
+//     auto filt2 = lager::gncpy::filters::Kalman::loadClass(classState);
+//     std::cout << "Loaded class:\n" << filt2.toJSON() << std::endl;
 
-    EXPECT_EQ(filt.viewCov().rows(), filt2.viewCov().rows());
-    EXPECT_EQ(filt.viewCov().cols(), filt2.viewCov().cols());
+//     EXPECT_EQ(filt.viewCov().rows(), filt2.viewCov().rows());
+//     EXPECT_EQ(filt.viewCov().cols(), filt2.viewCov().cols());
 
-    for (size_t r = 0; r < filt.viewCov().rows(); r++) {
-        for (size_t c = 0; c < filt.viewCov().cols(); c++) {
-            EXPECT_DOUBLE_EQ(filt.viewCov()(r, c), filt2.viewCov()(r, c));
-        }
-    }
+//     for (size_t r = 0; r < filt.viewCov().rows(); r++) {
+//         for (size_t c = 0; c < filt.viewCov().cols(); c++) {
+//             EXPECT_DOUBLE_EQ(filt.viewCov()(r, c), filt2.viewCov()(r, c));
+//         }
+//     }
 
-    SUCCEED();
-}
+//     SUCCEED();
+// }
