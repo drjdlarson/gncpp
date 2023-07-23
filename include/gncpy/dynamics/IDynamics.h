@@ -1,6 +1,7 @@
 #pragma once
 #include <Eigen/Dense>
 #include <boost/serialization/access.hpp>
+#include <concepts>
 #include <functional>
 
 #include "gncpy/SerializeMacros.h"
@@ -78,6 +79,8 @@ class IDynamics {
      * @param constrants
      */
     template <typename F>
+        requires std::invocable<F, double, Eigen::VectorXd&,
+                                const ConstraintParams* const>
     void setStateConstraints(F&& constrants);
     inline void clearStateConstraints() { m_hasStateConstraint = false; }
     inline bool hasStateConstraint() const { return m_hasStateConstraint; }
@@ -98,6 +101,8 @@ class IDynamics {
 };
 
 template <typename F>
+    requires std::invocable<F, double, Eigen::VectorXd&,
+                            const ConstraintParams* const>
 void IDynamics::setStateConstraints(F&& constrants) {
     m_hasStateConstraint = false;
     m_stateConstraints = std::forward<F>(constrants);

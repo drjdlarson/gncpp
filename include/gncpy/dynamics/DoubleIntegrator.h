@@ -40,7 +40,6 @@ class DoubleIntegrator final : public ILinearDynamics {
     }
 
     double m_dt;
-    // std::shared_ptr<lager::gncpy::control::IControlModel> m_controlModel;
 };
 
 }  // namespace lager::gncpy::dynamics

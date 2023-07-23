@@ -88,7 +88,10 @@
         "slist": "cpp",
         "scoped_allocator": "cpp",
         "shared_mutex": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "cfenv": "cpp",
+        "coroutine": "cpp",
+        "source_location": "cpp"
     },
     "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/Debug/compile_commands.json"
 }

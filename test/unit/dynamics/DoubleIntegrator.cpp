@@ -73,26 +73,30 @@ TEST(DoubleInt, Control) {
 TEST(DoubleInt, serialize) {
     double dt = 0.1;
     lager::gncpy::dynamics::DoubleIntegrator dyn(dt);
-    auto controller =
-        std::make_shared<lager::gncpy::control::StateControl>(1, 1);
-    // Define control model variable
 
-    dyn.setControlModel(controller);
+    // Define control model variable
+    dyn.setControlModel(
+        std::make_shared<lager::gncpy::control::StateControl>(1, 1));
 
     // std::cout << "Original class:\n" << dyn.toXML() << std::endl;
 
     std::stringstream filtState = dyn.saveClassState();
-    // std::cout << "Filt State Is Good Baby";
     auto dyn2 = lager::gncpy::dynamics::DoubleIntegrator::loadClass(filtState);
 
     // std::cout << "Loaded class:\n" << dyn2.toXML() << std::endl;
 
     EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
+    EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
 
-    // can not save control model or state constraint function
-    // EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
-
-    // EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
+    auto origCtrl =
+        std::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
+            dyn.controlModel());
+    auto loadedCtrl =
+        std::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
+            dyn2.controlModel());
+    EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
+    EXPECT_EQ(origCtrl->stateDim(), loadedCtrl->stateDim());
+    EXPECT_EQ(origCtrl->contDim(), loadedCtrl->contDim());
 
     SUCCEED();
 }

@@ -84,7 +84,11 @@ class ILinearDynamics : public IDynamics {
 
     std::shared_ptr<lager::gncpy::control::ILinearControlModel> controlModel()
         const {
-        return m_controlModel;
+        if (hasControlModel()) {
+            return m_controlModel;
+        } else {
+            throw NoControlError();
+        }
     }
 
    protected:
