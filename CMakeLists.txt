@@ -66,6 +66,7 @@ set_verbose(GNCPY_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE STRING
 option(GNCPY_DOC "Generate the doc target." ${GNCPY_MASTER_PROJECT})
 option(GNCPY_INSTALL "Generate the install target." ON)
 option(GNCPY_TEST "Generate the test target." ${GNCPY_MASTER_PROJECT})
+option(GNCPY_FPIC "Controls whether position independent code is used." ON)
 
 if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
     set(GNCPY_TEST ON)
@@ -171,6 +172,7 @@ target_include_directories(gncpy PUBLIC
 
 if(CMAKE_BUILD_TYPE MATCHES "^[Cc]overage")
     set(CODE_COVERAGE_VERBOSE ON)
+    set(GCOVR_ADDITIONAL_ARGS "--merge-mode-functions=separate")
     include(CodeCoverage)
     append_coverage_compiler_flags_to_target(gncpy)
     setup_target_for_coverage_gcovr_xml(
@@ -217,7 +219,6 @@ elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
         message(STATUS "Using GNU compiler, adding full set of compiler flags")
         target_compile_options(gncpy PRIVATE
-            "-fPIC"
             "-Wall"
             "-Wextra"
             "-Wpedantic"
@@ -229,6 +230,9 @@ elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
             "-fvar-tracking"
             "-fvar-tracking-assignments"
         )
+        if(GNCPY_FPIC)
+            target_compile_options(gncpy PRIVATE "-fPIC")
+        endif()
     elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
         message(STATUS "Using MSVC compiler, adding reduced set of compiler flags")
             target_compile_options(gncpy PRIVATE
@@ -239,13 +243,15 @@ elseif(CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
     else()
         message(STATUS "Not using GNU or MSVC compiler, adding reduced set of compiler flags")
             target_compile_options(gncpy PRIVATE
-            "-fPIC"
             "-Wall"
             "-Wextra"
             "-Wpedantic"
             "-gdwarf-4"
             "-Og"
         )
+        if(GNCPY_FPIC)
+            target_compile_options(gncpy PRIVATE "-fPIC")
+        endif()
     endif()
 else()
     if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
@@ -258,12 +264,14 @@ else()
     else()
         message(STATUS "Not using MSVC compiler, adding full set of compiler flags")
         target_compile_options(gncpy PRIVATE
-            "-fPIC"
             "-Wall"
             "-Wextra"
             "-Wpedantic"
             "-O3"
         )
+        if(GNCPY_FPIC)
+            target_compile_options(gncpy PRIVATE "-fPIC")
+        endif()
     endif()
 endif()
 

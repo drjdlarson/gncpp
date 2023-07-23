@@ -77,6 +77,7 @@ class ILinearDynamics : public IDynamics {
         std::shared_ptr<control::ILinearControlModel>
             model);  // comparable to set dynamics model, use that as a template
     void clearControlModel() override { m_controlModel.reset(); }
+
     bool hasControlModel() const override {
         return static_cast<bool>(m_controlModel);
     }

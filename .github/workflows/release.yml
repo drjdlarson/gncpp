@@ -121,48 +121,48 @@ jobs:
       - name: Build in Debug
         run: |
           cd /workspace
-          mkdir build
-          cd build
-          cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Debug ..
-          make -j2
+          conan install . --build=missing -o with_docs=False -o with_tests=True -s build_type=Debug
+          cmake . --preset conan-debug
+          cmake --build . --preset conan-debug -j4
 
       - name: Unit test in Debug
         run: |
-          cd /workspace/build
-          ctest --output-on-failure -j2 --output-junit docs/html/reports/junit/junit.xml
+          cd /workspace/build/Debug
+          ctest --output-on-failure -j4 --output-junit docs/html/reports/junit/junit.xml
 
       - name: Generate test report and badge
         run: |
-          cd /workspace/build
+          cd /workspace/build/Debug
           junit2html docs/html/reports/junit/junit.xml docs/html/reports/junit/junit.html
           genbadge tests -i docs/html/reports/junit/junit.xml -o docs/html/reports/junit/tests-badge.svg
 
       - name: Generate coverage report and badge
         run: |
-          cd /workspace/build
-          cmake -DCMAKE_BUILD_TYPE=Coverage -DGNCPY_INSTALL=OFF -DGNCPY_TEST=ON -DGNCPY_DOC=ON ..
-          make -j2
-          make -j2 ctest_coverage_xml
-          make -j2 ctest_coverage_html
+          conan install . --build=missing -o with_docs=False -s build_type=Coverage
+          cmake . --preset conan-coverage
+          cmake --build . --preset conan-coverage -j4 --target ctest_coverage_xml
+          cmake --build . --preset conan-coverage -j4 --target ctest_coverage_html
+          cd /workspace/build/Coverage
           genbadge coverage -i docs/html/reports/coverage/coverage.xml -o docs/html/reports/coverage/coverage-badge.svg
+          cp -r docs/html/reports/coverage /workspace/build/Debug/docs/html/reports/
 
       - uses: actions/upload-artifact@v3
         with:
           name: test-reports-artifact
-          path: ${{ github.workspace }}/build/docs/html/reports
+          path: ${{ github.workspace }}/build/Debug/docs/html/reports
           if-no-files-found: error
 
       - name: Build Documentation
         run: |
-          cd /workspace/build
-          cmake -DGNCPY_TEST=OFF -DGNCPY_DOC=ON -DGNCPY_INSTALL=OFF -DCMAKE_BUILD_TYPE=Debug ..
-          make -j2
+          conan install . --build=missing -o with_docs=True -s build_type=Debug
+          cmake . --preset conan-debug
+          cmake --build . --preset conan-debug -j4
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/docs/html
+          publish_dir: ./build/Debug/docs/html
           keep_files: true
 
       - uses: "marvinpinto/action-automatic-releases@latest"

@@ -89,12 +89,7 @@ class IDynamics {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
-        // bool tmp = m_hasStateConstraint;
-        // m_hasStateConstraint = false;
-        ar& m_hasStateConstraint;
-        // m_hasStateConstraint = tmp;
-    }
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version);
 
     bool m_hasStateConstraint = false;
     std::function<void(double timestep, Eigen::VectorXd& state,
@@ -108,12 +103,10 @@ void IDynamics::setStateConstraints(F&& constrants) {
     m_stateConstraints = std::forward<F>(constrants);
 }
 
-// template <class Archive>
-// void IDynamics::serialize(Archive& ar) {
-//     bool tmp = m_hasStateConstraint;
-//     m_hasStateConstraint = false;
-//     ar(CEREAL_NVP(m_hasStateConstraint));
-//     m_hasStateConstraint = tmp;
-// }
+template <class Archive>
+void IDynamics::serialize(Archive& ar,
+                          [[maybe_unused]] const unsigned int version) {
+    ar& m_hasStateConstraint;
+}
 
 }  // namespace lager::gncpy::dynamics

@@ -28,7 +28,9 @@
     }                                                                      \
     virtual std::string toXML() const {                                    \
         std::stringstream ssb();                                           \
-        boost::archive::xml_oarchive oa(std::cout);                        \
-        oa << boost::serialization::make_nvp("test", *this);               \
         return "";                                                         \
     }
+/*boost::archive::xml_oarchive oa(std::cout);                        \
+oa << boost::serialization::make_nvp("test", *this);               \
+return "";                                                         \
+}*/

@@ -1,3 +1,6 @@
+if(GNCPY_COVERAGE)
+  include(CodeCoverage)
+endif()
 #---------------------------------------------------------------------------
 # setup Kalman Filter tests
 #---------------------------------------------------------------------------
@@ -26,4 +29,7 @@ target_link_libraries(
   Eigen3::Eigen
   lager::gncpy
 )
+if(GNCPY_COVERAGE)
+  append_coverage_compiler_flags_to_target(extended_kalman_test)
+endif()
 gtest_discover_tests(extended_kalman_test)

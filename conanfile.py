@@ -26,15 +26,13 @@ class gncpyRecipe(ConanFile):
         "shared": [
             False,
         ],
-        "fPIC": [
-            False,
-        ],
+        "fPIC": [True, False],
     }
     default_options = {
         "with_tests": False,
         "with_docs": True,
         "shared": False,
-        "fPIC": False,
+        "fPIC": True,
     }
 
     # Sources are located in the same place as this recipe, copy them to the recipe
@@ -92,6 +90,7 @@ class gncpyRecipe(ConanFile):
         tc.cache_variables["GNCPY_TEST"] = self.options.with_tests
         tc.cache_variables["GNCPY_INSTALL"] = True
         tc.cache_variables["GNCPY_LIB_DIR"] = "lib"
+        tc.cache_variables["GNCPY_FPIC"] = self.options.fPIC
         tc.generate()
 
     def build(self):

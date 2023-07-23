@@ -81,7 +81,14 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "hash_map": "cpp"
+        "hash_map": "cpp",
+        "strstream": "cpp",
+        "codecvt": "cpp",
+        "rope": "cpp",
+        "slist": "cpp",
+        "scoped_allocator": "cpp",
+        "shared_mutex": "cpp",
+        "span": "cpp"
     },
-    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/Release/compile_commands.json"
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/Debug/compile_commands.json"
 }

@@ -17,7 +17,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
       image: ghcr.io/${{ github.repository }}-dev:latest
-      options: --cpus 2
+      options: --cpus 4
 
     steps:
       - name: Checkout
@@ -25,15 +25,14 @@ jobs:
 
       - name: Build in Debug
         run: |
-          mkdir build
-          cd build
-          cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Release ..
-          cmake --build .
+          conan install . --build=missing -o with_docs=False -o with_tests=True -s build_type=Debug
+          cmake . --preset conan-debug
+          cmake --build . --preset conan-debug -j4
 
       - name: Unit test in Debug
         run: |
-          cd build
-          ctest --output-on-failure -j2
+          cd build/Debug
+          ctest --output-on-failure -j4
 
   unit-test-dbg:
     name: Run unit tests on ${{ matrix.os }} (Debug mode)
@@ -49,15 +48,14 @@ jobs:
 
       - name: Build in Debug
         run: |
-          mkdir build
-          cd build
-          cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Debug ..
-          cmake --build .
+          conan install . --build=missing -o with_docs=False -o with_tests=True -s build_type=Debug
+          cmake . --preset conan-debug
+          cmake --build . --preset conan-debug -j4
 
       - name: Unit test in Debug
         run: |
-          cd build
-          ctest --output-on-failure -j2
+          cd build/Debug
+          ctest --output-on-failure -j4
 
   unit-test-rel:
     name: Run unit tests on ${{ matrix.os }} (Release mode)
@@ -73,12 +71,11 @@ jobs:
 
       - name: Build in Release
         run: |
-          mkdir build
-          cd build
-          cmake -DGNCPY_TEST=ON -DGNCPY_DOC=OFF -DGNCPY_INSTALL=ON -DCMAKE_BUILD_TYPE=Release ..
-          cmake --build .
+          conan install . --build=missing -o with_docs=False -o with_tests=True -s build_type=Release
+          cmake . --preset conan-release
+          cmake --build . --preset conan-release -j4
 
       - name: Unit test in Release
         run: |
-          cd build
-          ctest --output-on-failure -j2
+          cd build/Release
+          ctest --output-on-failure -j4
