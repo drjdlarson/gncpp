@@ -3,9 +3,11 @@
 #include <functional>
 #include <memory>
 
-// #include "gncpy/SerializeMacros.h"
-#include <boost/serialization/shared_ptr.hpp>
+#include "gncpy/SerializeMacros.h"
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
+#include <boost/serialization/shared_ptr.hpp>
+
 #include "gncpy/control/IControlModel.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/IDynamics.h"
@@ -62,7 +64,7 @@ class INonLinearDynamics : public IDynamics {
         ar& boost::serialization::base_object<IDynamics>(*this);
         ar& m_dt;
         ar& m_controlModel;
-    };
+    }
 
     double m_dt = 0;
     bool m_hasControlModel = false;

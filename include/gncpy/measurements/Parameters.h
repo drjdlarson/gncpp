@@ -1,6 +1,7 @@
 #pragma once
+#include <boost/serialization/access.hpp>
 
-// #include "gncpy/SerializeMacros.h"
+#include "gncpy/SerializeMacros.h"
 
 namespace lager::gncpy::measurements {
 

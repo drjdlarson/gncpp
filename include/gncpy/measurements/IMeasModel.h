@@ -1,6 +1,6 @@
 #pragma once
 #include <Eigen/Dense>
-
+#include <boost/serialization/access.hpp>
 #include "gncpy/measurements/Parameters.h"
 
 namespace lager::gncpy::measurements {

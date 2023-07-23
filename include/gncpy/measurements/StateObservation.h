@@ -1,10 +1,11 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/vector.hpp>
 #include <vector>
 
-// #include "gncpy/SerializeMacros.h"
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/measurements/ILinearMeasModel.h"
 #include "gncpy/measurements/Parameters.h"
 
@@ -31,7 +32,7 @@ class StateObservationParams final : public MeasParams {
 };
 
 class StateObservation final : public ILinearMeasModel {
-    friend class boos::serialization::access;
+    friend class boost::serialization::access;
 
     // GNCPY_SERIALIZE_CLASS(StateObservation)
 

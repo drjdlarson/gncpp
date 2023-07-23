@@ -1,12 +1,11 @@
 #pragma once
 #include <Eigen/Dense>
-// #include <cereal/access.hpp>
-
-// #include "gncpy/SerializeMacros.h"
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
 
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/filters/Kalman.h"
 #include "gncpy/filters/Parameters.h"
@@ -40,7 +39,7 @@ class ExtendedKalman final : public Kalman {
     template <class Archive>
     void serialize(Archive& ar) {
         ar& boost::serialization::base_object<Kalman>(*this);
-        ar& m_dynOb;
+        ar& m_dynObj;
         ar& m_measObj;
         m_continuousCov;
     }

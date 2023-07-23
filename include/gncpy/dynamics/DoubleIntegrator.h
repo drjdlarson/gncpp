@@ -2,9 +2,9 @@
 #include <Eigen/Dense>
 #include <string>
 #include <vector>
-
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
-// #include "gncpy/SerializeMacros.h"
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
 

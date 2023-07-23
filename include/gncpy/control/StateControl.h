@@ -1,10 +1,11 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/vector.hpp>
 #include <vector>
 
-// #include "gncpy/SerializeMacros.h"
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/control/ILinearControlModel.h"
 #include "gncpy/control/Parameters.h"
 
@@ -61,7 +62,7 @@ class StateControl final : public ILinearControlModel {
     size_t m_contDim;
     template <class Archive>
     void serialize(Archive& ar) {
-        ar& boost::serialization::base_obect<ILinearControlModel>(*this);
+        ar& boost::serialization::base_object<ILinearControlModel>(*this);
         ar& m_stateDim;
         ar& m_contDim;
     }
