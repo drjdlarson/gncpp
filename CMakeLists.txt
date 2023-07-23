@@ -116,7 +116,7 @@ endif ()
 # ---------------------- Find dependencies -------------------------
 # ------------------------------------------------------------------
 find_package(Eigen3 3.4.0 REQUIRED)
-find_package(Boost 1.82.0 REQUIRED)
+find_package(Boost 1.82.0 REQUIRED COMPONENTS serialization)
 
 # ------------------------------------------------------------------
 # --------------------- Check status of options --------------------
@@ -163,7 +163,7 @@ add_library(lager::gncpy ALIAS gncpy)
 add_subdirectory(src)
 
 
-target_link_libraries(gncpy PRIVATE Eigen3::Eigen Boost::serialization)
+target_link_libraries(gncpy Eigen3::Eigen Boost::serialization)
 target_include_directories(gncpy PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${GNCPY_INC_DIR}>

@@ -17,7 +17,7 @@ TEST(MeasurementTest, StateObservationParamsSerialize) {
 
     std::stringstream ss;
     boost::archive::binary_oarchive oa(ss);
-    classState << params;
+    oa << params;
 
     lager::gncpy::measurements::StateObservationParams loadedParams;
     boost::archive::binary_iarchive ia(ss);

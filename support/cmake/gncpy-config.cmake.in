@@ -6,4 +6,4 @@ endif ()
 
 # check_required_components(gncpy)
 find_dependency(Eigen ${GNCPY_EIGEN_VERSION} REQUIRED)
-find_dependency(Boost 1.82.0 REQUIRED)
+find_dependency(Boost 1.82.0 REQUIRED COMPONENTS serialization)
