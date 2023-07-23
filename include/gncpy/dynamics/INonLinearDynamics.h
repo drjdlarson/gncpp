@@ -1,13 +1,12 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
+#include <boost/serialization/base_object.hpp>
+#include <boost/serialization/shared_ptr.hpp>
 #include <functional>
 #include <memory>
 
 #include "gncpy/SerializeMacros.h"
-#include <boost/serialization/access.hpp>
-#include <boost/serialization/base_object.hpp>
-#include <boost/serialization/shared_ptr.hpp>
-
 #include "gncpy/control/IControlModel.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/IDynamics.h"
@@ -60,7 +59,7 @@ class INonLinearDynamics : public IDynamics {
     // see
     // https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<IDynamics>(*this);
         ar& m_dt;
         ar& m_controlModel;

@@ -14,7 +14,7 @@ namespace lager::gncpy::control {
 class StateControlParams final : public ControlParams {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(StateControlParams)
+    GNCPY_SERIALIZE_CLASS(StateControlParams)
 
    public:
     StateControlParams() = default;
@@ -36,7 +36,7 @@ class StateControlParams final : public ControlParams {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<ControlParams>(*this);
         ar& contRows;
         ar& contColumns;
@@ -47,12 +47,15 @@ class StateControlParams final : public ControlParams {
 class StateControl final : public ILinearControlModel {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(StateControl)
+    GNCPY_SERIALIZE_CLASS(StateControl)
 
    public:
     StateControl() = default;
-    explicit StateControl(size_t stateDim, size_t contDim)
+    StateControl(size_t stateDim, size_t contDim)
         : m_stateDim(stateDim), m_contDim(contDim) {}
+
+    size_t stateDim() const { return m_stateDim; }
+    size_t contDim() const { return m_contDim; }
 
     Eigen::MatrixXd getInputMat(
         double timestep, const ControlParams* params = nullptr) const override;
@@ -61,7 +64,7 @@ class StateControl final : public ILinearControlModel {
     size_t m_stateDim;
     size_t m_contDim;
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<ILinearControlModel>(*this);
         ar& m_stateDim;
         ar& m_contDim;

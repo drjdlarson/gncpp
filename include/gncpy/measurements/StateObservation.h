@@ -14,7 +14,7 @@ namespace lager::gncpy::measurements {
 class StateObservationParams final : public MeasParams {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(StateObservationParams)
+    GNCPY_SERIALIZE_CLASS(StateObservationParams)
 
    public:
     StateObservationParams() = default;
@@ -25,7 +25,7 @@ class StateObservationParams final : public MeasParams {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<MeasParams>(*this);
         ar& obsInds;
     }
@@ -34,7 +34,7 @@ class StateObservationParams final : public MeasParams {
 class StateObservation final : public ILinearMeasModel {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(StateObservation)
+    GNCPY_SERIALIZE_CLASS(StateObservation)
 
    public:
     StateObservation() = default;
@@ -45,7 +45,7 @@ class StateObservation final : public ILinearMeasModel {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<ILinearMeasModel>(*this);
     }
 };

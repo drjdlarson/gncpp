@@ -1,16 +1,53 @@
 #pragma once
 #include <Eigen/Dense>
-// #include <cereal/archives/binary.hpp>
-// #include <cereal/archives/json.hpp>
-// #include <cereal/archives/portable_binary.hpp>
-// #include <cereal/cereal.hpp>
 #include <map>
 #include <sstream>
+
+namespace boost {
+namespace serialization {
+
+template <class Archive, class S, int Rows_, int Cols_, int Ops_, int MaxRows_,
+          int MaxCols_>
+inline void save(
+    Archive& ar,
+    const Eigen::Matrix<S, Rows_, Cols_, Ops_, MaxRows_, MaxCols_>& g,
+    [[maybe_unused]] const unsigned int version) {
+    int rows = g.rows();
+    int cols = g.cols();
+
+    ar& rows;
+    ar& cols;
+    ar& boost::serialization::make_array(g.data(), rows * cols);
+}
+
+template <class Archive, class S, int Rows_, int Cols_, int Ops_, int MaxRows_,
+          int MaxCols_>
+inline void load(Archive& ar,
+                 Eigen::Matrix<S, Rows_, Cols_, Ops_, MaxRows_, MaxCols_>& g,
+                 [[maybe_unused]] const unsigned int version) {
+    int rows, cols;
+    ar& rows;
+    ar& cols;
+    g.resize(rows, cols);
+    ar& boost::serialization::make_array(g.data(), rows * cols);
+}
+
+template <class Archive, class S, int Rows_, int Cols_, int Ops_, int MaxRows_,
+          int MaxCols_>
+inline void serialize(
+    Archive& ar, Eigen::Matrix<S, Rows_, Cols_, Ops_, MaxRows_, MaxCols_>& g,
+    [[maybe_unused]] const unsigned int version) {
+    split_free(ar, g, version);
+}
+
+}  // namespace serialization
+}  // namespace boost
 
 // namespace cereal {
 
 // // see
-// // https://stackoverflow.com/questions/22884216/serializing-eigenmatrix-using-cereal-library
+// //
+// https://stackoverflow.com/questions/22884216/serializing-eigenmatrix-using-cereal-library
 // // for details
 
 // // ---------------------------------------------------------
@@ -23,7 +60,8 @@
 //     traits::is_output_serializable<BinaryData<_Scalar>, Archive>::value,
 //     void>::type
 // save(Archive& ar,
-//      Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols> const&
+//      Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>
+//      const&
 //          m) {
 //     int32_t rows = m.rows();
 //     int32_t cols = m.cols();
@@ -57,8 +95,9 @@
 // template <class Archive, class _Scalar, int _Rows, int _Cols, int _Options,
 //           int _MaxRows, int _MaxCols>
 // inline
-//     typename std::enable_if<traits::is_text_archive<Archive>::value, void>::type
-//     save(Archive& ar, Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows,
+//     typename std::enable_if<traits::is_text_archive<Archive>::value,
+//     void>::type save(Archive& ar, Eigen::Matrix<_Scalar, _Rows, _Cols,
+//     _Options, _MaxRows,
 //                                     _MaxCols> const& m) {
 //     int32_t rows = m.rows();
 //     int32_t cols = m.cols();
@@ -77,10 +116,11 @@
 // template <class Archive, class _Scalar, int _Rows, int _Cols, int _Options,
 //           int _MaxRows, int _MaxCols>
 // inline
-//     typename std::enable_if<traits::is_text_archive<Archive>::value, void>::type
-//     load(
+//     typename std::enable_if<traits::is_text_archive<Archive>::value,
+//     void>::type load(
 //         Archive& ar,
-//         Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>& m) {
+//         Eigen::Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>&
+//         m) {
 //     int32_t rows = -1;
 //     int32_t cols = -1;
 //     std::map<std::string, double> data;

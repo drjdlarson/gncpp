@@ -27,7 +27,8 @@ class INonLinearMeasModel : public IMeasModel {
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
+    void serialize([[maybe_unused]] Archive& ar,
+                   [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<IMeasModel>(*this);
     }
 };

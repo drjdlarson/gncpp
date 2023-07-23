@@ -19,7 +19,7 @@ class IMeasModel {
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar){
+    void serialize([[maybe_unused]] Archive& ar, [[maybe_unused]] const unsigned int version){
         /* nothing to serializat */
     }
 };

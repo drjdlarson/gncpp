@@ -23,7 +23,7 @@ namespace lager::gncpy::filters {
 class BayesPredictParams {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(BayesPredictParams)
+    GNCPY_SERIALIZE_CLASS(BayesPredictParams)
 
    public:
     virtual ~BayesPredictParams() = default;
@@ -33,7 +33,7 @@ class BayesPredictParams {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& stateTransParams;
         ar& controlParams;
     }
@@ -50,7 +50,7 @@ class BayesPredictParams {
 class BayesCorrectParams {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(BayesCorrectParams)
+    GNCPY_SERIALIZE_CLASS(BayesCorrectParams)
 
    public:
     virtual ~BayesCorrectParams() = default;
@@ -58,7 +58,7 @@ class BayesCorrectParams {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& measParams;
     }
 };

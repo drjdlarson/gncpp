@@ -9,6 +9,7 @@
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/filters/Kalman.h"
 #include "gncpy/filters/Parameters.h"
+#include "gncpy/math/SerializeEigen.h"
 #include "gncpy/measurements/ILinearMeasModel.h"
 #include "gncpy/measurements/IMeasModel.h"
 #include "gncpy/measurements/INonLinearMeasModel.h"
@@ -18,7 +19,7 @@ namespace lager::gncpy::filters {
 class ExtendedKalman final : public Kalman {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(ExtendedKalman)
+    GNCPY_SERIALIZE_CLASS(ExtendedKalman)
 
    public:
     Eigen::VectorXd predict(
@@ -37,11 +38,11 @@ class ExtendedKalman final : public Kalman {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<Kalman>(*this);
         ar& m_dynObj;
         ar& m_measObj;
-        m_continuousCov;
+        ar& m_continuousCov;
     }
 
     bool m_continuousCov = false;

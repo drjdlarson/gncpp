@@ -1,5 +1,6 @@
 #pragma once
 #include <boost/serialization/access.hpp>
+
 #include "gncpy/SerializeMacros.h"
 
 namespace lager::gncpy::dynamics {
@@ -15,14 +16,15 @@ namespace lager::gncpy::dynamics {
 class StateTransParams {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(StateTransParams)
+    GNCPY_SERIALIZE_CLASS(StateTransParams)
 
    public:
     virtual ~StateTransParams() = default;
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
+    void serialize([[maybe_unused]] Archive& ar,
+                   [[maybe_unused]] const unsigned int version) {
         /* nothing to serialize */
     }
 };
@@ -38,14 +40,15 @@ class StateTransParams {
 class ConstraintParams {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(ConstraintParams)
+    GNCPY_SERIALIZE_CLASS(ConstraintParams)
 
    public:
     virtual ~ConstraintParams() = default;
 
    private:
     template <class Archive>
-    void serialize([[maybe_unused]] Archive& ar) {
+    void serialize([[maybe_unused]] Archive& ar,
+                   [[maybe_unused]] const unsigned int version) {
         /* nothing to serialize */
     }
 };

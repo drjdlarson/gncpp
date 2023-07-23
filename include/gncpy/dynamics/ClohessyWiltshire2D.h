@@ -17,7 +17,7 @@ namespace lager::gncpy::dynamics {
 class ClohessyWiltshire2D : public ILinearDynamics {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(ClohessyWiltshire2D)
+    GNCPY_SERIALIZE_CLASS(ClohessyWiltshire2D)
 
    public:
     ClohessyWiltshire2D() = default;
@@ -45,7 +45,7 @@ class ClohessyWiltshire2D : public ILinearDynamics {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<ILinearDynamics>(*this);
         ar& m_dt;
         ar& m_mean_motion;

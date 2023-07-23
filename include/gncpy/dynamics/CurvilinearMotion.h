@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/control/IControlModel.h"
 #include "gncpy/control/Parameters.h"
@@ -34,7 +35,7 @@ namespace lager::gncpy::dynamics {
 class CurvilinearMotion final : public INonLinearDynamics {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(CurvilinearMotion)
+    GNCPY_SERIALIZE_CLASS(CurvilinearMotion)
 
    public:
     CurvilinearMotion();
@@ -58,7 +59,7 @@ class CurvilinearMotion final : public INonLinearDynamics {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<INonLinearDynamics>(*this);
         ar& m_dt;
     }

@@ -1,14 +1,13 @@
 #pragma once
 #include <Eigen/Dense>
-#include <functional>
-#include <memory>
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+#include <functional>
+#include <memory>
+
 #include "gncpy/Exceptions.h"
 #include "gncpy/SerializeMacros.h"
-
-
 #include "gncpy/control/ILinearControlModel.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/IDynamics.h"
@@ -88,19 +87,17 @@ class ILinearDynamics : public IDynamics {
     }
 
    protected:
-    // NOTE: can not serialize std::function or lambda function
-    // see
-    // https://stackoverflow.com/questions/57095837/serialize-lambda-functions-with-cereal
     std::shared_ptr<control::ILinearControlModel> m_controlModel;
-    template <class Archive>
-    void serialize(Archive& ar) {
-        ar& boost::serialization::base_object<IDynamics>(*this);
-        ar& m_controlModel;
-    }
-
     Eigen::VectorXd propagateState_(
         double timestep, const Eigen::VectorXd& state,
         const StateTransParams* stateTransParams = nullptr) const;
+
+   private:
+    template <class Archive>
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
+        ar& boost::serialization::base_object<IDynamics>(*this);
+        // ar& m_controlModel;
+    }
 };
 
 }  // namespace lager::gncpy::dynamics

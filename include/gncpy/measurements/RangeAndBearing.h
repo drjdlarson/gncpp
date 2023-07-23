@@ -16,7 +16,7 @@ namespace lager::gncpy::measurements {
 class RangeAndBearingParams final : public MeasParams {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(RangeAndBearingParams)
+    GNCPY_SERIALIZE_CLASS(RangeAndBearingParams)
 
    public:
     RangeAndBearingParams() = default;
@@ -28,7 +28,7 @@ class RangeAndBearingParams final : public MeasParams {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<MeasParams>(*this);
         ar& xInd;
         ar& yInd;
@@ -38,7 +38,7 @@ class RangeAndBearingParams final : public MeasParams {
 class RangeAndBearing final : public INonLinearMeasModel {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(RangeAndBearing)
+    GNCPY_SERIALIZE_CLASS(RangeAndBearing)
 
    public:
     RangeAndBearing() = default;
@@ -49,7 +49,7 @@ class RangeAndBearing final : public INonLinearMeasModel {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<INonLinearMeasModel>(*this);
     }
 

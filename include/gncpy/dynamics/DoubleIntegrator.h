@@ -1,9 +1,10 @@
 #pragma once
 #include <Eigen/Dense>
-#include <string>
-#include <vector>
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
+#include <string>
+#include <vector>
+
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
@@ -14,7 +15,7 @@ namespace lager::gncpy::dynamics {
 class DoubleIntegrator final : public ILinearDynamics {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(DoubleIntegrator)
+    GNCPY_SERIALIZE_CLASS(DoubleIntegrator)
 
    public:
     DoubleIntegrator() = default;
@@ -33,7 +34,7 @@ class DoubleIntegrator final : public ILinearDynamics {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<ILinearDynamics>(*this);
         ar& m_dt;
     }

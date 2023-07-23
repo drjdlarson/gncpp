@@ -15,13 +15,11 @@ TEST(MeasurementTest, StateObservationParamsSerialize) {
     std::vector<uint8_t> inds{0, 1};
     lager::gncpy::measurements::StateObservationParams params(inds);
 
-    std::stringstream ss;
-    boost::archive::binary_oarchive oa(ss);
-    oa << params;
+    auto classState = params.saveClassState();
 
-    lager::gncpy::measurements::StateObservationParams loadedParams;
-    boost::archive::binary_iarchive ia(ss);
-    ia >> loadedParams;
+    auto loadedParams =
+        lager::gncpy::measurements::StateObservationParams::loadClass(
+            classState);
 
     EXPECT_EQ(params.obsInds.size(), loadedParams.obsInds.size());
 

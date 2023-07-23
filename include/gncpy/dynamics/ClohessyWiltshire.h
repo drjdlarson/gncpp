@@ -18,7 +18,7 @@ namespace lager::gncpy::dynamics {
 class ClohessyWiltshire : public ClohessyWiltshire2D {
     friend class boost::serialization::access;
 
-    // GNCPY_SERIALIZE_CLASS(ClohessyWiltshire)
+    GNCPY_SERIALIZE_CLASS(ClohessyWiltshire)
 
    public:
     ClohessyWiltshire() = default;
@@ -35,7 +35,7 @@ class ClohessyWiltshire : public ClohessyWiltshire2D {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<ClohessyWiltshire2D>(*this);
     }
 };

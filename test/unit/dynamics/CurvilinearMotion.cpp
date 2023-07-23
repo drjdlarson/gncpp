@@ -1,9 +1,9 @@
+#include <gncpy/dynamics/CurvilinearMotion.h>
+#include <gtest/gtest.h>
+
 #include <Eigen/Dense>
 #include <cmath>
 #include <iostream>
-
-#include <gncpy/dynamics/CurvilinearMotion.h>
-#include <gtest/gtest.h>
 
 TEST(Curvilinear, GetStateMat) {
     double dt = 0.1;
@@ -73,14 +73,15 @@ TEST(Curvilinear, Propagate) {
 //     std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
 
 //     std::stringstream filtState = dyn.saveClassState();
-//     auto dyn2 = lager::gncpy::dynamics::CurvilinearMotion::loadClass(filtState);
+//     auto dyn2 =
+//     lager::gncpy::dynamics::CurvilinearMotion::loadClass(filtState);
 
 //     std::cout << "Loaded class:\n" << dyn2.toJSON() << std::endl;
 
 //     EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
 
-//     // curvilinear motion has control hardcoded so these should still be equal
-//     EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
+//     // curvilinear motion has control hardcoded so these should still be
+//     equal EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
 
 //     EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
 

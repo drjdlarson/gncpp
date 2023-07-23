@@ -1,7 +1,7 @@
+#include <gncpy/control/StateControl.h>
 #include <gncpy/dynamics/DoubleIntegrator.h>
 #include <gncpy/dynamics/Parameters.h>
 #include <gtest/gtest.h>
-#include <gncpy/control/StateControl.h>
 
 #include <Eigen/Dense>
 #include <iostream>
@@ -35,8 +35,9 @@ TEST(DoubleInt, Control) {
     Eigen::Vector4d xk;
     xk << 0., 0., 1., 0.;
 
-    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(xk.size(), xk.size()/2);
-    
+    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(
+        xk.size(), xk.size() / 2);
+
     std::vector<uint8_t> cRows = {2, 3};
     std::vector<uint8_t> cCols = {0, 1};
     auto contParams = lager::gncpy::control::StateControlParams(cRows, cCols);
@@ -62,36 +63,36 @@ TEST(DoubleInt, Control) {
     Eigen::Vector4d exp;
     exp << 5.5, 4.5, 11, 10;
 
-    for (uint8_t ii=0; ii<4;ii++) {
+    for (uint8_t ii = 0; ii < 4; ii++) {
         EXPECT_DOUBLE_EQ(exp(ii), xk(ii));
     }
 
     SUCCEED();
 }
 
-// TEST(DoubleInt, serialize) {
-//     double dt = 0.1;
-//     lager::gncpy::dynamics::DoubleIntegrator dyn(dt);
-//     auto controller = std::make_shared<lager::gncpy::control::StateControl>(1, 1);
-//     //Define control model variable
+TEST(DoubleInt, serialize) {
+    double dt = 0.1;
+    lager::gncpy::dynamics::DoubleIntegrator dyn(dt);
+    auto controller =
+        std::make_shared<lager::gncpy::control::StateControl>(1, 1);
+    // Define control model variable
 
-//     dyn.setControlModel(
-//         controller
-//        );
+    dyn.setControlModel(controller);
 
-//     std::cout << "Original class:\n" << dyn.toJSON() << std::endl;
+    // std::cout << "Original class:\n" << dyn.toXML() << std::endl;
 
-//     std::stringstream filtState = dyn.saveClassState();
-//     auto dyn2 = lager::gncpy::dynamics::DoubleIntegrator::loadClass(filtState);
+    std::stringstream filtState = dyn.saveClassState();
+    // std::cout << "Filt State Is Good Baby";
+    auto dyn2 = lager::gncpy::dynamics::DoubleIntegrator::loadClass(filtState);
 
-//     std::cout << "Loaded class:\n" << dyn2.toJSON() << std::endl;
+    // std::cout << "Loaded class:\n" << dyn2.toXML() << std::endl;
 
-//     EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
+    EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
 
-//     // can not save control model or state constraint function
-//     EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
+    // can not save control model or state constraint function
+    // EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
 
-//     EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
+    // EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
 
-//     SUCCEED();
-// }
+    SUCCEED();
+}

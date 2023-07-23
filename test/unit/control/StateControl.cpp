@@ -8,6 +8,18 @@
 #include "gncpy/Exceptions.h"
 #include "gncpy/math/Math.h"
 
+TEST(ControlTEst, StateControlSerialize) {
+    lager::gncpy::control::StateControl controller(1, 1);
+
+    auto classState = controller.saveClassState();
+
+    auto loadedClass =
+        lager::gncpy::control::StateControl::loadClass(classState);
+
+    EXPECT_EQ(controller.stateDim(), loadedClass.stateDim());
+    EXPECT_EQ(controller.contDim(), loadedClass.contDim());
+}
+
 TEST(ControlTest, StateControlGetControlInputs) {
     Eigen::Vector3d x;
     x << 3.0, 4.0, 1.0;

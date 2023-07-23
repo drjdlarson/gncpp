@@ -75,7 +75,7 @@ class IBayesFilter {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& m_cov;
     }
 

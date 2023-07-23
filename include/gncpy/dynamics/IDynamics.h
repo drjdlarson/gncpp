@@ -1,7 +1,8 @@
 #pragma once
 #include <Eigen/Dense>
-#include <functional>
 #include <boost/serialization/access.hpp>
+#include <functional>
+
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/control/IControlModel.h"
 #include "gncpy/control/Parameters.h"
@@ -88,8 +89,11 @@ class IDynamics {
 
    private:
     template <class Archive>
-    void serialize(Archive& ar) {
-        ar& hasStateConstraint;
+    void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
+        // bool tmp = m_hasStateConstraint;
+        // m_hasStateConstraint = false;
+        ar& m_hasStateConstraint;
+        // m_hasStateConstraint = tmp;
     }
 
     bool m_hasStateConstraint = false;
