@@ -2,11 +2,12 @@
 #include <Eigen/Dense>
 #include <functional>
 #include <memory>
-
-#include "gncpy/Exceptions.h"
-// #include "gncpy/SerializeMacros.h"
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+#include "gncpy/Exceptions.h"
+#include "gncpy/SerializeMacros.h"
+
 
 #include "gncpy/control/ILinearControlModel.h"
 #include "gncpy/control/Parameters.h"

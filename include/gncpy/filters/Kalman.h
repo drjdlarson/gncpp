@@ -1,11 +1,13 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
 #include <memory>
 #include <optional>
-// #include "gncpy/SerializeMacros.h"
+
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
 #include "gncpy/filters/IBayesFilter.h"
@@ -101,7 +103,7 @@ class Kalman : public IBayesFilter {
    private:
     template <class Archive>
     void serialize(Archive& ar) {
-        ar& boost::serialization::base_object(*this);
+        ar& boost::serialization::base_object<IBayesFilter>(*this);
         ar& m_measNoise;
         ar& m_procNoise;
         ar& m_dynObj;

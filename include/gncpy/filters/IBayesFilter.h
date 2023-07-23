@@ -1,11 +1,12 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
 #include <memory>
 #include <optional>
 
 #include "gncpy/dynamics/IDynamics.h"
 #include "gncpy/filters/Parameters.h"
-// #include "gncpy/math/SerializeEigen.h"
+#include "gncpy/math/SerializeEigen.h"
 #include "gncpy/measurements/IMeasModel.h"
 
 namespace lager::gncpy::filters {

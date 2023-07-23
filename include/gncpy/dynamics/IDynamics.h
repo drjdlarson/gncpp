@@ -1,8 +1,8 @@
 #pragma once
 #include <Eigen/Dense>
 #include <functional>
-
-// #include "gncpy/SerializeMacros.h"
+#include <boost/serialization/access.hpp>
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/control/IControlModel.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/Exceptions.h"

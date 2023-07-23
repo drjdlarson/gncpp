@@ -1,8 +1,10 @@
 #pragma once
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
 #include <memory>
-// #include "gncpy/SerializeMacros.h"
+
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/Parameters.h"
 #include "gncpy/measurements/Parameters.h"

@@ -1,10 +1,11 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <functional>
 #include <vector>
 
-// #include "gncpy/SerializeMacros.h"
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/measurements/IMeasModel.h"
 #include "gncpy/measurements/Parameters.h"
 

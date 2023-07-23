@@ -1,6 +1,6 @@
 #pragma once
-
-// #include "gncpy/SerializeMacros.h"
+#include <boost/serialization/access.hpp>
+#include "gncpy/SerializeMacros.h"
 
 namespace lager::gncpy::dynamics {
 

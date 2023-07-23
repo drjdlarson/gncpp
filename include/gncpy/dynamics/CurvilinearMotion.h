@@ -1,11 +1,12 @@
 #pragma once
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <cmath>
 #include <iostream>
 #include <string>
 #include <vector>
-// #include "gncpy/SerializeMacros.h"
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/control/IControlModel.h"
 #include "gncpy/control/Parameters.h"
 #include "gncpy/dynamics/INonLinearDynamics.h"

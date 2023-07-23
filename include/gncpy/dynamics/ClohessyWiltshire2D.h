@@ -2,6 +2,7 @@
 #include <math.h>
 
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <string>
 #include <vector>

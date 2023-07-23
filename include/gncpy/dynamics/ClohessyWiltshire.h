@@ -2,12 +2,12 @@
 #include <math.h>
 
 #include <Eigen/Dense>
+#include <boost/serialization/access.hpp>
+#include <boost/serialization/base_object.hpp>
 #include <string>
 #include <vector>
 
-// #include "gncpy/SerializeMacros.h"
-#include <boost/serialization/base_object.hpp>
-
+#include "gncpy/SerializeMacros.h"
 #include "gncpy/dynamics/ClohessyWiltshire2D.h"
 #include "gncpy/dynamics/ILinearDynamics.h"
 #include "gncpy/dynamics/Parameters.h"
