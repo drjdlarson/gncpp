@@ -20,7 +20,7 @@ class ILinearMeasModel : public IMeasModel {
     template <class Archive>
     void serialize([[maybe_unused]] Archive& ar) {
         ar& boost::serialization::base_object<IMeasModel>(*this);
-    };
+    }
 };
 
 }  // namespace lager::gncpy::measurements

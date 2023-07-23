@@ -30,6 +30,13 @@ make -j4
 ctest --output-on-failure
 ```
 
+For building with conan
+``` 
+conan install . -s build_type=Debug -o with_tests=True --build=missing
+cmake . --preset conan-debug
+cmake --build . --preset conan-debug
+```
+
 If the build folder alreay exists you can remove it (or delete its contents). The available library options you can pass to cmake can be show by doing the following
 
 ```

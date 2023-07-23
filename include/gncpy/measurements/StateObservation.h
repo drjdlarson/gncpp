@@ -47,7 +47,7 @@ class StateObservation final : public ILinearMeasModel {
     template <class Archive>
     void serialize(Archive& ar) {
         ar& boost::serialization::base_object<ILinearMeasModel>(*this);
-    };
+    }
 };
 
 }  // namespace lager::gncpy::measurements

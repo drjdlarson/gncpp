@@ -21,7 +21,7 @@ class IMeasModel {
     template <class Archive>
     void serialize([[maybe_unused]] Archive& ar){
         /* nothing to serializat */
-    };
+    }
 };
 
 }  // namespace lager::gncpy::measurements
