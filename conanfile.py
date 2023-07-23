@@ -81,6 +81,9 @@ class gncpyRecipe(ConanFile):
         self.requires("boost/1.82.0")
         self.requires("eigen/3.4.0")
 
+        if self.options.with_tests:
+            self.requires.add("gtest/cci.20210126")
+
     def generate(self):
         deps = CMakeDeps(self)
         deps.generate()
