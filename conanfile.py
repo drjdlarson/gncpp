@@ -82,7 +82,7 @@ class gncpyRecipe(ConanFile):
         self.requires("eigen/3.4.0")
 
         if self.options.with_tests:
-            self.requires.add("gtest/cci.20210126")
+            self.requires("gtest/cci.20210126")
 
     def generate(self):
         deps = CMakeDeps(self)

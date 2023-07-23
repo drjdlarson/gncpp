@@ -163,7 +163,7 @@ add_library(lager::gncpy ALIAS gncpy)
 add_subdirectory(src)
 
 
-target_link_libraries(gncpy PRIVATE Eigen3::Eigen Boost::boost)
+target_link_libraries(gncpy PRIVATE Eigen3::Eigen Boost::serialization)
 target_include_directories(gncpy PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${GNCPY_INC_DIR}>
