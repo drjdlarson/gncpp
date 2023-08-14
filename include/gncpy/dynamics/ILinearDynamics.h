@@ -101,7 +101,7 @@ class ILinearDynamics : public IDynamics {
     template <class Archive>
     void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<IDynamics>(*this);
-        // ar& m_controlModel;
+        ar& m_controlModel;
     }
 };
 
