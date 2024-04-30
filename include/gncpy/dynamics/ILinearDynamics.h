@@ -3,6 +3,7 @@
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+#include <boost/shared_ptr.hpp>
 #include <functional>
 #include <memory>
 
@@ -74,7 +75,7 @@ class ILinearDynamics : public IDynamics {
      */
 
     void setControlModel(
-        std::shared_ptr<control::ILinearControlModel>
+        boost::shared_ptr<control::ILinearControlModel>
             model);  // comparable to set dynamics model, use that as a template
     void clearControlModel() override { m_controlModel.reset(); }
 
@@ -82,7 +83,7 @@ class ILinearDynamics : public IDynamics {
         return static_cast<bool>(m_controlModel);
     }
 
-    std::shared_ptr<lager::gncpy::control::ILinearControlModel> controlModel()
+    boost::shared_ptr<lager::gncpy::control::ILinearControlModel> controlModel()
         const {
         if (hasControlModel()) {
             return m_controlModel;
@@ -92,7 +93,8 @@ class ILinearDynamics : public IDynamics {
     }
 
    protected:
-    std::shared_ptr<control::ILinearControlModel> m_controlModel;
+    boost::shared_ptr<lager::gncpy::control::ILinearControlModel>
+        m_controlModel;
     Eigen::VectorXd propagateState_(
         double timestep, const Eigen::VectorXd& state,
         const StateTransParams* stateTransParams = nullptr) const;
@@ -101,7 +103,7 @@ class ILinearDynamics : public IDynamics {
     template <class Archive>
     void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<IDynamics>(*this);
-        ar& m_controlModel;
+        ar & m_controlModel;
     }
 };
 

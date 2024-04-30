@@ -8,7 +8,7 @@
 #include "gncpy/Exceptions.h"
 #include "gncpy/math/Math.h"
 
-TEST(ControlTEst, StateControlSerialize) {
+TEST(ControlTest, StateControlSerialize) {
     lager::gncpy::control::StateControl controller(1, 1);
 
     auto classState = controller.saveClassState();

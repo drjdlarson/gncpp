@@ -53,8 +53,10 @@ class IBayesFilter {
      * @param dynObj Dynamics object that implements the model
      * @param procNoise Process noise matrix for the filter
      */
-    virtual void setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
+    virtual void setStateModel(boost::shared_ptr<dynamics::IDynamics> dynObj,
                                Eigen::MatrixXd procNoise) = 0;
+    // virtual void setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
+    //                            Eigen::MatrixXd procNoise) = 0;
 
     /**
      * @brief Set the measurement model
@@ -63,12 +65,18 @@ class IBayesFilter {
      * @param measNoise measurement noise matrix for the filter
      */
     virtual void setMeasurementModel(
-        std::shared_ptr<measurements::IMeasModel> measObj,
+        boost::shared_ptr<measurements::IMeasModel> measObj,
         Eigen::MatrixXd measNoise) = 0;
+    // virtual void setMeasurementModel(
+    //     std::shared_ptr<measurements::IMeasModel> measObj,
+    //     Eigen::MatrixXd measNoise) = 0;
 
-    virtual std::shared_ptr<dynamics::IDynamics> dynamicsModel() const = 0;
-    virtual std::shared_ptr<measurements::IMeasModel> measurementModel()
+    virtual boost::shared_ptr<dynamics::IDynamics> dynamicsModel() const = 0;
+    virtual boost::shared_ptr<measurements::IMeasModel> measurementModel()
         const = 0;
+    // virtual std::shared_ptr<dynamics::IDynamics> dynamicsModel() const = 0;
+    // virtual std::shared_ptr<measurements::IMeasModel> measurementModel()
+    //     const = 0;
 
     inline virtual Eigen::MatrixXd& getCov() { return m_cov; }
     inline virtual const Eigen::MatrixXd& viewCov() { return m_cov; }
@@ -76,7 +84,7 @@ class IBayesFilter {
    private:
     template <class Archive>
     void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
-        ar& m_cov;
+        ar & m_cov;
     }
 
     Eigen::MatrixXd m_cov;

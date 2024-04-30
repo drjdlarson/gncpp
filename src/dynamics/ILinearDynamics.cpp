@@ -2,9 +2,15 @@
 
 namespace lager::gncpy::dynamics {
 
-void ILinearDynamics::setControlModel(std::shared_ptr<control::ILinearControlModel> model) {
+void ILinearDynamics::setControlModel(
+    boost::shared_ptr<control::ILinearControlModel> model) {
     m_controlModel = model;
 }
+
+// void ILinearDynamics::setControlModel(
+//     boost::serialization::shared_ptr<control::ILinearControlModel> model) {
+//     m_controlModel = model;
+// }
 
 Eigen::VectorXd ILinearDynamics::propagateState(
     double timestep, const Eigen::VectorXd& state,
@@ -26,7 +32,8 @@ Eigen::VectorXd ILinearDynamics::propagateState(
     Eigen::VectorXd nextState = propagateState_(timestep, state);
 
     if (hasControlModel()) {
-        nextState += m_controlModel->getControlInput(timestep, control, controlParams);
+        nextState +=
+            m_controlModel->getControlInput(timestep, control, controlParams);
     } else {
         throw exceptions::BadParams(
             "Control input given but no control model set");
@@ -48,7 +55,8 @@ Eigen::VectorXd ILinearDynamics::propagateState(
         propagateState_(timestep, state, stateTransParams);
 
     if (hasControlModel()) {
-        nextState += m_controlModel->getControlInput(timestep, control, controlParams);
+        nextState +=
+            m_controlModel->getControlInput(timestep, control, controlParams);
     }
 
     if (hasStateConstraint()) {

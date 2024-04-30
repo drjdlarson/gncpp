@@ -28,8 +28,8 @@ class BayesPredictParams {
    public:
     virtual ~BayesPredictParams() = default;
 
-    std::shared_ptr<lager::gncpy::dynamics::StateTransParams> stateTransParams;
-    std::shared_ptr<lager::gncpy::control::ControlParams> controlParams;
+    boost::shared_ptr<lager::gncpy::dynamics::StateTransParams> stateTransParams;
+    boost::shared_ptr<lager::gncpy::control::ControlParams> controlParams;
 
    private:
     template <class Archive>
@@ -54,7 +54,7 @@ class BayesCorrectParams {
 
    public:
     virtual ~BayesCorrectParams() = default;
-    std::shared_ptr<lager::gncpy::measurements::MeasParams> measParams;
+    boost::shared_ptr<lager::gncpy::measurements::MeasParams> measParams;
 
    private:
     template <class Archive>

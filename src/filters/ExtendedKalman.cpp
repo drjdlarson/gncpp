@@ -22,13 +22,13 @@ Eigen::VectorXd ExtendedKalman::predict(
     Eigen::MatrixXd stateMat;
     if (utilities:: instanceof
         <dynamics::INonLinearDynamics>(dynamicsModel())) {
-        stateMat = std::dynamic_pointer_cast<dynamics::INonLinearDynamics>(
+        stateMat = boost::dynamic_pointer_cast<dynamics::INonLinearDynamics>(
                        dynamicsModel())
                        ->getStateMat(timestep, curState,
                                      params->stateTransParams.get());
     } else if (utilities:: instanceof
                <dynamics::ILinearDynamics>(dynamicsModel())) {
-        stateMat = std::dynamic_pointer_cast<dynamics::ILinearDynamics>(
+        stateMat = boost::dynamic_pointer_cast<dynamics::ILinearDynamics>(
                        dynamicsModel())
                        ->getStateMat(timestep, params->stateTransParams.get());
     } else {
@@ -45,8 +45,8 @@ Eigen::VectorXd ExtendedKalman::predict(
     return nextState;
 }
 
-void ExtendedKalman::setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
-                                   Eigen::MatrixXd procNoise) {
+void ExtendedKalman::setStateModel(
+    boost::shared_ptr<dynamics::IDynamics> dynObj, Eigen::MatrixXd procNoise) {
     if (!dynObj) {
         throw exceptions::TypeError("dynObj can not be nullptr");
     }
@@ -65,11 +65,10 @@ void ExtendedKalman::setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
 }
 
 void ExtendedKalman::setMeasurementModel(
-    std::shared_ptr<measurements::IMeasModel> measObj,
+    boost::shared_ptr<measurements::IMeasModel> measObj,
     Eigen::MatrixXd measNoise) {
     if (!measObj) {
-        throw exceptions::TypeError(
-            "measObj is required");
+        throw exceptions::TypeError("measObj is required");
     }
 
     if (measNoise.rows() != measNoise.cols()) {
@@ -77,20 +76,20 @@ void ExtendedKalman::setMeasurementModel(
     }
 
     if (utilities :: instanceof <measurements::ILinearMeasModel>(measObj)) {
-        m_measObj =
-            std::dynamic_pointer_cast<measurements::ILinearMeasModel>(measObj);
+        m_measObj = boost::dynamic_pointer_cast<measurements::ILinearMeasModel>(
+            measObj);
         m_measNoise = measNoise;
     }
 
     if (utilities :: instanceof <measurements::INonLinearMeasModel>(measObj)) {
         m_measObj =
-            std::dynamic_pointer_cast<measurements::INonLinearMeasModel>(
+            boost::dynamic_pointer_cast<measurements::INonLinearMeasModel>(
                 measObj);
         m_measNoise = measNoise;
     }
 }
 
-inline std::shared_ptr<dynamics::IDynamics> ExtendedKalman::dynamicsModel()
+inline boost::shared_ptr<dynamics::IDynamics> ExtendedKalman::dynamicsModel()
     const {
     if (m_dynObj) {
         return m_dynObj;
@@ -99,8 +98,8 @@ inline std::shared_ptr<dynamics::IDynamics> ExtendedKalman::dynamicsModel()
     }
 }
 
-inline std::shared_ptr<measurements::IMeasModel> ExtendedKalman::measurementModel()
-    const {
+inline boost::shared_ptr<measurements::IMeasModel>
+ExtendedKalman::measurementModel() const {
     if (m_measObj) {
         return m_measObj;
     } else {

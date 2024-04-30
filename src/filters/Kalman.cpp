@@ -49,7 +49,7 @@ Eigen::VectorXd Kalman::correct([[maybe_unused]] double timestep,
     return curState + kalmanGain * inov;
 }
 
-void Kalman::setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
+void Kalman::setStateModel(boost::shared_ptr<dynamics::IDynamics> dynObj,
                            Eigen::MatrixXd procNoise) {
     if (!dynObj || !utilities:: instanceof
         <dynamics::ILinearDynamics>(dynObj)) {
@@ -66,12 +66,13 @@ void Kalman::setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
             "dimension");
     }
 
-    m_dynObj = std::dynamic_pointer_cast<dynamics::ILinearDynamics>(dynObj);
+    m_dynObj = boost::dynamic_pointer_cast<dynamics::ILinearDynamics>(dynObj);
+    // m_dynObj = std::dynamic_pointer_cast<dynamics::ILinearDynamics>(dynObj);
     m_procNoise = procNoise;
 }
 
 void Kalman::setMeasurementModel(
-    std::shared_ptr<measurements::IMeasModel> measObj,
+    boost::shared_ptr<measurements::IMeasModel> measObj,
     Eigen::MatrixXd measNoise) {
     if (!measObj || !utilities:: instanceof
         <measurements::ILinearMeasModel>(measObj)) {
@@ -84,11 +85,12 @@ void Kalman::setMeasurementModel(
     }
 
     m_measObj =
-        std::dynamic_pointer_cast<measurements::ILinearMeasModel>(measObj);
+        boost::dynamic_pointer_cast<measurements::ILinearMeasModel>(measObj);
+    // std::dynamic_pointer_cast<measurements::ILinearMeasModel>(measObj);
     m_measNoise = measNoise;
 }
 
-inline std::shared_ptr<dynamics::IDynamics> Kalman::dynamicsModel() const {
+inline boost::shared_ptr<dynamics::IDynamics> Kalman::dynamicsModel() const {
     if (m_dynObj) {
         return m_dynObj;
     } else {
@@ -96,7 +98,7 @@ inline std::shared_ptr<dynamics::IDynamics> Kalman::dynamicsModel() const {
     }
 }
 
-inline std::shared_ptr<measurements::IMeasModel> Kalman::measurementModel()
+inline boost::shared_ptr<measurements::IMeasModel> Kalman::measurementModel()
     const {
     if (m_measObj) {
         return m_measObj;
@@ -104,5 +106,22 @@ inline std::shared_ptr<measurements::IMeasModel> Kalman::measurementModel()
         throw exceptions::TypeError("Measurement model is unset");
     }
 }
+
+// inline std::shared_ptr<dynamics::IDynamics> Kalman::dynamicsModel() const {
+//     if (m_dynObj) {
+//         return m_dynObj;
+//     } else {
+//         throw exceptions::TypeError("Dynamics model is unset");
+//     }
+// }
+
+// inline std::shared_ptr<measurements::IMeasModel> Kalman::measurementModel()
+//     const {
+//     if (m_measObj) {
+//         return m_measObj;
+//     } else {
+//         throw exceptions::TypeError("Measurement model is unset");
+//     }
+// }
 
 }  // namespace lager::gncpy::filters

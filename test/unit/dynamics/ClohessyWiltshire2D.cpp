@@ -43,7 +43,7 @@ TEST(CWHOrbit2D, Control) {
     Eigen::Vector4d xk;
     xk << 0., 0., 1., 0.;
 
-    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(
+    auto contObj = boost::make_shared<lager::gncpy::control::StateControl>(
         xk.size(), xk.size() / 2);
 
     std::vector<uint8_t> cRows = {2, 3};

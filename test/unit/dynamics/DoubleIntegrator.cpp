@@ -35,7 +35,7 @@ TEST(DoubleInt, Control) {
     Eigen::Vector4d xk;
     xk << 0., 0., 1., 0.;
 
-    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(
+    auto contObj = boost::make_shared<lager::gncpy::control::StateControl>(
         xk.size(), xk.size() / 2);
 
     std::vector<uint8_t> cRows = {2, 3};
@@ -74,9 +74,11 @@ TEST(DoubleInt, serialize) {
     double dt = 0.1;
     lager::gncpy::dynamics::DoubleIntegrator dyn(dt);
 
+    auto contObj =
+        boost::make_shared<lager::gncpy::control::StateControl>(1, 1);
+
     // Define control model variable
-    dyn.setControlModel(
-        std::make_shared<lager::gncpy::control::StateControl>(1, 1));
+    dyn.setControlModel(contObj);
 
     // std::cout << "Original class:\n" << dyn.toXML() << std::endl;
 
@@ -89,10 +91,10 @@ TEST(DoubleInt, serialize) {
     EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
 
     auto origCtrl =
-        std::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
+        boost::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
             dyn.controlModel());
     auto loadedCtrl =
-        std::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
+        boost::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
             dyn2.controlModel());
     EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
     EXPECT_EQ(origCtrl->stateDim(), loadedCtrl->stateDim());

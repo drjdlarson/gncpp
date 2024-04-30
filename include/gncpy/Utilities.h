@@ -18,8 +18,8 @@ inline bool instanceof (const T *ptr) {
 }
 
 template <typename Base, typename T>
-inline bool instanceof (const std::shared_ptr<T> ptr) {
-    return std::dynamic_pointer_cast<const Base>(ptr) != nullptr;
+inline bool instanceof (const boost::shared_ptr<T> ptr) {
+    return boost::dynamic_pointer_cast<const Base>(ptr) != nullptr;
 }
 
 }  // namespace lager::gncpy::utilities

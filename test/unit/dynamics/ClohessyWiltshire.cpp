@@ -45,7 +45,7 @@ TEST(CWHOrbit, Control) {
     Eigen::VectorXd xk(6);
     xk << 0., 0., 0., 1., 0., 1.;
 
-    auto contObj = std::make_shared<lager::gncpy::control::StateControl>(
+    auto contObj = boost::make_shared<lager::gncpy::control::StateControl>(
         xk.size(), xk.size() / 2);
 
     std::vector<uint8_t> cRows = {3, 4, 5};

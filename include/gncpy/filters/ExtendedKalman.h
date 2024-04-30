@@ -27,29 +27,31 @@ class ExtendedKalman final : public Kalman {
         const std::optional<Eigen::VectorXd> controlInput,
         const BayesPredictParams* params = nullptr) override;
 
-    void setStateModel(std::shared_ptr<dynamics::IDynamics> dynObj,
+    void setStateModel(boost::shared_ptr<dynamics::IDynamics> dynObj,
                        Eigen::MatrixXd procNoise) override;
 
-    void setMeasurementModel(std::shared_ptr<measurements::IMeasModel> measObj,
-                             Eigen::MatrixXd measNoise) override;
+    void setMeasurementModel(
+        boost::shared_ptr<measurements::IMeasModel> measObj,
+        Eigen::MatrixXd measNoise) override;
 
-    std::shared_ptr<dynamics::IDynamics> dynamicsModel() const override;
-    std::shared_ptr<measurements::IMeasModel> measurementModel() const override;
+    boost::shared_ptr<dynamics::IDynamics> dynamicsModel() const override;
+    boost::shared_ptr<measurements::IMeasModel> measurementModel()
+        const override;
 
    private:
     template <class Archive>
     void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<Kalman>(*this);
-        ar& m_dynObj;
-        ar& m_measObj;
-        ar& m_continuousCov;
+        ar & m_dynObj;
+        ar & m_measObj;
+        ar & m_continuousCov;
     }
 
     bool m_continuousCov = false;
 
     Eigen::MatrixXd m_measNoise;
-    std::shared_ptr<dynamics::IDynamics> m_dynObj;
-    std::shared_ptr<measurements::IMeasModel> m_measObj;
+    boost::shared_ptr<dynamics::IDynamics> m_dynObj;
+    boost::shared_ptr<measurements::IMeasModel> m_measObj;
 };
 
 }  // namespace lager::gncpy::filters

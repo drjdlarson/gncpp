@@ -73,7 +73,8 @@ class gncpyRecipe(ConanFile):
                 raise RuntimeError("Failed to extract version from core.h")
 
     def validate(self):
-        check_min_cppstd(self, "20")
+        check_min_cppstd(self, "14")
+        # check_min_cppstd(self, "20")
 
     def requirements(self):
         self.requires("boost/1.82.0")
