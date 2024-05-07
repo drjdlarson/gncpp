@@ -73,6 +73,21 @@ TEST(MeasurementTest, StateObservationMeasMat) {
     SUCCEED();
 }
 
+TEST(MeasurementTest, RangeBearingParamsSerialize) {
+    auto params = lager::gncpy::measurements::RangeAndBearingParams(0, 1);
+
+    auto classState = params.saveClassState();
+
+    auto loadedParams =
+        lager::gncpy::measurements::RangeAndBearingParams::loadClass(
+            classState);
+
+    EXPECT_DOUBLE_EQ(params.xInd, loadedParams.xInd);
+    EXPECT_DOUBLE_EQ(params.yInd, loadedParams.yInd);
+
+    SUCCEED();
+}
+
 TEST(MeasurementTest, RangeBearingMeasure) {
     Eigen::Vector3d x;
     x << 3.0, 4.0, 1.0;

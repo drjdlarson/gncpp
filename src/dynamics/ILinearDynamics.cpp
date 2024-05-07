@@ -7,11 +7,6 @@ void ILinearDynamics::setControlModel(
     m_controlModel = model;
 }
 
-// void ILinearDynamics::setControlModel(
-//     boost::serialization::shared_ptr<control::ILinearControlModel> model) {
-//     m_controlModel = model;
-// }
-
 Eigen::VectorXd ILinearDynamics::propagateState(
     double timestep, const Eigen::VectorXd& state,
     const StateTransParams* stateTransParams) const {

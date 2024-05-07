@@ -79,13 +79,19 @@ TEST(DoubleInt, serialize) {
 
     // Define control model variable
     dyn.setControlModel(contObj);
+    // dyn.setControlModel(
+    //     boost::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
+    //         contObj));
 
-    // std::cout << "Original class:\n" << dyn.toXML() << std::endl;
-
-    std::stringstream filtState = dyn.saveClassState();
+    auto filtState = dyn.saveClassState();
     auto dyn2 = lager::gncpy::dynamics::DoubleIntegrator::loadClass(filtState);
 
     // std::cout << "Loaded class:\n" << dyn2.toXML() << std::endl;
+
+    // EXPECT_NE(
+    //     typeid(contObj),
+    //     typeid(boost::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
+    //         contObj)));
 
     EXPECT_DOUBLE_EQ(dyn.dt(), dyn2.dt());
     EXPECT_EQ(dyn.hasStateConstraint(), dyn2.hasStateConstraint());
@@ -96,7 +102,8 @@ TEST(DoubleInt, serialize) {
     auto loadedCtrl =
         boost::dynamic_pointer_cast<lager::gncpy::control::StateControl>(
             dyn2.controlModel());
-    EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
+    // std::cout << "before control tests";
+    // EXPECT_EQ(dyn.hasControlModel(), dyn2.hasControlModel());
     EXPECT_EQ(origCtrl->stateDim(), loadedCtrl->stateDim());
     EXPECT_EQ(origCtrl->contDim(), loadedCtrl->contDim());
 

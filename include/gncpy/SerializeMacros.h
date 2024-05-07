@@ -7,7 +7,7 @@
 
 // Add save/load, toXML, and create input/output archive functions to a class
 // see
-// https://stackoverflow.com/questions/42253474/trouble-deserializing-cereal-portablebinaryarchive
+// https://www.boost.org/doc/libs/1_80_0/libs/serialization/doc/serialization.html
 // for details on save/load class state
 #define GNCPY_SERIALIZE_CLASS(Class_t)                                     \
    public:                                                                 \

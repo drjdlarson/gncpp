@@ -2,6 +2,7 @@
 #include <Eigen/Dense>
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
+#include <boost/serialization/export.hpp>
 #include <boost/serialization/vector.hpp>
 #include <vector>
 
@@ -38,9 +39,9 @@ class StateControlParams final : public ControlParams {
     template <class Archive>
     void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<ControlParams>(*this);
-        ar& contRows;
-        ar& contColumns;
-        ar& vals;
+        ar & contRows;
+        ar & contColumns;
+        ar & vals;
     }
 };
 
@@ -66,9 +67,11 @@ class StateControl final : public ILinearControlModel {
     template <class Archive>
     void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         ar& boost::serialization::base_object<ILinearControlModel>(*this);
-        ar& m_stateDim;
-        ar& m_contDim;
+        ar & m_stateDim;
+        ar & m_contDim;
     }
 };
 
 }  //  namespace lager::gncpy::control
+
+BOOST_CLASS_EXPORT_KEY2(lager::gncpy::control::StateControl, "StateControl")
