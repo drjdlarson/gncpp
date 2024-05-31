@@ -2,6 +2,7 @@
 #include <Eigen/Dense>
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/vector.hpp>
+#include <boost/serialization/export.hpp>
 
 #include "gncpy/SerializeMacros.h"
 #include "gncpy/control/IControlModel.h"
@@ -27,3 +28,6 @@ class ILinearControlModel : public IControlModel {
 };
 
 }  // namespace lager::gncpy::control
+
+
+// BOOST_SERIALIZATION_ASSUME_ABSTRACT(lager::gncpy::control::ILinearControlModel)

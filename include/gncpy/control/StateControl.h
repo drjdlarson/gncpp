@@ -72,6 +72,6 @@ class StateControl final : public ILinearControlModel {
     }
 };
 
-}  //  namespace lager::gncpy::control
 
-BOOST_CLASS_EXPORT_KEY2(lager::gncpy::control::StateControl, "StateControl")
+}  //  namespace lager::gncpy::control
+// BOOST_CLASS_EXPORT(lager::gncpy::control::StateControl)

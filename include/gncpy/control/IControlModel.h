@@ -1,6 +1,7 @@
 #pragma once
 #include <Eigen/Dense>
 #include <boost/serialization/access.hpp>
+#include <boost/serialization/export.hpp>
 
 #include "gncpy/control/Parameters.h"
 
@@ -19,5 +20,7 @@ class IControlModel {
         /* nothing to serialize*/
     }
 };
+
+// BOOST_SERIALIZATION_ASSUME_ABSTRACT(IControlModel)
 
 }  //  namespace lager::gncpy::control

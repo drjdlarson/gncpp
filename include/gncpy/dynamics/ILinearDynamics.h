@@ -4,6 +4,7 @@
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/split_free.hpp>
+#include <boost/serialization/export.hpp>
 #include <boost/shared_ptr.hpp>
 #include <functional>
 #include <memory>
@@ -89,7 +90,7 @@ class ILinearDynamics : public IDynamics {
         const ConstraintParams* constraintParams) const final;
 
     void setControlModel(
-        boost::shared_ptr<control::ILinearControlModel>
+        boost::shared_ptr<lager::gncpy::control::ILinearControlModel>
             model);  // comparable to set dynamics model, use that as a template
     void clearControlModel() override { m_controlModel.reset(); }
 
@@ -109,6 +110,7 @@ class ILinearDynamics : public IDynamics {
    protected:
     boost::shared_ptr<lager::gncpy::control::ILinearControlModel>
         m_controlModel;
+    // lager::gncpy::control::ILinearControlModel m_controlModel;
     Eigen::VectorXd propagateState_(
         double timestep, const Eigen::VectorXd& state,
         const StateTransParams* stateTransParams = nullptr) const;
@@ -118,9 +120,10 @@ class ILinearDynamics : public IDynamics {
     void serialize(Archive& ar, [[maybe_unused]] const unsigned int version) {
         // boost::serialization::split_member(ar, *this, version);
         ar& boost::serialization::base_object<IDynamics>(*this);
-        ar& this->m_controlModel;
+        // ar& this->m_controlModel;
         ar&* m_controlModel;
     }
 };
 
 }  // namespace lager::gncpy::dynamics
+// BOOST_SERIALIZATION_ASSUME_ABSTRACT(lager::gncpy::dynamics::ILinearDynamics)
