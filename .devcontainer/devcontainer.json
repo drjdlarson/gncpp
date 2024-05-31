@@ -1,8 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/cpp
 {
-	"name": "gncpy_cpp-dev",
-	"image": "ghcr.io/drjdlarson/gncpy_cpp-dev:latest",
+	"name": "gncpp-dev",
+	"image": "ghcr.io/drjdlarson/gncpp-dev:latest",
 	"customizations": {
 		"vscode": {
 			"extensions": [
