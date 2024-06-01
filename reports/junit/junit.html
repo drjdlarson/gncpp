@@ -52,6 +52,7 @@ h1 {
 
 .proplist td {
     padding: 2px;
+    word-break: break-all;
 }
 
 .index-table {
@@ -61,7 +62,8 @@ h1 {
 
 .index-table td {
     vertical-align: top;
-    width: 50%;
+    max-width: 200px;
+    word-wrap: break-word;
 }
 
 .failure-index {
@@ -87,21 +89,64 @@ h1 {
     margin-left: 0.5cm;
 }
 
-.outcome {
+.toc {
+    list-style: none;
+}
+
+.toc li.outcome {
+    list-style: none;
+}
+
+.toc li.outcome::before {
+    content: "\2022";
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    width: 1.27em;
+    margin-left: -1.27em;
+    font-size: 1.2em;
+}
+
+.toc li.outcome-failed {
+    background-color: lightcoral;
+}
+
+.toc li.outcome-failed::before {
+    color: red;
+}
+
+.toc li.outcome-passed::before {
+    color: green;
+}
+
+.toc li.outcome-skipped::before {
+    color: orange;
+}
+
+.testcases .outcome {
     border-left: 1em;
     padding: 2px;
 }
 
-.outcome-failed {
+.testcases .outcome-failed {
     border-left: 1em solid lightcoral;
 }
+
 
 .outcome-passed {
     border-left: 1em solid lightgreen;
 }
 
 .outcome-skipped {
-    border-left: 1em solid lightyellow;
+    border-left: 1em dotted silver;
+}
+
+.testcases .outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.testcases .outcome-skipped {
+    border-left: 1em solid #FED8B1;
 }
 
 .stats-table {
@@ -203,6 +248,8 @@ h1 {
 <h1>
     Test Report : junit.xml
 </h1>
+
+
 <a id="toc"></a>
 <table class="index-table">
     <tr>
@@ -213,7 +260,7 @@ h1 {
                 <li>DoubleInt.Propagate
                 <ul>
                     
-                    <li><a href="#c14af83b-cdc5-454b-803d-b7837888a3a6">DoubleInt.Propagate</a></li>
+                    <li class="outcome outcome-passed"><a href="#6519bd4c-c334-4b3a-ac01-2ae851468f96">DoubleInt.Propagate</a></li>
                     
                 </ul>
                 </li>
@@ -221,7 +268,7 @@ h1 {
                 <li>DoubleInt.Control
                 <ul>
                     
-                    <li><a href="#8aaaecd8-1d48-4456-86cc-2919af7c0f91">DoubleInt.Control</a></li>
+                    <li class="outcome outcome-passed"><a href="#227a8f7b-d172-451e-8708-4f0d690002e9">DoubleInt.Control</a></li>
                     
                 </ul>
                 </li>
@@ -229,7 +276,7 @@ h1 {
                 <li>DoubleInt.serialize
                 <ul>
                     
-                    <li><a href="#cd37f81e-b5f1-41fb-a037-8d0370cbf101">DoubleInt.serialize</a></li>
+                    <li class="outcome outcome-passed"><a href="#23d42b5d-8510-4533-ad3d-3f0befd95998">DoubleInt.serialize</a></li>
                     
                 </ul>
                 </li>
@@ -237,7 +284,7 @@ h1 {
                 <li>Curvilinear.GetStateMat
                 <ul>
                     
-                    <li><a href="#5b92f62f-eff2-4289-b052-f5f44798a987">Curvilinear.GetStateMat</a></li>
+                    <li class="outcome outcome-passed"><a href="#c558a1b5-6e32-4501-a972-89b970f3fb55">Curvilinear.GetStateMat</a></li>
                     
                 </ul>
                 </li>
@@ -245,7 +292,7 @@ h1 {
                 <li>Curvilinear.Propagate
                 <ul>
                     
-                    <li><a href="#94b9af31-c797-4de1-9ef2-55bf1d341cac">Curvilinear.Propagate</a></li>
+                    <li class="outcome outcome-passed"><a href="#892d8375-6d76-4de9-ba12-21dbca420dec">Curvilinear.Propagate</a></li>
                     
                 </ul>
                 </li>
@@ -253,7 +300,7 @@ h1 {
                 <li>Curvilinear.serialize
                 <ul>
                     
-                    <li><a href="#99a9a9ec-04ab-4fad-9dc6-5490057dbac2">Curvilinear.serialize</a></li>
+                    <li class="outcome outcome-passed"><a href="#becc8f4a-7ec5-48cc-81d0-d57cc0e433a5">Curvilinear.serialize</a></li>
                     
                 </ul>
                 </li>
@@ -261,7 +308,7 @@ h1 {
                 <li>CWHOrbit2D.Propagate
                 <ul>
                     
-                    <li><a href="#73dc9855-3137-4457-933a-31dc70fdd9f2">CWHOrbit2D.Propagate</a></li>
+                    <li class="outcome outcome-passed"><a href="#6cd1b2f5-f547-4604-bc5e-f875dc429586">CWHOrbit2D.Propagate</a></li>
                     
                 </ul>
                 </li>
@@ -269,7 +316,7 @@ h1 {
                 <li>CWHOrbit2D.Control
                 <ul>
                     
-                    <li><a href="#353e7cb0-152d-455b-beed-02ca771b903a">CWHOrbit2D.Control</a></li>
+                    <li class="outcome outcome-passed"><a href="#26599027-d41a-4849-8910-fc29342714c7">CWHOrbit2D.Control</a></li>
                     
                 </ul>
                 </li>
@@ -277,7 +324,7 @@ h1 {
                 <li>CWHOrbit2D.serialize
                 <ul>
                     
-                    <li><a href="#42586c1d-e4ad-4827-80bd-6215585813b2">CWHOrbit2D.serialize</a></li>
+                    <li class="outcome outcome-passed"><a href="#f00b5806-30f7-4f59-ab77-bdacc8c0809a">CWHOrbit2D.serialize</a></li>
                     
                 </ul>
                 </li>
@@ -285,7 +332,7 @@ h1 {
                 <li>CWHOrbit.Propagate
                 <ul>
                     
-                    <li><a href="#d2df33ae-ca27-4815-8089-0e01a39707d3">CWHOrbit.Propagate</a></li>
+                    <li class="outcome outcome-passed"><a href="#bddca7ce-985b-4a6a-9991-677e2a417f48">CWHOrbit.Propagate</a></li>
                     
                 </ul>
                 </li>
@@ -293,7 +340,7 @@ h1 {
                 <li>CWHOrbit.Control
                 <ul>
                     
-                    <li><a href="#6100a72a-b75c-42b3-85f4-8aff35fb1b14">CWHOrbit.Control</a></li>
+                    <li class="outcome outcome-passed"><a href="#0aa82209-3816-4049-8973-5224650ca3e8">CWHOrbit.Control</a></li>
                     
                 </ul>
                 </li>
@@ -301,7 +348,7 @@ h1 {
                 <li>CWHOrbit.serialize
                 <ul>
                     
-                    <li><a href="#eafbacf0-e15e-40c5-b09f-fc69e640668e">CWHOrbit.serialize</a></li>
+                    <li class="outcome outcome-passed"><a href="#50d421d9-7b23-4101-964f-584dda7a9119">CWHOrbit.serialize</a></li>
                     
                 </ul>
                 </li>
@@ -309,7 +356,7 @@ h1 {
                 <li>MathTest.GradientVec
                 <ul>
                     
-                    <li><a href="#e34e7fe8-d5c6-4d2d-b015-57c9d63e5c73">MathTest.GradientVec</a></li>
+                    <li class="outcome outcome-passed"><a href="#b1cf8778-643a-446f-abd0-5b4b9a2c5e39">MathTest.GradientVec</a></li>
                     
                 </ul>
                 </li>
@@ -317,7 +364,7 @@ h1 {
                 <li>MathTest.JacobianSquareMat
                 <ul>
                     
-                    <li><a href="#c17e0448-814e-48d2-8aa0-68025525e5fb">MathTest.JacobianSquareMat</a></li>
+                    <li class="outcome outcome-passed"><a href="#86bb3f19-55f1-46b6-8aad-3f8d0a05e84e">MathTest.JacobianSquareMat</a></li>
                     
                 </ul>
                 </li>
@@ -325,7 +372,7 @@ h1 {
                 <li>MathTest.JacobianMat
                 <ul>
                     
-                    <li><a href="#d3aa1e5c-96f9-471b-9b20-a48e9ffd79ab">MathTest.JacobianMat</a></li>
+                    <li class="outcome outcome-passed"><a href="#cd7197da-1ad3-4524-ac23-f9c7438f237c">MathTest.JacobianMat</a></li>
                     
                 </ul>
                 </li>
@@ -333,7 +380,7 @@ h1 {
                 <li>MathTest.JacobianFunction
                 <ul>
                     
-                    <li><a href="#afa2e076-b0de-4a33-bc2d-e0558260928b">MathTest.JacobianFunction</a></li>
+                    <li class="outcome outcome-passed"><a href="#bbd8d867-dfdd-49ba-b7d2-66288fc2a9f3">MathTest.JacobianFunction</a></li>
                     
                 </ul>
                 </li>
@@ -341,7 +388,7 @@ h1 {
                 <li>MathTest.GaussianPDF
                 <ul>
                     
-                    <li><a href="#5e22adc4-e7e4-4089-83d6-86862051864c">MathTest.GaussianPDF</a></li>
+                    <li class="outcome outcome-passed"><a href="#17c41901-8045-4b27-992f-55c54bddf4d3">MathTest.GaussianPDF</a></li>
                     
                 </ul>
                 </li>
@@ -349,7 +396,7 @@ h1 {
                 <li>MathTest.GaussianPDFVec
                 <ul>
                     
-                    <li><a href="#2b612fda-7570-4623-8384-49c87f7b6fc6">MathTest.GaussianPDFVec</a></li>
+                    <li class="outcome outcome-passed"><a href="#36554f01-9168-4e93-91fa-1cc70828fdf0">MathTest.GaussianPDFVec</a></li>
                     
                 </ul>
                 </li>
@@ -357,7 +404,7 @@ h1 {
                 <li>MathTest.RungeKutta4
                 <ul>
                     
-                    <li><a href="#aadfc645-7f53-4e42-9a6a-613f51fd0d8c">MathTest.RungeKutta4</a></li>
+                    <li class="outcome outcome-passed"><a href="#15163888-2244-47ea-8603-4eeecbbf52e7">MathTest.RungeKutta4</a></li>
                     
                 </ul>
                 </li>
@@ -365,7 +412,7 @@ h1 {
                 <li>MeasurementTest.StateObservationMeasure
                 <ul>
                     
-                    <li><a href="#72e3ace9-299b-46bf-aeac-9ad495b5a974">MeasurementTest.StateObservationMeasure</a></li>
+                    <li class="outcome outcome-passed"><a href="#a61335a2-4663-4ed5-a63e-a9ec09391311">MeasurementTest.StateObservationMeasure</a></li>
                     
                 </ul>
                 </li>
@@ -373,7 +420,7 @@ h1 {
                 <li>MeasurementTest.StateObservationMeasMat
                 <ul>
                     
-                    <li><a href="#ced0a5ea-ea62-46dc-881c-ac36d4fb32be">MeasurementTest.StateObservationMeasMat</a></li>
+                    <li class="outcome outcome-passed"><a href="#67674e0b-697c-4470-959c-5fe2ab469dfc">MeasurementTest.StateObservationMeasMat</a></li>
                     
                 </ul>
                 </li>
@@ -381,7 +428,7 @@ h1 {
                 <li>MeasurementTest.RangeBearingMeasure
                 <ul>
                     
-                    <li><a href="#f4d06f8f-28c0-4ac2-a88c-05cc248a8dc6">MeasurementTest.RangeBearingMeasure</a></li>
+                    <li class="outcome outcome-passed"><a href="#4669740c-54ef-4d9f-966a-151985f91d46">MeasurementTest.RangeBearingMeasure</a></li>
                     
                 </ul>
                 </li>
@@ -389,7 +436,7 @@ h1 {
                 <li>MeasurementTest.RangeBearingMeasMat
                 <ul>
                     
-                    <li><a href="#4e8ab3d0-c5f2-49d1-bf38-b5ef1a24f92f">MeasurementTest.RangeBearingMeasMat</a></li>
+                    <li class="outcome outcome-passed"><a href="#9922a51a-51d4-465a-a82b-2896f464e1d3">MeasurementTest.RangeBearingMeasMat</a></li>
                     
                 </ul>
                 </li>
@@ -397,7 +444,7 @@ h1 {
                 <li>ControlTest.StateControlGetControlInputs
                 <ul>
                     
-                    <li><a href="#d099f1cb-9f87-4f53-a724-f147a90d8b43">ControlTest.StateControlGetControlInputs</a></li>
+                    <li class="outcome outcome-passed"><a href="#ae025a0b-2782-4b68-b4ae-3f67ec5cd535">ControlTest.StateControlGetControlInputs</a></li>
                     
                 </ul>
                 </li>
@@ -405,7 +452,7 @@ h1 {
                 <li>ControlTest.StateControlGetInputMat
                 <ul>
                     
-                    <li><a href="#00bfb835-be53-4e23-91a3-3eeed0624098">ControlTest.StateControlGetInputMat</a></li>
+                    <li class="outcome outcome-passed"><a href="#6b7f9625-719d-44af-94cc-d08703652c16">ControlTest.StateControlGetInputMat</a></li>
                     
                 </ul>
                 </li>
@@ -413,7 +460,7 @@ h1 {
                 <li>ControlTest.StateControlGetInputMat2
                 <ul>
                     
-                    <li><a href="#aebee396-605d-42b7-a885-7d92ce8becc0">ControlTest.StateControlGetInputMat2</a></li>
+                    <li class="outcome outcome-passed"><a href="#0005c202-c60a-4a1c-860b-1c2b32dee354">ControlTest.StateControlGetInputMat2</a></li>
                     
                 </ul>
                 </li>
@@ -421,7 +468,7 @@ h1 {
                 <li>KFTest.SetStateModel
                 <ul>
                     
-                    <li><a href="#446ebedd-4e94-43a1-870d-858b3f51e9a0">KFTest.SetStateModel</a></li>
+                    <li class="outcome outcome-passed"><a href="#492b53e1-08a9-43ee-8327-654159438323">KFTest.SetStateModel</a></li>
                     
                 </ul>
                 </li>
@@ -429,7 +476,7 @@ h1 {
                 <li>KFTest.SetMeasModel
                 <ul>
                     
-                    <li><a href="#7c356c57-e12b-45d0-bb4e-119d403e5751">KFTest.SetMeasModel</a></li>
+                    <li class="outcome outcome-passed"><a href="#499e0913-836a-4c73-85e6-a81b078a65a5">KFTest.SetMeasModel</a></li>
                     
                 </ul>
                 </li>
@@ -437,7 +484,7 @@ h1 {
                 <li>KFTest.GetSetCovariance
                 <ul>
                     
-                    <li><a href="#7d922dba-8cae-4636-af84-be8c7f754bf3">KFTest.GetSetCovariance</a></li>
+                    <li class="outcome outcome-passed"><a href="#3a91be59-2d4b-44a8-b247-a03486021cd7">KFTest.GetSetCovariance</a></li>
                     
                 </ul>
                 </li>
@@ -445,7 +492,7 @@ h1 {
                 <li>KFTest.FilterPredict
                 <ul>
                     
-                    <li><a href="#35bf7843-e1e3-46f0-8477-0814b3e84ff6">KFTest.FilterPredict</a></li>
+                    <li class="outcome outcome-passed"><a href="#d6dbc6f0-8e23-4a98-ad13-b36c5bbaaa0f">KFTest.FilterPredict</a></li>
                     
                 </ul>
                 </li>
@@ -453,7 +500,7 @@ h1 {
                 <li>KFTest.FilterCorrect
                 <ul>
                     
-                    <li><a href="#068340d3-a11e-40af-82c9-f47f526c1d89">KFTest.FilterCorrect</a></li>
+                    <li class="outcome outcome-passed"><a href="#4aac79f3-4f10-43d6-b99f-3b8e4d04d335">KFTest.FilterCorrect</a></li>
                     
                 </ul>
                 </li>
@@ -461,7 +508,7 @@ h1 {
                 <li>KFTest.serialize
                 <ul>
                     
-                    <li><a href="#d26fb083-cf55-4568-8433-be5ef1673645">KFTest.serialize</a></li>
+                    <li class="outcome outcome-passed"><a href="#a84c2483-3f2b-4877-aacd-889a695f58ca">KFTest.serialize</a></li>
                     
                 </ul>
                 </li>
@@ -469,7 +516,7 @@ h1 {
                 <li>EKFTest.SetStateModel
                 <ul>
                     
-                    <li><a href="#0e49e9f1-c191-4ea9-b43e-a3370f3a0f9a">EKFTest.SetStateModel</a></li>
+                    <li class="outcome outcome-passed"><a href="#294dcc09-4021-4ef1-a868-6f6f07e0d6eb">EKFTest.SetStateModel</a></li>
                     
                 </ul>
                 </li>
@@ -477,7 +524,7 @@ h1 {
                 <li>EKFTest.SetMeasModel
                 <ul>
                     
-                    <li><a href="#e6647f55-4bcd-49d5-8b22-6edefaf60c00">EKFTest.SetMeasModel</a></li>
+                    <li class="outcome outcome-passed"><a href="#4ba55848-a0fb-458c-9067-b466af537a24">EKFTest.SetMeasModel</a></li>
                     
                 </ul>
                 </li>
@@ -485,7 +532,7 @@ h1 {
                 <li>EKFTest.FilterPredict
                 <ul>
                     
-                    <li><a href="#2858d0ea-90d5-42c3-84d8-a55ce364944b">EKFTest.FilterPredict</a></li>
+                    <li class="outcome outcome-passed"><a href="#e9b40ed1-86ca-4468-93e7-5ec475eeb9ae">EKFTest.FilterPredict</a></li>
                     
                 </ul>
                 </li>
@@ -493,7 +540,7 @@ h1 {
                 <li>EKFTest.FilterCorrect
                 <ul>
                     
-                    <li><a href="#74d32646-6acb-4586-ad85-b75628a4bc34">EKFTest.FilterCorrect</a></li>
+                    <li class="outcome outcome-passed"><a href="#0bc817d9-c5ee-4d87-9156-591d3cb3df14">EKFTest.FilterCorrect</a></li>
                     
                 </ul>
                 </li>
@@ -501,7 +548,7 @@ h1 {
                 <li>EKFTest.serialize
                 <ul>
                     
-                    <li><a href="#2e78e90a-d198-4240-8569-e77f0d36bfdf">EKFTest.serialize</a></li>
+                    <li class="outcome outcome-passed"><a href="#34d97b56-0228-4a3b-95d1-f8b4dc9bd8d5">EKFTest.serialize</a></li>
                     
                 </ul>
                 </li>
@@ -668,9 +715,10 @@ h1 {
 </table>
 
 
+
     <div class="testsuite">
         <h2>Test Suite: (empty)</h2>
-        <a id="b5489923-925f-4fcc-a36d-30c2054baf1c"></a>
+        <a id="4abede7f-4760-49f1-b26e-b1fcd1108ac0"></a>
         
         
         <h3>Results</h3>
@@ -694,19 +742,15 @@ h1 {
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="c14af83b-cdc5-454b-803d-b7837888a3a6"></a>
+                        <a id="6519bd4c-c334-4b3a-ac01-2ae851468f96"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>DoubleInt.Propagate</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -749,19 +793,15 @@ t = 0.9: 1 0 1 0
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="8aaaecd8-1d48-4456-86cc-2919af7c0f91"></a>
+                        <a id="227a8f7b-d172-451e-8708-4f0d690002e9"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>DoubleInt.Control</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -804,19 +844,15 @@ t = 0.9: 5.5 4.5 11 10
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="cd37f81e-b5f1-41fb-a037-8d0370cbf101"></a>
+                        <a id="23d42b5d-8510-4533-ad3d-3f0befd95998"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>DoubleInt.serialize</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -844,7 +880,9 @@ Original class:
                     &#34;data&#34;: {
                         &#34;ILinearControlModel&#34;: {
                             &#34;IControlModel&#34;: {}
-                        }
+                        },
+                        &#34;m_stateDim&#34;: 1,
+                        &#34;m_contDim&#34;: 1
                     }
                 }
             }
@@ -854,10 +892,7 @@ Original class:
 }
 Loaded class:
 {
-    &#34;value0&#34;: {
-        &#34;ILinearDynamics&#34;: {
-            &#34;IDynamics&#34;: {
-                &#34;m_ha...
+    &#34;value0&#34;...
 [This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
 </pre>
                         </div>
@@ -873,19 +908,15 @@ Loaded class:
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="5b92f62f-eff2-4289-b052-f5f44798a987"></a>
+                        <a id="c558a1b5-6e32-4501-a972-89b970f3fb55"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>Curvilinear.GetStateMat</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.006 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -934,19 +965,15 @@ Checking row = 3, col = 3
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="94b9af31-c797-4de1-9ef2-55bf1d341cac"></a>
+                        <a id="892d8375-6d76-4de9-ba12-21dbca420dec"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>Curvilinear.Propagate</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -989,19 +1016,15 @@ t = 0.9: 0.707107 0.707107 1 0.785398
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="99a9a9ec-04ab-4fad-9dc6-5490057dbac2"></a>
+                        <a id="becc8f4a-7ec5-48cc-81d0-d57cc0e433a5"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>Curvilinear.serialize</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1060,19 +1083,15 @@ Loaded class:
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="73dc9855-3137-4457-933a-31dc70fdd9f2"></a>
+                        <a id="6cd1b2f5-f547-4604-bc5e-f875dc429586"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>CWHOrbit2D.Propagate</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.006 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1099,7 +1118,7 @@ t = 0.9: 0.63662 -1.27324 2.22045e-16 -2
 [----------] 1 test from CWHOrbit2D (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (1 ms total)
+[==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 </pre>
                         </div>
@@ -1115,19 +1134,15 @@ t = 0.9: 0.63662 -1.27324 2.22045e-16 -2
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="353e7cb0-152d-455b-beed-02ca771b903a"></a>
+                        <a id="26599027-d41a-4849-8910-fc29342714c7"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>CWHOrbit2D.Control</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1170,19 +1185,15 @@ t = 0.9: 8.36957 -3.87519 18.5593 -16.2938
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="42586c1d-e4ad-4827-80bd-6215585813b2"></a>
+                        <a id="f00b5806-30f7-4f59-ab77-bdacc8c0809a"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>CWHOrbit2D.serialize</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1210,20 +1221,15 @@ Original class:
                     &#34;data&#34;: {
                         &#34;ILinearControlModel&#34;: {
                             &#34;IControlModel&#34;: {}
-                        }
+                        },
+                        &#34;m_stateDim&#34;: 1,
+                        &#34;m_contDim&#34;: 1
                     }
                 }
             }
         },
         &#34;m_dt&#34;: 0.1,
-        &#34;m_mean_motion&#34;: 6.283185307179586
-    }
-}
-Loaded class:
-{
-    &#34;value0&#34;: {
-        &#34;ILinearDynamics&#34;: {
- ...
+        &#34;m_mean_motion&#34;: 6.28318...
 [This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
 </pre>
                         </div>
@@ -1239,19 +1245,15 @@ Loaded class:
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="d2df33ae-ca27-4815-8089-0e01a39707d3"></a>
+                        <a id="bddca7ce-985b-4a6a-9991-677e2a417f48"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>CWHOrbit.Propagate</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.006 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1291,19 +1293,15 @@ t = 0.9: 0.63662 -1.27324 0.63662 2.22045e-16 -2 1.38778e-16
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="6100a72a-b75c-42b3-85f4-8aff35fb1b14"></a>
+                        <a id="0aa82209-3816-4049-8973-5224650ca3e8"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>CWHOrbit.Control</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1345,19 +1343,15 @@ t = 0.9: 8.36957 -3.87519 4.36282 18.5593 -16.2938 6.8531
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="eafbacf0-e15e-40c5-b09f-fc69e640668e"></a>
+                        <a id="50d421d9-7b23-4101-964f-584dda7a9119"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>CWHOrbit.serialize</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1386,13 +1380,11 @@ Original class:
                         &#34;data&#34;: {
                             &#34;ILinearControlModel&#34;: {
                                 &#34;IControlModel&#34;: {}
-                            }
+                            },
+                            &#34;m_stateDim&#34;: 1,
+                            &#34;m_contDim&#34;: 1
                         }
-                    }
-                }
-            },
-            &#34;m_dt&#34;: 0.1,
-            &#34;m...
+     ...
 [This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
 </pre>
                         </div>
@@ -1408,19 +1400,15 @@ Original class:
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="e34e7fe8-d5c6-4d2d-b015-57c9d63e5c73"></a>
+                        <a id="b1cf8778-643a-446f-abd0-5b4b9a2c5e39"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MathTest.GradientVec</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1453,19 +1441,15 @@ Note: Google Test filter = MathTest.GradientVec
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="c17e0448-814e-48d2-8aa0-68025525e5fb"></a>
+                        <a id="86bb3f19-55f1-46b6-8aad-3f8d0a05e84e"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MathTest.JacobianSquareMat</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1498,19 +1482,15 @@ Note: Google Test filter = MathTest.JacobianSquareMat
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="d3aa1e5c-96f9-471b-9b20-a48e9ffd79ab"></a>
+                        <a id="cd7197da-1ad3-4524-ac23-f9c7438f237c"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MathTest.JacobianMat</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1543,19 +1523,15 @@ Note: Google Test filter = MathTest.JacobianMat
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="afa2e076-b0de-4a33-bc2d-e0558260928b"></a>
+                        <a id="bbd8d867-dfdd-49ba-b7d2-66288fc2a9f3"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MathTest.JacobianFunction</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1588,19 +1564,15 @@ Note: Google Test filter = MathTest.JacobianFunction
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="5e22adc4-e7e4-4089-83d6-86862051864c"></a>
+                        <a id="17c41901-8045-4b27-992f-55c54bddf4d3"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MathTest.GaussianPDF</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1633,19 +1605,15 @@ Note: Google Test filter = MathTest.GaussianPDF
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="2b612fda-7570-4623-8384-49c87f7b6fc6"></a>
+                        <a id="36554f01-9168-4e93-91fa-1cc70828fdf0"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MathTest.GaussianPDFVec</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1678,19 +1646,15 @@ Note: Google Test filter = MathTest.GaussianPDFVec
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="aadfc645-7f53-4e42-9a6a-613f51fd0d8c"></a>
+                        <a id="15163888-2244-47ea-8603-4eeecbbf52e7"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MathTest.RungeKutta4</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1723,19 +1687,15 @@ Note: Google Test filter = MathTest.RungeKutta4
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="72e3ace9-299b-46bf-aeac-9ad495b5a974"></a>
+                        <a id="a61335a2-4663-4ed5-a63e-a9ec09391311"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MeasurementTest.StateObservationMeasure</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1768,19 +1728,15 @@ Note: Google Test filter = MeasurementTest.StateObservationMeasure
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="ced0a5ea-ea62-46dc-881c-ac36d4fb32be"></a>
+                        <a id="67674e0b-697c-4470-959c-5fe2ab469dfc"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MeasurementTest.StateObservationMeasMat</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1813,19 +1769,15 @@ Note: Google Test filter = MeasurementTest.StateObservationMeasMat
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="f4d06f8f-28c0-4ac2-a88c-05cc248a8dc6"></a>
+                        <a id="4669740c-54ef-4d9f-966a-151985f91d46"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MeasurementTest.RangeBearingMeasure</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.005 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1858,19 +1810,15 @@ Note: Google Test filter = MeasurementTest.RangeBearingMeasure
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="4e8ab3d0-c5f2-49d1-bf38-b5ef1a24f92f"></a>
+                        <a id="9922a51a-51d4-465a-a82b-2896f464e1d3"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>MeasurementTest.RangeBearingMeasMat</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1903,19 +1851,15 @@ Note: Google Test filter = MeasurementTest.RangeBearingMeasMat
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="d099f1cb-9f87-4f53-a724-f147a90d8b43"></a>
+                        <a id="ae025a0b-2782-4b68-b4ae-3f67ec5cd535"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>ControlTest.StateControlGetControlInputs</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1948,19 +1892,15 @@ Note: Google Test filter = ControlTest.StateControlGetControlInputs
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="00bfb835-be53-4e23-91a3-3eeed0624098"></a>
+                        <a id="6b7f9625-719d-44af-94cc-d08703652c16"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>ControlTest.StateControlGetInputMat</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -1993,19 +1933,15 @@ Note: Google Test filter = ControlTest.StateControlGetInputMat
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="aebee396-605d-42b7-a885-7d92ce8becc0"></a>
+                        <a id="0005c202-c60a-4a1c-860b-1c2b32dee354"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>ControlTest.StateControlGetInputMat2</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2038,19 +1974,15 @@ Note: Google Test filter = ControlTest.StateControlGetInputMat2
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="446ebedd-4e94-43a1-870d-858b3f51e9a0"></a>
+                        <a id="492b53e1-08a9-43ee-8327-654159438323"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>KFTest.SetStateModel</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2083,19 +2015,15 @@ Note: Google Test filter = KFTest.SetStateModel
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="7c356c57-e12b-45d0-bb4e-119d403e5751"></a>
+                        <a id="499e0913-836a-4c73-85e6-a81b078a65a5"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>KFTest.SetMeasModel</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2128,19 +2056,15 @@ Note: Google Test filter = KFTest.SetMeasModel
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="7d922dba-8cae-4636-af84-be8c7f754bf3"></a>
+                        <a id="3a91be59-2d4b-44a8-b247-a03486021cd7"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>KFTest.GetSetCovariance</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2173,19 +2097,15 @@ Note: Google Test filter = KFTest.GetSetCovariance
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="35bf7843-e1e3-46f0-8477-0814b3e84ff6"></a>
+                        <a id="d6dbc6f0-8e23-4a98-ad13-b36c5bbaaa0f"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>KFTest.FilterPredict</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2218,19 +2138,15 @@ Note: Google Test filter = KFTest.FilterPredict
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="068340d3-a11e-40af-82c9-f47f526c1d89"></a>
+                        <a id="4aac79f3-4f10-43d6-b99f-3b8e4d04d335"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>KFTest.FilterCorrect</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2268,19 +2184,15 @@ corrected state estimate:
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="d26fb083-cf55-4568-8433-be5ef1673645"></a>
+                        <a id="a84c2483-3f2b-4877-aacd-889a695f58ca"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>KFTest.serialize</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2339,19 +2251,15 @@ Original class:
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="0e49e9f1-c191-4ea9-b43e-a3370f3a0f9a"></a>
+                        <a id="294dcc09-4021-4ef1-a868-6f6f07e0d6eb"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>EKFTest.SetStateModel</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2384,19 +2292,15 @@ Note: Google Test filter = EKFTest.SetStateModel
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="e6647f55-4bcd-49d5-8b22-6edefaf60c00"></a>
+                        <a id="4ba55848-a0fb-458c-9067-b466af537a24"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>EKFTest.SetMeasModel</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2429,19 +2333,15 @@ Note: Google Test filter = EKFTest.SetMeasModel
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="2858d0ea-90d5-42c3-84d8-a55ce364944b"></a>
+                        <a id="e9b40ed1-86ca-4468-93e7-5ec475eeb9ae"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>EKFTest.FilterPredict</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.002 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2474,19 +2374,15 @@ Note: Google Test filter = EKFTest.FilterPredict
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="74d32646-6acb-4586-ad85-b75628a4bc34"></a>
+                        <a id="0bc817d9-c5ee-4d87-9156-591d3cb3df14"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>EKFTest.FilterCorrect</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
-                            <tr><th>Duration:</th><td>0.004 sec</td></tr>
-                        
-                            <tr><th>Failed</th><td>None</td></tr>
+                            <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 
@@ -2524,19 +2420,15 @@ corrected state estimate:
                 <div class="testcases">
                 
                     <div class="test outcome outcome-passed">
-                        <a id="2e78e90a-d198-4240-8569-e77f0d36bfdf"></a>
+                        <a id="34d97b56-0228-4a3b-95d1-f8b4dc9bd8d5"></a>
                         <table class="proplist">
                             <tr><th>Test case:</th><td><b>EKFTest.serialize</b></td></tr>
                             <tr><th>Outcome:</th><td>Passed</td></tr>
                             <tr><th>Duration:</th><td>0.003 sec</td></tr>
                         
-                            <tr><th>Failed</th><td>None</td></tr>
-                        
                         
                         </table>
 
-                        
-                        <pre>None</pre>
                         
                         
 

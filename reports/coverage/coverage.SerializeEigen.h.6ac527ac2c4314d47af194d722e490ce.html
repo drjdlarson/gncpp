@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2023-07-19 03:14:05</td>
+      <td>2024-06-01 23:05:05</td>
     </tr>
   </table>
 </div>
@@ -69,76 +69,16 @@
   <summary>List of functions</summary>
   <table class="listOfFunctions">
     <tr>
-      <th>Function</th>
-      <th>Line</th>
+      <th>Function (Line)</th>
       <th>Call count</th>
+      <th>Block coverage</th>
     </tr>
-    <tr>
-      <td>
-        <a href="#l40">std::enable_if&lt;cereal::traits::is_input_serializable&lt;cereal::BinaryData&lt;double&gt;, cereal::BinaryInputArchive&gt;::value, void&gt;::type cereal::load&lt;cereal::BinaryInputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::BinaryInputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;&amp;)</a>
-      </td>
-      <td>
-        <a href="#l40">40</a>
-      </td>
-      <td>
-        <a href="#l40"> not called</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l40">std::enable_if&lt;cereal::traits::is_input_serializable&lt;cereal::BinaryData&lt;double&gt;, cereal::PortableBinaryInputArchive&gt;::value, void&gt;::type cereal::load&lt;cereal::PortableBinaryInputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::PortableBinaryInputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;&amp;)</a>
-      </td>
-      <td>
-        <a href="#l40">40</a>
-      </td>
-      <td>
-        <a href="#l40"> called 12 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l25">std::enable_if&lt;cereal::traits::is_output_serializable&lt;cereal::BinaryData&lt;double&gt;, cereal::BinaryOutputArchive&gt;::value, void&gt;::type cereal::save&lt;cereal::BinaryOutputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::BinaryOutputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt; const&amp;)</a>
-      </td>
-      <td>
-        <a href="#l25">25</a>
-      </td>
-      <td>
-        <a href="#l25"> not called</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l25">std::enable_if&lt;cereal::traits::is_output_serializable&lt;cereal::BinaryData&lt;double&gt;, cereal::PortableBinaryOutputArchive&gt;::value, void&gt;::type cereal::save&lt;cereal::PortableBinaryOutputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::PortableBinaryOutputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt; const&amp;)</a>
-      </td>
-      <td>
-        <a href="#l25">25</a>
-      </td>
-      <td>
-        <a href="#l25"> called 12 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l81">std::enable_if&lt;cereal::traits::is_text_archive&lt;cereal::JSONInputArchive&gt;::value, void&gt;::type cereal::load&lt;cereal::JSONInputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::JSONInputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;&amp;)</a>
-      </td>
-      <td>
-        <a href="#l81">81</a>
-      </td>
-      <td>
-        <a href="#l81"> not called</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l61">std::enable_if&lt;cereal::traits::is_text_archive&lt;cereal::JSONOutputArchive&gt;::value, void&gt;::type cereal::save&lt;cereal::JSONOutputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::JSONOutputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt; const&amp;)</a>
-      </td>
-      <td>
-        <a href="#l61">61</a>
-      </td>
-      <td>
-        <a href="#l61"> called 24 times</a>
-      </td>
-    </tr>
+    <tr><td><a href="#l40">std::enable_if&lt;cereal::traits::is_input_serializable&lt;cereal::BinaryData&lt;double&gt;, cereal::BinaryInputArchive&gt;::value, void&gt;::type cereal::load&lt;cereal::BinaryInputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::BinaryInputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;&amp;) (line 40)</a></td><td>not called</td><td>0.0%</td></tr>
+    <tr><td><a href="#l40">std::enable_if&lt;cereal::traits::is_input_serializable&lt;cereal::BinaryData&lt;double&gt;, cereal::PortableBinaryInputArchive&gt;::value, void&gt;::type cereal::load&lt;cereal::PortableBinaryInputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::PortableBinaryInputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;&amp;) (line 40)</a></td><td>called 12 times, returned 12 times</td><td>80.0%</td></tr>
+    <tr><td><a href="#l25">std::enable_if&lt;cereal::traits::is_output_serializable&lt;cereal::BinaryData&lt;double&gt;, cereal::BinaryOutputArchive&gt;::value, void&gt;::type cereal::save&lt;cereal::BinaryOutputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::BinaryOutputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt; const&amp;) (line 25)</a></td><td>not called</td><td>0.0%</td></tr>
+    <tr><td><a href="#l25">std::enable_if&lt;cereal::traits::is_output_serializable&lt;cereal::BinaryData&lt;double&gt;, cereal::PortableBinaryOutputArchive&gt;::value, void&gt;::type cereal::save&lt;cereal::PortableBinaryOutputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::PortableBinaryOutputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt; const&amp;) (line 25)</a></td><td>called 12 times, returned 12 times</td><td>82.0%</td></tr>
+    <tr><td><a href="#l81">std::enable_if&lt;cereal::traits::is_text_archive&lt;cereal::JSONInputArchive&gt;::value, void&gt;::type cereal::load&lt;cereal::JSONInputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::JSONInputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;&amp;) (line 81)</a></td><td>not called</td><td>0.0%</td></tr>
+    <tr><td><a href="#l61">std::enable_if&lt;cereal::traits::is_text_archive&lt;cereal::JSONOutputArchive&gt;::value, void&gt;::type cereal::save&lt;cereal::JSONOutputArchive, double, -1, -1, 0, -1, -1&gt;(cereal::JSONOutputArchive&amp;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt; const&amp;) (line 61)</a></td><td>called 24 times, returned 24 times</td><td>73.0%</td></tr>
   </table>
 </details>
 
@@ -367,8 +307,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l31" href="#l31">31</a></td>
@@ -381,8 +321,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">cols</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">cols</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l32" href="#l32">32</a></td>
@@ -399,8 +339,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">binary_data</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Scalar</span><span class="p">)));</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">binary_data</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Scalar</span><span class="p">)));</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l33" href="#l33">33</a></td>
@@ -490,8 +430,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l45" href="#l45">45</a></td>
@@ -504,8 +444,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">cols</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">cols</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l46" href="#l46">46</a></td>
@@ -525,8 +465,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="w"> </span><span class="n">cols</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="w"> </span><span class="n">cols</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l48" href="#l48">48</a></td>
@@ -548,8 +488,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">binary_data</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">binary_data</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l50" href="#l50">50</a></td>
@@ -562,8 +502,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">                   </span><span class="n">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rows</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Scalar</span><span class="p">))));</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">                   </span><span class="n">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rows</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">_Scalar</span><span class="p">))));</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l51" href="#l51">51</a></td>
@@ -676,8 +616,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">cereal</span><span class="o">::</span><span class="n">make_nvp</span><span class="p">(</span><span class="s">&quot;rows&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rows</span><span class="p">));</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">cereal</span><span class="o">::</span><span class="n">make_nvp</span><span class="p">(</span><span class="s">&quot;rows&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rows</span><span class="p">));</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l66" href="#l66">66</a></td>
@@ -692,8 +632,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">cereal</span><span class="o">::</span><span class="n">make_nvp</span><span class="p">(</span><span class="s">&quot;cols&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cols</span><span class="p">));</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">cereal</span><span class="o">::</span><span class="n">make_nvp</span><span class="p">(</span><span class="s">&quot;cols&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cols</span><span class="p">));</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l67" href="#l67">67</a></td>
@@ -741,8 +681,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">320</td>
-      <td class="src coveredLine"><span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span><span class="w"> </span><span class="n">name</span><span class="p">;</span></td>
+      <td class="linecount partialCoveredLine">320</td>
+      <td class="src partialCoveredLine"><span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span><span class="w"> </span><span class="n">name</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l71" href="#l71">71</a></td>
@@ -759,8 +699,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">320</td>
-      <td class="src coveredLine"><span class="w">            </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span></td>
+      <td class="linecount partialCoveredLine">320</td>
+      <td class="src partialCoveredLine"><span class="w">            </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l72" href="#l72">72</a></td>
@@ -779,8 +719,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">320</td>
-      <td class="src coveredLine"><span class="w">            </span><span class="n">ar</span><span class="p">(</span><span class="n">cereal</span><span class="o">::</span><span class="n">make_nvp</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">str</span><span class="p">(),</span><span class="w"> </span><span class="n">m</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)));</span></td>
+      <td class="linecount partialCoveredLine">320</td>
+      <td class="src partialCoveredLine"><span class="w">            </span><span class="n">ar</span><span class="p">(</span><span class="n">cereal</span><span class="o">::</span><span class="n">make_nvp</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">str</span><span class="p">(),</span><span class="w"> </span><span class="n">m</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)));</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l73" href="#l73">73</a></td>
@@ -1096,7 +1036,7 @@
     </main>
 
     <footer>
-      Generated by: <a href="http://gcovr.com/en/6.0">GCOVR (Version 6.0)</a>
+      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
     </footer>
   </body>
 </html>

@@ -1,9 +1,8 @@
 <map id="/workspace/include/gncpy/measurements/INonLinearMeasModel.h" name="/workspace/include/gncpy/measurements/INonLinearMeasModel.h">
-<area shape="rect" id="node1" title=" " alt="" coords="253,5,436,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="255,5,437,61"/>
 <area shape="rect" id="node2" href="$d6/d61/ExtendedKalman_8h.html" title=" " alt="" coords="5,117,239,158"/>
-<area shape="rect" id="node4" href="$dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="323,109,489,165"/>
-<area shape="rect" id="node5" href="$d5/dd0/measurements_2SerializableTypes_8h.html" title=" " alt="" coords="211,213,377,269"/>
-<area shape="rect" id="node7" href="$d9/d10/INonLinearMeasModel_8cpp.html" title=" " alt="" coords="514,117,735,158"/>
-<area shape="rect" id="node3" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="23,221,187,262"/>
-<area shape="rect" id="node6" href="$df/df1/RangeAndBearing_8cpp.html" title=" " alt="" coords="402,221,623,262"/>
+<area shape="rect" id="node4" href="$dd/d9f/RangeAndBearing_8h.html" title=" " alt="" coords="263,109,429,165"/>
+<area shape="rect" id="node6" href="$d9/d10/INonLinearMeasModel_8cpp.html" title=" " alt="" coords="454,117,675,158"/>
+<area shape="rect" id="node3" href="$dc/d5c/ExtendedKalman_8cpp.html" title=" " alt="" coords="40,213,204,255"/>
+<area shape="rect" id="node5" href="$df/df1/RangeAndBearing_8cpp.html" title=" " alt="" coords="235,213,457,255"/>
 </map>

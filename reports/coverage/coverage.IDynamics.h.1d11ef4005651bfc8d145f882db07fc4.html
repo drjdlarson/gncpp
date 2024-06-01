@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2023-07-19 03:14:05</td>
+      <td>2024-06-01 23:05:05</td>
     </tr>
   </table>
 </div>
@@ -69,98 +69,18 @@
   <summary>List of functions</summary>
   <table class="listOfFunctions">
     <tr>
-      <th>Function</th>
-      <th>Line</th>
+      <th>Function (Line)</th>
       <th>Call count</th>
+      <th>Block coverage</th>
     </tr>
-    <tr>
-      <td>
-        <a href="#l89">lager::gncpy::dynamics::IDynamics::hasStateConstraint() const</a>
-      </td>
-      <td>
-        <a href="#l89">89</a>
-      </td>
-      <td>
-        <a href="#l89"> called 160 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l25">lager::gncpy::dynamics::IDynamics::~IDynamics()</a>
-      </td>
-      <td>
-        <a href="#l25">25</a>
-      </td>
-      <td>
-        <a href="#l25"> called 50 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::BinaryInputArchive&gt;(cereal::BinaryInputArchive&amp;)</a>
-      </td>
-      <td>
-        <a href="#l113">113</a>
-      </td>
-      <td>
-        <a href="#l113"> not called</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::BinaryOutputArchive&gt;(cereal::BinaryOutputArchive&amp;)</a>
-      </td>
-      <td>
-        <a href="#l113">113</a>
-      </td>
-      <td>
-        <a href="#l113"> not called</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::JSONInputArchive&gt;(cereal::JSONInputArchive&amp;)</a>
-      </td>
-      <td>
-        <a href="#l113">113</a>
-      </td>
-      <td>
-        <a href="#l113"> not called</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::JSONOutputArchive&gt;(cereal::JSONOutputArchive&amp;)</a>
-      </td>
-      <td>
-        <a href="#l113">113</a>
-      </td>
-      <td>
-        <a href="#l113"> called 24 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::PortableBinaryInputArchive&gt;(cereal::PortableBinaryInputArchive&amp;)</a>
-      </td>
-      <td>
-        <a href="#l113">113</a>
-      </td>
-      <td>
-        <a href="#l113"> called 12 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::PortableBinaryOutputArchive&gt;(cereal::PortableBinaryOutputArchive&amp;)</a>
-      </td>
-      <td>
-        <a href="#l113">113</a>
-      </td>
-      <td>
-        <a href="#l113"> called 12 times</a>
-      </td>
-    </tr>
+    <tr><td><a href="#l89">lager::gncpy::dynamics::IDynamics::hasStateConstraint() const (line 89)</a></td><td>called 160 times, returned 160 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l25">lager::gncpy::dynamics::IDynamics::~IDynamics() (line 25)</a></td><td>called 50 times, returned 50 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::BinaryInputArchive&gt;(cereal::BinaryInputArchive&amp;) (line 113)</a></td><td>not called</td><td>0.0%</td></tr>
+    <tr><td><a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::BinaryOutputArchive&gt;(cereal::BinaryOutputArchive&amp;) (line 113)</a></td><td>not called</td><td>0.0%</td></tr>
+    <tr><td><a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::JSONInputArchive&gt;(cereal::JSONInputArchive&amp;) (line 113)</a></td><td>not called</td><td>0.0%</td></tr>
+    <tr><td><a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::JSONOutputArchive&gt;(cereal::JSONOutputArchive&amp;) (line 113)</a></td><td>called 24 times, returned 24 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::PortableBinaryInputArchive&gt;(cereal::PortableBinaryInputArchive&amp;) (line 113)</a></td><td>called 12 times, returned 12 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l113">void lager::gncpy::dynamics::IDynamics::serialize&lt;cereal::PortableBinaryOutputArchive&gt;(cereal::PortableBinaryOutputArchive&amp;) (line 113)</a></td><td>called 12 times, returned 12 times</td><td>100.0%</td></tr>
   </table>
 </details>
 
@@ -991,8 +911,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">96</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">CEREAL_NVP</span><span class="p">(</span><span class="n">m_hasStateConstraint</span><span class="p">));</span></td>
+      <td class="linecount partialCoveredLine">96</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">ar</span><span class="p">(</span><span class="n">CEREAL_NVP</span><span class="p">(</span><span class="n">m_hasStateConstraint</span><span class="p">));</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l117" href="#l117">117</a></td>
@@ -1049,7 +969,7 @@
     </main>
 
     <footer>
-      Generated by: <a href="http://gcovr.com/en/6.0">GCOVR (Version 6.0)</a>
+      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
     </footer>
   </body>
 </html>

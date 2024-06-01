@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2023-07-19 03:14:05</td>
+      <td>2024-06-01 23:05:05</td>
     </tr>
   </table>
 </div>
@@ -69,65 +69,15 @@
   <summary>List of functions</summary>
   <table class="listOfFunctions">
     <tr>
-      <th>Function</th>
-      <th>Line</th>
+      <th>Function (Line)</th>
       <th>Call count</th>
+      <th>Block coverage</th>
     </tr>
-    <tr>
-      <td>
-        <a href="#l93">lager::gncpy::filters::ExtendedKalman::dynamicsModel() const</a>
-      </td>
-      <td>
-        <a href="#l93">93</a>
-      </td>
-      <td>
-        <a href="#l93"> called 10 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l102">lager::gncpy::filters::ExtendedKalman::measurementModel() const</a>
-      </td>
-      <td>
-        <a href="#l102">102</a>
-      </td>
-      <td>
-        <a href="#l102"> called 4 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l10">lager::gncpy::filters::ExtendedKalman::predict(double, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;, std::optional&lt;Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; &gt;, lager::gncpy::filters::BayesPredictParams const*)</a>
-      </td>
-      <td>
-        <a href="#l10">10</a>
-      </td>
-      <td>
-        <a href="#l10"> called 2 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l67">lager::gncpy::filters::ExtendedKalman::setMeasurementModel(std::shared_ptr&lt;lager::gncpy::measurements::IMeasModel&gt;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;)</a>
-      </td>
-      <td>
-        <a href="#l67">67</a>
-      </td>
-      <td>
-        <a href="#l67"> called 4 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l48">lager::gncpy::filters::ExtendedKalman::setStateModel(std::shared_ptr&lt;lager::gncpy::dynamics::IDynamics&gt;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;)</a>
-      </td>
-      <td>
-        <a href="#l48">48</a>
-      </td>
-      <td>
-        <a href="#l48"> called 6 times</a>
-      </td>
-    </tr>
+    <tr><td><a href="#l93">lager::gncpy::filters::ExtendedKalman::dynamicsModel() const (line 93)</a></td><td>called 10 times, returned 10 times</td><td>57.0%</td></tr>
+    <tr><td><a href="#l102">lager::gncpy::filters::ExtendedKalman::measurementModel() const (line 102)</a></td><td>called 4 times, returned 4 times</td><td>57.0%</td></tr>
+    <tr><td><a href="#l10">lager::gncpy::filters::ExtendedKalman::predict(double, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;, std::optional&lt;Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; &gt;, lager::gncpy::filters::BayesPredictParams const*) (line 10)</a></td><td>called 2 times, returned 2 times</td><td>44.0%</td></tr>
+    <tr><td><a href="#l67">lager::gncpy::filters::ExtendedKalman::setMeasurementModel(std::shared_ptr&lt;lager::gncpy::measurements::IMeasModel&gt;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;) (line 67)</a></td><td>called 4 times, returned 4 times</td><td>64.0%</td></tr>
+    <tr><td><a href="#l48">lager::gncpy::filters::ExtendedKalman::setStateModel(std::shared_ptr&lt;lager::gncpy::dynamics::IDynamics&gt;, Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt;) (line 48)</a></td><td>called 6 times, returned 6 times</td><td>61.0%</td></tr>
   </table>
 </details>
 
@@ -248,8 +198,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">4</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">utilities</span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span></td>
+      <td class="linecount partialCoveredLine">4</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">params</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">utilities</span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l15" href="#l15">15</a></td>
@@ -290,8 +240,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">2</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span><span class="w"> </span><span class="n">nextState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dynamicsModel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">propagateState</span><span class="p">(</span></td>
+      <td class="linecount partialCoveredLine">2</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span><span class="w"> </span><span class="n">nextState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dynamicsModel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">propagateState</span><span class="p">(</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l20" href="#l20">20</a></td>
@@ -304,8 +254,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">2</td>
-      <td class="src coveredLine"><span class="w">        </span><span class="n">timestep</span><span class="p">,</span><span class="w"> </span><span class="n">curState</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="o">-&gt;</span><span class="n">stateTransParams</span><span class="p">.</span><span class="n">get</span><span class="p">());</span></td>
+      <td class="linecount partialCoveredLine">2</td>
+      <td class="src partialCoveredLine"><span class="w">        </span><span class="n">timestep</span><span class="p">,</span><span class="w"> </span><span class="n">curState</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="o">-&gt;</span><span class="n">stateTransParams</span><span class="p">.</span><span class="n">get</span><span class="p">());</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l21" href="#l21">21</a></td>
@@ -325,8 +275,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">4</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span><span class="w"> </span><span class="n">stateMat</span><span class="p">;</span></td>
+      <td class="linecount partialCoveredLine">4</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span><span class="w"> </span><span class="n">stateMat</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l23" href="#l23">23</a></td>
@@ -348,8 +298,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">2</td>
-      <td class="src coveredLine"><span class="w">        </span><span class="o">&lt;</span><span class="n">dynamics</span><span class="o">::</span><span class="n">INonLinearDynamics</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dynamicsModel</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">2</td>
+      <td class="src partialCoveredLine"><span class="w">        </span><span class="o">&lt;</span><span class="n">dynamics</span><span class="o">::</span><span class="n">INonLinearDynamics</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dynamicsModel</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l25" href="#l25">25</a></td>
@@ -369,8 +319,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">4</td>
-      <td class="src coveredLine"><span class="w">                       </span><span class="n">dynamicsModel</span><span class="p">())</span></td>
+      <td class="linecount partialCoveredLine">4</td>
+      <td class="src partialCoveredLine"><span class="w">                       </span><span class="n">dynamicsModel</span><span class="p">())</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l27" href="#l27">27</a></td>
@@ -390,8 +340,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">2</td>
-      <td class="src coveredLine"><span class="w">                                     </span><span class="n">params</span><span class="o">-&gt;</span><span class="n">stateTransParams</span><span class="p">.</span><span class="n">get</span><span class="p">());</span></td>
+      <td class="linecount partialCoveredLine">2</td>
+      <td class="src partialCoveredLine"><span class="w">                                     </span><span class="n">params</span><span class="o">-&gt;</span><span class="n">stateTransParams</span><span class="p">.</span><span class="n">get</span><span class="p">());</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l29" href="#l29">29</a></td>
@@ -467,8 +417,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">2</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_continuousCov</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">2</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_continuousCov</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l39" href="#l39">39</a></td>
@@ -510,8 +460,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">2</td>
-      <td class="src coveredLine"><span class="w">        </span><span class="n">getCov</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stateMat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">viewCov</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stateMat</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m_procNoise</span><span class="p">;</span></td>
+      <td class="linecount partialCoveredLine">2</td>
+      <td class="src partialCoveredLine"><span class="w">        </span><span class="n">getCov</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stateMat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">viewCov</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stateMat</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m_procNoise</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l43" href="#l43">43</a></td>
@@ -573,8 +523,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">6</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dynObj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">6</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dynObj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l51" href="#l51">51</a></td>
@@ -601,8 +551,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">6</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">procNoise</span><span class="p">.</span><span class="n">rows</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">procNoise</span><span class="p">.</span><span class="n">cols</span><span class="p">())</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">6</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">procNoise</span><span class="p">.</span><span class="n">rows</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">procNoise</span><span class="p">.</span><span class="n">cols</span><span class="p">())</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l54" href="#l54">54</a></td>
@@ -636,8 +586,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">6</td>
-      <td class="src coveredLine"><span class="w">        </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dynObj</span><span class="o">-&gt;</span><span class="n">stateNames</span><span class="p">().</span><span class="n">size</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">6</td>
+      <td class="src partialCoveredLine"><span class="w">        </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dynObj</span><span class="o">-&gt;</span><span class="n">stateNames</span><span class="p">().</span><span class="n">size</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l58" href="#l58">58</a></td>
@@ -734,8 +684,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">4</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">measObj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">4</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">measObj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l71" href="#l71">71</a></td>
@@ -776,8 +726,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">4</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">measNoise</span><span class="p">.</span><span class="n">rows</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">measNoise</span><span class="p">.</span><span class="n">cols</span><span class="p">())</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">4</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">measNoise</span><span class="p">.</span><span class="n">rows</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">measNoise</span><span class="p">.</span><span class="n">cols</span><span class="p">())</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l76" href="#l76">76</a></td>
@@ -811,8 +761,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">4</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">utilities</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span><span class="w"> </span><span class="o">&lt;</span><span class="n">measurements</span><span class="o">::</span><span class="n">ILinearMeasModel</span><span class="o">&gt;</span><span class="p">(</span><span class="n">measObj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">4</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">utilities</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span><span class="w"> </span><span class="o">&lt;</span><span class="n">measurements</span><span class="o">::</span><span class="n">ILinearMeasModel</span><span class="o">&gt;</span><span class="p">(</span><span class="n">measObj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l80" href="#l80">80</a></td>
@@ -860,8 +810,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">4</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">utilities</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span><span class="w"> </span><span class="o">&lt;</span><span class="n">measurements</span><span class="o">::</span><span class="n">INonLinearMeasModel</span><span class="o">&gt;</span><span class="p">(</span><span class="n">measObj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">4</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">utilities</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span><span class="w"> </span><span class="o">&lt;</span><span class="n">measurements</span><span class="o">::</span><span class="n">INonLinearMeasModel</span><span class="o">&gt;</span><span class="p">(</span><span class="n">measObj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l86" href="#l86">86</a></td>
@@ -937,8 +887,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">10</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_dynObj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">10</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_dynObj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l96" href="#l96">96</a></td>
@@ -1007,8 +957,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">4</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_measObj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">4</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m_measObj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l105" href="#l105">105</a></td>
@@ -1072,7 +1022,7 @@
     </main>
 
     <footer>
-      Generated by: <a href="http://gcovr.com/en/6.0">GCOVR (Version 6.0)</a>
+      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
     </footer>
   </body>
 </html>

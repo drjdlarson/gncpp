@@ -28,6 +28,5 @@ var dir_9c86b5654810d41c464a5f110971a06c =
     [ "Parameters.h", "d2/dbc/dynamics_2Parameters_8h.html", [
       [ "ConstraintParams", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams.html", "d1/d17/classlager_1_1gncpy_1_1dynamics_1_1ConstraintParams" ],
       [ "StateTransParams", "d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams.html", "d5/dc0/classlager_1_1gncpy_1_1dynamics_1_1StateTransParams" ]
-    ] ],
-    [ "SerializableTypes.h", "da/d8f/dynamics_2SerializableTypes_8h.html", null ]
+    ] ]
 ];

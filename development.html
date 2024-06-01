@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Development Tips and Tricks &mdash; GNCPy C++ 1.0.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
     <link rel="canonical" href="https://drjdlarson.github.io/gncpy_cpp/development.html" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=cbcfbdad"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -110,7 +112,7 @@
            <div itemprop="articleBody">
              
   <section id="development-tips-and-tricks">
-<h1>Development Tips and Tricks<a class="headerlink" href="#development-tips-and-tricks" title="Permalink to this heading"></a></h1>
+<h1>Development Tips and Tricks<a class="headerlink" href="#development-tips-and-tricks" title="Link to this heading"></a></h1>
 <nav class="contents local" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -126,19 +128,19 @@
 <p>The following subsections include some lessons learned and tips to keep in mind when developing for this library. They don’t need to be strictly followed but may be helpful when developing or debugging the code.</p>
 <p>In general, all development should be done on a branch and squash merged into the master branch after the feature is developed and tests added. After enough features have been added, a release can be created (following semantic versioning for version numbers).</p>
 <section id="automated-releases">
-<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Automated Releases</a><a class="headerlink" href="#automated-releases" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Automated Releases</a><a class="headerlink" href="#automated-releases" title="Link to this heading"></a></h2>
 <p>When a new release is required, a helper script is available to automate the process. To use this script, make sure all conent for the release has been merged to master and pushed to the remote (i.e. github). Checkout to the master branch on your local PC, make sure you are up to date (i.e. run <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>), then run <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">do_release.py</span></code> from the root of the repository. This script requires you to specify if it is a major, minor, or patch release. Major versions introduce API changes that break backwards compatibility, minor versions introduce new features in a non-API breaking fashion, and patch versions are non-API breaking bug fixes. This script will automatically increment the appropriate version number in <strong>include/gncpy/core.h</strong>, make a commit, create a tag with the version number, and push the commit and tag to the remote (i.e. github). Once the tag gets pushed, the CI/CD pipeline takes over on github to finish the release.</p>
 </section>
 <section id="unit-tests">
-<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Unit Tests</a><a class="headerlink" href="#unit-tests" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Unit Tests</a><a class="headerlink" href="#unit-tests" title="Link to this heading"></a></h2>
 <p>The unit tests are found within the <strong>test/unit</strong> folder, and subdirectories have been created to mimic the include paths. The top level (<strong>test/unit</strong>) has a CMakeLists.txt file that adds all the subdirectories and any top level tests. Within each subdirectory, there is another CMakeLists.txt that controls how the tests are created for that directory.</p>
 <p>When adding a new set of tests, create a new file in the appropriate location, add the test to the CMakeLists.txt file within that directory, and finally, update the CMakeLists.txt file at the root of the repo. The CMakeLists.txt at the root of the repo has special targets for the code coverage that have dependencies on all the unit tests. When you add a new file to the test suite, you need to add this target to the list of dependencies for the code coverage targets at the root of the repo.</p>
 </section>
 <section id="serialization">
-<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Serialization</a><a class="headerlink" href="#serialization" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Serialization</a><a class="headerlink" href="#serialization" title="Link to this heading"></a></h2>
 <p>The <a class="reference external" href="https://uscilab.github.io/cereal/">cereal</a> library is used for serialization and some helper macros have be defined in <strong>include/gncpy/SerializeMacros.h</strong> to reduce the boilerplate for adding serialization to a class.</p>
 <section id="add-serialization-to-a-class">
-<h3><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Add Serialization to a class</a><a class="headerlink" href="#add-serialization-to-a-class" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#table-of-contents" role="doc-backlink">Add Serialization to a class</a><a class="headerlink" href="#add-serialization-to-a-class" title="Link to this heading"></a></h3>
 <p>To add serialization to a typical class keep the following in mind.</p>
 <ol class="arabic">
 <li><p>Include the serialization macros header from gncpy</p></li>

@@ -17,7 +17,6 @@ var dir_ee1a6b0f3acfc47a8a14b1e066475281 =
       [ "RangeAndBearing", "d4/de0/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearing.html", "d4/de0/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearing" ],
       [ "RangeAndBearingParams", "d5/da7/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearingParams.html", "d5/da7/classlager_1_1gncpy_1_1measurements_1_1RangeAndBearingParams" ]
     ] ],
-    [ "SerializableTypes.h", "d5/dd0/measurements_2SerializableTypes_8h.html", null ],
     [ "StateObservation.h", "d8/d2a/StateObservation_8h.html", [
       [ "StateObservation", "db/d79/classlager_1_1gncpy_1_1measurements_1_1StateObservation.html", "db/d79/classlager_1_1gncpy_1_1measurements_1_1StateObservation" ],
       [ "StateObservationParams", "dc/db3/classlager_1_1gncpy_1_1measurements_1_1StateObservationParams.html", "dc/db3/classlager_1_1gncpy_1_1measurements_1_1StateObservationParams" ]

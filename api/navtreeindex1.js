@@ -1,9 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"da/d62/CurvilinearMotion_8h_source.html":[3,0,1,0,1,2],
-"da/d8f/dynamics_2SerializableTypes_8h.html":[3,0,1,0,1,9],
-"da/d8f/dynamics_2SerializableTypes_8h_source.html":[3,0,1,0,1,9],
-"da/da6/namespacecereal.html":[1,0,0],
 "da/da6/namespacecereal_a01fe046f48bcfc63d82bfe80c7d49fdd.html#a01fe046f48bcfc63d82bfe80c7d49fdd":[1,0,0,2],
 "da/da6/namespacecereal_a1884c139fa8c217d0aa132f2997d8154.html#a1884c139fa8c217d0aa132f2997d8154":[1,0,0,0],
 "da/da6/namespacecereal_a8a7ffdb4ff2b471e6dfba9a9aec0baef.html#a8a7ffdb4ff2b471e6dfba9a9aec0baef":[1,0,0,3],
@@ -71,8 +67,6 @@ var NAVTREEINDEX1 =
 "dd/d87/classlager_1_1gncpy_1_1dynamics_1_1IDynamics_af76e3b3b53f056e0596b4bdc2070936d.html#af76e3b3b53f056e0596b4bdc2070936d":[2,0,0,0,1,5,2],
 "dd/d9f/RangeAndBearing_8h.html":[3,0,1,0,4,5],
 "dd/d9f/RangeAndBearing_8h_source.html":[3,0,1,0,4,5],
-"dd/da5/control_2SerializableTypes_8h.html":[3,0,1,0,0,4],
-"dd/da5/control_2SerializableTypes_8h_source.html":[3,0,1,0,0,4],
 "dd/dbb/ClohessyWiltshire_8cpp.html":[3,0,2,1,0],
 "de/d08/SerializeMacros_8h.html":[3,0,1,0,7],
 "de/d08/SerializeMacros_8h_a93b089dd831b49bb032afa1e0ce8001d.html#a93b089dd831b49bb032afa1e0ce8001d":[3,0,1,0,7,0],

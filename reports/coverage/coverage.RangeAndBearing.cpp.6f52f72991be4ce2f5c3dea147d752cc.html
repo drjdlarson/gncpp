@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2023-07-19 03:14:05</td>
+      <td>2024-06-01 23:05:05</td>
     </tr>
   </table>
 </div>
@@ -69,65 +69,15 @@
   <summary>List of functions</summary>
   <table class="listOfFunctions">
     <tr>
-      <th>Function</th>
-      <th>Line</th>
+      <th>Function (Line)</th>
       <th>Call count</th>
+      <th>Block coverage</th>
     </tr>
-    <tr>
-      <td>
-        <a href="#l34">lager::gncpy::measurements::RangeAndBearing::bearing(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;, lager::gncpy::measurements::MeasParams const*) const</a>
-      </td>
-      <td>
-        <a href="#l34">34</a>
-      </td>
-      <td>
-        <a href="#l34"> called 34 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l9">lager::gncpy::measurements::RangeAndBearing::getMeasFuncLst(lager::gncpy::measurements::MeasParams const*) const</a>
-      </td>
-      <td>
-        <a href="#l9">9</a>
-      </td>
-      <td>
-        <a href="#l9"> called 22 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l10">lager::gncpy::measurements::RangeAndBearing::getMeasFuncLst(lager::gncpy::measurements::MeasParams const*) const::{lambda(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;)#1}::operator()(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) const</a>
-      </td>
-      <td>
-        <a href="#l10">10</a>
-      </td>
-      <td>
-        <a href="#l10"> called 38 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l13">lager::gncpy::measurements::RangeAndBearing::getMeasFuncLst(lager::gncpy::measurements::MeasParams const*) const::{lambda(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;)#2}::operator()(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) const</a>
-      </td>
-      <td>
-        <a href="#l13">13</a>
-      </td>
-      <td>
-        <a href="#l13"> called 34 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l19">lager::gncpy::measurements::RangeAndBearing::range(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;, lager::gncpy::measurements::MeasParams const*) const</a>
-      </td>
-      <td>
-        <a href="#l19">19</a>
-      </td>
-      <td>
-        <a href="#l19"> called 38 times</a>
-      </td>
-    </tr>
+    <tr><td><a href="#l34">lager::gncpy::measurements::RangeAndBearing::bearing(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;, lager::gncpy::measurements::MeasParams const*) const (line 34)</a></td><td>called 34 times, returned 34 times</td><td>56.0%</td></tr>
+    <tr><td><a href="#l9">lager::gncpy::measurements::RangeAndBearing::getMeasFuncLst(lager::gncpy::measurements::MeasParams const*) const (line 9)</a></td><td>called 22 times, returned 22 times</td><td>58.0%</td></tr>
+    <tr><td><a href="#l10">lager::gncpy::measurements::RangeAndBearing::getMeasFuncLst(lager::gncpy::measurements::MeasParams const*) const::{lambda(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;)#1}::operator()(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) const (line 10)</a></td><td>called 38 times, returned 33 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l13">lager::gncpy::measurements::RangeAndBearing::getMeasFuncLst(lager::gncpy::measurements::MeasParams const*) const::{lambda(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;)#2}::operator()(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;) const (line 13)</a></td><td>called 34 times, returned 34 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l19">lager::gncpy::measurements::RangeAndBearing::range(Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;, lager::gncpy::measurements::MeasParams const*) const (line 19)</a></td><td>called 38 times, returned 33 times</td><td>78.0%</td></tr>
   </table>
 </details>
 
@@ -266,8 +216,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">88</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">({</span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="p">});</span></td>
+      <td class="linecount partialCoveredLine">88</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">({</span><span class="n">h1</span><span class="p">,</span><span class="w"> </span><span class="n">h2</span><span class="p">});</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l17" href="#l17">17</a></td>
@@ -336,8 +286,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">34</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">utilities</span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span><span class="w"> </span><span class="o">&lt;</span><span class="n">RangeAndBearingParams</span><span class="o">&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">))</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">34</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">utilities</span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span><span class="w"> </span><span class="o">&lt;</span><span class="n">RangeAndBearingParams</span><span class="o">&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">))</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l25" href="#l25">25</a></td>
@@ -371,8 +321,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">34</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">RangeAndBearingParams</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">34</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">RangeAndBearingParams</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l29" href="#l29">29</a></td>
@@ -434,8 +384,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">34</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">34</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l37" href="#l37">37</a></td>
@@ -462,8 +412,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">34</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">utilities</span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span><span class="w"> </span><span class="o">&lt;</span><span class="n">RangeAndBearingParams</span><span class="o">&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">))</span><span class="w"> </span><span class="p">{</span></td>
+      <td class="linecount partialCoveredLine">34</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">utilities</span><span class="o">::</span><span class="w"> </span><span class="n">instanceof</span><span class="w"> </span><span class="o">&lt;</span><span class="n">RangeAndBearingParams</span><span class="o">&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">))</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l40" href="#l40">40</a></td>
@@ -497,8 +447,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">34</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">RangeAndBearingParams</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">34</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">RangeAndBearingParams</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">params</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l44" href="#l44">44</a></td>
@@ -548,7 +498,7 @@
     </main>
 
     <footer>
-      Generated by: <a href="http://gcovr.com/en/6.0">GCOVR (Version 6.0)</a>
+      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
     </footer>
   </body>
 </html>

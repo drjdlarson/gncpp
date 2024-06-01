@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2023-07-19 03:14:05</td>
+      <td>2024-06-01 23:05:05</td>
     </tr>
   </table>
 </div>
@@ -69,32 +69,12 @@
   <summary>List of functions</summary>
   <table class="listOfFunctions">
     <tr>
-      <th>Function</th>
-      <th>Line</th>
+      <th>Function (Line)</th>
       <th>Call count</th>
+      <th>Block coverage</th>
     </tr>
-    <tr>
-      <td>
-        <a href="#l124">Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; lager::gncpy::math::rungeKutta4&lt;Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;, double&gt;(double, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;, double, std::function&lt;Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; (double, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;)&gt; const&amp;)</a>
-      </td>
-      <td>
-        <a href="#l124">124</a>
-      </td>
-      <td>
-        <a href="#l124"> called 22 times</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="#l124">Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; lager::gncpy::math::rungeKutta4&lt;Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt;, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt;, double&gt;(double, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; const&amp;, double, std::function&lt;Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; (double, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; const&amp;)&gt; const&amp;)</a>
-      </td>
-      <td>
-        <a href="#l124">124</a>
-      </td>
-      <td>
-        <a href="#l124"> called 2 times</a>
-      </td>
-    </tr>
+    <tr><td><a href="#l124">Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; lager::gncpy::math::rungeKutta4&lt;Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt;, double&gt;(double, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;, double, std::function&lt;Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; (double, Eigen::Matrix&lt;double, -1, 1, 0, -1, 1&gt; const&amp;)&gt; const&amp;) (line 124)</a></td><td>called 22 times, returned 22 times</td><td>46.0%</td></tr>
+    <tr><td><a href="#l124">Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; lager::gncpy::math::rungeKutta4&lt;Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt;, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt;, double&gt;(double, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; const&amp;, double, std::function&lt;Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; (double, Eigen::Matrix&lt;double, 2, 1, 0, 2, 1&gt; const&amp;)&gt; const&amp;) (line 124)</a></td><td>called 2 times, returned 2 times</td><td>59.0%</td></tr>
   </table>
 </details>
 
@@ -1016,8 +996,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">46</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">return_t</span><span class="w"> </span><span class="n">k0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnc</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">46</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">return_t</span><span class="w"> </span><span class="n">k0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnc</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l130" href="#l130">130</a></td>
@@ -1036,8 +1016,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">46</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">return_t</span><span class="w"> </span><span class="n">k1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnc</span><span class="p">(</span><span class="n">tHalf</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dtHalf</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k0</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">46</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">return_t</span><span class="w"> </span><span class="n">k1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnc</span><span class="p">(</span><span class="n">tHalf</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dtHalf</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k0</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l131" href="#l131">131</a></td>
@@ -1056,8 +1036,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">46</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">return_t</span><span class="w"> </span><span class="n">k2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnc</span><span class="p">(</span><span class="n">tHalf</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dtHalf</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k1</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">46</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">return_t</span><span class="w"> </span><span class="n">k2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnc</span><span class="p">(</span><span class="n">tHalf</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dtHalf</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k1</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l132" href="#l132">132</a></td>
@@ -1076,8 +1056,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">return_t</span><span class="w"> </span><span class="n">k3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnc</span><span class="p">(</span><span class="n">t0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k2</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="n">return_t</span><span class="w"> </span><span class="n">k3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fnc</span><span class="p">(</span><span class="n">t0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">k2</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l133" href="#l133">133</a></td>
@@ -1099,8 +1079,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">24</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">static_cast</span><span class="o">&lt;</span><span class="n">step_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">6.0</span><span class="p">)</span><span class="w"> </span><span class="o">*</span></td>
+      <td class="linecount partialCoveredLine">24</td>
+      <td class="src partialCoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">static_cast</span><span class="o">&lt;</span><span class="n">step_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">6.0</span><span class="p">)</span><span class="w"> </span><span class="o">*</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l135" href="#l135">135</a></td>
@@ -1121,8 +1101,8 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">94</td>
-      <td class="src coveredLine"><span class="w">                    </span><span class="p">(</span><span class="n">k0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">static_cast</span><span class="o">&lt;</span><span class="n">step_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">k1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k3</span><span class="p">);</span></td>
+      <td class="linecount partialCoveredLine">94</td>
+      <td class="src partialCoveredLine"><span class="w">                    </span><span class="p">(</span><span class="n">k0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">static_cast</span><span class="o">&lt;</span><span class="n">step_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">k1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k3</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l136" href="#l136">136</a></td>
@@ -1158,7 +1138,7 @@
     </main>
 
     <footer>
-      Generated by: <a href="http://gcovr.com/en/6.0">GCOVR (Version 6.0)</a>
+      Generated by: <a href="http://gcovr.com/en/7.2">GCOVR (Version 7.2)</a>
     </footer>
   </body>
 </html>
