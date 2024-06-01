@@ -16,7 +16,8 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-      image: ghcr.io/${{ github.repository }}-dev:latest
+      image: ghcr.io/drjdlarson/gncpy_cpp-dev:latest
+      #image: ghcr.io/${{ github.repository }}-dev:latest
       options: --cpus 2
 
     steps:
