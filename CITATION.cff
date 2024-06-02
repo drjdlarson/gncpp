@@ -24,6 +24,5 @@ preferred-citation:
   - family-names: "Weirens"
     given-names: "Vaughn A."
   doi: "10.5281/zenodo.11415148"
-  title: "Aerospace Vehicle Control and Perception Systems"
-  volume: 1
+  title: "A C++ Library for Guidance, Navigation, and Control (GNC) Algorithms"
   year: 2024
