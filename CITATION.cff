@@ -8,7 +8,7 @@ authors:
   given-names: "Ryan W."
 - family-names: "Weirens"
   given-names: "Vaughn A."
-title: "A C++ Library for Guidance, Navigation, and Control (GNC) Algorithms"
+title: "GNCPP: A C++ Library for Guidance, Navigation, and Control Algorithms"
 version: 1.0.1
 doi: 10.5281/zenodo.11415148
 date-released: 2024-06-01
@@ -24,5 +24,5 @@ preferred-citation:
   - family-names: "Weirens"
     given-names: "Vaughn A."
   doi: "10.5281/zenodo.11415148"
-  title: "A C++ Library for Guidance, Navigation, and Control (GNC) Algorithms"
+  title: "GNCPP: A C++ Library for Guidance, Navigation, and Control Algorithms"
   year: 2024
