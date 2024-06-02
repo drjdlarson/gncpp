@@ -1,4 +1,4 @@
-GNCPY C++
+GNCPP
 =========
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/drjdlarson/gncpy_cpp.git) [![Tests Status](https://drjdlarson.github.io/gncpy_cpp/reports/junit/tests-badge.svg?dummy=8484744)](https://drjdlarson.github.io/gncpy_cpp/reports/junit/junit.html) [![Test Cov](https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage-badge.svg?dummy=8484744)](https://drjdlarson.github.io/gncpy_cpp/reports/coverage/coverage.html)
 
@@ -38,15 +38,3 @@ cmake -L .. | grep GNCPY
 ```
 
 to see all possible cmake options use `cmake -LAH ..` or just see the non-advanced options and their help message run `cmake -LH ..` (both should be run from your build directory).
-
-Cite
-----
-```
-@Misc{gncpyCpp,
-      author       = {Jordan D. Larson, et al.},
-      howpublished = {Web page},
-      title        = {{GNCPy} {C}++: A {C}++ library for {G}uidance, {N}avigation, and {C}ontrol algorithms},
-      year         = {2023},
-      url          = {https://github.com/drjdlarson/gncpy_cpp},
-}
-```
